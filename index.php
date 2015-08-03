@@ -1,9 +1,11 @@
 <?php
-/* =============================================================
- * index.php
- * =============================================================
- * Default page template for the theme
- * ============================================================= */
+/**
+ * The main template file
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 1.0
+ */
 ?>
 
 <?php get_header(); ?>
@@ -16,14 +18,9 @@
                     <?php get_template_part( 'loop', 'main' ); ?>
 
                     <?php
-                        if ( of_get_option( 'bestreloaded_pagination_option' ) ) :
-                            // Add custom pagination
-                            if ( function_exists( 'pagenavi' ) ) { pagenavi(); };
-                        else :
                             echo '<p class="hero-p">';
                             posts_nav_link(' &#183; ', 'previous page', 'next page');
                             echo '</p><hr class="hr-row-divider">';
-                        endif;
                     ?>
 
                 </div><!-- end #main_content -->
