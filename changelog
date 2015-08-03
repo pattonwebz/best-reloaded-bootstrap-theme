@@ -1,0 +1,9 @@
+Stlyed the text box of the comments form with bootstrap.
+	todo: style rest of the comment fields
+Fixed some layout issues with post medata info
+Added glypticons to post meta info.
+Added glyphicons to next/previous links.
+Correcly set $content_width
+Pulled over .hero-p from Best
+Pulled over the .post-thumb and assosiated trasitions from Best
+Added bootstrap lable to tags

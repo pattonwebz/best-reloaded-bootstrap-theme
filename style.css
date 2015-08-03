@@ -1,0 +1,195 @@
+/*
+Theme Name: B Reloaded
+Theme URI: http://www.pattonwebz.com/best-reloaded-bootstrap-theme
+Description: A WordPress theme that uses Bootstrap. Heavily based on the 'bestreloaded' theme from Blogging Experiment
+Author: William Patton
+Author URI: http://pattonwebz.com/
+Version: 0.3
+
+License: GNU General Public License (3.0)
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+body { 
+background-color:whitesmoke; /* should specify this with the background color theme option */
+padding-top: 60px; 
+font-size:16px;
+}
+/* responsive images */
+img,
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail,
+.wp-caption {
+max-width: 100%;
+height: auto;
+}
+
+.wp-caption {
+background: whitesmoke;
+color: #444;
+padding: 5px;
+border-radius: 10px;
+box-shadow: 1px 1px 10px #aaa;
+font-size: 85%;
+}
+.wp-caption-text { 
+margin: 10px;
+text-align: justify;
+ }
+ 
+ .wp-caption img {
+border-radius: 5px;
+}
+.sticky{ 
+
+ }
+.gallery-caption { 
+
+ }
+.bypostauthor { 
+
+ }
+.alignright { 
+	float:right;
+	margin-left:8px;
+	margin-bottom:10px;
+ }
+.alignleft { 
+	float:left;
+	margin-right:8px;
+	margin-bottom:10px;
+ }
+ .aligncenter { 
+	display: block;
+	margin: 0 auto;
+ }
+ 
+ /* --------------------------------------- *
+ * Typography                 *
+ * ---------------------------------------- */
+.hero-p {
+font-family: Georgia, "Times New Roman", Times, serif;
+font-size: 2em;
+font-style: italic;
+padding: 0;
+margin: 0;
+display: block;
+text-align: center;
+}
+.meta.entry-meta{
+color:#666;
+font-style:italic;
+}
+ /* --------------------------------------- *
+  * featured bar styles                     *
+  * --------------------------------------- */
+.featured-bar {
+background-color: #f5f5f5;
+background-image: url("img/featured-bg-thumb-up.png");
+background-repeat: no-repeat;
+background-position: -1% 50%;
+padding: 30px 60px;
+margin: 0 -30px 20px;
+text-shadow: none;
+}
+.featured-bar.featured-bar-post {
+margin: 0 0 10px -30px;
+padding: 15px 15px 15px 30px;
+}
+
+ /* --------------------------------------- *
+ * Effects                *
+ * --------------------------------------- */
+/* thumbnail effect */
+.post-thumb {
+display: inline-block;
+max-width: 100%;
+position: relative;
+bottom: 0;
+-webkit-transition: bottom 0.3s ease-in-out;
+-moz-transition: bottom 0.3s ease-in-out;
+-ms-transition: bottom 0.3s ease-in-out;
+-o-transition: bottom 0.3s ease-in-out;
+transition: bottom 0.3s ease-in-out;
+}
+.post-thumb span {
+display: block;
+padding: 5px;
+border: 1px solid #ddd;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-webkit-transition: box-shadow 0.3s ease-in-out;
+-moz-transition: box-shadow 0.3s ease-in-out;
+-ms-transition: box-shadow 0.3s ease-in-out;
+-o-transition: box-shadow 0.3s ease-in-out;
+transition: box-shadow 0.3s ease-in-out;
+}
+.post-thumb img {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+.post-thumb:hover span {
+-webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.post-thumb:hover {
+bottom: 10px;
+}
+
+/* --------------------------------------- *
+ * Homepage Specific Items                 *
+ * --------------------------------------- */
+ 
+.blog-three-up .entry-title {
+font-size:16px;
+font-size:1.6rem;
+}
+
+.container.container-main.container-wrapper{
+padding: 25px 30px;
+background-color: white;
+-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+}
+
+.name-text hgroup h1, .name-text span.h1 {
+font-size: 80px;
+font-size: 8rem;
+line-height: 1em;
+letter-spacing: -0.05em;
+font-weight: 100;
+}
+.site-title a:hover{
+text-decoration:none;
+}
+
+/* ------------------------------------- *
+ * Social sharing block                  *
+ * ------------------------------------- */
+ 
+#social-block{
+background: white;
+}
+.affix {
+top: 50px;
+}
+
+
+.aligncenter
+@media (min-width: 768px) {
+.container.container-main.container-wrapper{
+padding: 35px 60px;
+}
+}
