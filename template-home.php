@@ -53,7 +53,5 @@
                 <?php get_template_part( 'loop', 'home' ); ?>
 
             </div><!-- end .row -->
-
-            </div><!-- end .row -->
         </div><!-- end #main_content -->
 <?php get_footer(); ?>
