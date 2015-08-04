@@ -1,9 +1,14 @@
 <?php
-/* =============================================================
- * Template Name: Home
- * =============================================================
- * Page template used for setting the front page
- * ============================================================= */
+ /**
+  * Template Name: Home
+  *
+  * home.php
+  * Page template used for setting the front page
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
 ?>
 
 <?php get_header(); ?>
@@ -44,9 +49,9 @@
 
                 <?php // Include sidebar for static homepage, which includes widget area to the right of the slider, widget row below slider, and widget area to the left of the blog ?>
                 <?php get_sidebar( 'home' ); ?>
-                
+
                 <?php get_template_part( 'loop', 'home' ); ?>
-                
+
             </div><!-- end .row -->
 			<div class="row">
 					<div class="col-xs-6">
@@ -77,10 +82,10 @@
 
 
 						if(intval(get_cfg_var('allow_url_fopen')) && function_exists('readfile')) {
-							@readfile("http://www.backlinks.com/engine.php?".$QueryString); 
+							@readfile("http://www.backlinks.com/engine.php?".$QueryString);
 						}
 						elseif(intval(get_cfg_var('allow_url_fopen')) && function_exists('file')) {
-							if($content = @file("http://www.backlinks.com/engine.php?".$QueryString)) 
+							if($content = @file("http://www.backlinks.com/engine.php?".$QueryString))
 								print @join('', $content);
 						}
 						elseif(function_exists('curl_init')) {
@@ -96,7 +101,7 @@
 						else {
 							print "It appears that your web host has disabled all functions for handling remote pages and as a result the BackLinks software will not function on your web page. Please contact your web host for more information.";
 						}
-						?>						
+						?>
 						<?php
 						// THE FOLLOWING BLOCK IS USED TO RETRIEVE AND DISPLAY LINK INFORMATION.
 						// PLACE THIS ENTIRE BLOCK IN THE AREA YOU WANT THE DATA TO BE DISPLAYED.
@@ -124,10 +129,10 @@
 
 
 						if(intval(get_cfg_var('allow_url_fopen')) && function_exists('readfile')) {
-							@readfile("http://www.backlinks.com/enginec.php?".$QueryString); 
+							@readfile("http://www.backlinks.com/enginec.php?".$QueryString);
 						}
 						elseif(intval(get_cfg_var('allow_url_fopen')) && function_exists('file')) {
-							if($content = @file("http://www.backlinks.com/enginec.php?".$QueryString)) 
+							if($content = @file("http://www.backlinks.com/enginec.php?".$QueryString))
 								print @join('', $content);
 						}
 						elseif(function_exists('curl_init')) {
@@ -143,10 +148,10 @@
 						else {
 							print "It appears that your web host has disabled all functions for handling remote pages and as a result the BackLinks software will not function on your web page. Please contact your web host for more information.";
 						}
-						?>						
+						?>
 					</div>
 					<div class="col-xs-6">
-					
+
 					</div>
 				</div>
             </div><!-- end .row -->

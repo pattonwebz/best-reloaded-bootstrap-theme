@@ -1,9 +1,13 @@
 <?php
-/* =============================================================
+/**
  * comments.php
- * =============================================================
- * Template for Comments and Pingbacks
- * ============================================================= */
+ * Template for comments and pingbacks
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 1.0
+ */
+
 ?>
     <div id="comments">
     <?php if ( post_password_required() ) : ?>
@@ -65,7 +69,7 @@
         <p class="nocomments hero-p"><?php echo 'Comments are closed.'; ?></p>
     <?php endif; ?>
 	<div class="row">
-    <?php 
+    <?php
         comment_form( array(
             'comment_field' => '<p class="comment-form-comment form-group">
                                    <label for="comment">Enter Your Comment</label>

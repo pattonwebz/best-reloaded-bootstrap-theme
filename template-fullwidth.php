@@ -1,9 +1,14 @@
 <?php
-/* =============================================================
- * Template Name: Full Width
- * =============================================================
- * Page template used for full width pages
- * ============================================================= */
+ /**
+  * Template Name: Full Width
+  *
+  * template-fullwidth.php
+  * Page template used for full width pages
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
 ?>
 
 <?php get_header(); ?>
@@ -12,7 +17,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div id="main_content" role="main">
-                
+
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                     <h2 class="page-title"><?php the_title(); ?></h2>
@@ -23,7 +28,7 @@
                     <p class="hero-p" style="font-size: 2em; padding: 25px 0;">there is currently nothing to display :(</p>
 
                 <?php endif; ?>
-                    
+
                 </div><!-- end #main_content -->
             </div><!-- end .col-xs-12 -->
         </div><!-- end .row -->

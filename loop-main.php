@@ -1,5 +1,6 @@
 <?php
  /**
+  * loop-main.php
   * The main loop used primarily by index.php and search.php
   *
   * @package WordPress

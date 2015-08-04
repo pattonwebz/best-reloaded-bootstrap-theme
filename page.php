@@ -1,9 +1,12 @@
 <?php
-/* =============================================================
- * page.php
- * =============================================================
- * Displays content for a single page
- * ============================================================= */
+ /**
+  * page.php
+  * Displays content for a single page
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
 ?>
 
 <?php get_header(); ?>
@@ -12,7 +15,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div id="main_content" role="main">
-                
+
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                     <h2 class="page-title"><?php the_title(); ?></h2>
@@ -23,13 +26,13 @@
                     <p class="hero-p" style="padding: 30px 0;">there is currently nothing to display :(</p>
 
                 <?php endif; ?>
-                    
+
                 </div><!-- end #main_content -->
                 <hr class="hr-row-divider">
             </div><!-- end .col-md-8 -->
-                    
+
             <?php get_sidebar( 'main' ); ?>
-            
+
         </div><!-- end .row -->
 
 <?php get_footer(); ?>

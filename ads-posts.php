@@ -1,9 +1,12 @@
 <?php
-/* =============================================================
- * related-posts.php
- * =============================================================
- * Displays related posts based on post tags for blog entries
- * ============================================================= */
+/**
+ * ads-posts.php
+ * Displays post feature/ad
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 1.0
+ */
 ?>
 <div class="row-fluid post-ads">
 	<?php if(function_exists('drawAdsPlace')) drawAdsPlace(array('id' => 2), true); ?>

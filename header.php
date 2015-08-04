@@ -1,13 +1,12 @@
 <?php
-
-/* =============================================================
- * header.php
- * =============================================================
- * Displays all of the <head> section and everything up to the 
- * end of the <div class="row"> containing the site title and 
- * <hr> below for responsive spacing
- * ============================================================= */
- 
+ /**
+  * header.php
+  * Outputs the <head> section, opens any wrappers and displays the main site nav
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
 ?>
 <!doctype html>
 <!--[if IE 8]>         <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
@@ -33,7 +32,7 @@
 			</button>
 			<span class="navbar-brand assistive visible-xs">Navigation:</span>
 		  </div>
-		  
+
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse navbar-top-collapse">
 			<?php
@@ -45,7 +44,7 @@
 					'menu_class' => 'nav navbar-nav',
 					'fallback_cb' => 'topbar_nav_fallback',
 					'walker' => new wp_bootstrap_navwalker())
-				);        
+				);
 			?>
 		  </div><!-- /.navbar-collapse -->
 		</nav>
@@ -61,7 +60,7 @@
 					</div>
 				<?php else : ?>
 					<div class="name-text">
-						<?php if( is_home() || is_front_page() ) { 
+						<?php if( is_home() || is_front_page() ) {
 							// for SEO reasons site title as h1 is only on home and blog page, otherwise it's a styled span
 							?>
 							<hgroup>
@@ -73,8 +72,8 @@
 							<span class="h1 site-title">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 							</span>
-						<?php } 
-						// end site-title check 
+						<?php }
+						// end site-title check
 						?>
 					</div>
 				<?php endif; ?>

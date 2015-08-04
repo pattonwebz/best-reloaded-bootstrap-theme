@@ -1,63 +1,65 @@
 <?php
-/* =============================================================
+/**
  * footer.php
- * =============================================================
- * Contains the closing of <div class=".container .container-main">
- * and all content after
- * ============================================================= */
+ * Outputs the site footer and closes any remaining opened tags
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 1.0
+ */
 ?>
 
     </div><!-- end .container.container-main -->
-    
+
     <?php if ( of_get_option( 'bestreloaded_display_twitter', 'no entry' ) ) : ?>
-    
+
     <div class="container container-main twitter-feed">
         <div class="row">
             <div class="col-xs12">
-            
+
                 <?php
                     $twitter_user = of_get_option( 'bestreloaded_twitter', 'no entry' );
                     wp_echo_twitter( $twitter_user );
                 ?>
-                
+
             </div>
         </div>
     </div>
-    
+
     <?php endif; ?>
-    
+
     <footer role="contentinfo">
-    
+
         <?php if ( of_get_option( 'bestreloaded_display_footer_top', 'no entry' ) ) : ?>
-        
+
         <div class="container container-main footer-top">
             <div class="row widget-area">
                 <div class="col-sm-3">
-                    
+
                     <?php if ( !dynamic_sidebar( 'sidebar-5' ) ) : echo '&nbsp;'; endif; ?>
-                    
+
                 </div>
                 <div class="col-sm-3">
-                    
+
                     <?php if ( !dynamic_sidebar( 'sidebar-6' ) ) : echo '&nbsp;'; endif; ?>
-                    
+
                 </div>
                 <div class="col-sm-3">
-                    
+
                     <?php if ( !dynamic_sidebar( 'sidebar-7' ) ) : echo '&nbsp;'; endif; ?>
-                    
+
                 </div>
                 <div class="col-sm-3">
-                    
+
                     <?php if ( !dynamic_sidebar( 'sidebar-8' ) ) : echo '&nbsp;'; endif; ?>
-                    
+
                 </div>
             </div><!-- end .row -->
         </div><!-- end .container.container-main .footer-top -->
-        
+
         <?php endif; ?>
         <?php if ( of_get_option( 'bestreloaded_display_footer_bottom', 'no entry' ) ) : ?>
-        
+
         <div class="container container-main footer-bottom">
             <div class="row">
                 <div class="col-xs-5">
@@ -65,7 +67,7 @@
                 </div>
                 <div class="col-xs-7 clearfix">
                     <nav class="clearfix" role="navigation">
-                    
+
                         <?php
 							wp_nav_menu( array(
 								'menu'       => 'nav_footer',
@@ -75,18 +77,18 @@
 								'menu_class' => 'nav nav-pills nav-justified',
 								'fallback_cb' => 'topbar_nav_fallback',
 								'walker' => new wp_bootstrap_navwalker())
-							);        
+							);
 						?>
-                        
+
                     </nav>
                 </div>
             </div><!-- end .row -->
         </div><!-- end .container.container-main .footer-bottom -->
-        
+
         <?php endif; ?>
-        
+
     </footer>
-      
+
 <?php wp_footer(); ?>
 <script type="text/javascript">
 var $ = jQuery.noConflict(); // set the $ variable to be jQuery

@@ -1,9 +1,12 @@
 <?php
-/* =============================================================
- * related-posts.php
- * =============================================================
- * Displays related posts based on post tags for blog entries
- * ============================================================= */
+ /**
+  * related-posts.php
+  * Displays related posts based on post tags for blog entries
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
 ?>
 
 <?php
@@ -22,7 +25,7 @@
         if ( $loop->have_posts() ) :
             echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
-            
+
                 <div class="col-md-4">
                     <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="post-thumb">
                         <span>
@@ -43,7 +46,7 @@
             if ( $loop->have_posts() ) :
                 echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';
                 while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                
+
                     <div class="col-md-4">
                         <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="post-thumb">
                             <span>
@@ -52,14 +55,14 @@
                         </a>
                         <h4 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
                     </div><?php
-                
+
                 endwhile;
                 echo '</div>';
             endif;
         endif;
         wp_reset_query();
     // Else, display two random articles
-    } else { 
+    } else {
         $args = array(
             'orderby'             => 'rand',
             'ignore_sticky_posts' => true,
@@ -67,9 +70,9 @@
         );
         $loop = new WP_Query( $args );
         if ( $loop->have_posts() ) :
-            echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';        
+            echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
-            
+
                 <div class="col-md-4">
                     <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="post-thumb">
                         <span>
@@ -78,7 +81,7 @@
                     </a>
                     <h4 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
                 </div><?php
-            
+
             endwhile;
             echo '</div>';
         endif;

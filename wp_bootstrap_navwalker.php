@@ -1,4 +1,11 @@
 <?php
+/**
+ * wp_bootstrap_navwalker.php
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 1.0
+ */
 
 /**
  * Class Name: wp_bootstrap_navwalker
@@ -11,7 +18,7 @@
  */
 
 class wp_bootstrap_navwalker extends Walker_Nav_Menu {
-	
+
 	/**
 	 * @see Walker::start_lvl()
 	 * @since 3.0.0
@@ -62,7 +69,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$classes[] = 'menu-item-' . $item->ID;
 
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-			
+
 			if($args->has_children) {	$class_names .= ' dropdown'; }
 			if(in_array('current-menu-item', $classes)) { $class_names .= ' active'; }
 
@@ -112,7 +119,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			} else {
 				$item_output .= '<a'. $attributes .'>';
 			}
-			
+
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			$item_output .= ($args->has_children && $depth === 0) ? ' <span class="caret"></span></a>' : '</a>';
 			$item_output .= $args->after;
@@ -126,7 +133,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 	 *
 	 * Display one element if the element doesn't have any children otherwise,
 	 * display the element and its children. Will only traverse up to the max
-	 * depth and no ignore elements under that depth. 
+	 * depth and no ignore elements under that depth.
 	 *
 	 * This method shouldn't be called directly, use the walk() method instead.
 	 *

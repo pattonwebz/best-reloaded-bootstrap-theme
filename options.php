@@ -1,4 +1,13 @@
 <?php
+ /**
+  * options.php
+  * Adds these settings in a theme options admin page
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
+
 /**
  * A unique identifier is defined to store the options in the database and reference them from the theme.
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
@@ -41,7 +50,7 @@ function optionsframework_options() {
     foreach ($options_pages_obj as $page) {
         $options_pages[$page->ID] = $page->post_title;
     }
-    
+
     // Background Defaults
     $background_defaults = array(
         'color' => '',
@@ -57,7 +66,7 @@ function optionsframework_options() {
         'name' => 'Layout Options',
         'type' => 'heading'
     );
-    
+
     $options[] = array(
         'name' => 'Display Header Banner Area',
         'desc' => 'Select the checkbox to display the header banner area. You can use this space to display an advertisement, or type in text if desired. This space is unstyled so you will need to write your own HTML markup for any paragraphs, headings, et cetera.\n Future plans: To enable an optional login area.',
@@ -73,7 +82,7 @@ function optionsframework_options() {
         'class' => 'hidden',
         'type' => 'textarea'
     );
-    
+
     $options[] = array(
         'name' => 'Display Homepage Intro Text',
         'desc' => 'Select the checkbox to display the homepage intro text, which appears above the slider on the homepage.',
@@ -90,7 +99,7 @@ function optionsframework_options() {
         'class' => 'hidden',
         'type' => 'textarea'
     );
-    
+
     $options[] = array(
         'name' => 'Display Homepage Widget Row',
         'desc' => 'Select the checkbox to display the homepage widget row, which allows you to place three widgets in line below the slider.',
@@ -98,7 +107,7 @@ function optionsframework_options() {
         'std' => 1,
         'type' => 'checkbox'
     );
-    
+
     $options[] = array(
         'name' => 'Display Featured Content Bar',
         'desc' => 'Select the checkbox to display the featured content bar, which appears at the top of your inner pages throughout the site. This section is perfect for marketing and promotions purposes. There is 4 of these and you can override them using custom metas. You can override these using a custom meta.',
@@ -115,7 +124,7 @@ function optionsframework_options() {
         'class' => 'hidden',
         'type' => 'textarea'
     );
-	
+
 	$options[] = array(
         'name' => 'Featured Content Bar Text 1',
         'desc' => 'This section supports HTML tags if desired.',
@@ -123,7 +132,7 @@ function optionsframework_options() {
         'std' => 'Something Important (set background color, image, text, and <a href="#">link</a>)',
         'type' => 'textarea'
     );
-    
+
 	$options[] = array(
         'name' => 'Featured Content Bar Text 2',
         'desc' => 'This section supports HTML tags if desired. This section also supports shortcodes - so you can add your forms and whatnot.',
@@ -139,7 +148,7 @@ function optionsframework_options() {
         'std' => 'Something Important (set background color, image, text, and <a href="#">link</a>)',
         'type' => 'textarea'
     );
-	
+
     $options[] = array(
         'name' => 'Blog Pagination Option',
         'desc' => 'Select the checkbox to display custom pagination with advanced features. Deselecting the checkbox will display standard WordPress pagination.',
@@ -164,7 +173,7 @@ function optionsframework_options() {
         'class' => 'hidden mini',
         'type' => 'text'
     );
-    
+
     $options[] = array(
         'name' => 'Display Footer Top',
         'desc' => 'Select the checkbox to display the top section of the footer, which contains widget areas.',
@@ -172,7 +181,7 @@ function optionsframework_options() {
         'std' => 1,
         'type' => 'checkbox'
     );
-    
+
     $options[] = array(
         'name' => 'Display Footer Bottom',
         'desc' => 'Select the checkbox to display the bottom section of the footer, which contains a space for a tagline and a menu.',
@@ -180,7 +189,7 @@ function optionsframework_options() {
         'std' => 1,
         'type' => 'checkbox'
     );
-    
+
     $options[] = array(
         'name' => 'Footer Bottom Tagline',
         'desc' => 'Enter a brief tagline about your site, which will display on the left side of the bottom section of the footer. This section supports HTML tags if desired. This text is wrapped in a paragraph element for formatting.',
@@ -189,27 +198,27 @@ function optionsframework_options() {
         'class' => 'hidden',
         'type' => 'textarea'
     );
-    
+
     $options[] = array(
         'name' => 'Skin',
         'type' => 'heading'
     );
-    
+
     $options[] = array(
         'name' => 'Site Heading Title',
         'desc' => 'Selecting this checkbox provides an option to upload an image for your site heading. Leaving it blank will automatically display the site name and description.',
         'id' => 'site_heading',
         'std' => 0,
-        'type' => 'checkbox'  
+        'type' => 'checkbox'
     );
-    
+
     $options[] = array(
         'name' => 'Logo Uploader',
         'id' => 'site_heading_img',
         'class' => 'hidden',
         'type' => 'upload'
     );
-    
+
     $options[] = array(
         'name' => 'Site Background',
         'desc' => 'Select your background options for the theme.',
@@ -217,7 +226,7 @@ function optionsframework_options() {
         'std' => $background_defaults,
         'type' => 'background'
     );
-    
+
     $options[] = array(
         'name' => 'Main Link Color',
         'desc' => 'Select a main link color for the theme.',
@@ -225,7 +234,7 @@ function optionsframework_options() {
         'std' => '',
         'type' => 'color'
     );
-    
+
     $options[] = array(
         'name' => 'Main Link Hover Color',
         'desc' => 'Select a main link hover color for the theme.',
@@ -233,7 +242,7 @@ function optionsframework_options() {
         'std' => '',
         'type' => 'color'
     );
-    
+
     $options[] = array(
         'name' => 'Footer Link Color',
         'desc' => 'Select a footer link color for the theme.',
@@ -241,7 +250,7 @@ function optionsframework_options() {
         'std' => '',
         'type' => 'color'
     );
-    
+
     $options[] = array(
         'name' => 'Footer Link Hover Color',
         'desc' => 'Select a footer link hover color for the theme.',
@@ -249,7 +258,7 @@ function optionsframework_options() {
         'std' => '',
         'type' => 'color'
     );
-    
+
     $options[] = array(
         'name' => 'Featured Content Bar Background',
         'desc' => 'Select the background color and/or image for the featured content bar.',
@@ -257,7 +266,7 @@ function optionsframework_options() {
         'std' => $background_defaults,
         'type' => 'background'
     );
-    
+
     $options[] = array(
         'name' => 'Featured Content Bar Text Color',
         'desc' => 'Select the text color for the featured content bar.',
@@ -265,7 +274,7 @@ function optionsframework_options() {
         'std' => '',
         'type' => 'color'
     );
-    
+
     $options[] = array(
         'name' => 'Featured Content Bar Link Color',
         'desc' => 'Select the link color for the featured content bar.',
@@ -273,7 +282,7 @@ function optionsframework_options() {
         'std' => '',
         'type' => 'color'
     );
-    
+
     $options[] = array(
         'name' => 'Featured Content Bar Link Hover Color',
         'desc' => 'Select the link hover color for the featured content bar.',
@@ -295,7 +304,7 @@ jQuery(document).ready(function($) {
     if ($('#bestreloaded_display_header_banner_area:checked').val() !== undefined) {
         $('#section-bestreloaded_header_banner_area').show();
     }
-    
+
     $('#bestreloaded_display_header_banner_area').click(function() {
           $('#section-bestreloaded_header_banner_area').fadeToggle(400);
     });
@@ -303,7 +312,7 @@ jQuery(document).ready(function($) {
     if ($('#site_heading:checked').val() !== undefined) {
         $('#section-site_heading_img').show();
     }
-    
+
     $('#site_heading').click(function() {
           $('#section-site_heading_img').fadeToggle(400);
     });
@@ -311,11 +320,11 @@ jQuery(document).ready(function($) {
     if ($('#bestreloaded_display_intro_text:checked').val() !== undefined) {
         $('#section-bestreloaded_intro_text').show();
     }
-    
+
     $('#bestreloaded_display_intro_text').click(function() {
           $('#section-bestreloaded_intro_text').fadeToggle(400);
     });
-    
+
     if ($('#bestreloaded_display_twitter:checked').val() !== undefined) {
         $('#section-bestreloaded_twitter').show();
     }
@@ -327,15 +336,15 @@ jQuery(document).ready(function($) {
     if ($('#bestreloaded_display_footer_bottom:checked').val() !== undefined) {
         $('#section-bestreloaded_footer_bottom_tagline').show();
     }
-    
+
     $('#bestreloaded_display_footer_bottom').click(function() {
           $('#section-bestreloaded_footer_bottom_tagline').fadeToggle(400);
     });
-    
+
     if ($('#bestreloaded_display_featured_bar:checked').val() !== undefined) {
         $('#section-bestreloaded_featured_bar').show();
     }
-    
+
     $('#bestreloaded_display_featured_bar').click(function() {
           $('#section-bestreloaded_featured_bar').fadeToggle(400);
     });

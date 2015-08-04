@@ -1,9 +1,12 @@
 <?php
-/* =============================================================
+/**
  * 404.php
- * =============================================================
  * Displays a page when a link is broken or mistyped
- * ============================================================= */
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 1.0
+ */
 ?>
 
 <?php get_header(); ?>
