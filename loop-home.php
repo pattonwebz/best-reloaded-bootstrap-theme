@@ -29,11 +29,7 @@
         </header>
         <?php the_excerpt(); ?>
         <footer>
-            <?php If (!function_exists('dsq_is_installed')) { echo "hello"; ?>
 			<span class="meta"><?php the_time('F j, Y'); ?> &#8226; <a href="<?php comments_link(); ?>" title="<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>"><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></a></span>
-			<?php } else { echo "bye"; ?>
-			<a href="<?php comments_link(); ?>
-			<?php } ?>
         </footer>
     </article>
     <hr class="hr-row-divider">
