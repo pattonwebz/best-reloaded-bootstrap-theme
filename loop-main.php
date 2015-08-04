@@ -1,15 +1,17 @@
 <?php
-/* =============================================================
- * loop-main.php
- * =============================================================
- * Loop for index.php and search.php
- * ============================================================= */
+ /**
+  * The main loop used primarily by index.php and search.php
+  *
+  * @package WordPress
+  * @subpackage Best_Reloaded
+  * @since Best Reloaded 1.0
+  */
 ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
     <?php if ( $post->post_type === 'page' ) : ?>
-    
+
         <article <?php post_class(); ?> >
             <header>
                 <a href="<?php the_permalink(); ?>" class="post-thumb">
@@ -22,7 +24,7 @@
             <?php the_excerpt(); ?>
         </article>
         <hr class="hr-row-divider">
-    
+
     <?php else : ?>
 
         <article <?php post_class(); ?> >
@@ -54,10 +56,10 @@
 
 <?php endwhile; else:
 
-    if ( is_search() ) { 
+    if ( is_search() ) {
         echo '<p class="hero-p" style="padding: 25px 0 35px;">sorry, nothing matches that criteria</p><hr class="hr-row-divider">';
     } else {
         echo '<p class="hero-p" style="padding: 25px 0 35px;">there are currently no posts to display :(</p><hr class="hr-row-divider">';
-    } 
-    
+    }
+
 endif; ?>
