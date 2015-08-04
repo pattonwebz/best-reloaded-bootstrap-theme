@@ -1,22 +1,22 @@
 /*
 Theme Name: B Reloaded
 Theme URI: http://www.pattonwebz.com/best-reloaded-bootstrap-theme
-Description: A WordPress theme that uses Bootstrap. Heavily based on the 'bestreloaded' theme from Blogging Experiment
+Description: A WordPress theme that uses Bootstrap. Heavily based on the 'Best' theme from Blogging Experiment
 Author: William Patton
 Author URI: http://pattonwebz.com/
-Version: 0.3
+Version: 0.4
 
 License: GNU General Public License (3.0)
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
-body { 
+body {
 background-color:whitesmoke; /* should specify this with the background color theme option */
-padding-top: 60px; 
+padding-top: 60px;
 font-size:16px;
 }
 /* responsive images */
 img,
-.size-auto, 
+.size-auto,
 .size-full,
 .size-large,
 .size-medium,
@@ -34,38 +34,38 @@ border-radius: 10px;
 box-shadow: 1px 1px 10px #aaa;
 font-size: 85%;
 }
-.wp-caption-text { 
+.wp-caption-text {
 margin: 10px;
 text-align: justify;
  }
- 
+
  .wp-caption img {
 border-radius: 5px;
 }
-.sticky{ 
+.sticky{
 
  }
-.gallery-caption { 
+.gallery-caption {
 
  }
-.bypostauthor { 
+.bypostauthor {
 
  }
-.alignright { 
+.alignright {
 	float:right;
 	margin-left:8px;
 	margin-bottom:10px;
  }
-.alignleft { 
+.alignleft {
 	float:left;
 	margin-right:8px;
 	margin-bottom:10px;
  }
- .aligncenter { 
+ .aligncenter {
 	display: block;
 	margin: 0 auto;
  }
- 
+
  /* --------------------------------------- *
  * Typography                 *
  * ---------------------------------------- */
@@ -147,7 +147,7 @@ bottom: 10px;
 /* --------------------------------------- *
  * Homepage Specific Items                 *
  * --------------------------------------- */
- 
+
 .blog-three-up .entry-title {
 font-size:16px;
 font-size:1.6rem;
@@ -178,7 +178,7 @@ text-decoration:none;
 /* ------------------------------------- *
  * Social sharing block                  *
  * ------------------------------------- */
- 
+
 #social-block{
 background: white;
 }
@@ -187,7 +187,8 @@ top: 50px;
 }
 
 
-.aligncenter
+
+
 @media (min-width: 768px) {
 .container.container-main.container-wrapper{
 padding: 35px 60px;
