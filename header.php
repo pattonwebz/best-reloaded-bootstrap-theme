@@ -63,11 +63,9 @@
 						<?php if( is_home() || is_front_page() ) {
 							// for SEO reasons site title as h1 is only on home and blog page, otherwise it's a styled span
 							?>
-							<hgroup>
-								<h1 class="site-title">
-									<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-								</h1>
-							</hgroup>
+							<h1 class="site-title">
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+							</h1>
 						<?php } else { ?>
 							<span class="h1 site-title">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>

@@ -164,7 +164,8 @@ box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 border-radius: 4px 4px 0 0;
 }
 
-.name-text hgroup h1, .name-text span.h1 {
+.name-text h1,
+.name-text span.h1 {
 font-size: 80px;
 font-size: 8rem;
 line-height: 1em;
