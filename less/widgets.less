@@ -1,0 +1,32 @@
+// Widgets
+// --------------------------------------------------
+.widget {
+
+    ul,ol {
+        list-style: none;
+        margin-left: 0;
+        margin-bottom: 0;
+
+        &:before{
+            content: '\2192 \0020';
+        }
+    }
+
+    .widget-title {
+        margin-top: 3px;
+        margin-bottom: 15px;
+    }
+
+    #recentcomments {
+        font-size: 1em;
+
+        li {
+            padding: 5px 0;
+            line-height: 24px;
+
+            &:before {
+                content: '\2192 \0020';
+            }
+        }
+    }
+}
