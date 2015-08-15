@@ -12,20 +12,93 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 @import "variables";
 @import "mixins";
+@import "scaffold";
+@import "wp-required";
+@import "typography";
 @import "widgets";
+@import "featured-bar";
+@import "social-block";
 
-body{
-    padding-top: 60px;
-    font-size: @base-font-size;
+
+.name-text h1,
+.name-text span.h1 {
+font-size: 80px;
+font-size: 8rem;
+line-height: 1em;
+letter-spacing: -0.05em;
+font-weight: 100;
+}
+.site-title a:hover{
+text-decoration:none;
 }
 
-/* responsive images */
-img,
-.size-auto,
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail,
-.wp-caption {
-    .responsive-image;
+/* --------------------------------------- *
+* Effects                *
+* --------------------------------------- */
+/* thumbnail effect */
+.post-thumb {
+display: inline-block;
+max-width: 100%;
+position: relative;
+bottom: 0;
+-webkit-transition: bottom 0.3s ease-in-out;
+-moz-transition: bottom 0.3s ease-in-out;
+-ms-transition: bottom 0.3s ease-in-out;
+-o-transition: bottom 0.3s ease-in-out;
+transition: bottom 0.3s ease-in-out;
+}
+.post-thumb span {
+display: block;
+padding: 5px;
+border: 1px solid #ddd;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-webkit-transition: box-shadow 0.3s ease-in-out;
+-moz-transition: box-shadow 0.3s ease-in-out;
+-ms-transition: box-shadow 0.3s ease-in-out;
+-o-transition: box-shadow 0.3s ease-in-out;
+transition: box-shadow 0.3s ease-in-out;
+}
+.post-thumb img {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+.post-thumb:hover span {
+-webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.post-thumb:hover {
+bottom: 10px;
+}
+
+/* --------------------------------------- *
+* Homepage Specific Items                 *
+* --------------------------------------- */
+
+.blog-three-up .entry-title {
+font-size:16px;
+font-size:1.6rem;
+}
+
+.container.container-main.container-wrapper{
+padding: 25px 30px;
+background-color: white;
+-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+-webkit-border-radius: 4px 4px 0 0;
+-moz-border-radius: 4px 4px 0 0;
+border-radius: 4px 4px 0 0;
+}
+
+@media (min-width: 768px) {
+    .container.container-main.container-wrapper{
+    padding: 35px 60px;
+    }
 }
