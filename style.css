@@ -195,3 +195,11 @@ top: 50px;
 padding: 35px 60px;
 }
 }
+
+/* ------------------------------------- *
+ * Widgets                               *
+ * ------------------------------------- */
+
+.widget ul li a:before, .widget ol li a:before {
+    content: "\2192 \0020";
+}
