@@ -51,4 +51,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['less', 'postcss', 'watch']);
     grunt.registerTask('dev', ['less:dev', 'postcss:dev']);
+    grunt.registerTask('production', ['less:production', 'postcss:production']);
 };
