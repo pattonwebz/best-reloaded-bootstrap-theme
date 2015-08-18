@@ -34,11 +34,7 @@ img,
 .container.container-main.container-wrapper {
   padding: 25px 30px;
   background-color: white;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
   border-radius: 4px 4px 0 0;
 }
 @media (min-width: 768px) {
@@ -172,7 +168,8 @@ img,
   max-width: 100%;
   position: relative;
   bottom: 0;
-  transition: bottom 0.3s ease-in-out;
+  -webkit-transition: bottom 0.3s ease-in-out;
+          transition: bottom 0.3s ease-in-out;
 }
 .post-thumb span {
   display: block;
@@ -180,7 +177,8 @@ img,
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+          transition: box-shadow 0.3s ease-in-out;
 }
 .post-thumb img {
   border-radius: 3px;
