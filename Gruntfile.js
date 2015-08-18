@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                 },
 
                 files: {
-                    "style.css": "less/style.less" // destination file and source file
+                    "style.css": "assets/less/style.less" // destination file and source file
                 }
             },
             production: {
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     optimization: 2,
 		        },
                 files: {
-                    "style.min.css": "less/style.less" // destination file and source file
+                    "style.min.css": "assets/less/style.less" // destination file and source file
                 }
             }
         },
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             options: {
                 map: true,
                 processors: [
-                    require('autoprefixer-core')({browsers: ['last 99 version']})
+                    require('autoprefixer-core')({browsers: ['last 4 version']})
                 ]
             },
             dev: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         },
         watch: {
             styles: {
-                files: ['less/**/*.less'], // which files to watch
+                files: ['assets/less/**/*.less'], // which files to watch
                 tasks: ['less'],
                 options: {
                     nospawn: true
