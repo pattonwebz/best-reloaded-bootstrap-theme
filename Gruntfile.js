@@ -7,6 +7,9 @@ module.exports = function(grunt) {
             development: {
                 options: {
                     compress: false,
+		    plugins: [
+        		new require('less-plugin-autoprefix')({browsers: ["last 2 versions"]}),
+      		    ],
                 },
                 files: {
                     "style.css": "less/style.less" // destination file and source file
@@ -17,6 +20,9 @@ module.exports = function(grunt) {
                     compress: true,
                     yuicompress: true,
                     optimization: 2
+		    plugins: [
+                        new require('less-plugin-autoprefix')({browsers: ["last 2 versions"]}),
+                    ],
                 },
                 files: {
                     "style.min.css": "less/style.less" // destination file and source file
