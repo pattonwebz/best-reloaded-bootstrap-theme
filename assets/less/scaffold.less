@@ -1,7 +1,7 @@
 // Scaffolding
 // --------------------------------------------------
 body{
-    padding-top: 60px;
+    padding-top: 60px; /* accounts for the floating top navbar */
     font-size: @base-font-size;
 }
 
@@ -16,25 +16,19 @@ img,
     .responsive-image();
 }
 
-
-/* --------------------------------------- *
-* Homepage Specific Items                 *
-* --------------------------------------- */
-
-.blog-three-up .entry-title {
-font-size:16px;
-font-size:1.6rem;
+a {
+    color:@primaryColor;
+    &:hover{
+        color:@primaryColorDark;
+    }
 }
 
-.container.container-main.container-wrapper{
-padding: 25px 30px;
-background-color: white;
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-border-radius: 4px 4px 0 0;
-}
-
-@media (min-width: 768px) {
-    .container.container-main.container-wrapper{
-    padding: 35px 60px;
+.container-wrapper{
+    padding: 25px 30px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px 4px 0 0;
+    @media (min-width: 768px) {
+        padding: 35px 60px;
     }
 }
