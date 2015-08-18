@@ -4,11 +4,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         less: {
-            development: {
+            dev: {
                 options: {
-                    plugins: [
-                        require('less-plugin-autoprefix')({browsers: ["last 99 versions"]}),
-                    ],
                     compress: false,
                 },
 
@@ -22,12 +19,23 @@ module.exports = function(grunt) {
                     yuicompress: true,
                     optimization: 2,
 		        },
-                plugins: [
-                    new require('less-plugin-autoprefix')({browsers: ["last 99 versions"]}),
-                ],
                 files: {
                     "style.min.css": "less/style.less" // destination file and source file
                 }
+            }
+        },
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer-core')({browsers: ['last 99 version']})
+                ]
+            },
+            dev: {
+                src: 'style.css',
+            },
+            production: {
+                src: 'style.min.css',
             }
         },
         watch: {
@@ -41,5 +49,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['less', 'watch']);
+    grunt.registerTask('default', ['less', 'postcss', 'watch']);
 };
