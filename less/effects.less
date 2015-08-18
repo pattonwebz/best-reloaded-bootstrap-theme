@@ -1,0 +1,44 @@
+/* -------------------------------------- *
+* Effects                                 *
+* --------------------------------------- */
+/* thumbnail floating effect */
+.post-thumb {
+display: inline-block;
+max-width: 100%;
+position: relative;
+bottom: 0;
+-webkit-transition: bottom 0.3s ease-in-out;
+-moz-transition: bottom 0.3s ease-in-out;
+-ms-transition: bottom 0.3s ease-in-out;
+-o-transition: bottom 0.3s ease-in-out;
+transition: bottom 0.3s ease-in-out;
+}
+.post-thumb span {
+display: block;
+padding: 5px;
+border: 1px solid #ddd;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+-webkit-transition: box-shadow 0.3s ease-in-out;
+-moz-transition: box-shadow 0.3s ease-in-out;
+-ms-transition: box-shadow 0.3s ease-in-out;
+-o-transition: box-shadow 0.3s ease-in-out;
+transition: box-shadow 0.3s ease-in-out;
+}
+.post-thumb img {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+.post-thumb:hover span {
+-webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.post-thumb:hover {
+bottom: 10px;
+}
