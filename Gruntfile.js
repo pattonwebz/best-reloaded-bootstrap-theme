@@ -24,7 +24,13 @@ module.exports = function(grunt) {
                 }
             }
         },
-        autoprefixer: {
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('autoprefixer-core')({browsers: ['last 99 version']})
+                ]
+            },
             dev: {
                 src: 'style.css',
             },
@@ -43,5 +49,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['less', 'autoprefixer', 'watch']);
+    grunt.registerTask('default', ['less', 'postcss', 'watch']);
 };
