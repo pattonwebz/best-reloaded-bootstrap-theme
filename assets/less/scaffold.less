@@ -2,11 +2,6 @@
 // --------------------------------------------------
 body{
     padding-top: 60px; /* accounts for the floating top navbar */
-    @media (min-width: 768px) {
-        .container.container-main.container-wrapper{
-        padding: 35px 60px;
-        }
-    }
     font-size: @base-font-size;
 }
 
@@ -21,19 +16,19 @@ img,
     .responsive-image();
 }
 
-.container{
-    .container-main{
-        .container-wrapper{
-            padding: 25px 30px;
-            background-color: white;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-            border-radius: 4px 4px 0 0;
-        }
+a {
+    color:@primaryColor;
+    &:hover{
+        color:@primaryColorDark;
     }
 }
 
-@media (min-width: 768px) {
-    .container.container-main.container-wrapper{
+.container-wrapper{
+    padding: 25px 30px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 4px 4px 0 0;
+    @media (min-width: 768px) {
         padding: 35px 60px;
     }
 }
