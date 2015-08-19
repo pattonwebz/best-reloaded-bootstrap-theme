@@ -1,0 +1,4 @@
+0.4 - Various fixes
+0.3 - Migrate to .less files for styles and add Grunt to compile them
+0.2 - Migrate from Bootstrap2 to Bootstrap3
+0.1 - Inital commit of theme
