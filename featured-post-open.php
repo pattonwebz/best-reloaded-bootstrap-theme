@@ -5,7 +5,7 @@
  *
  * @package WordPress
  * @subpackage Best_Reloaded
- * @since Best Reloaded 1.0
+ * @since Best Reloaded 0.0
  */
 ?>
 <div id="post-open" class="content-column-widgets">

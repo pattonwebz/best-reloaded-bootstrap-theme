@@ -1,13 +1,17 @@
 <?php
-
-/* =============================================================
+/**
+ * regisger-sidebars.php
  * Register sidebars and widgetized areas
- * ============================================================= */
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.1
+ */
 
 add_action( 'widgets_init', 'response_widgets_init' );
 
 function response_widgets_init() {
-    
+
     // Allow shortcodes to be used in text widgets
     add_filter('widget_text', 'do_shortcode');
 
@@ -20,7 +24,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-	
+
     register_sidebar( array(
         'name'          => 'Homepage: Right of Slider',
         'id'            => 'sidebar-2',
@@ -30,7 +34,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-	
+
     register_sidebar( array(
         'name'          => 'Homepage: Widget Row',
         'id'            => 'sidebar-3',
@@ -40,7 +44,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-    
+
     register_sidebar( array(
         'name'          => 'Homepage: Left of Blog',
         'id'            => 'sidebar-4',
@@ -50,7 +54,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-    
+
     register_sidebar( array(
         'name'          => 'Footer: First Column',
         'id'            => 'sidebar-5',
@@ -60,7 +64,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-    
+
     register_sidebar( array(
         'name'          => 'Footer: Second Column',
         'id'            => 'sidebar-6',
@@ -70,7 +74,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-    
+
     register_sidebar( array(
         'name'          => 'Footer: Third Column',
         'id'            => 'sidebar-7',
@@ -80,7 +84,7 @@ function response_widgets_init() {
         'before_title'  => '<h3 class="widget-title h6">',
         'after_title'   => '</h3>'
     ) );
-    
+
     register_sidebar( array(
         'name'          => 'Footer: Fourth Column',
         'id'            => 'sidebar-8',

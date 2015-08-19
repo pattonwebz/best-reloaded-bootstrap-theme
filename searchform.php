@@ -5,7 +5,7 @@
   *
   * @package WordPress
   * @subpackage Best_Reloaded
-  * @since Best Reloaded 1.0
+  * @since Best Reloaded 0.1
   */
 ?>
 <form role="search" method="get" class="navbar-search" action="<?php echo home_url( '/' ); ?>">

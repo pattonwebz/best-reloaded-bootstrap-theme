@@ -1,8 +1,12 @@
 <?php
-
-/* =============================================================
+/**
+ * comments-and-pingbacks.php
  * Template for Comments and Pingbacks
- * ============================================================= */
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.1
+ */
 
 function respond_comment( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment;

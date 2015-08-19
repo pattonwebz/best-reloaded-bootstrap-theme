@@ -1,12 +1,12 @@
 <?php
- /**
-  * options.php
-  * Adds these settings in a theme options admin page
-  *
-  * @package WordPress
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 1.0
-  */
+/**
+ * options.php
+ * Adds these settings in a theme options admin page
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.1
+ */
 
 /**
  * A unique identifier is defined to store the options in the database and reference them from the theme.

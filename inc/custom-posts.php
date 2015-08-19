@@ -1,9 +1,13 @@
 <?php
-
-/* =============================================================
+/**
+ * custom-posts.php
  * Register Custom Post Type for Slides
- * ============================================================= */
- 
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.1
+ */
+
 add_action( 'init', 'response_slide_init' );
 
 function response_slide_init() {
@@ -18,29 +22,29 @@ function response_slide_init() {
         'view_item'          => 'View Slide',
         'search_items'       => 'Search Slides',
         'not_found'          => 'No slides found',
-        'not_found_in_trash' => 'No slides found in Trash', 
+        'not_found_in_trash' => 'No slides found in Trash',
         'parent_item_colon'  => '',
         'menu_name'          => 'Slides'
     );
-    
+
     $args = array(
         'labels'              => $labels,
         'public'              => true,
         'exclude_from_search' => true,
         'publicly_queryable'  => true,
-        'show_ui'             => true, 
-        'show_in_menu'        => true, 
+        'show_ui'             => true,
+        'show_in_menu'        => true,
         'query_var'           => true,
         'rewrite'             => true,
         'capability_type'     => 'post',
-        'has_archive'         => true, 
+        'has_archive'         => true,
         'hierarchical'        => false,
         'menu_position'       => null,
         'supports'            => array('title', 'editor', 'thumbnail')
-    ); 
-    
+    );
+
     register_post_type( 'slide', $args );
-    
+
 }
 
 add_action( 'init', 'questions_init' );
@@ -57,28 +61,28 @@ function questions_init() {
         'view_item'          => 'View Question',
         'search_items'       => 'Search Question',
         'not_found'          => 'No questions found',
-        'not_found_in_trash' => 'No questions found in Trash', 
+        'not_found_in_trash' => 'No questions found in Trash',
         'parent_item_colon'  => '',
         'menu_name'          => 'Q&A'
     );
-    
+
     $args = array(
         'labels'              => $labels,
         'public'              => true,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
-        'show_ui'             => true, 
-        'show_in_menu'        => true, 
+        'show_ui'             => true,
+        'show_in_menu'        => true,
         'query_var'           => true,
         'rewrite'             => true,
         'capability_type'     => 'post',
-        'has_archive'         => true, 
+        'has_archive'         => true,
         'hierarchical'        => false,
         'menu_position'       => null,
 		'supports'            => array('title', 'editor', 'thumbnail', 'excerpt'),
 		'taxonomies' 		  => array( '' )
-    ); 
-   
+    );
+
     register_post_type( 'questions', $args );
 }
 
@@ -86,7 +90,7 @@ function questions_init() {
 add_action( 'init', 'create_question_taxonomies', 0 );
 
 //create two taxonomies, genres and writers for the post type "book"
-function create_question_taxonomies() 
+function create_question_taxonomies()
 {
   // Add new taxonomy, make it hierarchical (like categories)
   $labels = array(
@@ -96,12 +100,12 @@ function create_question_taxonomies()
     'all_items'           => __( 'All Groups' ),
     'parent_item'         => __( 'Parent Group' ),
     'parent_item_colon'   => __( 'Parent Group:' ),
-    'edit_item'           => __( 'Edit Group' ), 
+    'edit_item'           => __( 'Edit Group' ),
     'update_item'         => __( 'Update Group' ),
     'add_new_item'        => __( 'Add New Group' ),
     'new_item_name'       => __( 'New Group Name' ),
     'menu_name'           => __( 'Groups' )
-  ); 	
+  );
 
   $args = array(
     'hierarchical'        => true,
@@ -112,9 +116,9 @@ function create_question_taxonomies()
     'rewrite'             => array( 'slug' => 'group' )
   );
 
-  register_taxonomy( 'group', 'questions', $args );	
-	
-	
+  register_taxonomy( 'group', 'questions', $args );
+
+
   // Add new taxonomy, NOT hierarchical (like tags)
   $labels = array(
     'name'                         => _x( 'Topics', 'taxonomy general name' ),
@@ -124,7 +128,7 @@ function create_question_taxonomies()
     'all_items'                    => __( 'All Topics' ),
     'parent_item'                  => null,
     'parent_item_colon'            => null,
-    'edit_item'                    => __( 'Edit Topic' ), 
+    'edit_item'                    => __( 'Edit Topic' ),
     'update_item'                  => __( 'Update Topic' ),
     'add_new_item'                 => __( 'Add New Topic' ),
     'new_item_name'                => __( 'New Topic' ),
@@ -133,7 +137,7 @@ function create_question_taxonomies()
     'choose_from_most_used'        => __( 'Choose from the most used topics' ),
     'not_found'                    => __( 'No tag found.' ),
     'menu_name'                    => __( 'Topics' )
-  ); 
+  );
 
   $args = array(
     'hierarchical'            => false,
@@ -146,7 +150,7 @@ function create_question_taxonomies()
   );
 
   register_taxonomy( 'tagged', 'questions', $args );
-  
+
 }
 
 
@@ -174,10 +178,10 @@ function response_slide_url_cb() {
     global $post;
     $url = get_post_meta($post->ID, 'response_slide_url', true);
     ?>
-    
+
     <label for="response_slide_url">Associated URL: </label>
     <input type="text" name="response_slide_url" id="response_slide_url" class="widefat" value="<?php echo $url ?>">
-    
+
     <?php
 }
 
@@ -201,19 +205,19 @@ function portfolio_cb() {
 	$url = get_post_meta($post->ID, 'portfolio_site_url', true);
 	$jobtype = get_post_meta($post->ID, 'portfolio_site_jobtype', true);
     ?>
-    
+
     <label for="portfolio_site_name">Site Name: </label>
     <input type="text" name="portfolio_site_name" id="portfolio_site_name" class="widefat" value="<?php echo $name ?>">
-	
+
 	 <label for="portfolio_site_client">Clent: </label>
     <input type="text" name="portfolio_site_client" id="portfolio_site_client" class="widefat" value="<?php echo $client ?>">
-	
+
 	<label for="portfolio_site_url">Site url: </label>
     <input type="text" name="portfolio_site_url" id="portfolio_site_url" class="widefat" value="<?php echo $url ?>">
-	
+
 	<label for="portfolio_site_jobtype">Jobtype: </label>
     <input type="text" name="portfolio_site_jobtype" id="portfolio_site_jobtype" class="widefat" value="<?php echo $jobtype ?>">
-    
+
     <?php
 }
 
@@ -258,13 +262,13 @@ function portfolio_save_meta() {
 /* =============================================================
  * Update Slide Messages
  * ============================================================= */
- 
+
 add_filter( 'post_updated_messages', 'slide_updated_messages' );
 
 function slide_updated_messages( $messages ) {
 
     global $post, $post_ID;
-    
+
     $messages['slide'] = array(
         0  => '',
         1  => sprintf('Slide updated.', esc_url( get_permalink( $post_ID ) ) ),
@@ -278,14 +282,14 @@ function slide_updated_messages( $messages ) {
         9  => sprintf( 'Slide scheduled for: <strong>%1$s</strong>. ', date_i18n( 'M j, Y @ G:i', strtotime( $post->post_date) ), esc_url( get_permalink( $post_ID) ) ),
         10 => sprintf( 'Slide draft updated.', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID) ) ) ),
     );
-    
+
     return $messages;
 }
 
 /* =============================================================
  * Update Slide Help
  * ============================================================= */
- 
+
 add_action( 'contextual_help', 'slide_help_text', 10, 3 );
 function slide_help_text($contextual_help, $screen_id, $screen) {
     if ( 'slide' == $screen->id ) {

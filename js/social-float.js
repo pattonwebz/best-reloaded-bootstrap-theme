@@ -1,3 +1,11 @@
+<?php
+/**
+ * social-float.js
+ *
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.1
+ */
 var $ = jQuery.noConflict(); // set the $ variable to be jQuery
 
 $('#social').height($("#social-block").height()); // sets #social to the same width as #social-block
