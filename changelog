@@ -1,4 +1,9 @@
 0.4 - Various fixes
+        - Fixed version umber convention throughout the theme
+        - Many styles fixed and/or modified.
 0.3 - Migrate to .less files for styles and add Grunt to compile them
+        - Moved all styles from theme to .less files stored inside /assets/less/
+        - Grunt compiles and minifies the files and saves them to style.css and style.min.css in the root
 0.2 - Migrate from Bootstrap2 to Bootstrap3
-0.1 - Inital commit of theme
+        - Markup throughout the theme needed changed, especially columns
+0.1 - Initial commit of theme
