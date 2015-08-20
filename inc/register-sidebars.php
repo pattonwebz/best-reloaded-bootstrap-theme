@@ -21,7 +21,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear on all posts and pages with a sidebar.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside><hr class="hr-row-divider">',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -31,7 +31,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear to the right of the homepage slider.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside><hr class="hr-row-divider">',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -41,7 +41,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear in the row beneath the slider. A maximum of 3 widgets can be used in this area.',
         'before_widget' => '<div class="col-sm-4"><aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside><hr class="hr-row-divider"></div>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -51,7 +51,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear to the left of the blog on the homepage.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside><hr class="hr-row-divider">',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -61,7 +61,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear in the far left column of the footer on all pages.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -71,7 +71,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear in the middle left column of the footer on all pages.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -81,7 +81,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear in the middle right column of the footer on all pages.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
@@ -91,7 +91,7 @@ function response_widgets_init() {
         'description'   => 'Widgets placed in this area will appear in the far right column of the footer on all pages.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 	register_sidebar( array(
@@ -100,7 +100,7 @@ function response_widgets_init() {
         'description'   => 'Widgets added here will display below the post header and but before the post content. Use if for a text advert.',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 	register_sidebar( array(
@@ -109,7 +109,7 @@ function response_widgets_init() {
         'description'   => 'Widgets added here will display after post (directly after the_content). Use if for a newsletter sign-up form or other text advert..',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h3 class="widget-title h6">',
+        'before_title'  => '<h3 class="widget-title h4">',
         'after_title'   => '</h3>'
     ) );
 
