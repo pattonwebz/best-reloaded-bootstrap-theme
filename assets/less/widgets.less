@@ -7,8 +7,14 @@
         padding-left: 0;
 
         li{
-            &:before{
-                content: '\2192 \0020';
+            a{
+                &:before{
+                    content: '\2192 \0020';
+                }
+                &hover{
+                    margin-left: 10px;
+                    text-decoration: none;
+                }
             }
         }
     }
