@@ -224,7 +224,7 @@ add_action( 'wp_enqueue_scripts', 'load_bestreloaded_styles' );
 if ( !function_exists( 'load_bestreloaded_styles' ) ) {
     function load_bestreloaded_styles() {
         if ( !is_admin() ) {
-			wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/css/bootstrap.min.css', 3.3.5 );
+			wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/css/bootstrap.min.css', 3.3 );
 			wp_enqueue_style ( 'bootstrap-styles' );
             wp_register_style( 'bestreloaded-styles', get_template_directory_uri() . '/style.css', array(), 0.4 );
             wp_enqueue_style ( 'bestreloaded-styles' );
@@ -248,7 +248,7 @@ if ( !function_exists( 'load_bestreloaded_scripts' ) ) {
             wp_enqueue_script( 'jquery' );
             wp_register_script( 'bestreloaded-plugins', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'bootstrap'), 0.4, true );
             wp_enqueue_script( 'bestreloaded-plugins' );
-			wp_register_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), 3.3.5, true );
+			wp_register_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), 3.3, true );
             wp_enqueue_script( 'bootstrap' );
             if ( is_single() ) wp_enqueue_script( 'comment-reply' );
         }
