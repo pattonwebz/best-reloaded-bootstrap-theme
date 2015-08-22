@@ -89,7 +89,7 @@ $('#social').height($("#social-block").height()); // sets #social to the same wi
 $('#social-block').width($("#main_content").width()); // sets width of the div with buttons to be the same as it's main container
 var socialTop = $('#social-block')[0].getBoundingClientRect().top;
 $('#social-block').affix({
-    offset: { top: socialTop + 50, bottom: 3000 }
+    offset: { top: (socialTop + 50), bottom: 3000 }
     // offset: { top: 900, bottom: 1000 }
 }); // affixes the div whenever scroll past it
 </script>
