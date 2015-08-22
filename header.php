@@ -52,17 +52,22 @@
     <div class="container container-main container-wrapper">
         <div class="row">
             <div class="col-sm-8 site-header">
-				<?php if ( of_get_option( 'site_heading', 'no entry' ) ) : ?>
+
+				<?php if ( of_get_option( 'bestreloaded_site_heading_img_checkbox', 'no entry' ) && of_get_option( 'site_heading_img', 'no entry' ) ) :
+                    // if this checkbox is ticked AND an image is set THEN output the image
+                    ?>
 					<div class="name-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 							<img src="<?php echo ( of_get_option( 'site_heading_img', 'no entry' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						</a>
 					</div>
-				<?php else : ?>
+				<?php else :
+                    // if the header image is not set or checkbox is off then output text site-title
+                    ?>
 					<div class="name-text">
 						<?php if( is_home() || is_front_page() ) {
 							// for SEO reasons site title as h1 is only on home and blog page, otherwise it's a styled span
-							?>
+                            ?>
 							<h1 class="site-title">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 							</h1>

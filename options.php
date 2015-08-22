@@ -207,7 +207,7 @@ function optionsframework_options() {
     $options[] = array(
         'name' => 'Site Heading Title',
         'desc' => 'Selecting this checkbox provides an option to upload an image for your site heading. Leaving it blank will automatically display the site name and description.',
-        'id' => 'bestreloaded_site_heading',
+        'id' => 'bestreloaded_site_heading_img_checkbox',
         'std' => 0,
         'type' => 'checkbox'
     );
