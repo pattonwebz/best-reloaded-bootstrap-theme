@@ -13,7 +13,6 @@
  * ============================================================= */
 
 add_shortcode( 'button', 'pwwp_bsbutton' );
-add_shortcode( $tag, $func )
 function pwwp_bsbutton($atts) {
     extract( shortcode_atts(
         array(
