@@ -63,7 +63,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-xs-5">
-                    <p><?php echo ( of_get_option( 'bestreloaded_footer_bottom_tagline', 'no entry' ) ); ?></p>
+                    <p class="footer-site-title"><?php echo ( of_get_option( 'bestreloaded_footer_bottom_tagline', 'no entry' ) ); ?></p>
                 </div>
                 <div class="col-xs-7">
                     <nav role="navigation">
