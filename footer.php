@@ -88,7 +88,7 @@ var $ = jQuery.noConflict(); // set the $ variable to be jQuery
 $('#social').height($("#social-block").height()); // sets #social to the same width as #social-block
 $('#social-block').width($("#main_content").width()); // sets width of the div with buttons to be the same as it's main container
 $('#social-block').affix({
-    offset: { top: $('#social-block').position(), bottom: 3000 }
+    offset: { top: 1000, bottom: 3000 }
     // offset: { top: 900, bottom: 1000 }
 }); // affixes the div whenever scroll past it
 </script>
