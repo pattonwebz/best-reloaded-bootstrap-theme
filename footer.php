@@ -28,7 +28,7 @@
 
     <?php endif; ?>
 
-    <footer id="site-footer' class="container" role="contentinfo">
+    <footer id="site-footer" class="container" role="contentinfo">
 
         <?php if ( of_get_option( 'bestreloaded_display_footer_top', 'no entry' ) ) : ?>
 
