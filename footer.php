@@ -28,11 +28,11 @@
 
     <?php endif; ?>
 
-    <footer id="site-footer' role="contentinfo">
+    <footer id="site-footer' class="container" role="contentinfo">
 
         <?php if ( of_get_option( 'bestreloaded_display_footer_top', 'no entry' ) ) : ?>
 
-        <div class="container container-main footer-top">
+        <div class="footer-top">
             <div class="row widget-area">
                 <div class="col-sm-3">
 
@@ -60,13 +60,13 @@
         <?php endif; ?>
         <?php if ( of_get_option( 'bestreloaded_display_footer_bottom', 'no entry' ) ) : ?>
 
-        <div class="container container-main footer-bottom">
+        <div class="footer-bottom">
             <div class="row">
                 <div class="col-xs-5">
                     <p><?php echo ( of_get_option( 'bestreloaded_footer_bottom_tagline', 'no entry' ) ); ?></p>
                 </div>
-                <div class="col-xs-7 clearfix">
-                    <nav class="clearfix" role="navigation">
+                <div class="col-xs-7">
+                    <nav role="navigation">
 
                         <?php
 							wp_nav_menu( array(
@@ -83,7 +83,7 @@
                     </nav>
                 </div>
             </div><!-- end .row -->
-        </div><!-- end .container.container-main .footer-bottom -->
+        </div><!-- end .footer-bottom -->
 
         <?php endif; ?>
 
