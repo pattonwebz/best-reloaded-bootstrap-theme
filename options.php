@@ -207,7 +207,7 @@ function optionsframework_options() {
     $options[] = array(
         'name' => 'Site Heading Title',
         'desc' => 'Selecting this checkbox provides an option to upload an image for your site heading. Leaving it blank will automatically display the site name and description.',
-        'id' => 'site_heading',
+        'id' => 'bestreloaded_site_heading',
         'std' => 0,
         'type' => 'checkbox'
     );
@@ -309,12 +309,12 @@ jQuery(document).ready(function($) {
           $('#section-bestreloaded_header_banner_area').fadeToggle(400);
     });
 
-    if ($('#site_heading:checked').val() !== undefined) {
-        $('#section-site_heading_img').show();
+    if ($('#bestreloaded_site_heading:checked').val() !== undefined) {
+        $('#section-bestreloaded_site_heading_img').show();
     }
 
-    $('#site_heading').click(function() {
-          $('#section-site_heading_img').fadeToggle(400);
+    $('#bestrealoaded_site_heading').click(function() {
+          $('#section-bestreloaded_site_heading_img').fadeToggle(400);
     });
 
     if ($('#bestreloaded_display_intro_text:checked').val() !== undefined) {
