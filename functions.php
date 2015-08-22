@@ -52,4 +52,14 @@ function add_class_the_tags($html){
     return $html;
 }
 add_filter('the_tags','add_class_the_tags',10,1);
+
+// Remove inline styles that WordPress adds alongside the default Recent Comments widget
+// Fix from here: https://core.trac.wordpress.org/changeset/16522
+// Details here: https://core.trac.wordpress.org/ticket/11928
+function pwwp_remove_recent_comments_style() {
+    global $wp_widget_factory;
+    remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+    add_filter( 'show_recent_comments_widget_style', '__return_false' );
+}
+add_action( 'widgets_init', 'pwwp_remove_recent_comments_style' );
 ?>
