@@ -1,2 +1,19 @@
 // Footer
 // --------------------------------------------------
+#site-footer {
+    .wrapper-shadow();
+    border-top: 3px solid @primaryColor;
+    background-color: @secondaries-darkGrey;
+    color: @secondaries-vlightGrey;
+    a{
+        color:@primaryColorDark;
+        &:hover,
+        &:focus{
+            color:@primaryColorLight;
+        }
+    }
+    #footer-site-title{
+        padding: 14px 0;
+        margin: 0;
+    }
+}
