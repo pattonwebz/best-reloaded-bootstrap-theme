@@ -37,10 +37,11 @@
 							</div>
 						</div>
 
-						<div class="featured-bar featured-bar-post">
-							<?php get_template_part( 'featured', 'post-open' ); ?>
-						</div>
-
+						<?php if( is_active_sidebar('sidebar-9') || ( true == get_post_meta($post->ID, 'ofo', true) && true == get_post_meta($post->ID, 'ofo-text', true) ) ) { ?>
+                            <div class="featured-bar featured-bar-post">
+            						<?php get_template_part( 'featured', 'post-open' ); ?>
+            				</div>
+                        <?php } ?>
                         <?php the_content(); ?>
                         <?php the_tags( '<span class="post-tags"><span class="meta">Tags:</span> ', ' ', '</span>' ); /* &#8226; */ ?>
                         <?php wp_link_pages( array(
