@@ -219,7 +219,7 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_styles' );
 if ( !function_exists( 'pwwp_load_bestreloaded_styles' ) ) {
-    function load_bestreloaded_styles() {
+    function pwwp_load_bestreloaded_styles() {
         if ( !is_admin() ) {
 			wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/css/bootstrap.min.css', 3.3 );
 			wp_enqueue_style ( 'bootstrap-styles' );
@@ -235,7 +235,7 @@ if ( !function_exists( 'pwwp_load_bestreloaded_styles' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_scripts' );
 if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
-    function load_bestreloaded_scripts() {
+    function pwwp_load_bestreloaded_scripts() {
         if ( !is_admin() ) {
             wp_register_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr-2.5.3.min.js' );
             wp_enqueue_script( 'modernizr' );
@@ -258,7 +258,7 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
 add_action( 'wp_head', 'pwwp_bestreloaded_theme_options' );
 
 if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
-    function bestreloaded_theme_options() {
+    function pwwp_bestreloaded_theme_options() {
 
         $background                = of_get_option( 'bestreloaded_background', 'no entry' );
         $link_color_main           = of_get_option( 'bestreloaded_link_color_main', 'no entry' );
@@ -350,8 +350,8 @@ if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
  * Remove rel attribute from the category list
  * ============================================================= */
 
-add_filter('wp_list_categories', 'remove_category_list_rel');
-add_filter('the_category', 'remove_category_list_rel');
+add_filter('wp_list_categories', 'pwwp_remove_category_list_rel');
+add_filter('the_category', 'pwwp_remove_category_list_rel');
 if ( !function_exists( 'pwwp_remove_category_list_rel' ) ) {
     function pwwp_remove_category_list_rel($output) {
         $output = str_replace(' rel="category tag"', '', $output);
@@ -363,13 +363,13 @@ if ( !function_exists( 'pwwp_remove_category_list_rel' ) ) {
  * Custom excerpt length and styling
  * ============================================================= */
 
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'pwwp_custom_excerpt_length', 999 );
 if ( !function_exists( 'pwwp_custom_excerpt_length' ) ) {
     function custom_excerpt_length() {
         return 40;
     }
 }
-add_filter('excerpt_more', 'new_excerpt_more');
+add_filter('excerpt_more', 'pwwp_new_excerpt_more');
 if ( !function_exists( 'pwwp_new_excerpt_more' ) ) {
     function new_excerpt_more( $more ) {
         return ' ...';
@@ -382,7 +382,7 @@ if ( !function_exists( 'pwwp_new_excerpt_more' ) ) {
 
 add_filter( 'widget_tag_cloud_args', 'pwwp_custom_tag_cloud_widget' );
 if ( !function_exists( 'pwwp_custom_tag_cloud_widget' ) ) {
-    function custom_tag_cloud_widget( $args ) {
+    function pwwp_custom_tag_cloud_widget( $args ) {
         $args['largest'] = 18;
         $args['smallest'] = 14;
         $args['unit'] = 'px';
