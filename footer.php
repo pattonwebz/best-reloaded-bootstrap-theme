@@ -33,26 +33,18 @@
         <?php if ( of_get_option( 'bestreloaded_display_footer_top', 'no entry' ) ) : ?>
 
         <div class="footer-top">
-            <div class="row widget-area">
+            <div class="clearfix widget-area">
                 <div class="col-sm-3">
-
                     <?php if ( !dynamic_sidebar( 'sidebar-5' ) ) : echo '&nbsp;'; endif; ?>
-
                 </div>
                 <div class="col-sm-3">
-
                     <?php if ( !dynamic_sidebar( 'sidebar-6' ) ) : echo '&nbsp;'; endif; ?>
-
                 </div>
                 <div class="col-sm-3">
-
                     <?php if ( !dynamic_sidebar( 'sidebar-7' ) ) : echo '&nbsp;'; endif; ?>
-
                 </div>
                 <div class="col-sm-3">
-
                     <?php if ( !dynamic_sidebar( 'sidebar-8' ) ) : echo '&nbsp;'; endif; ?>
-
                 </div>
             </div><!-- end .row -->
         </div><!-- end .container.container-main .footer-top -->
