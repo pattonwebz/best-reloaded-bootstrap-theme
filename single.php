@@ -26,7 +26,7 @@
                         </ul>
 
 						<div id="social">
-							<div id="social-block" data-spy="affix" data-offset-top="600" data-offset-bottom="1000">
+							<div id="social-block">
 								<?php if ( function_exists( 'sharing_display' ) ) {
 									sharing_display( '', true );
 								}
