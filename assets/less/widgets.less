@@ -11,7 +11,7 @@
                 &:before{
                     content: '\2192 \0020';
                 }
-                &hover{
+                &:hover{
                     margin-left: 10px;
                     text-decoration: none;
                 }
@@ -25,12 +25,19 @@
     }
 
     #recentcomments,
-    #recentposts {
+    .widget_recent_entries {
         font-size: 1em;
-
+    }
+    #recentcomments{
         li {
             padding: 5px 0;
             line-height: 24px;
+        }
+    }
+    .widget_recent_entries{
+        li {
+            padding: 5px 0;
+            line-height: 20px;
         }
     }
 }
