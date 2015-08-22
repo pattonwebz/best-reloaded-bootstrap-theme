@@ -8,9 +8,8 @@
  * @since Best Reloaded 0.1
  */
 
-add_action( 'init', 'response_slide_init' );
-
-function response_slide_init() {
+add_action( 'init', 'pwwp_bestreloaded_slide_init' );
+function pwwp_bestreloaded_slide_init() {
 
     $labels = array(
         'name'               => 'Slides', 'post type general name',
@@ -47,9 +46,8 @@ function response_slide_init() {
 
 }
 
-add_action( 'init', 'questions_init' );
-
-function questions_init() {
+add_action( 'init', 'pwwp_bestreloaded_questions_init' );
+function pwwp_bestreloaded_questions_init() {
 
     $labels = array(
         'name'               => 'Questions', 'post type general name',
@@ -87,11 +85,8 @@ function questions_init() {
 }
 
 //hook into the init action and call create_book_taxonomies when it fires
-add_action( 'init', 'create_question_taxonomies', 0 );
-
-//create two taxonomies, genres and writers for the post type "book"
-function create_question_taxonomies()
-{
+add_action( 'init', 'pwwp_create_question_taxonomies', 0 );
+function pwwp_create_question_taxonomies() {
   // Add new taxonomy, make it hierarchical (like categories)
   $labels = array(
     'name'                => _x( 'Group', 'taxonomy general name' ),
@@ -153,28 +148,23 @@ function create_question_taxonomies()
 
 }
 
-
-
-
-
 /* =============================================================
  * Add meta boxes for custom post types
  * ============================================================= */
 
-add_action( 'add_meta_boxes', 'response_meta_boxes' );
-
-function response_meta_boxes() {
+add_action( 'add_meta_boxes', 'pwwp_slide_meta_boxes' );
+function pwwp_slide_meta_boxes() {
     add_meta_box(
         'response_slide_url', // ID
         'Link', // Title
-        'response_slide_url_cb', // Callback
+        'pwwp_slide_url_cb', // Callback
         'slide', // Post type
         'normal', // Context
         'high' // Priority
     );
 }
 
-function response_slide_url_cb() {
+function pwwp_slide_url_cb() {
     global $post;
     $url = get_post_meta($post->ID, 'response_slide_url', true);
     ?>
@@ -185,20 +175,19 @@ function response_slide_url_cb() {
     <?php
 }
 
-add_action( 'add_meta_boxes', 'portfolio_meta_boxes' );
-
-function portfolio_meta_boxes() {
+add_action( 'add_meta_boxes', 'pwwp_portfolio_meta_boxes' );
+function pwwp_portfolio_meta_boxes() {
     add_meta_box(
         'portfolio_site_url', // ID
         'Details', // Title
-        'portfolio_cb', // Callback
+        'pwwp_portfolio_cb', // Callback
         'portfolio', // Post type
         'normal', // Context
         'high' // Priority
     );
 }
 
-function portfolio_cb() {
+function pwwp_portfolio_cb() {
     global $post;
     $name = get_post_meta($post->ID, 'portfolio_site_name', true);
 	$client = get_post_meta($post->ID, 'portfolio_site_clent', true);
@@ -225,9 +214,8 @@ function portfolio_cb() {
  * Save post meta info
  * ============================================================= */
 
-add_action( 'save_post', 'response_save_meta' );
-
-function response_save_meta() {
+add_action( 'save_post', 'pwwp_slide_save_meta' );
+function pwwp_slide_save_meta() {
     global $post;
     // If save or publish is selected, allow updating of post meta information
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
@@ -237,9 +225,8 @@ function response_save_meta() {
     }
 }
 
-add_action( 'save_post', 'portfolio_save_meta' );
-
-function portfolio_save_meta() {
+add_action( 'save_post', 'pwwp_portfolio_save_meta' );
+function pwwp_portfolio_save_meta() {
     global $post;
     // If save or publish is selected, allow updating of post meta information
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
@@ -263,9 +250,8 @@ function portfolio_save_meta() {
  * Update Slide Messages
  * ============================================================= */
 
-add_filter( 'post_updated_messages', 'slide_updated_messages' );
-
-function slide_updated_messages( $messages ) {
+add_filter( 'post_updated_messages', 'pwwp_slide_updated_messages' );
+function pwwp_slide_updated_messages( $messages ) {
 
     global $post, $post_ID;
 
@@ -290,8 +276,8 @@ function slide_updated_messages( $messages ) {
  * Update Slide Help
  * ============================================================= */
 
-add_action( 'contextual_help', 'slide_help_text', 10, 3 );
-function slide_help_text($contextual_help, $screen_id, $screen) {
+add_action( 'contextual_help', 'pwwp_slide_help_text', 10, 3 );
+function pwwp_slide_help_text($contextual_help, $screen_id, $screen) {
     if ( 'slide' == $screen->id ) {
         $contextual_help =
         '<p>' . 'Things to remember when adding a slide:' . '</p>' .

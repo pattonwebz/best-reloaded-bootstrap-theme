@@ -8,9 +8,9 @@
  * @since Best Reloaded 0.1
  */
 
-add_action( 'widgets_init', 'response_widgets_init' );
+add_action( 'widgets_init', 'pwwp_bestreloaded_widgets_init' );
 
-function response_widgets_init() {
+function pwwp_bestreloaded_widgets_init() {
 
     // Allow shortcodes to be used in text widgets
     add_filter('widget_text', 'do_shortcode');

@@ -12,9 +12,9 @@
  * Shortcode for regular buttons
  * ============================================================= */
 
-add_shortcode( 'button', 'button' );
-
-function button($atts) {
+add_shortcode( 'button', 'pwwp_bsbutton' );
+add_shortcode( $tag, $func )
+function pwwp_bsbutton($atts) {
     extract( shortcode_atts(
         array(
             'link'  => '#',

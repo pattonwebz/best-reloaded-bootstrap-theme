@@ -7,14 +7,14 @@
  * @subpackage Best_Reloaded
  * @since Best Reloaded 0.1
  */
+
 /* =============================================================
  * Theme Setup Function
  * ============================================================= */
 
-add_action( 'after_setup_theme', 'pw_bestreloaded_setup' );
-
-if ( !function_exists( 'pw_bestreloaded_setup' ) ) {
-    function pw_bestreloaded_setup() {
+add_action( 'after_setup_theme', 'pwwp_bestreloaded_setup' );
+if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
+    function pwwp_bestreloaded_setup() {
 
         // Set the content width
         if ( ! isset( $content_width ) ) $content_width = 690;
@@ -213,15 +213,12 @@ if ( !function_exists( 'pw_bestreloaded_setup' ) ) {
 }
 /* ===| end !function_exists |================================== */
 
-
-
 /* =============================================================
  * Enqueue Styles
  * ============================================================= */
 
-add_action( 'wp_enqueue_scripts', 'load_bestreloaded_styles' );
-
-if ( !function_exists( 'load_bestreloaded_styles' ) ) {
+add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_styles' );
+if ( !function_exists( 'pwwp_load_bestreloaded_styles' ) ) {
     function load_bestreloaded_styles() {
         if ( !is_admin() ) {
 			wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/css/bootstrap.min.css', 3.3 );
@@ -232,22 +229,19 @@ if ( !function_exists( 'load_bestreloaded_styles' ) ) {
     }
 }
 
-
-
 /* =============================================================
  * Enqueue Javascript
  * ============================================================= */
 
-add_action( 'wp_enqueue_scripts', 'load_bestreloaded_scripts' );
-
-if ( !function_exists( 'load_bestreloaded_scripts' ) ) {
+add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_scripts' );
+if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
     function load_bestreloaded_scripts() {
         if ( !is_admin() ) {
             wp_register_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr-2.5.3.min.js' );
             wp_enqueue_script( 'modernizr' );
             wp_enqueue_script( 'jquery' );
-            wp_register_script( 'bestreloaded-plugins', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'bootstrap'), 0.4, true );
-            wp_enqueue_script( 'bestreloaded-plugins' );
+            wp_register_script( 'bestreloaded-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'bootstrap'), 0.4, true );
+            wp_enqueue_script( 'bestreloaded-scripts' );
 			wp_register_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), 3.3, true );
             wp_enqueue_script( 'bootstrap' );
             if ( is_single() ) wp_enqueue_script( 'comment-reply' );
@@ -261,9 +255,9 @@ if ( !function_exists( 'load_bestreloaded_scripts' ) ) {
  * Echo out color options from admin panel
  * ============================================================= */
 
-add_action( 'wp_head', 'bestreloaded_theme_options' );
+add_action( 'wp_head', 'pwwp_bestreloaded_theme_options' );
 
-if ( !function_exists( 'bestreloaded_theme_options' ) ) {
+if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
     function bestreloaded_theme_options() {
 
         $background                = of_get_option( 'bestreloaded_background', 'no entry' );
@@ -352,61 +346,49 @@ if ( !function_exists( 'bestreloaded_theme_options' ) ) {
 }
 /* ===| end !function_exists |================================== */
 
-
-
 /* =============================================================
  * Remove rel attribute from the category list
  * ============================================================= */
 
-if ( !function_exists( 'remove_category_list_rel' ) ) {
-    function remove_category_list_rel($output) {
+add_filter('wp_list_categories', 'remove_category_list_rel');
+add_filter('the_category', 'remove_category_list_rel');
+if ( !function_exists( 'pwwp_remove_category_list_rel' ) ) {
+    function pwwp_remove_category_list_rel($output) {
         $output = str_replace(' rel="category tag"', '', $output);
         return $output;
     }
 }
 
-add_filter('wp_list_categories', 'remove_category_list_rel');
-add_filter('the_category', 'remove_category_list_rel');
-
-
-
 /* =============================================================
  * Custom excerpt length and styling
  * ============================================================= */
 
-if ( !function_exists( 'custom_excerpt_length' ) ) {
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+if ( !function_exists( 'pwwp_custom_excerpt_length' ) ) {
     function custom_excerpt_length() {
         return 40;
     }
 }
-
-if ( !function_exists( 'new_excerpt_more' ) ) {
+add_filter('excerpt_more', 'new_excerpt_more');
+if ( !function_exists( 'pwwp_new_excerpt_more' ) ) {
     function new_excerpt_more( $more ) {
         return ' ...';
     }
 }
 
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-add_filter('excerpt_more', 'new_excerpt_more');
-
-
-
 /* =============================================================
  * Tweak tagcloud settings
  * ============================================================= */
 
-if ( !function_exists( 'custom_tag_cloud_widget' ) ) {
+add_filter( 'widget_tag_cloud_args', 'pwwp_custom_tag_cloud_widget' );
+if ( !function_exists( 'pwwp_custom_tag_cloud_widget' ) ) {
     function custom_tag_cloud_widget( $args ) {
-        $args['largest'] = 11;
-        $args['smallest'] = 11;
+        $args['largest'] = 18;
+        $args['smallest'] = 14;
         $args['unit'] = 'px';
         return $args;
     }
 }
-
-add_filter( 'widget_tag_cloud_args', 'custom_tag_cloud_widget' );
-
-
 
 /* =============================================================
  * Pull in latest tweet and date from Twitter

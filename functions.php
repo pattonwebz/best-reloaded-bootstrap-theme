@@ -13,19 +13,14 @@ if ( ! isset( $content_width ) ) $content_width = 730;
 
 // Contains all functions essential to setting the theme
 require 'inc/theme-setup.php';
-
 // Sets up comments and pingbacks for the theme
 require 'inc/comments-and-pingbacks.php';
-
 // Registers all dynamic sidebar areas for the theme
 require 'inc/register-sidebars.php';
-
 // Registers custom post types for the theme
 require 'inc/custom-posts.php';
-
 // Registers custom shortcodes for the theme
 include 'inc/shortcodes.php';
-
 // Register Custom Navigation Walker
 require_once('wp_bootstrap_navwalker.php');
 
@@ -37,21 +32,21 @@ if ( !function_exists( 'optionsframework_init' ) ) {
 }
 
 // Move the Jetpack social share buttons to the beginning of the post, this is to allow for the float effect
-function jptweak_remove_share() {
+function pwwp_jptweak_remove_share() {
 remove_filter( 'the_content', 'sharing_display',19 );
 remove_filter( 'the_excerpt', 'sharing_display',19 );
 remove_filter( 'the_content', array( 'Jetpack_Likes', 'post_likes' ), 30, 1 );
 }
 
-add_action( 'loop_end', 'jptweak_remove_share' );
+add_action( 'loop_end', 'pwwp_jptweak_remove_share' );
 
 //Add class to the tags for bootstrap markup
-function add_class_the_tags($html){
+function pwwp_add_class_the_tags($html){
     $postid = get_the_ID();
     $html = str_replace('<a','<a class="label label-default"',$html);
     return $html;
 }
-add_filter('the_tags','add_class_the_tags',10,1);
+add_filter('the_tags','pwwp_add_class_the_tags',10,1);
 
 // Remove inline styles that WordPress adds alongside the default Recent Comments widget
 // Fix from here: https://core.trac.wordpress.org/changeset/16522
