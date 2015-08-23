@@ -316,8 +316,8 @@ function optionsframework_options() {
 
  	/* Basic */
 
- 	$wp_customize->add_section( 'options_theme_customizer_basic', array(
- 		'title' => __( 'Basic', 'options_theme_customizer' ),
+ 	$wp_customize->add_section( 'best_reloaded_customizer_basic', array(
+ 		'title' => __( 'Basic', 'best_reloaded' ),
  		'priority' => 100
  	) );
 
@@ -326,10 +326,10 @@ function optionsframework_options() {
  		'type' => 'option'
  	) );
 
- 	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_intro_text', array(
+ 	$wp_customize->add_control( 'best_reloaded_bestreloaded_display_intro_text', array(
  		'label' => $options['bestreloaded_display_intro_text']['name'],
- 		'section' => 'options_theme_customizer_basic',
- 		'settings' => 'options_theme_customizer[bestreloaded_display_intro_text]',
+ 		'section' => 'best_reloaded_customizer_basic',
+ 		'settings' => 'best_reloaded[bestreloaded_display_intro_text]',
  		'type' => $options['bestreloaded_display_intro_text']['type']
  	) );
  	/*
