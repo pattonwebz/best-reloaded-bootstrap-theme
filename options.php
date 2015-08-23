@@ -333,17 +333,7 @@ function pwwp_options_theme_customizer_register($wp_customize) {
 		'type' => $options['bestreloaded_display_intro_text']['type']
 	) );
 
-    $wp_customize->add_setting( 'options_theme_customizer[bestreloaded_display_header_banner_area]', array(
-		'default' => $options['bestreloaded_display_header_banner_area']['std'],
-		'type' => 'option'
-	) );
 
-	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_header_banner_area', array(
-		'label' => $options['bestreloaded_display_header_banner_area']['name'],
-		'section' => 'options_theme_customizer_basic',
-		'settings' => 'options_theme_customizer[bestreloaded_display_header_banner_area]',
-		'type' => $options['bestreloaded_display_header_banner_area']['type']
-	) );
 
 }
 
