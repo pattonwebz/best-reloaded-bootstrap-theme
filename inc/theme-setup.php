@@ -365,13 +365,13 @@ if ( !function_exists( 'pwwp_remove_category_list_rel' ) ) {
 
 add_filter( 'excerpt_length', 'pwwp_custom_excerpt_length', 999 );
 if ( !function_exists( 'pwwp_custom_excerpt_length' ) ) {
-    function custom_excerpt_length() {
+    function pwwp_custom_excerpt_length() {
         return 40;
     }
 }
 add_filter('excerpt_more', 'pwwp_new_excerpt_more');
 if ( !function_exists( 'pwwp_new_excerpt_more' ) ) {
-    function new_excerpt_more( $more ) {
+    function pwwp_new_excerpt_more( $more ) {
         return ' ...';
     }
 }
