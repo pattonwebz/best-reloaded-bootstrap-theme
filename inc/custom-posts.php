@@ -46,108 +46,6 @@ function pwwp_bestreloaded_slide_init() {
 
 }
 
-add_action( 'init', 'pwwp_bestreloaded_questions_init' );
-function pwwp_bestreloaded_questions_init() {
-
-    $labels = array(
-        'name'               => 'Questions', 'post type general name',
-        'singular_name'      => 'Question', 'post type singular name',
-        'add_new'            => 'Add New', 'question',
-        'add_new_item'       => 'Add New Question',
-        'edit_item'          => 'Edit Question',
-        'new_item'           => 'New Question',
-        'view_item'          => 'View Question',
-        'search_items'       => 'Search Question',
-        'not_found'          => 'No questions found',
-        'not_found_in_trash' => 'No questions found in Trash',
-        'parent_item_colon'  => '',
-        'menu_name'          => 'Q&A'
-    );
-
-    $args = array(
-        'labels'              => $labels,
-        'public'              => true,
-        'exclude_from_search' => false,
-        'publicly_queryable'  => true,
-        'show_ui'             => true,
-        'show_in_menu'        => true,
-        'query_var'           => true,
-        'rewrite'             => true,
-        'capability_type'     => 'post',
-        'has_archive'         => true,
-        'hierarchical'        => false,
-        'menu_position'       => null,
-		'supports'            => array('title', 'editor', 'thumbnail', 'excerpt'),
-		'taxonomies' 		  => array( '' )
-    );
-
-    register_post_type( 'questions', $args );
-}
-
-//hook into the init action and call create_book_taxonomies when it fires
-add_action( 'init', 'pwwp_create_question_taxonomies', 0 );
-function pwwp_create_question_taxonomies() {
-  // Add new taxonomy, make it hierarchical (like categories)
-  $labels = array(
-    'name'                => _x( 'Group', 'taxonomy general name', 'best_reloaded' ),
-    'singular_name'       => _x( 'Groups', 'taxonomy singular name', 'best_reloaded' ),
-    'search_items'        => __( 'Search Groups', 'best_reloaded' ),
-    'all_items'           => __( 'All Groups', 'best_reloaded' ),
-    'parent_item'         => __( 'Parent Group', 'best_reloaded' ),
-    'parent_item_colon'   => __( 'Parent Group:', 'best_reloaded' ),
-    'edit_item'           => __( 'Edit Group', 'best_reloaded' ),
-    'update_item'         => __( 'Update Group', 'best_reloaded' ),
-    'add_new_item'        => __( 'Add New Group', 'best_reloaded' ),
-    'new_item_name'       => __( 'New Group Name', 'best_reloaded' ),
-    'menu_name'           => __( 'Groups', 'best_reloaded' )
-  );
-
-  $args = array(
-    'hierarchical'        => true,
-    'labels'              => $labels,
-    'show_ui'             => true,
-    'show_admin_column'   => true,
-    'query_var'           => true,
-    'rewrite'             => array( 'slug' => 'group' )
-  );
-
-  register_taxonomy( 'group', 'questions', $args );
-
-
-  // Add new taxonomy, NOT hierarchical (like tags)
-  $labels = array(
-    'name'                         => _x( 'Topics', 'taxonomy general name', 'best_reloaded' ),
-    'singular_name'                => _x( 'Topic', 'taxonomy singular name', 'best_reloaded' ),
-    'search_items'                 => __( 'Search Topic', 'best_reloaded' ),
-    'popular_items'                => __( 'Popular Topics', 'best_reloaded' ),
-    'all_items'                    => __( 'All Topics', 'best_reloaded' ),
-    'parent_item'                  => null,
-    'parent_item_colon'            => null,
-    'edit_item'                    => __( 'Edit Topic', 'best_reloaded' ),
-    'update_item'                  => __( 'Update Topic', 'best_reloaded' ),
-    'add_new_item'                 => __( 'Add New Topic', 'best_reloaded' ),
-    'new_item_name'                => __( 'New Topic', 'best_reloaded' ),
-    'separate_items_with_commas'   => __( 'Separate topics with commas', 'best_reloaded' ),
-    'add_or_remove_items'          => __( 'Add or remove topics', 'best_reloaded' ),
-    'choose_from_most_used'        => __( 'Choose from the most used topics', 'best_reloaded' ),
-    'not_found'                    => __( 'No tag found.', 'best_reloaded' ),
-    'menu_name'                    => __( 'Topics', 'best_reloaded' )
-  );
-
-  $args = array(
-    'hierarchical'            => false,
-    'labels'                  => $labels,
-    'show_ui'                 => true,
-    'show_admin_column'       => true,
-    'update_count_callback'   => '_update_post_term_count',
-    'query_var'               => true,
-    'rewrite'                 => array( 'slug' => 'topics' )
-  );
-
-  register_taxonomy( 'tagged', 'questions', $args );
-
-}
-
 /* =============================================================
  * Add meta boxes for custom post types
  * ============================================================= */
@@ -175,41 +73,6 @@ function pwwp_slide_url_cb() {
     <?php
 }
 
-add_action( 'add_meta_boxes', 'pwwp_portfolio_meta_boxes' );
-function pwwp_portfolio_meta_boxes() {
-    add_meta_box(
-        'portfolio_site_url', // ID
-        'Details', // Title
-        'pwwp_portfolio_cb', // Callback
-        'portfolio', // Post type
-        'normal', // Context
-        'high' // Priority
-    );
-}
-
-function pwwp_portfolio_cb() {
-    global $post;
-    $name = get_post_meta($post->ID, 'portfolio_site_name', true);
-	$client = get_post_meta($post->ID, 'portfolio_site_clent', true);
-	$url = get_post_meta($post->ID, 'portfolio_site_url', true);
-	$jobtype = get_post_meta($post->ID, 'portfolio_site_jobtype', true);
-    ?>
-
-    <label for="portfolio_site_name">Site Name: </label>
-    <input type="text" name="portfolio_site_name" id="portfolio_site_name" class="widefat" value="<?php echo $name ?>">
-
-	 <label for="portfolio_site_client">Clent: </label>
-    <input type="text" name="portfolio_site_client" id="portfolio_site_client" class="widefat" value="<?php echo $client ?>">
-
-	<label for="portfolio_site_url">Site url: </label>
-    <input type="text" name="portfolio_site_url" id="portfolio_site_url" class="widefat" value="<?php echo $url ?>">
-
-	<label for="portfolio_site_jobtype">Jobtype: </label>
-    <input type="text" name="portfolio_site_jobtype" id="portfolio_site_jobtype" class="widefat" value="<?php echo $jobtype ?>">
-
-    <?php
-}
-
 /* =============================================================
  * Save post meta info
  * ============================================================= */
@@ -224,27 +87,6 @@ function pwwp_slide_save_meta() {
         update_post_meta($post->ID, 'response_slide_url', $_POST['response_slide_url']);
     }
 }
-
-add_action( 'save_post', 'pwwp_portfolio_save_meta' );
-function pwwp_portfolio_save_meta() {
-    global $post;
-    // If save or publish is selected, allow updating of post meta information
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-    // If a value for the metabox is set, update the post
-    if ( isset($_POST['portfolio_site_name']) ) {
-        update_post_meta($post->ID, 'portfolio_site_name', $_POST['portfolio_site_name']);
-    }
-    if ( isset($_POST['portfolio_site_client']) ) {
-        update_post_meta($post->ID, 'portfolio_site_clent', $_POST['portfolio_site_client']);
-    }
-    if ( isset($_POST['portfolio_site_url']) ) {
-        update_post_meta($post->ID, 'portfolio_site_url', $_POST['portfolio_site_url']);
-    }
-	if ( isset($_POST['portfolio_site_jobtype']) ) {
-        update_post_meta($post->ID, 'portfolio_site_jobtype', $_POST['portfolio_site_jobtype']);
-    }
-}
-
 
 /* =============================================================
  * Update Slide Messages
