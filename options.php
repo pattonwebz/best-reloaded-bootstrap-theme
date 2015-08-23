@@ -319,7 +319,14 @@ function best_reloaded_register($wp_customize) {
         'title' => __( 'Header', 'best_reloaded' ),
         'priority' => 100
     ) );
-
+    $wp_customize->add_section( 'best_reloaded_footer', array(
+        'title' => __( 'Footer', 'best_reloaded' ),
+        'priority' => 100
+    ) );
+    $wp_customize->add_section( 'best_reloaded_home', array(
+        'title' => __( 'Homepage', 'best_reloaded' ),
+        'priority' => 100
+    ) );
  	/* Basic */
 
  	$wp_customize->add_section( 'best_reloaded_basic', array(
@@ -355,7 +362,7 @@ function best_reloaded_register($wp_customize) {
  	) );
  	$wp_customize->add_control( 'best_reloaded_bestreloaded_display_intro_text', array(
  		'label' => $options['bestreloaded_display_intro_text']['name'],
- 		'section' => 'best_reloaded_basic',
+ 		'section' => 'best_reloaded_home',
  		'settings' => 'best_reloaded[bestreloaded_display_intro_text]',
  		'type' => $options['bestreloaded_display_intro_text']['type']
  	) );
@@ -366,10 +373,21 @@ function best_reloaded_register($wp_customize) {
     ) );
     $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
         'label' => $options['bestreloaded_intro_text']['name'],
-        'section' => 'best_reloaded_basic',
+        'section' => 'best_reloaded_home',
         'settings' => 'best_reloaded[bestreloaded_intro_text]',
         'type' => $options['bestreloaded_intro_text']['type']
     ) ) );
+
+    $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_homepage_widget_row]', array(
+        'default' => $options['bestreloaded_display_homepage_widget_row']['std'],
+        'type' => 'option'
+    ) );
+    $wp_customize->add_control( 'best_reloaded_bestreloaded_display_homepage_widget_row', array(
+        'label' => $options['bestreloaded_display_homepage_widget_row']['name'],
+        'section' => 'best_reloaded_home',
+        'settings' => 'best_reloaded[bestreloaded_display_homepage_widget_row]',
+        'type' => $options['bestreloaded_display_homepage_widget_row']['type']
+    ) );
 
  	/*
  	$wp_customize->add_setting( 'options_theme_customizer[example_select]', array(
