@@ -65,7 +65,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_header_banner_area'] = array(
         'name' => 'Header Banner Area',
         'desc' => 'Enter in your content for the header banner area.',
         'id' => 'bestreloaded_header_banner_area',
@@ -90,7 +90,7 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_homepage_widget_row'] = array(
         'name' => 'Display Homepage Widget Row',
         'desc' => 'Select the checkbox to display the homepage widget row, which allows you to place three widgets in line below the slider.',
         'id' => 'bestreloaded_display_homepage_widget_row',
@@ -98,7 +98,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_featured_bar'] = array(
         'name' => 'Display Featured Content Bar',
         'desc' => 'Select the checkbox to display the featured content bar, which appears at the top of your inner pages throughout the site. This section is perfect for marketing and promotions purposes. There is 4 of these and you can override them using custom metas. You can override these using a custom meta.',
         'id' => 'bestreloaded_display_featured_bar',
@@ -106,7 +106,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_featured_bar'] = array(
         'name' => 'Featured Content Bar Text',
         'desc' => 'This section supports HTML tags if desired.',
         'id' => 'bestreloaded_featured_bar',
@@ -115,7 +115,7 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-	$options[] = array(
+	$options['bestreloaded_featured_bar1'] = array(
         'name' => 'Featured Content Bar Text 1',
         'desc' => 'This section supports HTML tags if desired.',
         'id' => 'bestreloaded_featured_bar1',
@@ -123,7 +123,7 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-	$options[] = array(
+	$options['bestreloaded_featured_bar2'] = array(
         'name' => 'Featured Content Bar Text 2',
         'desc' => 'This section supports HTML tags if desired. This section also supports shortcodes - so you can add your forms and whatnot.',
         'id' => 'bestreloaded_featured_bar2',
@@ -131,7 +131,7 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-	$options[] = array(
+	$options['bestreloaded_featured_bar3'] = array(
         'name' => 'Featured Content Bar Text 3',
         'desc' => 'This section supports HTML tags if desired. This section also supports shortcodes - so you can add your forms and whatnot.',
         'id' => 'bestreloaded_featured_bar3',
@@ -139,7 +139,7 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-    $options[] = array(
+    $options['bestreloaded_pagination_option'] = array(
         'name' => 'Blog Pagination Option',
         'desc' => 'Select the checkbox to display custom pagination with advanced features. Deselecting the checkbox will display standard WordPress pagination.',
         'id' => 'bestreloaded_pagination_option',
@@ -147,7 +147,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_twitter'] = array(
         'name' => 'Display Twitter Integration - currently inactive',
         'desc' => 'This section used to be used to display the Twitter integration above the footer but due to changes in the Twitter API it stopped functioning. Plans are to reuse as another featured slot or optin section.',
         'id' => 'bestreloaded_display_twitter',
@@ -155,7 +155,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_twitter'] = array(
         'name' => 'Twitter Username',
         'desc' => 'Enter your Twitter username to have your latest tweet displayed above the footer.',
         'id' => 'bestreloaded_twitter',
@@ -164,7 +164,7 @@ function optionsframework_options() {
         'type' => 'text'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_footer_top'] = array(
         'name' => 'Display Footer Top',
         'desc' => 'Select the checkbox to display the top section of the footer, which contains widget areas.',
         'id' => 'bestreloaded_display_footer_top',
@@ -172,7 +172,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_footer_bottom'] = array(
         'name' => 'Display Footer Bottom',
         'desc' => 'Select the checkbox to display the bottom section of the footer, which contains a space for a tagline and a menu.',
         'id' => 'bestreloaded_display_footer_bottom',
@@ -180,7 +180,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_footer_bottom_tagline'] = array(
         'name' => 'Footer Bottom Tagline',
         'desc' => 'Enter a brief tagline about your site, which will display on the left side of the bottom section of the footer. This section supports HTML tags if desired. This text is wrapped in a paragraph element for formatting.',
         'id' => 'bestreloaded_footer_bottom_tagline',
@@ -194,7 +194,7 @@ function optionsframework_options() {
         'type' => 'heading'
     );
 
-    $options[] = array(
+    $options['bestreloaded_site_heading_img_checkbox'] = array(
         'name' => 'Site Heading Title',
         'desc' => 'Selecting this checkbox provides an option to upload an image for your site heading. Leaving it blank will automatically display the site name and description.',
         'id' => 'bestreloaded_site_heading_img_checkbox',
@@ -202,14 +202,14 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['site_heading_img'] = array(
         'name' => 'Logo Uploader',
         'id' => 'site_heading_img',
         'class' => 'hidden',
         'type' => 'upload'
     );
 
-    $options[] = array(
+    $options['bestreloaded_background'] = array(
         'name' => 'Site Background',
         'desc' => 'Select your background options for the theme.',
         'id' => 'bestreloaded_background',
@@ -217,7 +217,7 @@ function optionsframework_options() {
         'type' => 'background'
     );
 
-    $options[] = array(
+    $options['bestreloaded_link_color_main'] = array(
         'name' => 'Main Link Color',
         'desc' => 'Select a main link color for the theme.',
         'id' => 'bestreloaded_link_color_main',
@@ -225,7 +225,7 @@ function optionsframework_options() {
         'type' => 'color'
     );
 
-    $options[] = array(
+    $options['bestreloaded_link_hover_color_main'] = array(
         'name' => 'Main Link Hover Color',
         'desc' => 'Select a main link hover color for the theme.',
         'id' => 'bestreloaded_link_hover_color_main',
@@ -233,7 +233,7 @@ function optionsframework_options() {
         'type' => 'color'
     );
 
-    $options[] = array(
+    $options['bestreloaded_link_color_footer'] = array(
         'name' => 'Footer Link Color',
         'desc' => 'Select a footer link color for the theme.',
         'id' => 'bestreloaded_link_color_footer',
@@ -241,7 +241,7 @@ function optionsframework_options() {
         'type' => 'color'
     );
 
-    $options[] = array(
+    $options['bestreloaded_link_hover_color_footer'] = array(
         'name' => 'Footer Link Hover Color',
         'desc' => 'Select a footer link hover color for the theme.',
         'id' => 'bestreloaded_link_hover_color_footer',
@@ -249,7 +249,7 @@ function optionsframework_options() {
         'type' => 'color'
     );
 
-    $options[] = array(
+    $options['bestreloaded_background_featured_content'] = array(
         'name' => 'Featured Content Bar Background',
         'desc' => 'Select the background color and/or image for the featured content bar.',
         'id' => 'bestreloaded_background_featured_content',
@@ -257,7 +257,7 @@ function optionsframework_options() {
         'type' => 'background'
     );
 
-    $options[] = array(
+    $options['bestreloaded_text_color_featured_content'] = array(
         'name' => 'Featured Content Bar Text Color',
         'desc' => 'Select the text color for the featured content bar.',
         'id' => 'bestreloaded_text_color_featured_content',
@@ -265,7 +265,7 @@ function optionsframework_options() {
         'type' => 'color'
     );
 
-    $options[] = array(
+    $options['bestreloaded_link_color_featured_content'] = array(
         'name' => 'Featured Content Bar Link Color',
         'desc' => 'Select the link color for the featured content bar.',
         'id' => 'bestreloaded_link_color_featured_content',
@@ -273,7 +273,7 @@ function optionsframework_options() {
         'type' => 'color'
     );
 
-    $options[] = array(
+    $options['bestreloaded_link_hover_color_featured_content'] = array(
         'name' => 'Featured Content Bar Link Hover Color',
         'desc' => 'Select the link hover color for the featured content bar.',
         'id' => 'bestreloaded_link_hover_color_featured_content',
@@ -295,7 +295,7 @@ function optionsframework_options() {
 
 add_action( 'customize_register', 'best_reloaded_register' );
 function best_reloaded_register($wp_customize) {
-    class Example_Customize_Textarea_Control extends WP_Customize_Control {
+    class PWWP_Customize_Textarea_Control extends WP_Customize_Control {
         public $type = 'textarea';
 
         public function render_content() {
@@ -333,6 +333,19 @@ function best_reloaded_register($wp_customize) {
  		'settings' => 'best_reloaded[bestreloaded_display_intro_text]',
  		'type' => $options['bestreloaded_display_intro_text']['type']
  	) );
+
+    $wp_customize->add_setting( 'best_reloaded[bestreloaded_intro_text]', array(
+        'default' => $options['bestreloaded_intro_text']['std'],
+        'type' => 'option'
+    ) );
+
+    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
+        'label' => $options['bestreloaded_intro_text']['name'],
+        'section' => 'best_reloaded_basic',
+        'settings' => 'best_reloaded[bestreloaded_intro_text]',
+        'type' => $options['bestreloaded_intro_text']['type']
+    ) ) );
+
  	/*
  	$wp_customize->add_setting( 'options_theme_customizer[example_select]', array(
  		'default' => $options['example_select']['std'],
@@ -347,17 +360,7 @@ function best_reloaded_register($wp_customize) {
  		'choices' => $options['example_select']['options']
  	) );
     */
-    $wp_customize->add_setting( 'best_reloaded[bestreloaded_intro_text]', array(
- 		'default' => $options['bestreloaded_intro_text']['std'],
- 		'type' => 'option'
- 	) );
 
-    $wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
- 		'label' => $options['bestreloaded_intro_text']['name'],
- 		'section' => 'best_reloaded_basic',
- 		'settings' => 'best_reloaded[bestreloaded_intro_text]',
- 		'type' => $options['bestreloaded_intro_text']['type']
- 	) ) );
 
  }
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
