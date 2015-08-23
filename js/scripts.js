@@ -19,16 +19,20 @@ jQuery(document).ready(function($){
         if(debug){
             console.log(socialTop,'This is the initial value of socialTop' );
         }
-        // affixes the div whenever scroll past it
         if ( $('header nav.navbar').hasClass('navbar-fixed-top') ){
             socialTop = (socialTop - 50);
             if(debug){
                 console.log(socialTop,'This is the updated value of socialTop' );
             }
         }
+        if ( socialTop <= 50 ) {
+            socialTop = 450;
+            console.log('Value of socialTop negative or too low, reseting to a sane semi-guess:', socialTop)
+        }
         if(debug){
             console.log(socialTop,'This is the value passed as the affix offset' );
         }
+        // affixes the div whenever scroll past it
         $('#social-block').affix({
             offset: { top: socialTop }
         });
