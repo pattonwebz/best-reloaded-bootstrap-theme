@@ -19,10 +19,6 @@
  /**
   * Defines an array of options that will be used to generate the settings page and be saved in the database.
   * When creating the 'id' fields, make sure to use all lowercase and no spaces.
-  *
-  * If you are making your theme translatable, you should replace 'theme-textdomain'
-  * with the actual text domain for your theme.  Read more:
-  * http://codex.wordpress.org/Function_Reference/load_theme_textdomain
   */
 function optionsframework_options() {
 
