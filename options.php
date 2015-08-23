@@ -8,32 +8,22 @@
  * @since Best Reloaded 0.1
  */
 
-/**
- * A unique identifier is defined to store the options in the database and reference them from the theme.
- * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
- * If the identifier changes, it'll appear as if the options have been reset.
- */
+ /**
+  * A unique identifier is defined to store the options in the database and reference them from the theme.
+  */
+ function optionsframework_option_name() {
+ 	// Change this to use your theme slug
+ 	return 'best_reloaded';
+ }
 
-function optionsframework_option_name() {
-
-    // This gets the theme name from the stylesheet
-    $themename = get_option( 'stylesheet' );
-    $themename = preg_replace("/\W/", "_", strtolower($themename) );
-
-    $optionsframework_settings = get_option( 'optionsframework' );
-    $optionsframework_settings['id'] = $themename;
-    update_option( 'optionsframework', $optionsframework_settings );
-}
-
-/**
- * Defines an array of options that will be used to generate the settings page and be saved in the database.
- * When creating the 'id' fields, make sure to use all lowercase and no spaces.
- *
- * If you are making your theme translatable, you should replace 'options_framework_theme'
- * with the actual text domain for your theme.  Read more:
- * http://codex.wordpress.org/Function_Reference/load_theme_textdomain
- */
-
+ /**
+  * Defines an array of options that will be used to generate the settings page and be saved in the database.
+  * When creating the 'id' fields, make sure to use all lowercase and no spaces.
+  *
+  * If you are making your theme translatable, you should replace 'theme-textdomain'
+  * with the actual text domain for your theme.  Read more:
+  * http://codex.wordpress.org/Function_Reference/load_theme_textdomain
+  */
 function optionsframework_options() {
 
     // Pull all the categories into an array
@@ -194,7 +184,7 @@ function optionsframework_options() {
         'name' => 'Footer Bottom Tagline',
         'desc' => 'Enter a brief tagline about your site, which will display on the left side of the bottom section of the footer. This section supports HTML tags if desired. This text is wrapped in a paragraph element for formatting.',
         'id' => 'bestreloaded_footer_bottom_tagline',
-        'std' => '&copy; 2014 <a href="http://www.pattonwebz.com/">PattonWebz',
+        'std' => '&copy; 2014-2015 <a href="http://www.pattonwebz.com/">PattonWebz</a>',
         'class' => 'hidden',
         'type' => 'textarea'
     );
