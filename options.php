@@ -347,6 +347,18 @@ function best_reloaded_register($wp_customize) {
  		'choices' => $options['example_select']['options']
  	) );
     */
+    $wp_customize->add_setting( 'best_reloaded[bestreloaded_intro_text]', array(
+ 		'default' => $options['bestreloaded_intro_text']['std'],
+ 		'type' => 'option'
+ 	) );
+
+    $wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
+ 		'label' => $options['bestreloaded_intro_text']['name'],
+ 		'section' => 'best_reloaded_basic',
+ 		'settings' => 'best_reloaded[bestreloaded_intro_text]',
+ 		'type' => $options['bestreloaded_intro_text']['type']
+ 	) ) );
+
  }
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 function optionsframework_custom_scripts() { ?>
