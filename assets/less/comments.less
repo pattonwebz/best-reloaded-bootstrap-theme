@@ -1,0 +1,75 @@
+// Comments
+// --------------------------------------------------
+#comments{
+    .commentlist {
+        margin-left: 0;
+        padding-left: 0;
+    }
+    li{
+        &.comment,
+        &.pingpack{
+            list-style: none;
+        }
+    }
+    .pingback{
+        position: relative;
+        padding: 20px;
+        margin: 15px 0;
+        background-color: #fcfcfc;
+        border: 1px solid #e3e3e3;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 0 20px #f2f2f2;
+        -moz-box-shadow: inset 0 0 20px #f2f2f2;
+        box-shadow: inset 0 0 20px #f2f2f2;
+        line-height: 1.7;
+        font-size: 15px;
+    }
+    article{
+        &.comment{
+            .pingback;
+        }
+        .comment-meta {
+            position: relative;
+            .avatar {
+                float: left;
+                padding: 3px;
+                margin-right: 14px;
+                margin-bottom: 8px;
+                background: #fff;
+                border: 1px solid #e3e3e3;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+                -webkit-box-shadow: 0 2px 4px #e9e9e9;
+                -moz-box-shadow: 0 2px 4px #e9e9e9;
+                box-shadow: 0 2px 4px #e9e9e9;
+            }
+            .fn {
+                float: left;
+                position: relative;
+                top: 5px;
+                font-size: 22px;
+                line-height: 1.1;
+            }
+        }
+        .comment-reply-link {
+            span {
+                position: relative;
+                top: 1px;
+            }
+        }
+        .comment-content {
+            clear: both;
+            position: relative;
+            top:1%;
+            p {
+               font-size: 15px;
+           }
+        }
+        .edit-reply {
+            margin-top: 5px;
+        }
+    }
+}
