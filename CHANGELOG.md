@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2015/08/23 22:57 +00:00)
+### upcoming (2015/08/23 23:01 +00:00)
+- [b6eb9c2](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/b6eb9c2552b1641b049c4e81d9bf451dca022591) ran grunt to recompile style.css (@pattonwebz)
+- [5a959b5](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/5a959b5844295e0be7fdab1181ea009ed6891441) Add 'Tags:' and list of valid tags to stylesheet (@pattonwebz)
 - [a6b8eaf](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/a6b8eaf82ffe255ede527ab3393d646ffb8ac504) remove tags.php as it was the cause of the <title> theme-check fail (@pattonwebz)
 - [4771c83](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/4771c834b4b03240673c1c36dcee11cc447eada8) Add 'title-tag' support will fallback for old versions (@pattonwebz)
 - [1368759](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/1368759bd3a7220ed067ed237be5f400eb7b1ea6) ran grunt to recompile changes to stylesheet (@pattonwebz)
