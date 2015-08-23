@@ -294,8 +294,47 @@ function optionsframework_options() {
     return $options;
 }
 
-add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
+/**
+ * Front End Customizer
+ *
+ * WordPress 3.4 Required
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.5
+ */
 
+add_action( 'customize_register', 'pwwp_options_theme_customizer_register' );
+function pwwp_options_theme_customizer_register($wp_customize) {
+
+	/**
+	 * This is optional, but if you want to reuse some of the defaults
+	 * or values you already have built in the options panel, you
+	 * can load them into $options for easy reference
+	 */
+
+	$options = optionsframework_options();
+
+	/* Basic */
+
+	$wp_customize->add_section( 'options_theme_customizer_basic', array(
+		'title' => __( 'Basic', 'options_theme_customizer' ),
+		'priority' => 100
+	) );
+
+	$wp_customize->add_setting( 'options_theme_customizer[bestreloaded_display_intro_text]', array(
+		'default' => $options['bestreloaded_display_intro_text']['std'],
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_intro_text', array(
+		'label' => $options['bestreloaded_display_intro_text']['name'],
+		'section' => 'options_theme_customizer_basic',
+		'settings' => 'options_theme_customizer[bestreloaded_display_intro_text]',
+		'type' => $options['bestreloaded_display_intro_text']['type']
+	) );
+}
+
+add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 function optionsframework_custom_scripts() { ?>
 
 <script type="text/javascript">
