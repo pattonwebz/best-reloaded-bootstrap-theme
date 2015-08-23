@@ -119,7 +119,7 @@ function pwwp_create_question_taxonomies() {
     'name'                         => _x( 'Topics', 'taxonomy general name', 'best_reloaded' ),
     'singular_name'                => _x( 'Topic', 'taxonomy singular name', 'best_reloaded' ),
     'search_items'                 => __( 'Search Topic', 'best_reloaded' ),
-    'popular_items'                => __( 'Popular Topics, 'best_reloaded'' ),
+    'popular_items'                => __( 'Popular Topics', 'best_reloaded' ),
     'all_items'                    => __( 'All Topics', 'best_reloaded' ),
     'parent_item'                  => null,
     'parent_item_colon'            => null,
