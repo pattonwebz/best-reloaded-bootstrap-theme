@@ -5,7 +5,7 @@
  * @subpackage Best_Reloaded
  * @since Best Reloaded 0.1
  */
-var debug = false;
+var debug = true;
 jQuery(document).ready(function($){
     // if #social-block exists then do this...
     // TODO: Add on/off toggle here
