@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2015/08/23 19:30 +00:00)
+### upcoming (2015/08/23 20:12 +00:00)
+- [c15d898](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/c15d8985aaf94dc9eb433b67bec22051691af533) Corrected Theme Name in style.less and Version number, ran grunt to recompile (@pattonwebz)
 - [859294c](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/859294cc09a24de919d34b38bac75fd6ebbfb496) correct misplaced single quote in custom-posts.php (@pattonwebz)
 - [79a7d70](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/79a7d706658afa1f5464d4d32b07ed3b1c6ba97e) change textdomain in options framework to match theme textdomain (@pattonwebz)
 - [49e3569](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/49e35690e9d301931e73de4b0a6bb8c44ae1091c) Added a textdomain to strings that were already translatable in custom-posts.php file (@pattonwebz)
