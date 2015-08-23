@@ -89,17 +89,17 @@ add_action( 'init', 'pwwp_create_question_taxonomies', 0 );
 function pwwp_create_question_taxonomies() {
   // Add new taxonomy, make it hierarchical (like categories)
   $labels = array(
-    'name'                => _x( 'Group', 'taxonomy general name' ),
-    'singular_name'       => _x( 'Groups', 'taxonomy singular name' ),
-    'search_items'        => __( 'Search Groups' ),
-    'all_items'           => __( 'All Groups' ),
-    'parent_item'         => __( 'Parent Group' ),
-    'parent_item_colon'   => __( 'Parent Group:' ),
-    'edit_item'           => __( 'Edit Group' ),
-    'update_item'         => __( 'Update Group' ),
-    'add_new_item'        => __( 'Add New Group' ),
-    'new_item_name'       => __( 'New Group Name' ),
-    'menu_name'           => __( 'Groups' )
+    'name'                => _x( 'Group', 'taxonomy general name', 'best_reloaded' ),
+    'singular_name'       => _x( 'Groups', 'taxonomy singular name', 'best_reloaded' ),
+    'search_items'        => __( 'Search Groups', 'best_reloaded' ),
+    'all_items'           => __( 'All Groups', 'best_reloaded' ),
+    'parent_item'         => __( 'Parent Group', 'best_reloaded' ),
+    'parent_item_colon'   => __( 'Parent Group:', 'best_reloaded' ),
+    'edit_item'           => __( 'Edit Group', 'best_reloaded' ),
+    'update_item'         => __( 'Update Group', 'best_reloaded' ),
+    'add_new_item'        => __( 'Add New Group', 'best_reloaded' ),
+    'new_item_name'       => __( 'New Group Name', 'best_reloaded' ),
+    'menu_name'           => __( 'Groups', 'best_reloaded' )
   );
 
   $args = array(
@@ -116,22 +116,22 @@ function pwwp_create_question_taxonomies() {
 
   // Add new taxonomy, NOT hierarchical (like tags)
   $labels = array(
-    'name'                         => _x( 'Topics', 'taxonomy general name' ),
-    'singular_name'                => _x( 'Topic', 'taxonomy singular name' ),
-    'search_items'                 => __( 'Search Topic' ),
-    'popular_items'                => __( 'Popular Topics' ),
-    'all_items'                    => __( 'All Topics' ),
+    'name'                         => _x( 'Topics', 'taxonomy general name', 'best_reloaded' ),
+    'singular_name'                => _x( 'Topic', 'taxonomy singular name', 'best_reloaded' ),
+    'search_items'                 => __( 'Search Topic', 'best_reloaded' ),
+    'popular_items'                => __( 'Popular Topics, 'best_reloaded'' ),
+    'all_items'                    => __( 'All Topics', 'best_reloaded' ),
     'parent_item'                  => null,
     'parent_item_colon'            => null,
-    'edit_item'                    => __( 'Edit Topic' ),
-    'update_item'                  => __( 'Update Topic' ),
-    'add_new_item'                 => __( 'Add New Topic' ),
-    'new_item_name'                => __( 'New Topic' ),
-    'separate_items_with_commas'   => __( 'Separate topics with commas' ),
-    'add_or_remove_items'          => __( 'Add or remove topics' ),
-    'choose_from_most_used'        => __( 'Choose from the most used topics' ),
-    'not_found'                    => __( 'No tag found.' ),
-    'menu_name'                    => __( 'Topics' )
+    'edit_item'                    => __( 'Edit Topic', 'best_reloaded' ),
+    'update_item'                  => __( 'Update Topic', 'best_reloaded' ),
+    'add_new_item'                 => __( 'Add New Topic', 'best_reloaded' ),
+    'new_item_name'                => __( 'New Topic', 'best_reloaded' ),
+    'separate_items_with_commas'   => __( 'Separate topics with commas', 'best_reloaded' ),
+    'add_or_remove_items'          => __( 'Add or remove topics', 'best_reloaded' ),
+    'choose_from_most_used'        => __( 'Choose from the most used topics', 'best_reloaded' ),
+    'not_found'                    => __( 'No tag found.', 'best_reloaded' ),
+    'menu_name'                    => __( 'Topics', 'best_reloaded' )
   );
 
   $args = array(
