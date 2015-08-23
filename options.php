@@ -293,8 +293,8 @@ function optionsframework_options() {
  * @since Best Reloaded 0.5
  */
 
- add_action( 'customize_register', 'options_theme_customizer_register' );
- function options_theme_customizer_register($wp_customize) {
+ add_action( 'customize_register', 'best_reloaded_register' );
+ function best_reloaded_register($wp_customize) {
 
  	/**
  	 * This is optional, but if you want to reuse some of the defaults
@@ -306,20 +306,20 @@ function optionsframework_options() {
 
  	/* Basic */
 
- 	$wp_customize->add_section( 'options_theme_customizer_basic', array(
- 		'title' => __( 'Basic', 'options_theme_customizer' ),
+ 	$wp_customize->add_section( 'best_reloaded_basic', array(
+ 		'title' => __( 'Basic', 'best_reloaded' ),
  		'priority' => 100
  	) );
 
- 	$wp_customize->add_setting( 'options_theme_customizer[bestreloaded_display_intro_text]', array(
+ 	$wp_customize->add_setting( 'best_reloaded[bestreloaded_display_intro_text]', array(
  		'default' => $options['bestreloaded_display_intro_text']['std'],
  		'type' => 'option'
  	) );
 
- 	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_intro_text', array(
+ 	$wp_customize->add_control( 'best_reloaded_bestreloaded_display_intro_text', array(
  		'label' => $options['bestreloaded_display_intro_text']['name'],
- 		'section' => 'options_theme_customizer_basic',
- 		'settings' => 'options_theme_customizer[bestreloaded_display_intro_text]',
+ 		'section' => 'best_reloaded_basic',
+ 		'settings' => 'best_reloaded[bestreloaded_display_intro_text]',
  		'type' => $options['bestreloaded_display_intro_text']['type']
  	) );
  	/*
