@@ -83,7 +83,7 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_intro_text'] = array(
         'name' => 'Display Homepage Intro Text',
         'desc' => 'Select the checkbox to display the homepage intro text, which appears above the slider on the homepage.',
         'id' => 'bestreloaded_display_intro_text',
