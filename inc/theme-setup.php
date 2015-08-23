@@ -42,6 +42,10 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
         // This feature enables post and comment RSS feed links to head
         add_theme_support( 'automatic-feed-links' );
 
+        // This enables WP 4.1+ title-tag support. Fallback in place for
+        // old versions
+        add_theme_support( 'title-tag' );
+
         /* =============================================================
          * Author: Boutros AbiChedid
          * Date: March 20, 2011

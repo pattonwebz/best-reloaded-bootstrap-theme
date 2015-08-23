@@ -12,9 +12,18 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>>    <!--<![endif]-->
 <head>
+    <?php
+    if ( ! function_exists( '_wp_render_title_tag' ) ) {
+    	function theme_slug_render_title() {
+    ?>
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <?php
+    	}
+    	add_action( 'wp_head', 'theme_slug_render_title' );
+    }
+    ?>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title><?php wp_title(''); ?></title>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
     <?php wp_head(); ?>
 </head>
