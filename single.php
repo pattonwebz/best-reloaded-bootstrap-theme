@@ -19,7 +19,7 @@
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                         <h2 class="page-title"><?php the_title(); ?></h2>
-                        <span class="meta text-muted"><span class="glyphicon glyphicon-pencil"></span> Written by <?php the_author_link(); ?> on <?php the_time('F j, Y'); ?> and posted in <?php the_category( ' and ' ); ?>.</span>
+                        <span class="meta text-muted"><span class="glyphicon glyphicon-pencil"></span> Written by <span class="bypostauthor"><?php the_author_link(); ?></span> on <?php the_time('F j, Y'); ?> and posted in <?php the_category( ' and ' ); ?>.</span>
                         <ul class="prev-next-single pager clearfix">
                             <li class="previous"><?php previous_post_link( '%link', '<span class="glyphicon glyphicon-chevron-left"></span> Older Posts' ); ?></li>
                             <li class="next"><?php next_post_link( '%link', 'Newer Posts <span class="glyphicon glyphicon-chevron-right"></span>' ); ?></li>
