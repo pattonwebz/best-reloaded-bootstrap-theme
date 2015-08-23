@@ -1,6 +1,16 @@
 ## Change Log
 
-### upcoming (2015/08/23 15:28 +00:00)
+### upcoming (2015/08/23 19:30 +00:00)
+- [859294c](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/859294cc09a24de919d34b38bac75fd6ebbfb496) correct misplaced single quote in custom-posts.php (@pattonwebz)
+- [79a7d70](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/79a7d706658afa1f5464d4d32b07ed3b1c6ba97e) change textdomain in options framework to match theme textdomain (@pattonwebz)
+- [49e3569](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/49e35690e9d301931e73de4b0a6bb8c44ae1091c) Added a textdomain to strings that were already translatable in custom-posts.php file (@pattonwebz)
+- [b795b64](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/b795b64aefacb789a5b680507207cd70bd27b226) add customizer sections for home, header, footer... expose some more options to the customizer (@pattonwebz)
+- [fb794b7](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/fb794b7d9a39d8aa000234508b95841b10507718) make a new section in customizer for the header settings (@pattonwebz)
+- [ccada47](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/ccada470bd17e8ca66594e38646cdd748759d4bc) add options to the customizer to handle the custom header section (@pattonwebz)
+- [1dd21fb](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/1dd21fb1e37f09d02877424634998d8c710c502b) Assign keys to each of the options in options.php (@pattonwebz)
+- [aeffdc8](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/aeffdc84d14e0d63639c8b458a1ef9bc390069c1) add a setting that uses 'textarea' (@pattonwebz)
+- [0cd5f34](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/0cd5f34f73ed6f50deb9a500a8437809df4090b5) add class to handle textarea types in customizer (@pattonwebz)
+- [9d86aba](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/9d86abab2a0e1e99344820ab1f62f1f4998ffd98) adjusted padding on .featured-bar-post to match alignment with other elements nearby (@pattonwebz)
 - [be009f2](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/be009f2524bab1e8e8ef31a28eefc9b8101645b5) recomplied styles and readded grunt-github-changelog (@pattonwebz)
 - [ef1d4aa](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/ef1d4aa3179eb4778462c485beb3a73136ef61d6) updated styles for slider in less files (@pattonwebz)
 - [9d794fa](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/9d794fa098aa65fc36795e263a6619cbef2db841) fix incorrectly named functions so excerpts appear on homepage again (@pattonwebz)
