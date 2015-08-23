@@ -293,9 +293,20 @@ function optionsframework_options() {
  * @since Best Reloaded 0.5
  */
 
- add_action( 'customize_register', 'best_reloaded_register' );
- function best_reloaded_register($wp_customize) {
+add_action( 'customize_register', 'best_reloaded_register' );
+function best_reloaded_register($wp_customize) {
+    class Example_Customize_Textarea_Control extends WP_Customize_Control {
+        public $type = 'textarea';
 
+        public function render_content() {
+        ?>
+            <label>
+                <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+            </label>
+        <?php
+        }
+    }
  	/**
  	 * This is optional, but if you want to reuse some of the defaults
  	 * or values you already have built in the options panel, you
