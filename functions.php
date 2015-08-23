@@ -24,13 +24,12 @@ include 'inc/shortcodes.php';
 // Register Custom Navigation Walker
 require_once('wp_bootstrap_navwalker.php');
 
-// Loads the Options Panel
-// If you're loading from a child theme use stylesheet_directory instead of template_directory
-if ( !function_exists( 'optionsframework_init' ) ) {
-    define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/admin/' );
-    require_once dirname( __FILE__ ) . '/inc/admin/options-framework.php';
-    require_once dirname( __FILE__ ) . '/options.php';
-}
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
+require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+
+// Loads options.php from child or parent theme
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
 
 // Move the Jetpack social share buttons to the beginning of the post, this is to allow for the float effect
 function pwwp_jptweak_remove_share() {
