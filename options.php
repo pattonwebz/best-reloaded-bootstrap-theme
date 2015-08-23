@@ -294,8 +294,59 @@ function optionsframework_options() {
     return $options;
 }
 
+/**
+ * Front End Customizer
+ *
+ * WordPress 3.4 Required
+ * @package WordPress
+ * @subpackage Best_Reloaded
+ * @since Best Reloaded 0.5
+ */
 
+ add_action( 'customize_register', 'options_theme_customizer_register' );
+ function options_theme_customizer_register($wp_customize) {
 
+ 	/**
+ 	 * This is optional, but if you want to reuse some of the defaults
+ 	 * or values you already have built in the options panel, you
+ 	 * can load them into $options for easy reference
+ 	 */
+
+ 	$options = optionsframework_options();
+
+ 	/* Basic */
+
+ 	$wp_customize->add_section( 'options_theme_customizer_basic', array(
+ 		'title' => __( 'Basic', 'options_theme_customizer' ),
+ 		'priority' => 100
+ 	) );
+
+ 	$wp_customize->add_setting( 'options_theme_customizer[bestreloaded_display_intro_text]', array(
+ 		'default' => $options['bestreloaded_display_intro_text']['std'],
+ 		'type' => 'option'
+ 	) );
+
+ 	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_intro_text', array(
+ 		'label' => $options['bestreloaded_display_intro_text']['name'],
+ 		'section' => 'options_theme_customizer_basic',
+ 		'settings' => 'options_theme_customizer[bestreloaded_display_intro_text]',
+ 		'type' => $options['bestreloaded_display_intro_text']['type']
+ 	) );
+ 	/*
+ 	$wp_customize->add_setting( 'options_theme_customizer[example_select]', array(
+ 		'default' => $options['example_select']['std'],
+ 		'type' => 'option'
+ 	) );
+
+ 	$wp_customize->add_control( 'options_theme_customizer_example_select', array(
+ 		'label' => $options['example_select']['name'],
+ 		'section' => 'options_theme_customizer_basic',
+ 		'settings' => 'options_theme_customizer[example_select]',
+ 		'type' => $options['example_select']['type'],
+ 		'choices' => $options['example_select']['options']
+ 	) );
+    */
+ }
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 function optionsframework_custom_scripts() { ?>
 
