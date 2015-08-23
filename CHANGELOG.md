@@ -1,6 +1,13 @@
 ## Change Log
 
-### upcoming (2015/08/23 20:12 +00:00)
+### upcoming (2015/08/23 22:57 +00:00)
+- [a6b8eaf](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/a6b8eaf82ffe255ede527ab3393d646ffb8ac504) remove tags.php as it was the cause of the <title> theme-check fail (@pattonwebz)
+- [4771c83](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/4771c834b4b03240673c1c36dcee11cc447eada8) Add 'title-tag' support will fallback for old versions (@pattonwebz)
+- [1368759](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/1368759bd3a7220ed067ed237be5f400eb7b1ea6) ran grunt to recompile changes to stylesheet (@pattonwebz)
+- [efc942b](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/efc942b33c58f3571b05593e37ef488d70064ee5) Styled .sticky with a :before (@pattonwebz)
+- [a0cabc9](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/a0cabc9cce9309ae82ec59d2cd03540b2fa3f60a) Wrap the_author_link() with .bypostauthor and add styles (@pattonwebz)
+- [630388d](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/630388d4e9f974c30f12dbee5b092747e5c5acbd) Applied .wp-caption styles to .gallery-caption (@pattonwebz)
+- [abf8142](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/abf814231f3f9ee1db7fbae8c7186cc7ec658322) Added styles for .screen-reader-text (@pattonwebz)
 - [c15d898](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/c15d8985aaf94dc9eb433b67bec22051691af533) Corrected Theme Name in style.less and Version number, ran grunt to recompile (@pattonwebz)
 - [859294c](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/859294cc09a24de919d34b38bac75fd6ebbfb496) correct misplaced single quote in custom-posts.php (@pattonwebz)
 - [79a7d70](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/79a7d706658afa1f5464d4d32b07ed3b1c6ba97e) change textdomain in options framework to match theme textdomain (@pattonwebz)
