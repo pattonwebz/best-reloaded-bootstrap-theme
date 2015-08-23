@@ -1,3 +1,22 @@
+0.6 - Refinements
+        - grunt-github-changelog added to generate an auto CHANGELOG.md from commit messages
+0.5 - Style updates & additions, namespace corrections, refinements
+        - Added a mixin/utility class to remove row margins
+        - Footer styles added
+            - classes reorganized
+        - Comment section styles added
+        - Options are all prefixed with theme name
+        - Functions were prefixed with either theme name or 'pwwp'
+        - Overhaul of floating social block
+            - moved from footer.php to js/scripts.js
+            - now works correctly when scrolling past starting position
+            - debug messages added
+            - improved sanity and error checking
+        - Featured areas/type updated
+            - margins corrected on .featured-bar-post
+            - .featured-bar-post doesn't appear if it's empty
+            - font-sizes made more appropriate
+            - .hero-p sizes adjusted based on media query
 0.4 - Various fixes
         - Fixed version umber convention throughout the theme
         - Many styles fixed and/or modified.
