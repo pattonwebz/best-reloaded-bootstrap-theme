@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2015/08/23 14:23 +00:00)
+### upcoming (2015/08/23 15:28 +00:00)
+- [be009f2](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/be009f2524bab1e8e8ef31a28eefc9b8101645b5) recomplied styles and readded grunt-github-changelog (@pattonwebz)
+- [ef1d4aa](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/ef1d4aa3179eb4778462c485beb3a73136ef61d6) updated styles for slider in less files (@pattonwebz)
 - [9d794fa](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/9d794fa098aa65fc36795e263a6619cbef2db841) fix incorrectly named functions so excerpts appear on homepage again (@pattonwebz)
 - [365acc0](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/365acc0e6d97d23bb1945013f6c1e043be118e8b) update prefix for customizer settings (@pattonwebz)
 - [c42d30e](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/c42d30e9c449255093dc2722391482ee557cb7ad) update namespace of theme in options.php (@pattonwebz)
