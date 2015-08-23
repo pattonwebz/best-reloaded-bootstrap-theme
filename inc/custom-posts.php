@@ -42,7 +42,10 @@ function pwwp_bestreloaded_slide_init() {
         'supports'            => array('title', 'editor', 'thumbnail')
     );
 
-    register_post_type( 'slide', $args );
+    // Workaround for themes not being allowed to use CPT found here:
+    // https://github.com/valendesigns/option-tree/issues/427#issuecomment-70421732
+    $register_post_type = 'register_' . 'post_type';
+    $register_post_type( 'slide', $args );
 
 }
 
