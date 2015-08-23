@@ -91,7 +91,7 @@ function optionsframework_options() {
         'type' => 'checkbox'
     );
 
-    $options[] = array(
+    $options['bestreloaded_intro_text'] = array(
         'name' => 'Homepage Intro Text',
         'desc' => 'Enter a brief introduction about your site, which will display on the homepage above the slider. This section supports HTML tags if desired. This text is wrapped in a paragraph element for formatting.',
         'id' => 'bestreloaded_intro_text',
@@ -329,9 +329,22 @@ function pwwp_options_theme_customizer_register($wp_customize) {
 	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_intro_text', array(
 		'label' => $options['bestreloaded_display_intro_text']['name'],
 		'section' => 'options_theme_customizer_basic',
-		'settings' => 'options_theme_customizer[bestreloaded_display_intro_text]',
+		'settings' => 'options_theme_customizer[bestreloaded_intro_text]',
 		'type' => $options['bestreloaded_display_intro_text']['type']
 	) );
+
+    $wp_customize->add_setting( 'options_theme_customizer[bestreloaded_intro_text]', array(
+		'default' => $options['bestreloaded_intro_text']['std'],
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_intro_text', array(
+		'label' => $options['bestreloaded_display_intro_text']['name'],
+		'section' => 'options_theme_customizer_basic',
+		'settings' => 'options_theme_customizer[bestreloaded_intro_text]',
+		'type' => $options['bestreloaded_intro_text']['type']
+	) );
+    
 }
 
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
