@@ -67,7 +67,7 @@ function optionsframework_options() {
         'type' => 'heading'
     );
 
-    $options[] = array(
+    $options['bestreloaded_display_header_banner_area'] = array(
         'name' => 'Display Header Banner Area',
         'desc' => 'Select the checkbox to display the header banner area. You can use this space to display an advertisement, or type in text if desired. This space is unstyled so you will need to write your own HTML markup for any paragraphs, headings, et cetera.\n Future plans: To enable an optional login area.',
         'id' => 'bestreloaded_display_header_banner_area',
@@ -333,18 +333,18 @@ function pwwp_options_theme_customizer_register($wp_customize) {
 		'type' => $options['bestreloaded_display_intro_text']['type']
 	) );
 
-    $wp_customize->add_setting( 'options_theme_customizer[bestreloaded_intro_text]', array(
-		'default' => $options['bestreloaded_intro_text']['std'],
+    $wp_customize->add_setting( 'options_theme_customizer[bestreloaded_display_header_banner_area]', array(
+		'default' => $options['bestreloaded_display_header_banner_area']['std'],
 		'type' => 'option'
 	) );
 
-	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_intro_text', array(
-		'label' => $options['bestreloaded_display_intro_text']['name'],
+	$wp_customize->add_control( 'options_theme_customizer_bestreloaded_display_header_banner_area', array(
+		'label' => $options['bestreloaded_display_header_banner_area']['name'],
 		'section' => 'options_theme_customizer_basic',
-		'settings' => 'options_theme_customizer[bestreloaded_intro_text]',
-		'type' => $options['bestreloaded_intro_text']['type']
+		'settings' => 'options_theme_customizer[bestreloaded_display_header_banner_area]',
+		'type' => $options['bestreloaded_display_header_banner_area']['type']
 	) );
-    
+
 }
 
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
