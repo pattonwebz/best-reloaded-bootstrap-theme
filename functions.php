@@ -29,6 +29,7 @@ require_once('wp_bootstrap_navwalker.php');
 if ( !function_exists( 'optionsframework_init' ) ) {
     define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/admin/' );
     require_once dirname( __FILE__ ) . '/inc/admin/options-framework.php';
+    require_once dirname( __FILE__ ) . '/options.php';
 }
 
 // Move the Jetpack social share buttons to the beginning of the post, this is to allow for the float effect
