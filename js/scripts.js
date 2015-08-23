@@ -17,17 +17,17 @@ jQuery(document).ready(function($){
         // get the postion of #social-block inside the viewport
         var socialTop = $('#social-block')[0].getBoundingClientRect().top;
         if(debug){
-            console.log(socialtop,' initial value of socialTop' );
+            console.log(socialTop,' initial value of socialTop' );
         }
         // affixes the div whenever scroll past it
         if ( $('header nav.navbar').hasClass('navbar-fixed-top') ){
             socialTop = socialTop + 50;
             if(debug){
-                console.log(socialtop,' updated value of socialTop' );
+                console.log(socialTop,' updated value of socialTop' );
             }
         }
         if(debug){
-            console.log(socialtop,' using this value for socialTop' );
+            console.log(socialTop,' using this value for socialTop' );
         }
         $('#social-block').affix({
             offset: { top: socialTop }
