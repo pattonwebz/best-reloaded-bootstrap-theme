@@ -315,6 +315,11 @@ function best_reloaded_register($wp_customize) {
 
  	$options = optionsframework_options();
 
+    $wp_customize->add_section( 'best_reloaded_header', array(
+        'title' => __( 'Header', 'best_reloaded' ),
+        'priority' => 100
+    ) );
+
  	/* Basic */
 
  	$wp_customize->add_section( 'best_reloaded_basic', array(
@@ -326,10 +331,9 @@ function best_reloaded_register($wp_customize) {
         'default' => $options['bestreloaded_display_header_banner_area']['std'],
         'type' => 'option'
     ) );
-
     $wp_customize->add_control( 'best_reloaded_bestreloaded_display_header_banner_area', array(
         'label' => $options['bestreloaded_display_header_banner_area']['name'],
-        'section' => 'best_reloaded_basic',
+        'section' => 'best_reloaded_header',
         'settings' => 'best_reloaded[bestreloaded_display_header_banner_area]',
         'type' => $options['bestreloaded_display_header_banner_area']['type']
     ) );
@@ -338,10 +342,9 @@ function best_reloaded_register($wp_customize) {
        'default' => $options['bestreloaded_header_banner_area']['std'],
        'type' => 'option'
    ) );
-
    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_header_banner_area', array(
        'label' => $options['bestreloaded_header_banner_area']['name'],
-       'section' => 'best_reloaded_basic',
+       'section' => 'best_reloaded_header',
        'settings' => 'best_reloaded[bestreloaded_header_banner_area]',
        'type' => $options['bestreloaded_header_banner_area']['type']
    ) ) );
@@ -350,7 +353,6 @@ function best_reloaded_register($wp_customize) {
  		'default' => $options['bestreloaded_display_intro_text']['std'],
  		'type' => 'option'
  	) );
-
  	$wp_customize->add_control( 'best_reloaded_bestreloaded_display_intro_text', array(
  		'label' => $options['bestreloaded_display_intro_text']['name'],
  		'section' => 'best_reloaded_basic',
@@ -362,7 +364,6 @@ function best_reloaded_register($wp_customize) {
         'default' => $options['bestreloaded_intro_text']['std'],
         'type' => 'option'
     ) );
-
     $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
         'label' => $options['bestreloaded_intro_text']['name'],
         'section' => 'best_reloaded_basic',
