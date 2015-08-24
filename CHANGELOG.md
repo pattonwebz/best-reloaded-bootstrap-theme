@@ -1,6 +1,17 @@
 ## Change Log
 
-### upcoming (2015/08/23 23:01 +00:00)
+### upcoming (2015/08/24 00:57 +00:00)
+- [865a9ed](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/865a9edcf717a8a1cb21d46cabf6169a622becd4) try pointing directly add function (@pattonwebz)
+- [0025b22](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/0025b22e0b880294ebb605d5d35c42f8141a521d) revert many changes, back to original method of adding options page (@pattonwebz)
+- [414b933](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/414b9332a7daf028ed9ee9234e29b1e3bed55542) made options page function inside class public (@pattonwebz)
+- [386fede](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/386fedea0a1421568776a2bdcf06f704089415dd) point add_theme_page() to a new function (@pattonwebz)
+- [e559bf0](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/e559bf0e3c6e00761705afb7effbd966e969b704) FIX: change '.' to ',' in add_theme_page (@pattonwebz)
+- [5290389](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/5290389dd86022a55399eaa7e8b3c07db0e7cf25) remove commented out call to add_action('admin_menu') as it was still throwing an error (@pattonwebz)
+- [330058c](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/330058c460ea3c10709fa9357ebf90b3c8f6d801) change from add_action('admin_menu') to add_theme_page() (@pattonwebz)
+- [8d4990a](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/8d4990ac3c144403e466794c611cd2e561dad45b) Workaround for themes not being allowed to add CPTs (@pattonwebz)
+- [573c12d](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/573c12d09484e268fc64e090ab325c0477ab507c) remove questions/portfolio CPT (@pattonwebz)
+- [10ee42e](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/10ee42ef8ac3994afdc80eb4e7505b07e7b37163) add textdomain to translate function for comments (@pattonwebz)
+- [344950d](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/344950d75aa1ef14d379510423389170e7a8e509) fixed typo in Tags and recompiled (@pattonwebz)
 - [b6eb9c2](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/b6eb9c2552b1641b049c4e81d9bf451dca022591) ran grunt to recompile style.css (@pattonwebz)
 - [5a959b5](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/5a959b5844295e0be7fdab1181ea009ed6891441) Add 'Tags:' and list of valid tags to stylesheet (@pattonwebz)
 - [a6b8eaf](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/a6b8eaf82ffe255ede527ab3393d646ffb8ac504) remove tags.php as it was the cause of the <title> theme-check fail (@pattonwebz)
