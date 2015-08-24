@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2015/08/24 00:57 +00:00)
+### upcoming (2015/08/24 01:05 +00:00)
+- [44b87c5](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/44b87c59ecab5642fde08d7d9fee125d274d8a36) remove shortcodes from theme (@pattonwebz)
+- [b412ec8](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/b412ec8ad7f0649b8f2a8cac52982191643f4713) commit to deply (@pattonwebz)
 - [865a9ed](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/865a9edcf717a8a1cb21d46cabf6169a622becd4) try pointing directly add function (@pattonwebz)
 - [0025b22](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/0025b22e0b880294ebb605d5d35c42f8141a521d) revert many changes, back to original method of adding options page (@pattonwebz)
 - [414b933](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/414b9332a7daf028ed9ee9234e29b1e3bed55542) made options page function inside class public (@pattonwebz)
