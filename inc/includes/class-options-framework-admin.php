@@ -32,7 +32,7 @@ class Options_Framework_Admin {
 
 			// Add the options page and menu item.
             // MODIFIED TO CONFORM WITH THEME REVIEW REQUIREMENTS - @pattonwebz
-            add_theme_page( 'Best Reloaded Options', 'Theme Options', 'edit_theme_options', 'best_reloaded_options', 'add_custom_options_page' );
+            add_theme_page( 'Best Reloaded Options', 'Theme Options', 'edit_theme_options', 'best_reloaded_options', 'options_page' );
 
 			// Add the required scripts and styles
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
