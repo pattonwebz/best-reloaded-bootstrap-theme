@@ -33,10 +33,6 @@ class Options_Framework_Admin {
 			// Add the options page and menu item.
 			add_action( 'admin_menu', array( $this, 'add_custom_options_page' ) );
 
-            // Add the options page and menu item.
-            // MODIFIED TO CONFORM WITH THEME REVIEW REQUIREMENTS - @pattonwebz
-            // add_theme_page( 'Best Reloaded Options', 'Theme Options', 'edit_theme_options'. 'best_reloaded_options', array($this, 'options_page') )
-
 			// Add the required scripts and styles
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
@@ -70,16 +66,23 @@ class Options_Framework_Admin {
 
     }
 
-	/**
-     * Add a subpage called "Theme Options" to the appearance menu.
-     *
-     * @since 1.7.0
-     */
-	function add_custom_options_page() {
+	/*
+	 * Define menu options
+	 *
+	 * Examples usage:
+	 *
+	 * add_filter( 'optionsframework_menu', function( $menu ) {
+	 *     $menu['page_title'] = 'The Options';
+	 *	   $menu['menu_title'] = 'The Options';
+	 *     return $menu;
+	 * });
+	 *
+	 * @since 1.7.0
+	 *
+	 */
+	static function menu_settings() {
 
-        // MODIFIED - @patonwebz
-
-        $menu = array(
+		$menu = array(
 
 			// Modes: submenu, menu
             'mode' => 'submenu',
@@ -97,9 +100,24 @@ class Options_Framework_Admin {
 
 		);
 
-		$menu = apply_filters( 'optionsframework_menu', $menu );
+		return apply_filters( 'optionsframework_menu', $menu );
+	}
 
-		add_theme_page(
+	/**
+     * Add a subpage called "Theme Options" to the appearance menu.
+     *
+     * @since 1.7.0
+     */
+	function add_custom_options_page() {
+
+		$menu = $this->menu_settings();
+
+		// If you want a top level menu, see this Gist:
+		// https://gist.github.com/devinsays/884d6abe92857a329d99
+
+		// Code removed because it conflicts with .org theme check.
+
+		$this->options_screen = add_theme_page(
             $menu['page_title'],
             $menu['menu_title'],
             $menu['capability'],
