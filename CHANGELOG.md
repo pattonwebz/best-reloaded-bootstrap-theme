@@ -1,6 +1,12 @@
 ## Change Log
 
-### upcoming (2015/08/24 01:05 +00:00)
+### upcoming (2015/08/24 09:15 +00:00)
+- [ca0359a](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/ca0359abcaf593955f3dfe2669e0c2ead34e13fe) add sanitization_callbacks to each of the existing customizer options (@pattonwebz)
+- [0034a86](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/0034a865bc3332093ac6e28a1f6847e7d370293b) return additional customizer settings back to how they were before testing (@pattonwebz)
+- [4e28770](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/4e28770288f5d7d697d1e249767fe234f3976e80) add sanitize_callback to customizer settings... (@pattonwebz)
+- [573d983](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/573d983936a826bd2950b2de1998926d91aa0911) revert this to pre-tryingToFix (@pattonwebz)
+- [b5b35d0](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/b5b35d074cdc9ce38319f1d7f95b27fd421eec56) try adjusting the theme options page function and ordering (@pattonwebz)
+- [d9d2475](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/d9d2475d39b4bed171ec7497ec5db2fb257098bc) fixed wrapping tags in Tags: field (@pattonwebz)
 - [44b87c5](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/44b87c59ecab5642fde08d7d9fee125d274d8a36) remove shortcodes from theme (@pattonwebz)
 - [b412ec8](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/b412ec8ad7f0649b8f2a8cac52982191643f4713) commit to deply (@pattonwebz)
 - [865a9ed](https://github.com/pattonwebz/best-reloaded-bootstrap-theme/commit/865a9edcf717a8a1cb21d46cabf6169a622becd4) try pointing directly add function (@pattonwebz)
