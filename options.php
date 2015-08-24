@@ -344,7 +344,7 @@ function best_reloaded_register($wp_customize) {
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_header_banner_area]', array(
        'default' => $options['bestreloaded_header_banner_area']['std'],
-       'sanitize_callback' => 'of_sanitize_allowedtags',
+       'sanitize_callback' => 'of_sanitize_text',
        'type' => 'option'
    ) );
    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_header_banner_area', array(
@@ -356,6 +356,7 @@ function best_reloaded_register($wp_customize) {
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_intro_text]', array(
        'default' => $options['bestreloaded_display_intro_text']['std'],
+       'sanitize_callback' => 'of_sanitize_checkbox',
        'type' => 'option'
    ) );
    $wp_customize->add_control( 'best_reloaded_bestreloaded_display_intro_text', array(
@@ -367,6 +368,7 @@ function best_reloaded_register($wp_customize) {
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_intro_text]', array(
        'default' => $options['bestreloaded_intro_text']['std'],
+       'sanitize_callback' => 'of_sanitize_textarea',
        'type' => 'option'
    ) );
    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
@@ -378,6 +380,7 @@ function best_reloaded_register($wp_customize) {
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_homepage_widget_row]', array(
        'default' => $options['bestreloaded_display_homepage_widget_row']['std'],
+       'sanitize_callback' => 'of_sanitize_checkbox',
        'type' => 'option'
    ) );
    $wp_customize->add_control( 'best_reloaded_bestreloaded_display_homepage_widget_row', array(
