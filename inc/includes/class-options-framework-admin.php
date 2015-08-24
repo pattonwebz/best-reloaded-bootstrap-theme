@@ -70,23 +70,16 @@ class Options_Framework_Admin {
 
     }
 
-	/*
-	 * Define menu options
-	 *
-	 * Examples usage:
-	 *
-	 * add_filter( 'optionsframework_menu', function( $menu ) {
-	 *     $menu['page_title'] = 'The Options';
-	 *	   $menu['menu_title'] = 'The Options';
-	 *     return $menu;
-	 * });
-	 *
-	 * @since 1.7.0
-	 *
-	 */
-	static function menu_settings() {
+	/**
+     * Add a subpage called "Theme Options" to the appearance menu.
+     *
+     * @since 1.7.0
+     */
+	function add_custom_options_page() {
 
-		$menu = array(
+        // MODIFIED - @patonwebz
+
+        $menu = array(
 
 			// Modes: submenu, menu
             'mode' => 'submenu',
@@ -104,24 +97,9 @@ class Options_Framework_Admin {
 
 		);
 
-		return apply_filters( 'optionsframework_menu', $menu );
-	}
+		$menu = apply_filters( 'optionsframework_menu', $menu );
 
-	/**
-     * Add a subpage called "Theme Options" to the appearance menu.
-     *
-     * @since 1.7.0
-     */
-	function add_custom_options_page() {
-
-		$menu = $this->menu_settings();
-
-		// If you want a top level menu, see this Gist:
-		// https://gist.github.com/devinsays/884d6abe92857a329d99
-
-		// Code removed because it conflicts with .org theme check.
-
-		$this->options_screen = add_theme_page(
+		add_theme_page(
             $menu['page_title'],
             $menu['menu_title'],
             $menu['capability'],
