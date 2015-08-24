@@ -19,8 +19,6 @@ require 'inc/comments-and-pingbacks.php';
 require 'inc/register-sidebars.php';
 // Registers custom post types for the theme
 require 'inc/custom-posts.php';
-// Registers custom shortcodes for the theme
-include 'inc/shortcodes.php';
 // Register Custom Navigation Walker
 require_once('wp_bootstrap_navwalker.php');
 
