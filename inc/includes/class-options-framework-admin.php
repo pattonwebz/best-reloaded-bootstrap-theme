@@ -32,7 +32,7 @@ class Options_Framework_Admin {
 
 			// Add the options page and menu item.
             // MODIFIED TO CONFORM WITH THEME REVIEW REQUIREMENTS - @pattonwebz
-            add_theme_page( 'Best Reloaded Options', 'Theme Options', 'edit_theme_options', 'best_reloaded_options', 'options_page' );
+            add_theme_page( 'Best Reloaded Options', 'Theme Options', 'edit_theme_options', 'best_reloaded_options', array($this, 'pwwp_options_page') );
 
 			// Add the required scripts and styles
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -181,8 +181,9 @@ class Options_Framework_Admin {
 	 * Nonces are provided using the settings_fields()
 	 *
      * @since 1.7.0
+     * MODIFIED to be public - @pattonwebz
      */
-	 function options_page() { ?>
+	 public function pwwp_options_page() { ?>
 
 		<div id="optionsframework-wrap" class="wrap">
 
