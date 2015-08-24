@@ -31,9 +31,6 @@ class Options_Framework_Admin {
     	if ( $options ) {
 
 			// Add the options page and menu item.
-			//add_action( 'admin_menu', array( $this, 'add_custom_options_page' ) );
-
-            // Add the options page and menu item.
             // MODIFIED TO CONFORM WITH THEME REVIEW REQUIREMENTS - @pattonwebz
             add_theme_page( 'Best Reloaded Options', 'Theme Options', 'edit_theme_options'. 'best_reloaded_options', 'add_custom_options_page' );
 
