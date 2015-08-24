@@ -332,6 +332,7 @@ function best_reloaded_register($wp_customize) {
 
     $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_header_banner_area]', array(
         'default' => $options['bestreloaded_display_header_banner_area']['std'],
+        'sanitize_callback' => 'of_sanitize_checkbox',
         'type' => 'option'
     ) );
     $wp_customize->add_control( 'best_reloaded_bestreloaded_display_header_banner_area', array(
@@ -343,6 +344,7 @@ function best_reloaded_register($wp_customize) {
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_header_banner_area]', array(
        'default' => $options['bestreloaded_header_banner_area']['std'],
+       'sanitize_callback' => 'of_sanitize_allowedtags',
        'type' => 'option'
    ) );
    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_header_banner_area', array(
@@ -352,53 +354,7 @@ function best_reloaded_register($wp_customize) {
        'type' => $options['bestreloaded_header_banner_area']['type']
    ) ) );
 
- 	$wp_customize->add_setting( 'best_reloaded[bestreloaded_display_intro_text]', array(
- 		'default' => $options['bestreloaded_display_intro_text']['std'],
- 		'type' => 'option'
- 	) );
- 	$wp_customize->add_control( 'best_reloaded_bestreloaded_display_intro_text', array(
- 		'label' => $options['bestreloaded_display_intro_text']['name'],
- 		'section' => 'best_reloaded_home',
- 		'settings' => 'best_reloaded[bestreloaded_display_intro_text]',
- 		'type' => $options['bestreloaded_display_intro_text']['type']
- 	) );
 
-    $wp_customize->add_setting( 'best_reloaded[bestreloaded_intro_text]', array(
-        'default' => $options['bestreloaded_intro_text']['std'],
-        'type' => 'option'
-    ) );
-    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_intro_text', array(
-        'label' => $options['bestreloaded_intro_text']['name'],
-        'section' => 'best_reloaded_home',
-        'settings' => 'best_reloaded[bestreloaded_intro_text]',
-        'type' => $options['bestreloaded_intro_text']['type']
-    ) ) );
-
-    $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_homepage_widget_row]', array(
-        'default' => $options['bestreloaded_display_homepage_widget_row']['std'],
-        'type' => 'option'
-    ) );
-    $wp_customize->add_control( 'best_reloaded_bestreloaded_display_homepage_widget_row', array(
-        'label' => $options['bestreloaded_display_homepage_widget_row']['name'],
-        'section' => 'best_reloaded_home',
-        'settings' => 'best_reloaded[bestreloaded_display_homepage_widget_row]',
-        'type' => $options['bestreloaded_display_homepage_widget_row']['type']
-    ) );
-
- 	/*
- 	$wp_customize->add_setting( 'options_theme_customizer[example_select]', array(
- 		'default' => $options['example_select']['std'],
- 		'type' => 'option'
- 	) );
-
- 	$wp_customize->add_control( 'options_theme_customizer_example_select', array(
- 		'label' => $options['example_select']['name'],
- 		'section' => 'options_theme_customizer_basic',
- 		'settings' => 'options_theme_customizer[example_select]',
- 		'type' => $options['example_select']['type'],
- 		'choices' => $options['example_select']['options']
- 	) );
-    */
 
 
  }
