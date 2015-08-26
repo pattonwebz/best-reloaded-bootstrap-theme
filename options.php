@@ -65,6 +65,7 @@ function optionsframework_options() {
         'name' => 'Header Banner Area',
         'desc' => 'Enter in your content for the header banner area.',
         'id' => 'bestreloaded_header_banner_area',
+        'std' => '<!-- html accepted -->',
         'class' => 'hidden',
         'type' => 'textarea'
     );
@@ -299,7 +300,10 @@ function best_reloaded_register($wp_customize) {
         'title' => __( 'Homepage', 'best_reloaded' ),
         'priority' => 100
     ) );
- 	/* Basic */
+    $wp_customize->add_section( 'best_reloaded_other', array(
+        'title' => __( 'Other', 'best_reloaded' ),
+        'priority' => 100
+    ) );
 
  	$wp_customize->add_section( 'best_reloaded_basic', array(
  		'title' => __( 'Basic', 'best_reloaded' ),
@@ -365,6 +369,78 @@ function best_reloaded_register($wp_customize) {
        'settings' => 'best_reloaded[bestreloaded_display_homepage_widget_row]',
        'type' => $options['bestreloaded_display_homepage_widget_row']['type']
    ) );
+
+   $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_featured_bar]', array(
+       'default' => $options['bestreloaded_display_featured_bar']['std'],
+       'sanitize_callback' => 'of_sanitize_checkbox',
+       'type' => 'option'
+   ) );
+   $wp_customize->add_control( 'bestreloaded_display_featured_bar', array(
+       'label' => $options['bestreloaded_display_featured_bar']['name'],
+       'section' => 'best_reloaded_other',
+       'settings' => 'best_reloaded[bestreloaded_display_featured_bar]',
+       'type' => $options['bestreloaded_display_featured_bar']['type']
+   ) );
+
+   $wp_customize->add_setting( 'best_reloaded[bestreloaded_featured_bar]', array(
+       'default' => $options['bestreloaded_featured_bar']['std'],
+       'sanitize_callback' => 'of_sanitize_textarea',
+       'type' => 'option'
+   ) );
+   $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'best_reloaded_bestreloaded_featured_bar', array(
+       'label' => $options['bestreloaded_featured_bar']['name'],
+       'section' => 'best_reloaded_other',
+       'settings' => 'best_reloaded[bestreloaded_featured_bar]',
+       'type' => $options['bestreloaded_featured_bar']['type']
+   ) ) );
+
+   $wp_customize->add_setting( 'best_reloaded[bestreloaded_pagination_option]', array(
+       'default' => $options['bestreloaded_pagination_option']['std'],
+       'sanitize_callback' => 'of_sanitize_checkbox',
+       'type' => 'option'
+   ) );
+   $wp_customize->add_control( 'bestreloaded_pagination_option', array(
+       'label' => $options['bestreloaded_pagination_option']['name'],
+       'section' => 'best_reloaded_other',
+       'settings' => 'best_reloaded[bestreloaded_pagination_option]',
+       'type' => $options['bestreloaded_pagination_option']['type']
+   ) );
+
+   $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_footer_top]', array(
+       'default' => $options['bestreloaded_display_footer_top']['std'],
+       'sanitize_callback' => 'of_sanitize_checkbox',
+       'type' => 'option'
+   ) );
+   $wp_customize->add_control( 'bestreloaded_display_footer_top', array(
+       'label' => $options['bestreloaded_display_footer_top']['name'],
+       'section' => 'best_reloaded_footer',
+       'settings' => 'best_reloaded[bestreloaded_display_footer_top]',
+       'type' => $options['bestreloaded_display_footer_top']['type']
+   ) );
+
+   $wp_customize->add_setting( 'best_reloaded[bestreloaded_pagination_option]', array(
+       'default' => $options['bestreloaded_pagination_option']['std'],
+       'sanitize_callback' => 'of_sanitize_checkbox',
+       'type' => 'option'
+   ) );
+   $wp_customize->add_control( 'bestreloaded_display_footer_bottom', array(
+       'label' => $options['bestreloaded_display_footer_bottom']['name'],
+       'section' => 'best_reloaded_footer',
+       'settings' => 'best_reloaded[bestreloaded_display_footer_bottom]',
+       'type' => $options['bestreloaded_display_footer_bottom']['type']
+   ) );
+
+   $wp_customize->add_setting( 'best_reloaded[bestreloaded_footer_bottom_tagline]', array(
+       'default' => $options['bestreloaded_footer_bottom_tagline']['std'],
+       'sanitize_callback' => 'of_sanitize_textarea',
+       'type' => 'option'
+   ) );
+   $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'bestreloaded_footer_bottom_tagline', array(
+       'label' => $options['bestreloaded_footer_bottom_tagline']['name'],
+       'section' => 'best_reloaded_footer',
+       'settings' => 'best_reloaded[bestreloaded_footer_bottom_tagline]',
+       'type' => $options['bestreloaded_footer_bottom_tagline']['type']
+   ) ) );
 
  }
 add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
