@@ -46,6 +46,11 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
         // old versions
         add_theme_support( 'title-tag' );
 
+    }
+    /* ===| end bestreloaded_setup() |================================== */
+}
+/* ===| end !function_exists |================================== */
+
 /* =============================================================
  * Enqueue Styles
  * ============================================================= */
