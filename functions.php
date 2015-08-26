@@ -38,7 +38,7 @@ remove_filter( 'the_content', array( 'Jetpack_Likes', 'post_likes' ), 30, 1 );
 
 add_action( 'loop_end', 'pwwp_jptweak_remove_share' );
 
-//Add class to the tags for bootstrap markup
+//Add classnames to the tags for bootstrap markup
 function pwwp_add_class_the_tags($html){
     $postid = get_the_ID();
     $html = str_replace('<a','<a class="label label-default"',$html);
@@ -55,4 +55,66 @@ function pwwp_remove_recent_comments_style() {
     add_filter( 'show_recent_comments_widget_style', '__return_false' );
 }
 add_action( 'widgets_init', 'pwwp_remove_recent_comments_style' );
-?>
+
+
+// Add custom script to options page in theme.
+// Hides/Shows various sections based on other options that are set.
+add_action( 'optionsframework_custom_scripts', 'optionsframework_custom_scripts' );
+function optionsframework_custom_scripts() { ?>
+
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+
+        if ($('#bestreloaded_display_header_banner_area:checked').val() !== undefined) {
+            $('#section-bestreloaded_header_banner_area').show();
+        }
+
+        $('#bestreloaded_display_header_banner_area').click(function() {
+              $('#section-bestreloaded_header_banner_area').fadeToggle(400);
+        });
+
+        if ($('#bestreloaded_site_heading:checked').val() !== undefined) {
+            $('#section-bestreloaded_site_heading_img').show();
+        }
+
+        $('#bestrealoaded_site_heading').click(function() {
+              $('#section-bestreloaded_site_heading_img').fadeToggle(400);
+        });
+
+        if ($('#bestreloaded_display_intro_text:checked').val() !== undefined) {
+            $('#section-bestreloaded_intro_text').show();
+        }
+
+        $('#bestreloaded_display_intro_text').click(function() {
+              $('#section-bestreloaded_intro_text').fadeToggle(400);
+        });
+
+        if ($('#bestreloaded_display_twitter:checked').val() !== undefined) {
+            $('#section-bestreloaded_twitter').show();
+        }
+
+        $('#bestreloaded_display_twitter').click(function() {
+              $('#section-bestreloaded_twitter').fadeToggle(400);
+        });
+
+        if ($('#bestreloaded_display_footer_bottom:checked').val() !== undefined) {
+            $('#section-bestreloaded_footer_bottom_tagline').show();
+        }
+
+        $('#bestreloaded_display_footer_bottom').click(function() {
+              $('#section-bestreloaded_footer_bottom_tagline').fadeToggle(400);
+        });
+
+        if ($('#bestreloaded_display_featured_bar:checked').val() !== undefined) {
+            $('#section-bestreloaded_featured_bar').show();
+        }
+
+        $('#bestreloaded_display_featured_bar').click(function() {
+              $('#section-bestreloaded_featured_bar').fadeToggle(400);
+        });
+
+    });
+    </script>
+
+<?php
+}
