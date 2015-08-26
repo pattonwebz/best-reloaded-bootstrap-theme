@@ -16,14 +16,12 @@
                 <div id="main_content" role="main">
 
                     <?php get_template_part( 'loop', 'main' ); ?>
-                    <?php if ( function_exists( 'pagenavi' ) ) {
-                        pagenavi();
-                        echo '<hr class="hr-row-divider">'; 
-                    } else {
+
+                    <?php
                             echo '<p class="hero-p">';
                             posts_nav_link(' &#183; ', 'previous page', 'next page');
                             echo '</p><hr class="hr-row-divider">';
-                    } ?>
+                    ?>
 
                 </div><!-- end #main_content -->
             </div><!-- end .col-md-8 -->
