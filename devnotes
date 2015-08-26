@@ -1,2 +1,3 @@
 24082015    - Theme will pass all REQUIRED items for theme check
                 Theme Check plugin gives a false positive to a REQUIRED item where it would find any 'add_*_page' function and flag as failure (https://wordpress.org/support/topic/issue-for-add_theme_page)
+            - Workaround used to add CPT by wrapping the call in a variable

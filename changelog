@@ -1,5 +1,17 @@
-0.6 - Refinements
+0.6 - Overall refinement and passing WP Theme Check plugin
         - grunt-github-changelog added to generate an auto CHANGELOG.md from commit messages
+        - various style additions for screen readers
+        - Floating social block fixed and working
+            - debugging mode added to the code
+        - Some customizer integration
+            - Added customizer function to expose some of the theme options
+            - Define a key for each of the theme options
+            - Added a 'textarea' customizer handler
+            - Included inc/options.php directly in customizer function to access it's sanitization functions
+        - Remove extra featured bar content sections and the random output select
+        - Add 'title-tag' support to theme
+        - Removed extra CPTs from theme
+            - left in slider one but had to wrap the function call in variable to pass theme check.
 0.5 - Style updates & additions, namespace corrections, refinements
         - Added a mixin/utility class to remove row margins
         - Footer styles added
