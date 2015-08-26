@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-sm-4">
                     <footer>
-                        <span class="meta">written by <?php the_author_link(); ?></span>
+                        <span class="meta">Written by <?php the_author_link(); ?></span>
                         <span class="meta">on <?php the_time('F j, Y'); ?></span>
                         <span class="meta">in <?php the_category( ' and ' ); ?></span>
                         <span class="meta">with <a href="<?php comments_link(); ?>" title="<?php comments_number( 'no comments', 'one comment', '% comments' ); ?>"><?php comments_number( 'no comments', 'one Comment', '% comments' ); ?></a></span>
