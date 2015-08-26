@@ -393,17 +393,7 @@ function best_reloaded_register($wp_customize) {
        'type' => $options['bestreloaded_featured_bar']['type']
    ) ) );
 
-   $wp_customize->add_setting( 'best_reloaded[bestreloaded_pagination_option]', array(
-       'default' => $options['bestreloaded_pagination_option']['std'],
-       'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
-   ) );
-   $wp_customize->add_control( 'bestreloaded_pagination_option', array(
-       'label' => $options['bestreloaded_pagination_option']['name'],
-       'section' => 'best_reloaded_other',
-       'settings' => 'best_reloaded[bestreloaded_pagination_option]',
-       'type' => $options['bestreloaded_pagination_option']['type']
-   ) );
+
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_footer_top]', array(
        'default' => $options['bestreloaded_display_footer_top']['std'],
