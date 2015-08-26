@@ -111,30 +111,6 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-	$options['bestreloaded_featured_bar1'] = array(
-        'name' => 'Featured Content Bar Text 1',
-        'desc' => 'This section supports HTML tags if desired.',
-        'id' => 'bestreloaded_featured_bar1',
-        'std' => 'Something Important (set background color, image, text, and <a href="#">link</a>)',
-        'type' => 'textarea'
-    );
-
-	$options['bestreloaded_featured_bar2'] = array(
-        'name' => 'Featured Content Bar Text 2',
-        'desc' => 'This section supports HTML tags if desired. This section also supports shortcodes - so you can add your forms and whatnot.',
-        'id' => 'bestreloaded_featured_bar2',
-        'std' => 'Something Important (set background color, image, text, and <a href="#">link</a>)',
-        'type' => 'textarea'
-    );
-
-	$options['bestreloaded_featured_bar3'] = array(
-        'name' => 'Featured Content Bar Text 3',
-        'desc' => 'This section supports HTML tags if desired. This section also supports shortcodes - so you can add your forms and whatnot.',
-        'id' => 'bestreloaded_featured_bar3',
-        'std' => 'Something Important (set background color, image, text, and <a href="#">link</a>)',
-        'type' => 'textarea'
-    );
-
     $options['bestreloaded_pagination_option'] = array(
         'name' => 'Blog Pagination Option',
         'desc' => 'Select the checkbox to display custom pagination with advanced features. Deselecting the checkbox will display standard WordPress pagination.',
