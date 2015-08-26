@@ -112,14 +112,6 @@ function optionsframework_options() {
         'type' => 'textarea'
     );
 
-    $options['bestreloaded_pagination_option'] = array(
-        'name' => 'Blog Pagination Option',
-        'desc' => 'Select the checkbox to display custom pagination with advanced features. Deselecting the checkbox will display standard WordPress pagination.',
-        'id' => 'bestreloaded_pagination_option',
-        'std' => 1,
-        'type' => 'checkbox'
-    );
-
     $options['bestreloaded_display_twitter'] = array(
         'name' => 'Display Twitter Integration - currently inactive',
         'desc' => 'This section used to be used to display the Twitter integration above the footer but due to changes in the Twitter API it stopped functioning. Plans are to reuse as another featured slot or optin section.',
@@ -396,18 +388,6 @@ function best_reloaded_register($wp_customize) {
        'settings' => 'best_reloaded[bestreloaded_featured_bar]',
        'type' => $options['bestreloaded_featured_bar']['type']
    ) ) );
-
-   $wp_customize->add_setting( 'best_reloaded[bestreloaded_pagination_option]', array(
-       'default' => $options['bestreloaded_pagination_option']['std'],
-       'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
-   ) );
-   $wp_customize->add_control( 'bestreloaded_pagination_option', array(
-       'label' => $options['bestreloaded_pagination_option']['name'],
-       'section' => 'best_reloaded_other',
-       'settings' => 'best_reloaded[bestreloaded_pagination_option]',
-       'type' => $options['bestreloaded_pagination_option']['type']
-   ) );
 
    $wp_customize->add_setting( 'best_reloaded[bestreloaded_display_footer_top]', array(
        'default' => $options['bestreloaded_display_footer_top']['std'],
