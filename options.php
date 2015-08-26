@@ -268,6 +268,11 @@ function optionsframework_options() {
 
 add_action( 'customize_register', 'best_reloaded_register' );
 function best_reloaded_register($wp_customize) {
+
+    // Loads file that contains sanitization functions
+    $optionsfile = locate_template( 'class-options-sanitization.php' );
+    load_template( $optionsfile );
+
     class PWWP_Customize_Textarea_Control extends WP_Customize_Control {
         public $type = 'textarea';
 
