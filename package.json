@@ -9,14 +9,18 @@
   "author": "",
   "license": "GPLv3",
   "devDependencies": {
-    "autoprefixer-core": "~5.2.1",
+    "autoprefixer": "*",
     "bootstrap": "^4.0.0-alpha.6",
-    "grunt": "~0.4.5",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-less": "~1.0.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-github-changes": "0.0.6",
-    "grunt-postcss": "~0.5.5",
-    "jit-grunt": "~0.9.1"
+    "cssnano": "^3.10.0",
+    "grunt": "~1.0.1",
+    "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-less": "~1.4.0",
+    "grunt-contrib-sass": "~1.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-github-changes": "~0.1.0",
+    "grunt-postcss": "~0.8.0",
+    "jit-grunt": "~0.10.0",
+    "postcss-clean": "^1.0.2",
+    "postcss-flexbugs-fixes": "~2.1.0"
   }
 }
