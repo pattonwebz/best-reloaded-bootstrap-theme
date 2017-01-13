@@ -9,12 +9,13 @@
   "author": "",
   "license": "GPLv3",
   "devDependencies": {
-    "jit-grunt": "~0.9.1",
-    "grunt-contrib-watch": "~0.6.1",
+    "autoprefixer-core": "~5.2.1",
+    "bootstrap": "^4.0.0-alpha.6",
     "grunt": "~0.4.5",
     "grunt-contrib-less": "~1.0.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-github-changes": "0.0.6",
     "grunt-postcss": "~0.5.5",
-    "autoprefixer-core": "~5.2.1",
-    "grunt-github-changes": "0.0.6"
+    "jit-grunt": "~0.9.1"
   }
 }
