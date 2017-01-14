@@ -80,8 +80,10 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
             wp_enqueue_script( 'jquery' );
             wp_register_script( 'bestreloaded-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'bootstrap'), 0.4, true );
             wp_enqueue_script( 'bestreloaded-scripts' );
-			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '4.0.0-alpha.6', true );
+			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery', 'tether'), '4.0.0-alpha.6', true );
             wp_enqueue_script( 'bootstrap' );
+			wp_register_script( 'tether', get_template_directory_uri() . '/assets/js/tether.min.js', array('jquery'), '1.4.0', true );
+            wp_enqueue_script( 'tether' );
             if ( is_single() ) wp_enqueue_script( 'comment-reply' );
         }
     }
@@ -93,7 +95,7 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
  * Echo out color options from admin panel
  * ============================================================= */
 
-add_action( 'wp_head', 'pwwp_bestreloaded_theme_options' );
+//add_action( 'wp_head', 'pwwp_bestreloaded_theme_options' );
 
 if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
     function pwwp_bestreloaded_theme_options() {
