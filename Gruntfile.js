@@ -33,8 +33,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     // the first path is the output and the second is the input
-                    'assets/src/css/bootstrap.css': 'assets/src/scss/bootstrap/bootstrap.scss',
-					'assets/src/css/bootstrap.min.css': 'assets/src/scss/bootstrap/bootstrap.scss'
+                    'assets/src/css/bootstrap.css': 'assets/src/scss/bootstrap/bootstrap.scss'
                 }
             },
         },
@@ -84,6 +83,7 @@ module.exports = function(grunt) {
 			},
 			buildminify: {
 				options:{
+					sourceMap:true,
 					processors: [
 						require('postcss-clean')
 	                ]
@@ -100,6 +100,90 @@ module.exports = function(grunt) {
             }
         },
 
+
+		// configure a babel
+		babel: {
+			build: {
+				options: {
+					sourceMap: true
+				},
+				files: {
+					'assets/js/util.js'      : 'assets/src/js/bootstrap/util.js',
+					'assets/js/alert.js'     : 'assets/src/js/bootstrap/alert.js',
+					'assets/js/button.js'    : 'assets/src/js/bootstrap/button.js',
+					'assets/js/carousel.js'  : 'assets/src/js/bootstrap/carousel.js',
+					'assets/js/collapse.js'  : 'assets/src/js/bootstrap/collapse.js',
+					'assets/js/dropdown.js'  : 'assets/src/js/bootstrap/dropdown.js',
+					'assets/js/modal.js'     : 'assets/src/js/bootstrap/modal.js',
+					'assets/js/scrollspy.js' : 'assets/src/js/bootstrap/scrollspy.js',
+					'assets/js/tab.js'       : 'assets/src/js/bootstrap/tab.js',
+					'assets/js/tooltip.js'   : 'assets/src/js/bootstrap/tooltip.js',
+					'assets/js/popover.js'   : 'assets/src/js/bootstrap/popover.js'
+				}
+			},
+			dist: {
+		        options: {
+					presets: [
+					    [
+					    	"es2015",
+					    	{
+					        	"modules": false,
+					        	"loose": true
+					    	}
+					    ]
+					],
+					"plugins": [
+					    "transform-es2015-modules-strip"
+					]
+		        },
+		        files: {
+		          	'<%= concat.bootstrap.dest %>' : '<%= concat.bootstrap.dest %>'
+		        }
+		    }
+
+		},
+
+		concat: {
+		    options: {
+		        // Custom function to remove all export and import statements
+		        process: function (src) {
+		          return src.replace(/^(export|import).*/gm, '')
+		        }
+			},
+		    bootstrap: {
+		        src: [
+		          'assets/js/util.js',
+		          'assets/js/alert.js',
+		          'assets/js/button.js',
+		          'assets/js/carousel.js',
+		          'assets/js/collapse.js',
+		          'assets/js/dropdown.js',
+		          'assets/js/modal.js',
+		          'assets/js/scrollspy.js',
+		          'assets/js/tab.js',
+		          'assets/js/tooltip.js',
+		          'assets/js/popover.js'
+		        ],
+		        //dest: 'dist/js/<%= pkg.name %>.js'
+		        dest: 'assets/js/bootstrap.js'
+		    }
+	    },
+
+		// configure an uglify task
+		uglify: {
+			// this is the "dev" config - used with "grunt watch" command
+			dev: {
+				options: {
+					banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+				},
+				files: [
+					{ src: 'assets/js/bootstrap.js', dest: 'assets/js/bootstrap.min.js' }, // All the Bootstrap JS
+					{ src: 'assets/src/js/*.js', dest: 'assets/js/scripts.js'}
+				]
+			}
+
+		},
+
 		copy: {
 			build: {
 			    files: [
@@ -109,6 +193,7 @@ module.exports = function(grunt) {
 			    ],
 			},
 		},
+
 
         watch: {
             styles: {
@@ -125,5 +210,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['less', 'postcss', 'githubChanges', 'watch']);
     grunt.registerTask('dev', ['less:dev', 'postcss:dev']);
     grunt.registerTask('production', ['less:production', 'postcss:production']);
-	grunt.registerTask('build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify']);
+	grunt.registerTask('build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'uglify:dev']);
 };
