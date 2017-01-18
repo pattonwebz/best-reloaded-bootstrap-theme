@@ -12,17 +12,17 @@
 ?>
 
 <?php get_header(); ?>
-    <?php if ( of_get_option( 'bestreloaded_display_intro_text', 'no entry' ) ) : ?>
+    <?php if ( of_get_option( 'bestreloaded_display_intro_text' ) && of_get_option( 'bestreloaded_intro_text') ) : ?>
         <div class="row">
-            <div class="col-xs-12 text-center">
-                <p class="hero-p"><?php echo ( of_get_option( 'bestreloaded_intro_text', 'no entry' ) ) ?></p>
+            <div class="col-sm-12 text-center">
+                <p class="hero-p"><?php echo ( of_get_option( 'bestreloaded_intro_text' ) ) ?></p>
                 <hr class="hr-row-divider">
             </div><!-- end .col-xs-12 -->
         </div><!-- end .row -->
     <?php endif; ?>
     <div id="main_content" role="main">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-md-9">
                 <div id="carousel-example-generic" class="carousel slide">
                     <!-- Indicators -->
 				    <ol class="carousel-indicators">

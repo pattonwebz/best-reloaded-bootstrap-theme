@@ -17,7 +17,7 @@
     </div><!-- end .col-sm-3 -->
 </div><!-- end .row -->
 
-<?php if ( of_get_option( 'bestreloaded_display_homepage_widget_row', 'no entry' ) ) : ?>
+<?php if ( of_get_option( 'bestreloaded_display_homepage_widget_row' ) ) : ?>
 
     <div class="row widget-area">
 

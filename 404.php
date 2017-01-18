@@ -14,7 +14,7 @@
 
         <div id="main_content" role="main">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-sm-12">
                     <h2 style="font-size: 3em; text-align: center; margin: -5px auto 33px;">page not found</h2>
                     <p class="hero-p">Sorry, but the page you were trying to view does not exist.<br/>It looks like this was the result of either:</p>
                     <ul style="display: table; margin: 30px auto 35px; font-size: 1.5em; list-style: none; text-align: center;">
@@ -51,7 +51,7 @@
                         </footer>
                     </article>
                     <hr class="hr-row-divider">
-                </div><!-- end .span3 -->
+                </div><!-- end .col-sm-4 -->
 
                 <?php endwhile; else: ?>
 

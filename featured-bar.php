@@ -11,7 +11,7 @@
 
 <?php if ( of_get_option( 'bestreloaded_display_featured_bar' ) ) : ?>
 <div class="row">
-    <div class="col-xs-12 text-center">
+    <div class="col-sm-12 text-center">
         <div class="featured-bar">
             <p class="lead">
 				<?php if ( of_get_option( 'bestreloaded_featured_bar' ) ) {

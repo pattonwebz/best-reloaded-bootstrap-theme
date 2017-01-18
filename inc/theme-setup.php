@@ -100,9 +100,9 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
 if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
     function pwwp_bestreloaded_theme_options() {
 
-        $background                = of_get_option( 'bestreloaded_background', 'no entry' );
-        $link_color_main           = of_get_option( 'bestreloaded_link_color_main', 'no entry' );
-        $link_color_hover_main     = of_get_option( 'bestreloaded_link_hover_color_main', 'no entry' );
+        $background                = of_get_option( 'bestreloaded_background' );
+        $link_color_main           = of_get_option( 'bestreloaded_link_color_main' );
+        $link_color_hover_main     = of_get_option( 'bestreloaded_link_hover_color_main' );
         $link_color_footer         = of_get_option( 'bestreloaded_link_color_footer' );
         $link_color_hover_footer   = of_get_option( 'bestreloaded_link_hover_color_footer' );
         $background_featured       = of_get_option( 'bestreloaded_background_featured_content' );
