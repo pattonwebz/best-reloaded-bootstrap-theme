@@ -31,7 +31,7 @@
     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <header>
 
-		<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+		<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
 		  	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    	<span class="navbar-toggler-icon"></span>
 		  	</button>
@@ -54,45 +54,17 @@
 		  	</div>
 		</nav>
 
-
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		  <!-- Brand and toggle get grouped for better mobile display -->
-		  <div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-top-collapse">
-			  <span class="sr-only">Toggle navigation</span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			</button>
-			<span class="navbar-brand assistive visible-xs">Navigation:</span>
-		  </div>
-
-		  <!-- Collect the nav links, forms, and other content for toggling -->
-		  <div class="collapse navbar-collapse navbar-top-collapse">
-			<?php
-				wp_nav_menu( array(
-					'menu'       => 'nav_topbar',
-					'theme_location' => 'nav_topbar',
-					'depth'      => 2,
-					'container'  => false,
-					'menu_class' => 'nav navbar-nav',
-					'fallback_cb' => 'topbar_nav_fallback',
-					'walker' => new wp_bootstrap_navwalker())
-				);
-			?>
-		  </div><!-- /.navbar-collapse -->
-		</nav>
     </header>
     <div class="container container-main container-wrapper">
         <div class="row">
             <div class="col-sm-8 site-header">
 
-				<?php if ( of_get_option( 'bestreloaded_site_heading_img_checkbox', 'no entry' ) && of_get_option( 'site_heading_img', 'no entry' ) ) :
+				<?php if ( of_get_option( 'bestreloaded_site_heading_img_checkbox' ) && of_get_option( 'site_heading_img' ) ) :
                     // if this checkbox is ticked AND an image is set THEN output the image
                     ?>
 					<div class="name-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							<img src="<?php echo ( of_get_option( 'site_heading_img', 'no entry' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							<img src="<?php echo ( of_get_option( 'site_heading_img' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						</a>
 					</div>
 				<?php else :
@@ -115,9 +87,9 @@
 					</div>
 				<?php endif; ?>
             </div><!-- end .col-md-8 -->
-            <?php if ( of_get_option( 'bestreloaded_display_header_banner_area', 'no entry' ) ) : ?>
+            <?php if ( of_get_option( 'bestreloaded_display_header_banner_area' ) ) : ?>
                 <div class="col-sm-4 header-banner-area">
-                    <?php echo do_shortcode( of_get_option( 'bestreloaded_header_banner_area', 'no entry' ) ); ?>
+                    <?php echo do_shortcode( of_get_option( 'bestreloaded_header_banner_area' ) ); ?>
                 </div>
             <?php endif; ?>
         </div><!-- end .row -->
