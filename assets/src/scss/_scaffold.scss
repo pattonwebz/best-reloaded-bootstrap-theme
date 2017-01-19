@@ -2,7 +2,7 @@
 // --------------------------------------------------
 body{
     padding-top: 60px; /* accounts for the floating top navbar */
-    font-size: @base-font-size;
+    font-size: $base-font-size;
 }
 
 /* responsive images */
@@ -13,15 +13,15 @@ img,
 .size-medium,
 .size-thumbnail,
 .wp-caption {
-    @extend .responsive-image;
+    @include responsive-image();
 }
 
 a {
-    color:@primaryColor;
+    color:$primaryColor;
     transition: color 0.2s ease;
     &:hover,
     &:focus{
-        color:@primaryColorDark;
+        color:$primaryColorDark;
     }
 }
 

@@ -1,18 +1,18 @@
-// extends
+// mixins
 // --------------------------------------------------
 
-.responsive-image{
+@mixin responsive-image(){
     max-width: 100%;
     height: auto;
 }
-.font-family_2{
+@mixin font-family_2(){
     font-family: Georgia, "Times New Roman", Times, serif;
     font-style: italic;
 }
-.wrapper-shadow{
+@mixin wrapper-shadow(){
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
-.remove-row-margins{
+@mixin remove-row-margins(){
     margin-left:0;
     margin-right:0;
 }

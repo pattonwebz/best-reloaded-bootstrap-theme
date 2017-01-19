@@ -1,7 +1,7 @@
 // Footer
 // --------------------------------------------------
 #site-footer {
-    .wrapper-shadow();
+    @include wrapper-shadow();
     border-top: 3px solid $primaryColor;
     background-color: $secondaries-darkGrey;
     color: $secondaries-vlightGrey;
@@ -15,12 +15,12 @@
     .footer-top{
         margin-top:20px;
         .widget-area{
-            .remove-row-margins;
+            @include remove-row-margins();
         }
     }
     .footer-bottom{
         .row{
-            .remove-row-margins;
+            @include remove-row-margins();
         }
     }
     #footer-site-title{

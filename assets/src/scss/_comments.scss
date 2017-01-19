@@ -28,7 +28,7 @@
     }
     article{
         &.comment{
-            .pingback;
+            @extend .pingback;
         }
         .comment-meta {
             position: relative;

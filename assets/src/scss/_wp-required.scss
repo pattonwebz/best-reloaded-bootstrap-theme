@@ -7,7 +7,7 @@
 .size-medium,
 .size-thumbnail,
 .wp-caption{
-    .responsive-image();
+    @include responsive-image();
 }
 
 .wp-caption {
@@ -40,7 +40,7 @@
     }
  }
 .gallery-caption {
-    .wp-caption;
+    @extend .wp-caption;
  }
 .bypostauthor {
     letter-spacing: -0.2px;
