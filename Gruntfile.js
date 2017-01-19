@@ -5,37 +5,28 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
 		sass: {
-            // this is the "dev" config - used with "grunt watch" command
-            dev: {
-                options: {
-                    style: 'expanded',
-					sourcemap: 'none',
-                },
-                files: {
-                    // the first path is the output and the second is the input
-                    'assets/css/bootstrap.css': 'assets/src/sass/bootstrap/bootstrap.scss',
-					'assets/css/theme-style.css': 'assets/src/sass/style.scss'
-                }
-            },
+
 			theme: {
                 options: {
                     style: 'expanded',
-					sourcemap: 'none',
                 },
                 files: {
                     // the first path is the output and the second is the input
 					'css/theme-style.css': 'assets/src/sass/style.scss'
                 }
             },
+
 			build: {
                 options: {
                     style: 'expanded',
                 },
                 files: {
                     // the first path is the output and the second is the input
-                    'assets/src/css/bootstrap.css': 'assets/src/scss/bootstrap/bootstrap.scss'
+                    'assets/src/css/bootstrap.css'	: 'assets/src/scss/bootstrap/bootstrap.scss',
+					'assets/src/css/style.css'		: 'assets/src/scss/style.scss'
                 }
-            },
+            }
+
         },
 
         postcss: {
@@ -78,7 +69,8 @@ module.exports = function(grunt) {
             },
 			build: {
 				files: {
-					'assets/css/bootstrap.css': 'assets/src/css/bootstrap.css'
+					'assets/css/bootstrap.css'	: 'assets/src/css/bootstrap.css',
+					'assets/css/style.css'		: 'assets/src/css/'
 				}
 			},
 			buildminify: {
@@ -92,12 +84,22 @@ module.exports = function(grunt) {
 					'assets/css/bootstrap.min.css': 'assets/css/bootstrap.css'
 				}
 			},
-            dev: {
-                src: 'style.css',
-            },
-            production: {
-                src: 'style.min.css',
-            }
+			theme: {
+				files: {
+					'assets/css/style.css': 'assets/src/css/style.css'
+				}
+			},
+			thememinify: {
+				options:{
+					sourceMap:true,
+					processors: [
+						require('postcss-clean')
+	                ]
+				},
+				files: {
+					'assets/css/style.min.css': 'assets/css/style.css'
+				}
+			},
         },
 
 
@@ -184,6 +186,8 @@ module.exports = function(grunt) {
 
 		},
 
+		// Bootstrap is added to the devDependencies and installed with npm,
+		// copy the appropriate files to the /src/ folder
 		copy: {
 			build: {
 			    files: [
