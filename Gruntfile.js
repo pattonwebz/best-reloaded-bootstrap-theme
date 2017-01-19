@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 			build: {
 				files: {
 					'assets/css/bootstrap.css'	: 'assets/src/css/bootstrap.css',
-					'assets/css/style.css'		: 'assets/src/css/'
+					'assets/css/style.css'		: 'assets/src/css/style.css'
 				}
 			},
 			buildminify: {
@@ -81,7 +81,8 @@ module.exports = function(grunt) {
 	                ]
 				},
 				files: {
-					'assets/css/bootstrap.min.css': 'assets/css/bootstrap.css'
+					'assets/css/bootstrap.min.css': 'assets/css/bootstrap.css',
+					'assets/css/style.min.css': 'assets/src/css/style.css'
 				}
 			},
 			theme: {
