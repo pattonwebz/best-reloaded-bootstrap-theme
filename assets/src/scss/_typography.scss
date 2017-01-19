@@ -11,7 +11,7 @@ h6, .h6 {
 }
 
 .hero-p {
-    .font-family_2();
+    @extend .font-family_2;
     font-size: 20px;
     @media (min-width:768px) {
         font-size:24px;

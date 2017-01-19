@@ -13,7 +13,7 @@ img,
 .size-medium,
 .size-thumbnail,
 .wp-caption {
-    .responsive-image();
+    @extend .responsive-image;
 }
 
 a {

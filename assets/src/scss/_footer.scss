@@ -2,14 +2,14 @@
 // --------------------------------------------------
 #site-footer {
     .wrapper-shadow();
-    border-top: 3px solid @primaryColor;
-    background-color: @secondaries-darkGrey;
-    color: @secondaries-vlightGrey;
+    border-top: 3px solid $primaryColor;
+    background-color: $secondaries-darkGrey;
+    color: $secondaries-vlightGrey;
     a{
-        color:@primaryColorDark;
+        color:$primaryColorDark;
         &:hover,
         &:focus{
-            color:@primaryColor;
+            color:$primaryColor;
         }
     }
     .footer-top{
