@@ -12,7 +12,7 @@
 <?php
 
 if ( has_post_thumbnail() ) {
-    the_post_thumbnail();
+    the_post_thumbnail( null, array( 'class' => 'd-block img-fluid' ));
 } else {
     if ( $post->post_type === 'page' ) {
         $featured_image = '<img src="'

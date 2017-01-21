@@ -18,7 +18,7 @@
     $meta = get_post_custom( $post->ID );
 ?>
 
-    <div class="item <?php if ($i==0) { echo 'active'; $i++; } ?>">
+    <div class="carousel-item <?php if ($i==0) { echo 'active'; $i++; } ?>">
 
         <?php
             // If the slide has an associated URL, wrap image in an anchor element
@@ -36,7 +36,7 @@
             endif;
         ?>
 
-        <div class="carousel-caption hidden-sm hidden-xs">
+        <div class="carousel-caption d-none d-md-block">
 
             <?php
                 // If the slide has an associated URL, turn heading into a link
