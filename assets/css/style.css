@@ -408,6 +408,24 @@ h6, .h6 {
   top: 50px;
 }
 
+.pager {
+  padding-left: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.pager li {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 0%;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+.pager li.next {
+  text-align: right;
+}
+
 /* -------------------------------------- *
 * Effects                                 *
 * --------------------------------------- */

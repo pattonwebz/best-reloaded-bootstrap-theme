@@ -406,6 +406,18 @@ h6, .h6 {
   top: 50px;
 }
 
+.pager {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+}
+.pager li {
+  flex: 1;
+}
+.pager li.next {
+  text-align: right;
+}
+
 /* -------------------------------------- *
 * Effects                                 *
 * --------------------------------------- */
