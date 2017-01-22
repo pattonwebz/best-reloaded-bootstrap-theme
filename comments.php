@@ -68,15 +68,32 @@
     ?>
         <p class="nocomments hero-p"><?php echo 'Comments are closed.'; ?></p>
     <?php endif; ?>
-	<div class="row">
+	<div class="comment-fields">
     <?php
         comment_form( array(
-            'comment_field' => '<p class="comment-form-comment form-group">
-                                   <label for="comment">Enter Your Comment</label>
-                                   <textarea id="comment" name="comment" class="form-control" rows="5" aria-required="true"></textarea>
-                               </p>',
-							   'label_submit'=>'Leave Comment',
-        'comment_notes_after' => '',
+            'comment_field' 		=> '<div class="comment-form-comment form-group row">' .
+                                   			'<label for="comment" class="col-12">Enter Your Comment</label>' .
+                                   			'<textarea id="comment" name="comment" class="form-control col-12" rows="5" aria-required="true"></textarea>' .
+                               			'</div>',
+			'label_submit'			=> 'Leave Comment',
+	        'comment_notes_after' 	=> '',
+			'fields' 				=> array(
+			  	'author' =>
+			    	'<div class="comment-form-author form-group row"><label for="author" class="col-2">' . __( 'Name', 'best-reloaded' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+			    	'<input id="author" name="author" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author'] ) .
+			    	'" size="30"' . $aria_req . ' /></div>',
+
+			  	'email' =>
+			    	'<div class="comment-form-email form-group row"><label for="email" class="col-2">' . __( 'Email', 'best-reloaded' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+			    	'<input id="email" name="email" type="email" class="form-control col-10" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+			    	'" size="30"' . $aria_req . ' /></div>',
+
+			  	'url' =>
+			    	'<div class="comment-form-url form-group row"><label for="url" class="col-2">' . __( 'Website', 'best-reloaded' ) . '</label>' .
+			    	'<input id="url" name="url" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author_url'] ) .
+			    	'" size="30" /></div>',
+			),
+			'class_submit'			=> 'submit btn btn-lg btn-warning'
         ));
     ?>
 	</div>
