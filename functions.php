@@ -22,12 +22,7 @@ require 'inc/custom-posts.php';
 // Register Custom Navigation Walker
 require_once('wp_bootstrap_navwalker.php');
 
-define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
-require_once dirname( __FILE__ ) . '/inc/options-framework.php';
-
-// Loads options.php from child or parent theme
-$optionsfile = locate_template( 'options.php' );
-load_template( $optionsfile );
+require 'inc/customizer.php';
 
 // Move the Jetpack social share buttons to the beginning of the post, this is to allow for the float effect
 function pwwp_jptweak_remove_share() {

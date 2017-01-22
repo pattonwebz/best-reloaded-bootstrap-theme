@@ -8,7 +8,7 @@
   * @since Best Reloaded 0.7
   */
 add_action( 'customize_register', 'best_reloaded_customizer' );
-function best_reloaded_customizer(){
+function best_reloaded_customizer($wp_customize){
 
 	// Loads file that contains sanitization functions
 	require_once dirname( __FILE__ ) . '/includes/class-options-sanitization.php';
