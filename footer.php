@@ -11,23 +11,6 @@
 
     </div><!-- end .container.container-main -->
 
-    <?php if ( of_get_option( 'bestreloaded_display_twitter' ) ) : ?>
-
-    <div class="container container-main twitter-feed">
-        <div class="row">
-            <div class="col-sm-12">
-
-                <?php
-                    $twitter_user = of_get_option( 'bestreloaded_twitter' );
-                    wp_echo_twitter( $twitter_user );
-                ?>
-
-            </div>
-        </div>
-    </div>
-
-    <?php endif; ?>
-
     <footer id="site-footer" class="container" role="contentinfo">
 
         <?php if ( of_get_option( 'bestreloaded_display_footer_top' ) ) : ?>
