@@ -64,9 +64,9 @@
 							wp_nav_menu( array(
 								'menu'       => 'nav_footer',
 								'theme_location' => 'nav_footer',
-								'depth'      => 0,
+								'depth'      => 1,
 								'container'  => false,
-								'menu_class' => 'nav nav-pills nav-justified',
+								'menu_class' => 'nav justify-content-end',
 								'fallback_cb' => 'topbar_nav_fallback',
 								'walker' => new wp_bootstrap_navwalker())
 							);

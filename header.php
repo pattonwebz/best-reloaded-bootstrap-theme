@@ -40,11 +40,12 @@
 		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<?php
 					wp_nav_menu( array(
-						'menu'       => 'nav_topbar',
-						'theme_location' => 'nav_topbar',
-						'depth'      => 1,
-						'container'  => false,
-						'menu_class' => 'navbar-nav mr-auto'
+						'menu'       		=> 'nav_topbar',
+						'theme_location' 	=> 'nav_topbar',
+						'depth'      		=> 0,
+						'container'  		=> false,
+						'menu_class' 		=> 'navbar-nav mr-auto',
+						'walker'            => new wp_bootstrap_navwalker()
 					) );
 				?>
 		    	<form class="form-inline my-2 my-lg-0">
