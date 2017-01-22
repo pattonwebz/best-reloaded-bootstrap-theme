@@ -7,9 +7,11 @@
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.7
   */
-
+add_action( 'customize_register', 'best_reloaded_customizer' );
 function best_reloaded_customizer(){
 
+	// Loads file that contains sanitization functions
+	require_once dirname( __FILE__ ) . '/includes/class-options-sanitization.php';
 
 	class PWWP_Customize_Textarea_Control extends WP_Customize_Control {
         public $type = 'textarea';
