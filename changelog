@@ -1,3 +1,22 @@
+0.7 - Updated Bootstrap to version 4.0.0-alpha.6
+		- Various markup changes theme wide to work with Bootstrap 4
+		- Bootstrap installed as a devDependancy and parts are copied to assets dir
+		- Added tether.io - is a dependacy of Bs tooltips
+	- Switched to using sass instead of less for Styles
+	- Compiled styles are now enqueued from /assets/css/
+	- Grunt config changes
+		- Added grunt-contrib-copy
+		- Moved to grunt-contrib-sass and grunt-postcss for stylesheets
+			- Added 'build' task for intial build - including BS styles/scripts and theme styles/scripts
+			- Added 'theme' task for just compiling theme files
+			- stylesheets are compiled in a way that matches closely with Bootstraps own process
+				- uses autoprefixer and postcss-clean and postcss-flexbugs-fixes
+		- Moved to grunt-babel and grunt-contrib-uglify for scripts
+			- scripts are run through babel for es2015 compatibility and then uglify
+	- Updated navwalker from v2.0.2 to 2.0.4 - still no proper BS4 compat
+	- Removed development directory 'node_modules' from repo
+	- Comments from style improvements
+		- Wrapped elements with more Bootstrap markup
 0.6 - Overall refinement and passing WP Theme Check plugin
         - grunt-github-changelog added to generate an auto CHANGELOG.md from commit messages
         - various style additions for screen readers
