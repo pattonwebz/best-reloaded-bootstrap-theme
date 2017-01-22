@@ -55,7 +55,7 @@ function best_reloaded_customizer($wp_customize){
     $wp_customize->add_control( 'bestreloaded_display_header_banner_area', array(
         'label' => __('Display Header Banner Area', 'best-reloaded'),
         'section' => 'best_reloaded_header',
-        'settings' => 'bestreloaded_display_header_banner_area]',
+        'settings' => 'bestreloaded_display_header_banner_area',
         'type' => 'checkbox'
     ) );
 
@@ -131,17 +131,13 @@ function best_reloaded_customizer($wp_customize){
        'type' => 'textarea'
    ) ) );
 
-
-
-
-
    $wp_customize->add_setting( 'bestreloaded_display_footer_top', array(
        'default' => 1,
        'sanitize_callback' => 'of_sanitize_checkbox',
        'type' => 'option'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_footer_top', array(
-       'label' => __('', 'best-reloaded'),
+       'label' => __('Display Footer Top', 'best-reloaded'),
        'section' => 'best_reloaded_footer',
        'settings' => 'bestreloaded_display_footer_top',
        'type' => 'checkbox'
