@@ -141,3 +141,10 @@ function add_class_to_items_link( $atts, $item, $args ) {
   }
   return $atts;
 }
+
+// this is a wrapper function for get_option - added for backwards compatibility
+// as the original of_get_option was removed along with it's theme options
+// framework
+function of_get_option($key = false, $default = false){
+	return get_option( $key );
+}
