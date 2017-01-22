@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     // the first path is the output and the second is the input
-					'css/theme-style.css': 'assets/src/sass/style.scss'
+					'assets/css/style.css': 'assets/src/scss/style.scss'
                 }
             },
 
@@ -216,4 +216,5 @@ module.exports = function(grunt) {
     grunt.registerTask('dev', ['less:dev', 'postcss:dev']);
     grunt.registerTask('production', ['less:production', 'postcss:production']);
 	grunt.registerTask('build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'uglify:dev']);
+	grunt.registerTask('theme', ['sass:theme', 'postcss:theme', 'postcss:thememinify']);
 };
