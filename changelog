@@ -1,3 +1,10 @@
+0.8 - Moved to using customizer instead of theme options framework
+	- Removed old Twitter code from footer
+	- Removed several old files and directories no longer in use
+	- Fixed text domain throughout theme to 'best-reloaded'
+	- Removed depretiated tags from stylesheets and readme
+	- Updated readme with content in-keeping with WP Theme Directory styling
+	- Tweaks to custom navwalker to work better with Bootstrap 4.0.0-alpha.6
 0.7 - Updated Bootstrap to version 4.0.0-alpha.6
 		- Various markup changes theme wide to work with Bootstrap 4
 		- Bootstrap installed as a devDependancy and parts are copied to assets dir
