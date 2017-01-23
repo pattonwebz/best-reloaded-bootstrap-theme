@@ -115,11 +115,14 @@ function optionsframework_custom_scripts() { ?>
 }
 
 //Filtering a Class in Navigation Menu Item
-add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+//add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 function special_nav_class($classes, $item){
 	// check if the item has children
 	$hasChildren = (in_array('menu-item-has-children', $item->classes));
 	if ($hasChildren) {
+		if(!is_array($classes)){
+			$classes = array();
+		}
 		$classes[] = 'dropdown';
 	}
     $classes[] = 'nav-item';
@@ -127,7 +130,6 @@ function special_nav_class($classes, $item){
     return $classes;
 }
 
-add_filter( 'nav_menu_link_attributes', 'add_class_to_items_link', 10, 3 );
 function add_class_to_items_link( $atts, $item, $args ) {
 	$atts['class'] .= $atts['class'] . ' nav-link';
   // check if the item has children
