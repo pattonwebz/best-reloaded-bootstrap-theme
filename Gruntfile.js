@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     // the first path is the output and the second is the input
-					'assets/css/style.css': 'assets/src/scss/style.scss'
+					'assets/src/css/style.css': 'assets/src/scss/style.scss'
                 }
             },
 
