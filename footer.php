@@ -13,7 +13,7 @@
 
     <footer id="site-footer" class="container" role="contentinfo">
 
-        <?php if ( of_get_option( 'bestreloaded_display_footer_top' ) ) : ?>
+        <?php if ( get_theme_mod( 'bestreloaded_display_footer_top' ) ) : ?>
 
         <div class="footer-top">
             <div class="widget-area row">
@@ -33,12 +33,12 @@
         </div><!-- end .footer-top -->
 
         <?php endif; ?>
-        <?php if ( of_get_option( 'bestreloaded_display_footer_bottom' ) ) : ?>
+        <?php if ( get_theme_mod( 'bestreloaded_display_footer_bottom' ) ) : ?>
 
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-sm-5">
-                    <p id="footer-site-title"><?php echo ( of_get_option( 'bestreloaded_footer_bottom_tagline' ) ); ?></p>
+                    <p id="footer-site-title"><?php echo ( get_theme_mod( 'bestreloaded_footer_bottom_tagline' ) ); ?></p>
                 </div>
                 <div class="col-sm-7">
                     <nav role="navigation">

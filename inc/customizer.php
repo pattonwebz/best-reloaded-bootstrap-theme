@@ -50,7 +50,7 @@ function best_reloaded_customizer($wp_customize){
 	$wp_customize->add_setting( 'bestreloaded_display_header_banner_area', array(
         'default' => 0,
         'sanitize_callback' => 'of_sanitize_checkbox',
-        'type' => 'option'
+        'type' => 'theme_mod'
     ) );
     $wp_customize->add_control( 'bestreloaded_display_header_banner_area', array(
         'label' => __('Display Header Banner Area', 'best-reloaded'),
@@ -61,20 +61,20 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_header_banner_area', array(
        'default' => '<!-- html accepted -->',
-       'sanitize_callback' => 'of_sanitize_text',
-       'type' => 'option'
+       'sanitize_callback' => 'of_sanitize_textarea',
+       'type' => 'theme_mod'
    ) );
-   $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'bestreloaded_header_banner_area', array(
+   $wp_customize->add_control( 'bestreloaded_header_banner_area', array(
        'label' => __('Header Banner Area', 'best-reloaded'),
        'section' => 'best_reloaded_header',
        'settings' => 'bestreloaded_header_banner_area',
        'type' => 'textarea'
-   ) ) );
+   ) );
 
    $wp_customize->add_setting( 'bestreloaded_display_intro_text', array(
        'default' => 1,
        'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_intro_text', array(
        'label' => __('Select the checkbox to display the homepage intro text, which appears above the slider on the homepage.', 'best-reloaded'),
@@ -86,19 +86,19 @@ function best_reloaded_customizer($wp_customize){
    $wp_customize->add_setting( 'bestreloaded_intro_text', array(
        'default' => __('Welcome to our awesome site!<br/>This space is the perfect place to say a <a href="#">little something</a> about yourself.', 'best-reloaded' ),
        'sanitize_callback' => 'of_sanitize_textarea',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
-   $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'bestreloaded_intro_text', array(
+   $wp_customize->add_control( 'bestreloaded_intro_text', array(
        'label' => __('Homepage Intro Text', 'best-reloaded'),
        'section' => 'best_reloaded_home',
        'settings' => 'bestreloaded_intro_text',
        'type' => 'textarea'
-   ) ) );
+   ) );
 
    $wp_customize->add_setting( 'bestreloaded_display_homepage_widget_row', array(
        'default' => 1,
        'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_homepage_widget_row', array(
        'label' => __('Display Homepage Widget Row', 'best-reloaded'),
@@ -110,7 +110,7 @@ function best_reloaded_customizer($wp_customize){
    $wp_customize->add_setting( 'bestreloaded_display_featured_bar', array(
        'default' => 0,
        'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_featured_bar', array(
        'label' => __('Display Featured Content Bar', 'best-reloaded'),
@@ -122,19 +122,19 @@ function best_reloaded_customizer($wp_customize){
    $wp_customize->add_setting( 'bestreloaded_featured_bar', array(
        'default' => __('Something Important (set background color, image, text, and <a href="#">link</a>)', 'best-reloaded' ),
        'sanitize_callback' => 'of_sanitize_textarea',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
-   $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'bestreloaded_featured_bar', array(
+   $wp_customize->add_control( 'bestreloaded_featured_bar', array(
        'label' => __('', 'best-reloaded'),
        'section' => 'best_reloaded_other',
        'settings' => 'bestreloaded_featured_bar',
        'type' => 'textarea'
-   ) ) );
+   ) );
 
    $wp_customize->add_setting( 'bestreloaded_display_footer_top', array(
        'default' => 1,
        'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_footer_top', array(
        'label' => __('Display Footer Top', 'best-reloaded'),
@@ -146,7 +146,7 @@ function best_reloaded_customizer($wp_customize){
    $wp_customize->add_setting( 'bestreloaded_display_footer_bottom', array(
        'default' => 1,
        'sanitize_callback' => 'of_sanitize_checkbox',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_footer_bottom', array(
        'label' => __('Display Footer Bottom', 'best-reloaded'),
@@ -158,7 +158,7 @@ function best_reloaded_customizer($wp_customize){
    $wp_customize->add_setting( 'bestreloaded_footer_bottom_tagline', array(
        'default' => __('&copy; 2017 <a href="#">Site Title</a>', 'best-reloaded'),
        'sanitize_callback' => 'of_sanitize_textarea',
-       'type' => 'option'
+       'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( new PWWP_Customize_Textarea_Control( $wp_customize, 'bestreloaded_footer_bottom_tagline', array(
        'label' => __('Footer Bottom Tagline', 'best-reloaded'),

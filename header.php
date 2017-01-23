@@ -60,12 +60,12 @@
         <div class="row">
             <div class="col-sm-8 site-header">
 
-				<?php if ( of_get_option( 'bestreloaded_site_heading_img_checkbox' ) && of_get_option( 'site_heading_img' ) ) :
+				<?php if ( get_theme_mod( 'bestreloaded_site_heading_img_checkbox' ) && get_theme_mod( 'site_heading_img' ) ) :
                     // if this checkbox is ticked AND an image is set THEN output the image
                     ?>
 					<div class="name-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							<img src="<?php echo ( of_get_option( 'site_heading_img' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							<img src="<?php echo ( get_theme_mod( 'site_heading_img' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						</a>
 					</div>
 				<?php else :
@@ -88,10 +88,12 @@
 					</div>
 				<?php endif; ?>
             </div><!-- end .col-md-8 -->
-            <?php if ( of_get_option( 'bestreloaded_display_header_banner_area' ) ) : ?>
+			<?php echo '<!-- ' . get_theme_mod( 'bestreloaded_display_header_banner_area' ) . '-->'; ?>
+			<?php echo '<!-- ' . get_theme_mod( 'bestreloaded_header_banner_area' ) . '-->'; ?>
+            <?php if ( get_theme_mod( 'bestreloaded_display_header_banner_area' ) ) { ?>
                 <div class="col-sm-4 header-banner-area">
-                    <?php echo do_shortcode( of_get_option( 'bestreloaded_header_banner_area' ) ); ?>
+                    <?php echo do_shortcode( get_theme_mod( 'bestreloaded_header_banner_area' ) ); ?>
                 </div>
-            <?php endif; ?>
+            <?php } ?>
         </div><!-- end .row -->
         <hr class="hr-row-divider" style="clear: both;">

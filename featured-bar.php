@@ -9,13 +9,13 @@
   */
 ?>
 
-<?php if ( of_get_option( 'bestreloaded_display_featured_bar' ) ) : ?>
+<?php if ( get_theme_mod( 'bestreloaded_display_featured_bar' ) ) : ?>
 <div class="row">
     <div class="col-sm-12 text-center">
         <div class="featured-bar">
             <p class="lead">
-				<?php if ( of_get_option( 'bestreloaded_featured_bar' ) ) {
-					echo do_shortcode( of_get_option( 'bestreloaded_featured_bar' ) );
+				<?php if ( get_theme_mod( 'bestreloaded_featured_bar' ) ) {
+					echo do_shortcode( get_theme_mod( 'bestreloaded_featured_bar' ) );
 				} ?>
 			</p>
         </div>
