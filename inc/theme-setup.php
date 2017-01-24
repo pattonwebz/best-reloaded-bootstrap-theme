@@ -27,7 +27,7 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
 
         // Fallback function for Topbar Navigation if it isn't set
         function topbar_nav_fallback() {
-            echo '<ul class="nav navbar-nav"><li><a href="' . home_url() . '" title="Home">Home</a></li></ul>';
+            echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url(home_url()) . '" title="Home" class="nav-link">Home</a></li></ul>';
         }
 
 
