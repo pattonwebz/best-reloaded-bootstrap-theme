@@ -39,19 +39,18 @@
 
 		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<?php
-					wp_nav_menu( array(
-						'menu'       		=> 'nav_topbar',
-						'theme_location' 	=> 'nav_topbar',
-						'depth'      		=> 0,
-						'container'  		=> false,
-						'menu_class' 		=> 'navbar-nav mr-auto',
-						'walker'            => new wp_bootstrap_navwalker()
-					) );
+				wp_nav_menu( array(
+					'menu'       		=> 'nav_topbar',
+					'theme_location' 	=> 'nav_topbar',
+					'depth'      		=> 0,
+					'container'  		=> false,
+					'menu_class' 		=> 'navbar-nav mr-auto',
+					'fallback_cb' 		=> 'topbar_nav_fallback',
+					'walker'            => new wp_bootstrap_navwalker()
+				) );
+
+				get_search_form();
 				?>
-		    	<form class="form-inline my-2 my-lg-0">
-		      		<input class="form-control mr-sm-2" type="text" placeholder="Search">
-		      		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		    	</form>
 		  	</div>
 		</nav>
 
