@@ -2,7 +2,8 @@
 // --------------------------------------------------
 .blog-three-up{
     .entry-title{
-        font-size:20px
+        font-size:20px;
+		margin-top:0.5rem;
     }
     footer{
         @include font-family_2();

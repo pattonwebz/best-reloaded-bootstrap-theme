@@ -249,6 +249,7 @@ h6, .h6 {
 
 .blog-three-up .entry-title {
   font-size: 20px;
+  margin-top: 0.5rem;
 }
 .blog-three-up footer {
   font-family: Georgia, "Times New Roman", Times, serif;
