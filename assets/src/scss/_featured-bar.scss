@@ -10,6 +10,10 @@
     margin: 0 -30px 20px;
     text-shadow: none;
 
+	@media (min-width: 768px){
+	    margin: 0 -30px 20px;
+	}
+
     &.featured-bar-post {
         margin: 10px 0 30px -60px;
         padding: 15px 15px 15px 60px;
