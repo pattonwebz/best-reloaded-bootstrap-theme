@@ -39,6 +39,9 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
         // This theme uses Featured Images (also known as post thumbnails)
         add_theme_support( 'post-thumbnails' );
 
+		// Adds the image sizes we use
+		add_image_size('featured-slide', '865', '400', true);
+
         // This feature enables post and comment RSS feed links to head
         add_theme_support( 'automatic-feed-links' );
 
