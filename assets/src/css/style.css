@@ -206,6 +206,11 @@ h6, .h6 {
 /* --------------------------------------- *
 * Header                               *
 * ---------------------------------------- */
+header .navbar .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .name-text h1,
 .name-text span.h1 {
   font-size: 90px;
@@ -385,6 +390,11 @@ h6, .h6 {
   padding: 30px 60px;
   margin: 0 -30px 20px;
   text-shadow: none;
+}
+@media (min-width: 768px) {
+  .featured-bar {
+    margin: 0 -30px 20px;
+  }
 }
 .featured-bar.featured-bar-post {
   margin: 10px 0 30px -60px;
