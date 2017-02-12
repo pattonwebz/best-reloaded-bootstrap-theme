@@ -30,3 +30,254 @@
         }
     }
 }
+
+// NOTE: this is pre-compiled css for gravity forms
+
+.btn > .caret, .gform_button > .caret,
+.dropup > .btn > .caret,
+.dropup > .gform_button > .caret {
+  border-top-color: #000 !important;
+}
+
+.gform_fields {
+padding-left: 0;
+list-style: none;
+margin-left: -15px;
+margin-right: -15px;
+}
+
+.gform_fields::after {
+content: "";
+display: table;
+clear: both;
+}
+
+.form-control, .gform_fields input, .gform_fields select, .gform_fields textarea {
+display: block;
+width: 100%;
+padding: 0.5rem 0.75rem;
+font-size: 1rem;
+line-height: 1.25;
+color: #55595c;
+background-color: #fff;
+background-image: none;
+-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+border: 1px solid rgba(0, 0, 0, 0.15);
+border-radius: 0.25rem;
+}
+
+.gform_fields input::-ms-expand, .gform_fields select::-ms-expand, .gform_fields textarea::-ms-expand {
+background-color: transparent;
+border: 0;
+}
+
+.gform_fields input:focus, .gform_fields select:focus, .gform_fields textarea:focus {
+color: #55595c;
+background-color: #fff;
+border-color: #66afe9;
+outline: none;
+}
+
+.gform_fields input::-webkit-input-placeholder, .gform_fields select::-webkit-input-placeholder, .gform_fields textarea::-webkit-input-placeholder {
+color: #999;
+opacity: 1;
+}
+
+.gform_fields input::-moz-placeholder, .gform_fields select::-moz-placeholder, .gform_fields textarea::-moz-placeholder {
+color: #999;
+opacity: 1;
+}
+
+.gform_fields input:-ms-input-placeholder, .gform_fields select:-ms-input-placeholder, .gform_fields textarea:-ms-input-placeholder {
+color: #999;
+opacity: 1;
+}
+
+.gform_fields input::placeholder, .gform_fields select::placeholder, .gform_fields textarea::placeholder {
+color: #999;
+opacity: 1;
+}
+
+.gform_fields input:disabled, .gform_fields select:disabled, .gform_fields textarea:disabled, .gform_fields input[readonly], .gform_fields select[readonly], .gform_fields textarea[readonly] {
+background-color: #eceeef;
+opacity: 1;
+}
+
+.gform_fields input:disabled, .gform_fields select:disabled, .gform_fields textarea:disabled {
+cursor: not-allowed;
+}
+
+.gform_fields select:not([size]):not([multiple]) {
+height: 2.5rem;
+}
+
+.gform_fields select:focus::-ms-value {
+color: #55595c;
+background-color: #fff;
+}
+
+.gform_fields .input-group-sm > input.form-control-static, .gform_fields .input-group-sm > select.form-control-static, .gform_fields .input-group-sm > textarea.form-control-static,
+.gform_fields .input-group-lg > input.form-control-static, .gform_fields .input-group-lg > select.form-control-static, .gform_fields .input-group-lg > textarea.form-control-static {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.gform_fields .input-group-sm > input, .gform_fields .input-group-sm > select, .gform_fields .input-group-sm > textarea {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+}
+
+.gform_fields .input-group-sm > select:not([size]):not([multiple]) {
+  height: 1.8125rem;
+}
+
+.gform_fields .input-group-lg > input, .gform_fields .input-group-lg > select, .gform_fields .input-group-lg > textarea {
+	padding: 0.75rem 1.5rem;
+	font-size: 1.25rem;
+	border-radius: 0.3rem;
+}
+
+.gform_fields .input-group-lg > select:not([size]):not([multiple]) {
+  height: 3.166667rem;
+}
+
+.gform_wrapper ul.gfield_radio li, .gform_wrapper ul.gfield_checkbox li {
+position: relative;
+display: block;
+margin-bottom: 0.75rem;
+}
+
+.gform_wrapper ul.gfield_radio li + .form-check, .gform_wrapper ul.gfield_checkbox li + .form-check, .gform_wrapper ul.gfield_radio .form-check + li, .gform_wrapper ul.gfield_radio li + li, .gform_wrapper ul.gfield_checkbox .form-check + li, .gform_wrapper ul.gfield_checkbox li + li {
+margin-top: -.25rem;
+}
+
+.gform_wrapper ul.gfield_radio li.disabled .form-check-label, .gform_wrapper ul.gfield_checkbox li.disabled .form-check-label {
+color: #818a91;
+cursor: not-allowed;
+}
+
+.gform_fields input, .gform_fields .has-success input, .has-success .gform_fields select, .gform_fields .has-success select, .has-success .gform_fields textarea, .gform_fields .has-success textarea {
+border-color: #5cb85c;
+}
+
+.gform_fields input, .gform_fields .has-warning input, .has-warning .gform_fields select, .gform_fields .has-warning select, .has-warning .gform_fields textarea, .gform_fields .has-warning textarea {
+border-color: #f0ad4e;
+}
+
+.gform_fields input, .gform_fields .has-danger input, .has-danger .gform_fields select, .gform_fields .has-danger select, .has-danger .gform_fields textarea, .gform_fields .has-danger textarea {
+border-color: #d9534f;
+}
+
+.gform_button {
+display: inline-block;
+font-weight: normal;
+line-height: 1.25;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-webkit-user-select: none;
+   -moz-user-select: none;
+	-ms-user-select: none;
+		user-select: none;
+border: 1px solid transparent;
+padding: 0.5rem 1rem;
+font-size: 1rem;
+border-radius: 0.25rem;
+}
+
+.gform_button:focus, .btn.focus, .focus.gform_button, .gform_button:active:focus .gform_button:active.focus, .active.gform_button:focus, .active.focus.gform_button {
+outline: 5px auto -webkit-focus-ring-color;
+outline-offset: -2px;
+}
+
+.gform_button:focus, .gform_button:hover {
+text-decoration: none;
+}
+
+.focus.gform_button {
+text-decoration: none;
+}
+
+.gform_button:active, .active.gform_button {
+background-image: none;
+outline: 0;
+}
+
+.disabled.gform_button, .gform_button:disabled {
+cursor: not-allowed;
+opacity: .65;
+}
+
+a.btn.disabled, a.disabled.gform_button,
+fieldset[disabled] a.btn,
+fieldset[disabled] a.gform_button {
+pointer-events: none;
+}
+
+gfield_description, .validation_error, .validation_message {
+padding: 1rem;
+margin-bottom: 1rem;
+border: 1px solid transparent;
+border-radius: 0.25rem;
+}
+
+.validation_message {
+background-color: #dff0d8;
+border-color: #d0e9c6;
+color: #3c763d;
+}
+
+.validation_message hr {
+border-top-color: #c1e2b3;
+}
+
+.validation_message .alert-link {
+color: #2b542c;
+}
+
+.gform_fields textarea {
+height: auto;
+}
+
+.gfield_required {
+color: #a94442;
+}
+
+.gform_validation_container {
+display: none;
+}
+
+.gfield_error .ginput_container {
+margin-bottom: 10px;
+}
+
+@media (min-width: 544px) {
+.form-inline .gform_fields input, .gform_fields .form-inline input, .form-inline .gform_fields select, .gform_fields .form-inline select, .form-inline .gform_fields textarea, .gform_fields .form-inline textarea {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.form-inline .input-group .gform_fields input, .gform_fields
+.form-inline .input-group input,
+.form-inline .input-group .gform_fields select, .gform_fields
+.form-inline .input-group select,
+.form-inline .input-group .gform_fields textarea, .gform_fields
+.form-inline .input-group textarea {
+  width: auto;
+}
+.form-inline .input-group > .form-control, .form-inline .gform_fields .input-group > input, .gform_fields .form-inline .input-group > input, .form-inline .gform_fields .input-group > select, .gform_fields .form-inline .input-group > select, .form-inline .gform_fields .input-group > textarea, .gform_fields .form-inline .input-group > textarea {
+  width: 100%;
+}
+
+.gform_wrapper ul.gfield_radio li, .gform_wrapper ul.gfield_radio .form-inline li, .form-inline .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_checkbox .form-inline li {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+}
