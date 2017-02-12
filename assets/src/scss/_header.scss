@@ -1,6 +1,14 @@
 /* --------------------------------------- *
 * Header                               *
 * ---------------------------------------- */
+header {
+	.navbar {
+		.container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
 .name-text {
     h1,
     span.h1{

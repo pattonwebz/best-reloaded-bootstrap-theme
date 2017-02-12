@@ -32,25 +32,28 @@
     <header>
 
 		<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
-			
-		  	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    	<span class="navbar-toggler-icon"></span>
-		  	</button>
+			<div class="container">
 
-		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<?php
-				wp_nav_menu( array(
-					'menu'       		=> 'nav_topbar',
-					'theme_location' 	=> 'nav_topbar',
-					'depth'      		=> 0,
-					'container'  		=> false,
-					'menu_class' 		=> 'navbar-nav mr-auto',
-					'fallback_cb' 		=> 'topbar_nav_fallback',
-					'walker'            => new wp_bootstrap_navwalker()
-				) );
+			  	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    	<span class="navbar-toggler-icon"></span>
+			  	</button>
 
-				get_search_form();
-				?>
+			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<?php
+					wp_nav_menu( array(
+						'menu'       		=> 'nav_topbar',
+						'theme_location' 	=> 'nav_topbar',
+						'depth'      		=> 0,
+						'container'  		=> false,
+						'menu_class' 		=> 'navbar-nav mr-auto',
+						'fallback_cb' 		=> 'topbar_nav_fallback',
+						'walker'            => new wp_bootstrap_navwalker()
+					) );
+
+					get_search_form();
+					?>
+				</div>
+				
 		  	</div>
 		</nav>
 
