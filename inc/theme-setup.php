@@ -46,6 +46,11 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
         // old versions
         add_theme_support( 'title-tag' );
 
+		$args = array(
+			'default-color' => 'dddddd',
+		);
+		add_theme_support( 'custom-background', $args );
+
     }
     /* ===| end bestreloaded_setup() |================================== */
 }
