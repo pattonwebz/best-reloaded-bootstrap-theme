@@ -57,8 +57,8 @@
 
 <?php endwhile; else : ?>
 
-    <li>
+    <div>
         <p class="hero-p" style="padding: 40px;">Setup your slides in the admin area by using the "Slide" custom post type, we'll take care of the rest!</p>
-    </li>
+    </div>
 
 <?php endif; ?>

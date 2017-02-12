@@ -49,7 +49,13 @@
 	            <hr class="hr-row-divider">
 	        </div><!-- end .col-sm-9 -->
 
-            <?php // Include sidebar for static homepage, which includes widget area to the right of the slider, widget row below slider, and widget area to the left of the blog ?>
+			<div class="col-md-3 widget-area">
+
+				<?php dynamic_sidebar( 'sidebar-2' ); ?>
+
+			</div><!-- end .col-md-3 -->
+		</div><!-- end .row -->
+
             <?php get_sidebar( 'home' ); ?>
 
             <?php get_template_part( 'loop', 'home' ); ?>

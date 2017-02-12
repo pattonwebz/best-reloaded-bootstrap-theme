@@ -14,7 +14,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 body {
   padding-top: 60px;
   /* accounts for the floating top navbar */
-  font-size: 16px;
 }
 
 /* responsive images */
@@ -255,6 +254,7 @@ h6, .h6 {
 
 .blog-three-up .entry-title {
   font-size: 20px;
+  margin-top: 0.5rem;
 }
 .blog-three-up footer {
   font-family: Georgia, "Times New Roman", Times, serif;

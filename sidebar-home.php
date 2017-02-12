@@ -10,13 +10,6 @@
   */
 ?>
 
-    <div class="col-md-3 widget-area">
-
-        <?php dynamic_sidebar( 'sidebar-2' ); ?>
-
-    </div><!-- end .col-md-3 -->
-</div><!-- end .row -->
-
 <?php if ( get_theme_mod( 'bestreloaded_display_homepage_widget_row' ) ) : ?>
 
     <div class="row widget-area">

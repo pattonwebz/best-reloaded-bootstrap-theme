@@ -32,6 +32,7 @@
     <header>
 
 		<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+			
 			<div class="container">
 
 			  	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +54,7 @@
 					get_search_form();
 					?>
 				</div>
-				
+
 		  	</div>
 		</nav>
 
@@ -90,8 +91,6 @@
 					</div>
 				<?php endif; ?>
             </div><!-- end .col-md-8 -->
-			<?php echo '<!-- ' . get_theme_mod( 'bestreloaded_display_header_banner_area' ) . '-->'; ?>
-			<?php echo '<!-- ' . get_theme_mod( 'bestreloaded_header_banner_area' ) . '-->'; ?>
             <?php if ( get_theme_mod( 'bestreloaded_display_header_banner_area' ) ) { ?>
                 <div class="col-sm-4 header-banner-area">
                     <?php echo do_shortcode( get_theme_mod( 'bestreloaded_header_banner_area' ) ); ?>
