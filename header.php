@@ -12,16 +12,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>>    <!--<![endif]-->
 <head>
-    <?php
-    if ( ! function_exists( '_wp_render_title_tag' ) ) {
-    	function theme_slug_render_title() {
-    ?>
-    <title><?php wp_title( '|', true, 'right' ); ?></title>
-    <?php
-    	}
-    	add_action( 'wp_head', 'theme_slug_render_title' );
-    }
-    ?>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -32,7 +22,7 @@
     <header>
 
 		<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
-			
+
 			<div class="container">
 
 			  	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
