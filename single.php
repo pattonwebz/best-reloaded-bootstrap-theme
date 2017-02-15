@@ -32,6 +32,7 @@
 								}
 								if ( class_exists( 'Jetpack_Likes' ) ) {
 									$custom_likes = new Jetpack_Likes;
+									// all user input escaped withing the class
 									echo $custom_likes->post_likes( '' );
 								} ?>
 							</div>
