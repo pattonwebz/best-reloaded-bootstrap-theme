@@ -1,66 +1,86 @@
-0.8 - Moved to using customizer instead of theme options framework
-	- Removed old Twitter code from footer
-	- Removed several old files and directories no longer in use
-	- Fixed text domain throughout theme to 'best-reloaded'
-	- Removed depretiated tags from stylesheets and readme
-	- Updated readme with content in-keeping with WP Theme Directory styling
-	- Tweaks to custom navwalker to work better with Bootstrap 4.0.0-alpha.6
-0.7 - Updated Bootstrap to version 4.0.0-alpha.6
-		- Various markup changes theme wide to work with Bootstrap 4
-		- Bootstrap installed as a devDependancy and parts are copied to assets dir
-		- Added tether.io - is a dependacy of Bs tooltips
-	- Switched to using sass instead of less for Styles
-	- Compiled styles are now enqueued from /assets/css/
-	- Grunt config changes
-		- Added grunt-contrib-copy
-		- Moved to grunt-contrib-sass and grunt-postcss for stylesheets
-			- Added 'build' task for intial build - including BS styles/scripts and theme styles/scripts
-			- Added 'theme' task for just compiling theme files
-			- stylesheets are compiled in a way that matches closely with Bootstraps own process
-				- uses autoprefixer and postcss-clean and postcss-flexbugs-fixes
-		- Moved to grunt-babel and grunt-contrib-uglify for scripts
-			- scripts are run through babel for es2015 compatibility and then uglify
-	- Updated navwalker from v2.0.2 to 2.0.4 - still no proper BS4 compat
-	- Removed development directory 'node_modules' from repo
-	- Comments from style improvements
-		- Wrapped elements with more Bootstrap markup
-0.6 - Overall refinement and passing WP Theme Check plugin
-        - grunt-github-changelog added to generate an auto CHANGELOG.md from commit messages
-        - various style additions for screen readers
-        - Floating social block fixed and working
-            - debugging mode added to the code
-        - Some customizer integration
-            - Added customizer function to expose some of the theme options
-            - Define a key for each of the theme options
-            - Added a 'textarea' customizer handler
-            - Included inc/options.php directly in customizer function to access it's sanitization functions
-        - Remove extra featured bar content sections and the random output select
-        - Add 'title-tag' support to theme
-        - Removed extra CPTs from theme
-            - left in slider one but had to wrap the function call in variable to pass theme check.
-0.5 - Style updates & additions, namespace corrections, refinements
-        - Added a mixin/utility class to remove row margins
-        - Footer styles added
-            - classes reorganized
-        - Comment section styles added
-        - Options are all prefixed with theme name
-        - Functions were prefixed with either theme name or 'pwwp'
-        - Overhaul of floating social block
-            - moved from footer.php to js/scripts.js
-            - now works correctly when scrolling past starting position
-            - debug messages added
-            - improved sanity and error checking
-        - Featured areas/type updated
-            - margins corrected on .featured-bar-post
-            - .featured-bar-post doesn't appear if it's empty
-            - font-sizes made more appropriate
-            - .hero-p sizes adjusted based on media query
-0.4 - Various fixes
-        - Fixed version umber convention throughout the theme
-        - Many styles fixed and/or modified.
-0.3 - Migrate to .less files for styles and add Grunt to compile them
-        - Moved all styles from theme to .less files stored inside /assets/less/
-        - Grunt compiles and minifies the files and saves them to style.css and style.min.css in the root
-0.2 - Migrate from Bootstrap2 to Bootstrap3
-        - Markup throughout the theme needed changed, especially columns
-0.1 - Initial commit of theme
+0.8.2 	- Native custom background support added with add_theme_support()
+		- Fix markup for slider when no slides are set
+		- Moved a closing </div> tag into same file as it was opened
+		- Bring forward a change to wp_bootstrap_navwalker
+			- Translated string in fallback function
+		- Wrap navbar contents inside .container
+		- Some default styles and functions added for GF forms
+		- Dropped back compatability code for wp_title_tag()
+			- Not allwed in theme directory
+		- Stop overriding global['comment'] unneccesarily
+
+0.8.1	- Updated theme thumbnail with max-sized screenshot of theme at activation time
+
+0.8 	- Moved to using customizer instead of theme options framework
+		- Removed old Twitter code from footer
+		- Removed several old files and directories no longer in use
+		- Fixed text domain throughout theme to 'best-reloaded'
+		- Removed depretiated tags from stylesheets and readme
+		- Updated readme with content in-keeping with WP Theme Directory styling
+		- Tweaks to custom navwalker to work better with Bootstrap 4.0.0-alpha.6
+
+0.7 	- Updated Bootstrap to version 4.0.0-alpha.6
+			- Various markup changes theme wide to work with Bootstrap 4
+			- Bootstrap installed as a devDependancy and parts are copied to assets dir
+			- Added tether.io - is a dependacy of Bs tooltips
+		- Switched to using sass instead of less for Styles
+		- Compiled styles are now enqueued from /assets/css/
+		- Grunt config changes
+			- Added grunt-contrib-copy
+			- Moved to grunt-contrib-sass and grunt-postcss for stylesheets
+				- Added 'build' task for intial build - including BS styles/scripts and theme styles/scripts
+				- Added 'theme' task for just compiling theme files
+				- stylesheets are compiled in a way that matches closely with Bootstraps own process
+					- uses autoprefixer and postcss-clean and postcss-flexbugs-fixes
+			- Moved to grunt-babel and grunt-contrib-uglify for scripts
+				- scripts are run through babel for es2015 compatibility and then uglify
+		- Updated navwalker from v2.0.2 to 2.0.4 - still no proper BS4 compat
+		- Removed development directory 'node_modules' from repo
+		- Comments from style improvements
+			- Wrapped elements with more Bootstrap markup
+
+0.6 	- Overall refinement and passing WP Theme Check plugin
+        	- grunt-github-changelog added to generate an auto CHANGELOG.md from commit messages
+        	- various style additions for screen readers
+        	- Floating social block fixed and working
+            	- debugging mode added to the code
+        	- Some customizer integration
+            	- Added customizer function to expose some of the theme options
+            	- Define a key for each of the theme options
+            	- Added a 'textarea' customizer handler
+            	- Included inc/options.php directly in customizer function to access it's sanitization functions
+        	- Remove extra featured bar content sections and the random output select
+        	- Add 'title-tag' support to theme
+        	- Removed extra CPTs from theme
+            	- left in slider one but had to wrap the function call in variable to pass theme check.
+
+0.5 	- Style updates & additions, namespace corrections, refinements
+        	- Added a mixin/utility class to remove row margins
+        	- Footer styles added
+            	- classes reorganized
+        	- Comment section styles added
+        	- Options are all prefixed with theme name
+        	- Functions were prefixed with either theme name or 'pwwp'
+        	- Overhaul of floating social block
+            	- moved from footer.php to js/scripts.js
+            	- now works correctly when scrolling past starting position
+            	- debug messages added
+            	- improved sanity and error checking
+        	- Featured areas/type updated
+            	- margins corrected on .featured-bar-post
+            	- .featured-bar-post doesn't appear if it's empty
+            	- font-sizes made more appropriate
+            	- .hero-p sizes adjusted based on media query
+
+0.4 	- Various fixes
+        	- Fixed version umber convention throughout the theme
+        	- Many styles fixed and/or modified.
+
+0.3 	- Migrate to .less files for styles and add Grunt to compile them
+        	- Moved all styles from theme to .less files stored inside /assets/less/
+        	- Grunt compiles and minifies the files and saves them to style.css and style.min.css in the root
+
+0.2 	- Migrate from Bootstrap2 to Bootstrap3
+        	- Markup throughout the theme needed changed, especially columns
+
+0.1 	- Initial commit of theme
