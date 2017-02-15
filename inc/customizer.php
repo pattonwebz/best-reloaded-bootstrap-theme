@@ -125,7 +125,7 @@ function best_reloaded_customizer($wp_customize){
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_featured_bar', array(
-       'label' => __('', 'best-reloaded'),
+       'label' => __('Feature Bar Content', 'best-reloaded'),
        'section' => 'best_reloaded_other',
        'settings' => 'bestreloaded_featured_bar',
        'type' => 'textarea'
