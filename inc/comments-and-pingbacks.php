@@ -9,13 +9,12 @@
  */
 
 function respond_comment( $comment, $args, $depth ) {
-    $GLOBALS['comment'] = $comment;
     switch ( $comment->comment_type ) :
         case 'pingback' :
         case 'trackback' :
     ?>
     <li class="post pingback">
-        <p><?php echo 'Pingback:'; ?> <?php comment_author_link(); ?><?php edit_comment_link( 'Edit &#x270E;', '<span class="edit-link">', '</span>' ); ?></p>
+        <p><?php echo 'Pingback:'; ?> <?php comment_author_link(); ?><?php edit_comment_link( 'Edit &#x270E;', ' </br><span class="edit-link">', '</span>' ); ?></p>
     <?php
             break;
         default :

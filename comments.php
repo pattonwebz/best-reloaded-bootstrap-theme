@@ -44,7 +44,7 @@
                  * to use respond_comment() to format the comments.
                  * If you want to overload this in a child theme then you can
                  * define respond_comment() and that will be used instead.
-                 * See respond_comment() in functions.php for more.
+                 * See respond_comment() in comments-and-pingpacks.php for more. 
                  */
                 wp_list_comments( array( 'callback' => 'respond_comment' ) );
             ?>
