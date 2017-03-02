@@ -11,9 +11,16 @@
 
 <?php
     global $postcount;
-
-    $args = array( 'posts_per_page' => 3 );
+	global $best_doNotGetDuplicates;
+	if( !is_array( $best_doNotGetDuplicates ) ){
+		$best_doNotGetDuplicates = array();
+	}
+    $args = array(
+		'posts_per_page' 	=> 3,
+ 		'post__not_in' 		=> $best_doNotGetDuplicates
+	);
     $loop = new WP_Query( $args );
+	var_dump($best_doNotGetDuplicates);
     if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); if ( ++$postcount > 3 ) continue;
 ?>
 
