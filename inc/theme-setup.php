@@ -100,8 +100,6 @@ add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_scripts' );
 if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
     function pwwp_load_bestreloaded_scripts() {
         if ( !is_admin() ) {
-            wp_register_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr-2.5.3.min.js' );
-            wp_enqueue_script( 'modernizr' );
             wp_enqueue_script( 'jquery' );
             wp_register_script( 'best-reloaded-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'bootstrap'), 0.4, true );
             wp_enqueue_script( 'best-reloaded-scripts' );
