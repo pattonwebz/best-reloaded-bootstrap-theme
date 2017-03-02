@@ -17,14 +17,12 @@ require 'inc/theme-setup.php';
 require 'inc/comments-and-pingbacks.php';
 // Registers all dynamic sidebar areas for the theme
 require 'inc/register-sidebars.php';
-// Registers custom post types for the theme
-require 'inc/custom-posts.php';
 // Register Custom Navigation Walker
 require_once('wp_bootstrap_navwalker.php');
 
 require 'inc/customizer.php';
 
-// Move the Jetpack social share buttons to the beginning of the post, this is to allow for the float effect
+// Move the Jetpack social share buttons to the beginning of the post
 function pwwp_jptweak_remove_share() {
 remove_filter( 'the_content', 'sharing_display',19 );
 remove_filter( 'the_excerpt', 'sharing_display',19 );
