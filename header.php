@@ -36,7 +36,7 @@
 						'theme_location' 	=> 'nav_topbar',
 						'depth'      		=> 0,
 						'container'  		=> false,
-						'menu_class' 		=> 'navbar-nav',
+						'menu_class' 		=> 'navbar-nav mr-auto',
 						'fallback_cb' 		=> 'topbar_nav_fallback',
 						'walker'            => new wp_bootstrap_navwalker()
 					) );
