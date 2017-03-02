@@ -24,9 +24,9 @@
 
     <?php if ( have_comments() ) : ?>
         <h3 id="comments-title">
-            <?php
-                printf( _n( '%1$s Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'best-reloaded' ),
-                    number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
+            <?php // translators: 1 is a total number of comments
+                printf( esc_html( _n( '%1$s Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'best-reloaded' ) ),
+                    absint( number_format_i18n( get_comments_number() ) ), '<span>' . get_the_title() . '</span>' );
             ?>
         </h3>
 
@@ -44,7 +44,7 @@
                  * to use respond_comment() to format the comments.
                  * If you want to overload this in a child theme then you can
                  * define respond_comment() and that will be used instead.
-                 * See respond_comment() in comments-and-pingpacks.php for more. 
+                 * See respond_comment() in comments-and-pingpacks.php for more.
                  */
                 wp_list_comments( array( 'callback' => 'respond_comment' ) );
             ?>
