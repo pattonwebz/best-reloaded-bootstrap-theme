@@ -15,7 +15,7 @@
     <?php if ( get_theme_mod( 'bestreloaded_display_intro_text' ) && get_theme_mod( 'bestreloaded_intro_text') ) : ?>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <p class="hero-p"><?php echo ( get_theme_mod( 'bestreloaded_intro_text' ) ) ?></p>
+                <p class="hero-p"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_intro_text' ) ); ?></p>
                 <hr class="hr-row-divider">
             </div><!-- end .col-xs-12 -->
         </div><!-- end .row -->
