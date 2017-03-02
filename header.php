@@ -53,15 +53,18 @@
         <div class="row">
             <div class="col-sm-8 site-header">
 
-				<?php if ( get_theme_mod( 'bestreloaded_site_heading_img_checkbox' ) && get_theme_mod( 'site_heading_img' ) ) :
-                    // if this checkbox is ticked AND an image is set THEN output the image
-                    ?>
+				<?php
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				if ( $custom_logo_id ) {
+                    // since we have a custom logo get the url of it
+					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+					?>
 					<div class="name-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							<img src="<?php echo ( get_theme_mod( 'site_heading_img' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							<img src="<?php echo esc_url( $image[0] ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						</a>
 					</div>
-				<?php else :
+				<?php } else {
                     // if the header image is not set or checkbox is off then output text site-title
                     ?>
 					<div class="name-text">
@@ -79,7 +82,7 @@
 						// end site-title check
 						?>
 					</div>
-				<?php endif; ?>
+				<?php } ?>
             </div><!-- end .col-md-8 -->
             <?php if ( get_theme_mod( 'bestreloaded_display_header_banner_area' ) ) { ?>
                 <div class="col-sm-4 header-banner-area">

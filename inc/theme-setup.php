@@ -27,13 +27,22 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
 
         // Fallback function for Topbar Navigation if it isn't set
         function topbar_nav_fallback() {
-            echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url(home_url()) . '" title="Home" class="nav-link">Home</a></li></ul>';
+			if( is_user_logged_in() ) {
+				echo '<ul class="navbar-nav"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
+			} else {
+	            echo '<ul class="navbar-nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">Home</a></li></ul>';
+			}
         }
 
 
         // Fallback function for Footer Navigation if it isn't set
         function footer_nav_fallback() {
-            echo '<ul><li><a href="' . home_url() . '" title="Home">Home</a></li></ul>';
+			if( is_user_logged_in() ) {
+				echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
+			} else {
+	            echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">Home</a></li></ul>';
+			}
+            echo '<ul><li><a href="' . esc_url( home_url() ) . '" title="Home">Home</a></li></ul>';
         }
 
         // This theme uses Featured Images (also known as post thumbnails)
@@ -49,10 +58,18 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
         // old versions
         add_theme_support( 'title-tag' );
 
-		$args = array(
+		// custom logo and background support via customizer
+		$logo_args = array(
+		    'height'      => 100,
+		    'width'       => 760,
+		    'flex-height' => true,
+		    'flex-width'  => true
+		);
+		add_theme_support( 'custom-logo', $logo_args );
+		$bg_args = array(
 			'default-color' => 'dddddd',
 		);
-		add_theme_support( 'custom-background', $args );
+		add_theme_support( 'custom-background', $bg_args );
 
     }
     /* ===| end bestreloaded_setup() |================================== */
@@ -108,86 +125,45 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
 if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
     function pwwp_bestreloaded_theme_options() {
 
-		// arrays of values
-        $background					= get_theme_mod( 'bestreloaded_background' );
-        $background_featured    	= get_theme_mod( 'bestreloaded_background_featured_content' );
-
 		// these are all hex values
-        $link_color_main 			= sanitize_hex_color( get_theme_mod( 'bestreloaded_link_color_main' ) );
-        $link_color_hover_main 		= sanitize_hex_color( get_theme_mod( 'bestreloaded_link_hover_color_main' ) );
-        $link_color_footer 			= sanitize_hex_color( get_theme_mod( 'bestreloaded_link_color_footer' ) );
-        $link_color_hover_footer	= sanitize_hex_color( get_theme_mod( 'bestreloaded_link_hover_color_footer' ) );
-        $text_color_featured    	= sanitize_hex_color( get_theme_mod( 'bestreloaded_text_color_featured_content' ) );
-        $link_color_featured    	= sanitize_hex_color( get_theme_mod( 'bestreloaded_link_color_featured_content' ) );
-        $link_color_hover_featured 	= sanitize_hex_color( get_theme_mod( 'bestreloaded_link_hover_color_featured_content' ) ); ?>
+        $text_color_featured    	= get_theme_mod( 'bestreloaded_text_color_featured_content' );
+        $link_color_main 			= get_theme_mod( 'bestreloaded_link_color_main' );
+        $link_color_hover_main 		= get_theme_mod( 'bestreloaded_link_hover_color_main' );
+        $link_color_footer 			= get_theme_mod( 'bestreloaded_link_color_footer' );
+        $link_color_hover_footer	= get_theme_mod( 'bestreloaded_link_hover_color_footer' );
+        $link_color_featured    	= get_theme_mod( 'bestreloaded_link_color_featured_content' );
+        $link_color_hover_featured 	= get_theme_mod( 'bestreloaded_link_hover_color_featured_content' ); ?>
 
             <style type="text/css">
 
-                <?php if ( $background ) {
-                          if ( $background['color'] && $background['image'] ) { ?>
-                              body { background-color: <?php echo $background['color']; ?>;
-                                     background-image: url(<?php echo $background['image']; ?>);
-                                     background-repeat: <?php echo $background['repeat']; ?>;
-                                     background-position: <?php echo $background['position']; ?>;
-                                     background-attachment: <?php echo $background['attachment']; ?>; } <?php
-                          } elseif ( $background['image'] ) { ?>
-                              body { background-image: url(<?php echo $background['image']; ?>);
-                                     background-repeat: <?php echo $background['repeat']; ?>;
-                                     background-position: <?php echo $background['position']; ?>;
-                                     background-attachment: <?php echo $background['attachment']; ?>; } <?php
-                          } else { ?>
-                              body { background-color: <?php echo $background['color']; ?>; } <?php
-                          }
-                      } else {
-                          echo 'no entry';
-                      };
-                ?>
-                <?php if ( $background_featured ) {
-                          if ( $background_featured['color'] && $background_featured['image'] ) { ?>
-                              .featured-bar { background-color: <?php echo $background_featured['color']; ?>;
-                                              background-image: url(<?php echo $background_featured['image']; ?>);
-                                              background-repeat: <?php echo $background_featured['repeat']; ?>;
-                                              background-position: <?php echo $background_featured['position']; ?>;
-                                              background-attachment: <?php echo $background_featured['attachment']; ?>; } <?php
-                          } elseif ( $background_featured['image'] ) { ?>
-                              .featured-bar { background-image: url(<?php echo $background_featured['image']; ?>);
-                                              background-repeat: <?php echo $background_featured['repeat']; ?>;
-                                              background-position: <?php echo $background_featured['position']; ?>;
-                                              background-attachment: <?php echo $background_featured['attachment']; ?>; } <?php
-                          } else { ?>
-                              .featured-bar { background-color: <?php echo $background_featured['color']; ?>; } <?php
-                          }
-                      } else {
-                          echo 'no entry';
-                      };
-                ?>
-                <?php if ( $text_color_featured ) : ?>
-                    .featured-bar { color: <?php echo $text_color_featured ?>; }
-                <?php endif; ?>
-                <?php if ( $link_color_featured ) : ?>
-                    .featured-bar a { color: <?php echo $link_color_featured ?>; }
-                <?php endif; ?>
-                <?php if ( $link_color_hover_featured ) : ?>
-                    .featured-bar a:hover { color: <?php echo $link_color_hover_featured ?>; }
-                <?php endif; ?>
-                <?php if ( $link_color_main ) : ?>
-                    a, .comment-notes .required, .comment-form-author .required,
-                    .comment-form-email .required, .comment-form-url .required, .comment-form-comment .required { color: <?php echo $link_color_main; ?>; }
-                    footer .container.container-main.footer-top { border-top-color: <?php echo $link_color_main; ?>; }
-                    .flex-direction-nav li a, .flex-control-nav li a.active,
-                    .flex-control-nav li a:hover, .flex-control-nav li a:focus,
-                    .sub-menu li > a:hover, .sub-menu .active > a, .sub-menu .active > a:hover { background-color: <?php echo $link_color_main; ?>; }
-                    .wp-caption a:hover img { border-color: <?php echo $link_color_main; ?>; }
-                <?php endif; ?>
-                <?php if ( $link_color_hover_main ) : ?>
-                    a:hover { color: <?php echo $link_color_hover_main; ?>; }
-                <?php endif; ?>
-                <?php if ( $link_color_footer ) : ?>
-                    footer .container.container-main a { color: <?php echo $link_color_footer; ?>; }
-                <?php endif; ?>
-                <?php if ( $link_color_hover_footer ) : ?>
-                    footer .container.container-main a:hover { color: <?php echo $link_color_hover_footer; ?>; }
-                <?php endif; ?>
+			<?php
+			if ( $text_color_featured ) { ?>
+				.featured-bar { color: <?php echo esc_html( $text_color_featured ); ?>; }
+			<?php } ?>
+			<?php if ( $link_color_featured ) { ?>
+				.featured-bar a { color: <?php echo esc_html( $link_color_featured ); ?>; }
+			<?php } ?>
+			<?php if ( $link_color_hover_featured ) { ?>
+				.featured-bar a:hover { color: <?php echo esc_html( $link_color_hover_featured ); ?>; }
+			<?php } ?>
+			<?php if ( $link_color_main ) { ?>
+				a, .comment-notes .required, .comment-form-author .required,
+				.comment-form-email .required, .comment-form-url .required, .comment-form-comment .required { color: <?php echo esc_html( $link_color_main ); ?>; }
+				footer .container.container-main.footer-top { border-top-color: <?php echo esc_html( $link_color_main ); ?>; }
+				.flex-direction-nav li a, .flex-control-nav li a.active,
+				.flex-control-nav li a:hover, .flex-control-nav li a:focus,
+				.sub-menu li > a:hover, .sub-menu .active > a, .sub-menu .active > a:hover { background-color: <?php echo esc_html( $link_color_main ); ?>; }
+				.wp-caption a:hover img { border-color: <?php echo esc_html( $link_color_main ); ?>; }
+			<?php } ?>
+			<?php if ( $link_color_hover_main ) { ?>
+				a:hover { color: <?php echo esc_html( $link_color_hover_main ); ?>; }
+			<?php } ?>
+			<?php if ( $link_color_footer ) { ?>
+				footer .container.container-main a { color: <?php echo esc_html( $link_color_footer ); ?>; }
+			<?php } ?>
+			<?php if ( $link_color_hover_footer ) { ?>
+				footer .container.container-main a:hover { color: <?php echo esc_html( $link_color_hover_footer );  ?>; }
+			<?php } ?>
 
             </style>
 
