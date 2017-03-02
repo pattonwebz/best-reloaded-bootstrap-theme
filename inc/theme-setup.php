@@ -100,13 +100,19 @@ add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_scripts' );
 if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
     function pwwp_load_bestreloaded_scripts() {
         if ( !is_admin() ) {
-            wp_enqueue_script( 'jquery' );
-            wp_register_script( 'best-reloaded-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'bootstrap'), 0.4, true );
-            wp_enqueue_script( 'best-reloaded-scripts' );
+
+			// this is the main theme scripts file
+            wp_register_script( 'best-reloaded-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('bootstrap'), 0.4, true );
+            // bootstrap scripts
 			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery', 'tether'), '4.0.0-alpha.6', true );
-            wp_enqueue_script( 'bootstrap' );
+			// tether - needed by bootstrap affix
 			wp_register_script( 'tether', get_template_directory_uri() . '/assets/js/tether.min.js', array('jquery'), '1.4.0', true );
-            wp_enqueue_script( 'tether' );
+
+			// enqueue the main theme scripts file - which will in turn include
+			// bootstrap, tether and jQuery due to dependancy chaing
+			wp_enqueue_script( 'best-reloaded-scripts' );
+
+			// only enqueue comment-reply script on single pages
             if ( is_single() ) wp_enqueue_script( 'comment-reply' );
         }
     }
