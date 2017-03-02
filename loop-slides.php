@@ -46,7 +46,7 @@
 <?php endwhile; else : ?>
 
     <div>
-        <p class="hero-p" style="padding: 40px;"><?php esc_html_e("Sorry, couldn't get any slides."); ?></p>
+        <p class="hero-p" style="padding: 40px;"><?php esc_html_e("Sorry, couldn't get any slides.", 'best-reloaded'); ?></p>
     </div>
 
 <?php endif; ?>
