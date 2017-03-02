@@ -10,9 +10,12 @@
 ?>
 
 <?php
+	// need to subtract any sticky posts from the posts per page number due to
+	// sticky posts being included but not being counted correctly
+	$sticky = count(get_option('sticky_posts'));
     $args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 3
+		'posts_per_page' => 3 - $sticky
 	);
     $loop = new WP_Query( $args );
 	$i = 0;
