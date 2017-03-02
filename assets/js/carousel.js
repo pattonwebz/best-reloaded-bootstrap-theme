@@ -18,7 +18,7 @@ const Carousel = ($ => {
   const NAME = 'carousel';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.carousel';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 600;
@@ -49,13 +49,13 @@ const Carousel = ($ => {
   };
 
   const Event = {
-    SLIDE: `slide${ EVENT_KEY }`,
-    SLID: `slid${ EVENT_KEY }`,
-    KEYDOWN: `keydown${ EVENT_KEY }`,
-    MOUSEENTER: `mouseenter${ EVENT_KEY }`,
-    MOUSELEAVE: `mouseleave${ EVENT_KEY }`,
-    LOAD_DATA_API: `load${ EVENT_KEY }${ DATA_API_KEY }`,
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`
+    SLIDE: `slide${EVENT_KEY}`,
+    SLID: `slid${EVENT_KEY}`,
+    KEYDOWN: `keydown${EVENT_KEY}`,
+    MOUSEENTER: `mouseenter${EVENT_KEY}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY}`,
+    LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -343,9 +343,9 @@ const Carousel = ($ => {
         $(nextElement).addClass(directionalClassName);
 
         $(activeElement).one(Util.TRANSITION_END, () => {
-          $(nextElement).removeClass(`${ directionalClassName } ${ orderClassName }`).addClass(ClassName.ACTIVE);
+          $(nextElement).removeClass(`${directionalClassName} ${orderClassName}`).addClass(ClassName.ACTIVE);
 
-          $(activeElement).removeClass(`${ ClassName.ACTIVE } ${ orderClassName } ${ directionalClassName }`);
+          $(activeElement).removeClass(`${ClassName.ACTIVE} ${orderClassName} ${directionalClassName}`);
 
           this._isSliding = false;
 
@@ -386,7 +386,7 @@ const Carousel = ($ => {
           data.to(config);
         } else if (typeof action === 'string') {
           if (data[action] === undefined) {
-            throw new Error(`No method named "${ action }"`);
+            throw new Error(`No method named "${action}"`);
           }
           data[action]();
         } else if (_config.interval) {

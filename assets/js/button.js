@@ -16,7 +16,7 @@ const Button = ($ => {
   const NAME = 'button';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.button';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
 
@@ -35,8 +35,8 @@ const Button = ($ => {
   };
 
   const Event = {
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`,
-    FOCUS_BLUR_DATA_API: `focus${ EVENT_KEY }${ DATA_API_KEY } ` + `blur${ EVENT_KEY }${ DATA_API_KEY }`
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    FOCUS_BLUR_DATA_API: `focus${EVENT_KEY}${DATA_API_KEY} ` + `blur${EVENT_KEY}${DATA_API_KEY}`
   };
 
   /**

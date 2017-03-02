@@ -18,17 +18,17 @@ const Tab = ($ => {
   const NAME = 'tab';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.tab';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 150;
 
   const Event = {
-    HIDE: `hide${ EVENT_KEY }`,
-    HIDDEN: `hidden${ EVENT_KEY }`,
-    SHOW: `show${ EVENT_KEY }`,
-    SHOWN: `shown${ EVENT_KEY }`,
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`
+    HIDE: `hide${EVENT_KEY}`,
+    HIDDEN: `hidden${EVENT_KEY}`,
+    SHOW: `show${EVENT_KEY}`,
+    SHOWN: `shown${EVENT_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -207,7 +207,7 @@ const Tab = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config]();
         }

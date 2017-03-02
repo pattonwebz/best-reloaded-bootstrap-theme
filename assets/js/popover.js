@@ -18,7 +18,7 @@ const Popover = ($ => {
   const NAME = 'popover';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.popover';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const JQUERY_NO_CONFLICT = $.fn[NAME];
 
   const Default = $.extend({}, Tooltip.Default, {
@@ -43,16 +43,16 @@ const Popover = ($ => {
   };
 
   const Event = {
-    HIDE: `hide${ EVENT_KEY }`,
-    HIDDEN: `hidden${ EVENT_KEY }`,
-    SHOW: `show${ EVENT_KEY }`,
-    SHOWN: `shown${ EVENT_KEY }`,
-    INSERTED: `inserted${ EVENT_KEY }`,
-    CLICK: `click${ EVENT_KEY }`,
-    FOCUSIN: `focusin${ EVENT_KEY }`,
-    FOCUSOUT: `focusout${ EVENT_KEY }`,
-    MOUSEENTER: `mouseenter${ EVENT_KEY }`,
-    MOUSELEAVE: `mouseleave${ EVENT_KEY }`
+    HIDE: `hide${EVENT_KEY}`,
+    HIDDEN: `hidden${EVENT_KEY}`,
+    SHOW: `show${EVENT_KEY}`,
+    SHOWN: `shown${EVENT_KEY}`,
+    INSERTED: `inserted${EVENT_KEY}`,
+    CLICK: `click${EVENT_KEY}`,
+    FOCUSIN: `focusin${EVENT_KEY}`,
+    FOCUSOUT: `focusout${EVENT_KEY}`,
+    MOUSEENTER: `mouseenter${EVENT_KEY}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY}`
   };
 
   /**
@@ -110,7 +110,7 @@ const Popover = ($ => {
       this.setElementContent($tip.find(Selector.TITLE), this.getTitle());
       this.setElementContent($tip.find(Selector.CONTENT), this._getContent());
 
-      $tip.removeClass(`${ ClassName.FADE } ${ ClassName.SHOW }`);
+      $tip.removeClass(`${ClassName.FADE} ${ClassName.SHOW}`);
 
       this.cleanupTether();
     }
@@ -139,7 +139,7 @@ const Popover = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config]();
         }

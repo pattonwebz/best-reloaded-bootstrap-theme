@@ -18,7 +18,7 @@ const Dropdown = ($ => {
   const NAME = 'dropdown';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.dropdown';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
@@ -27,14 +27,14 @@ const Dropdown = ($ => {
   const RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   const Event = {
-    HIDE: `hide${ EVENT_KEY }`,
-    HIDDEN: `hidden${ EVENT_KEY }`,
-    SHOW: `show${ EVENT_KEY }`,
-    SHOWN: `shown${ EVENT_KEY }`,
-    CLICK: `click${ EVENT_KEY }`,
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`,
-    FOCUSIN_DATA_API: `focusin${ EVENT_KEY }${ DATA_API_KEY }`,
-    KEYDOWN_DATA_API: `keydown${ EVENT_KEY }${ DATA_API_KEY }`
+    HIDE: `hide${EVENT_KEY}`,
+    HIDDEN: `hidden${EVENT_KEY}`,
+    SHOW: `show${EVENT_KEY}`,
+    SHOWN: `shown${EVENT_KEY}`,
+    CLICK: `click${EVENT_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+    FOCUSIN_DATA_API: `focusin${EVENT_KEY}${DATA_API_KEY}`,
+    KEYDOWN_DATA_API: `keydown${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -143,7 +143,7 @@ const Dropdown = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config].call(this);
         }
@@ -258,7 +258,7 @@ const Dropdown = ($ => {
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.ROLE_MENU, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.ROLE_LISTBOX, Dropdown._dataApiKeydownHandler).on(`${ Event.CLICK_DATA_API } ${ Event.FOCUSIN_DATA_API }`, Dropdown._clearMenus).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, Dropdown.prototype.toggle).on(Event.CLICK_DATA_API, Selector.FORM_CHILD, e => {
+  $(document).on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.ROLE_MENU, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.ROLE_LISTBOX, Dropdown._dataApiKeydownHandler).on(`${Event.CLICK_DATA_API} ${Event.FOCUSIN_DATA_API}`, Dropdown._clearMenus).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, Dropdown.prototype.toggle).on(Event.CLICK_DATA_API, Selector.FORM_CHILD, e => {
     e.stopPropagation();
   });
 

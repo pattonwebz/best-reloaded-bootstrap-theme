@@ -28,7 +28,7 @@ const Tooltip = ($ => {
   const NAME = 'tooltip';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.tooltip';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 150;
   const CLASS_PREFIX = 'bs-tether';
@@ -74,16 +74,16 @@ const Tooltip = ($ => {
   };
 
   const Event = {
-    HIDE: `hide${ EVENT_KEY }`,
-    HIDDEN: `hidden${ EVENT_KEY }`,
-    SHOW: `show${ EVENT_KEY }`,
-    SHOWN: `shown${ EVENT_KEY }`,
-    INSERTED: `inserted${ EVENT_KEY }`,
-    CLICK: `click${ EVENT_KEY }`,
-    FOCUSIN: `focusin${ EVENT_KEY }`,
-    FOCUSOUT: `focusout${ EVENT_KEY }`,
-    MOUSEENTER: `mouseenter${ EVENT_KEY }`,
-    MOUSELEAVE: `mouseleave${ EVENT_KEY }`
+    HIDE: `hide${EVENT_KEY}`,
+    HIDDEN: `hidden${EVENT_KEY}`,
+    SHOW: `show${EVENT_KEY}`,
+    SHOWN: `shown${EVENT_KEY}`,
+    INSERTED: `inserted${EVENT_KEY}`,
+    CLICK: `click${EVENT_KEY}`,
+    FOCUSIN: `focusin${EVENT_KEY}`,
+    FOCUSOUT: `focusout${EVENT_KEY}`,
+    MOUSEENTER: `mouseenter${EVENT_KEY}`,
+    MOUSELEAVE: `mouseleave${EVENT_KEY}`
   };
 
   const ClassName = {
@@ -367,7 +367,7 @@ const Tooltip = ($ => {
 
       this.setElementContent($tip.find(Selector.TOOLTIP_INNER), this.getTitle());
 
-      $tip.removeClass(`${ ClassName.FADE } ${ ClassName.SHOW }`);
+      $tip.removeClass(`${ClassName.FADE} ${ClassName.SHOW}`);
 
       this.cleanupTether();
     }
@@ -570,7 +570,7 @@ const Tooltip = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config]();
         }

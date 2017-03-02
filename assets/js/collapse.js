@@ -18,7 +18,7 @@ const Collapse = ($ => {
   const NAME = 'collapse';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.collapse';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 600;
@@ -34,11 +34,11 @@ const Collapse = ($ => {
   };
 
   const Event = {
-    SHOW: `show${ EVENT_KEY }`,
-    SHOWN: `shown${ EVENT_KEY }`,
-    HIDE: `hide${ EVENT_KEY }`,
-    HIDDEN: `hidden${ EVENT_KEY }`,
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`
+    SHOW: `show${EVENT_KEY}`,
+    SHOWN: `shown${EVENT_KEY}`,
+    HIDE: `hide${EVENT_KEY}`,
+    HIDDEN: `hidden${EVENT_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -70,7 +70,7 @@ const Collapse = ($ => {
       this._isTransitioning = false;
       this._element = element;
       this._config = this._getConfig(config);
-      this._triggerArray = $.makeArray($(`[data-toggle="collapse"][href="#${ element.id }"],` + `[data-toggle="collapse"][data-target="#${ element.id }"]`));
+      this._triggerArray = $.makeArray($(`[data-toggle="collapse"][href="#${element.id}"],` + `[data-toggle="collapse"][data-target="#${element.id}"]`));
 
       this._parent = this._config.parent ? this._getParent() : null;
 
@@ -171,11 +171,11 @@ const Collapse = ($ => {
       }
 
       const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
-      const scrollSize = `scroll${ capitalizedDimension }`;
+      const scrollSize = `scroll${capitalizedDimension}`;
 
       $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
 
-      this._element.style[dimension] = `${ this._element[scrollSize] }px`;
+      this._element.style[dimension] = `${this._element[scrollSize]}px`;
     }
 
     hide() {
@@ -196,7 +196,7 @@ const Collapse = ($ => {
       const dimension = this._getDimension();
       const offsetDimension = dimension === Dimension.WIDTH ? 'offsetWidth' : 'offsetHeight';
 
-      this._element.style[dimension] = `${ this._element[offsetDimension] }px`;
+      this._element.style[dimension] = `${this._element[offsetDimension]}px`;
 
       Util.reflow(this._element);
 
@@ -255,7 +255,7 @@ const Collapse = ($ => {
 
     _getParent() {
       const parent = $(this._config.parent)[0];
-      const selector = `[data-toggle="collapse"][data-parent="${ this._config.parent }"]`;
+      const selector = `[data-toggle="collapse"][data-parent="${this._config.parent}"]`;
 
       $(parent).find(selector).each((i, element) => {
         this._addAriaAndCollapsedClass(Collapse._getTargetFromElement(element), [element]);
@@ -299,7 +299,7 @@ const Collapse = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config]();
         }

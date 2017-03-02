@@ -18,7 +18,7 @@ const ScrollSpy = ($ => {
   const NAME = 'scrollspy';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.scrollspy';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
 
@@ -35,9 +35,9 @@ const ScrollSpy = ($ => {
   };
 
   const Event = {
-    ACTIVATE: `activate${ EVENT_KEY }`,
-    SCROLL: `scroll${ EVENT_KEY }`,
-    LOAD_DATA_API: `load${ EVENT_KEY }${ DATA_API_KEY }`
+    ACTIVATE: `activate${EVENT_KEY}`,
+    SCROLL: `scroll${EVENT_KEY}`,
+    LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -77,7 +77,7 @@ const ScrollSpy = ($ => {
       this._element = element;
       this._scrollElement = element.tagName === 'BODY' ? window : element;
       this._config = this._getConfig(config);
-      this._selector = `${ this._config.target } ${ Selector.NAV_LINKS },` + `${ this._config.target } ${ Selector.DROPDOWN_ITEMS }`;
+      this._selector = `${this._config.target} ${Selector.NAV_LINKS},` + `${this._config.target} ${Selector.DROPDOWN_ITEMS}`;
       this._offsets = [];
       this._targets = [];
       this._activeTarget = null;
@@ -159,7 +159,7 @@ const ScrollSpy = ($ => {
           id = Util.getUID(NAME);
           $(config.target).attr('id', id);
         }
-        config.target = `#${ id }`;
+        config.target = `#${id}`;
       }
 
       Util.typeCheckConfig(NAME, config, DefaultType);
@@ -219,7 +219,7 @@ const ScrollSpy = ($ => {
 
       let queries = this._selector.split(',');
       queries = queries.map(selector => {
-        return `${ selector }[data-target="${ target }"],` + `${ selector }[href="${ target }"]`;
+        return `${selector}[data-target="${target}"],` + `${selector}[href="${target}"]`;
       });
 
       const $link = $(queries.join(','));
@@ -230,7 +230,7 @@ const ScrollSpy = ($ => {
       } else {
         // todo (fat) this is kinda sus...
         // recursively add actives to tested nav-links
-        $link.parents(Selector.LI).find(`> ${ Selector.NAV_LINKS }`).addClass(ClassName.ACTIVE);
+        $link.parents(Selector.LI).find(`> ${Selector.NAV_LINKS}`).addClass(ClassName.ACTIVE);
       }
 
       $(this._scrollElement).trigger(Event.ACTIVATE, {
@@ -256,7 +256,7 @@ const ScrollSpy = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config]();
         }

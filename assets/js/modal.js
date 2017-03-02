@@ -18,7 +18,7 @@ const Modal = ($ => {
   const NAME = 'modal';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.modal';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 300;
@@ -40,17 +40,17 @@ const Modal = ($ => {
   };
 
   const Event = {
-    HIDE: `hide${ EVENT_KEY }`,
-    HIDDEN: `hidden${ EVENT_KEY }`,
-    SHOW: `show${ EVENT_KEY }`,
-    SHOWN: `shown${ EVENT_KEY }`,
-    FOCUSIN: `focusin${ EVENT_KEY }`,
-    RESIZE: `resize${ EVENT_KEY }`,
-    CLICK_DISMISS: `click.dismiss${ EVENT_KEY }`,
-    KEYDOWN_DISMISS: `keydown.dismiss${ EVENT_KEY }`,
-    MOUSEUP_DISMISS: `mouseup.dismiss${ EVENT_KEY }`,
-    MOUSEDOWN_DISMISS: `mousedown.dismiss${ EVENT_KEY }`,
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`
+    HIDE: `hide${EVENT_KEY}`,
+    HIDDEN: `hidden${EVENT_KEY}`,
+    SHOW: `show${EVENT_KEY}`,
+    SHOWN: `shown${EVENT_KEY}`,
+    FOCUSIN: `focusin${EVENT_KEY}`,
+    RESIZE: `resize${EVENT_KEY}`,
+    CLICK_DISMISS: `click.dismiss${EVENT_KEY}`,
+    KEYDOWN_DISMISS: `keydown.dismiss${EVENT_KEY}`,
+    MOUSEUP_DISMISS: `mouseup.dismiss${EVENT_KEY}`,
+    MOUSEDOWN_DISMISS: `mousedown.dismiss${EVENT_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -378,11 +378,11 @@ const Modal = ($ => {
       const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
       if (!this._isBodyOverflowing && isModalOverflowing) {
-        this._element.style.paddingLeft = `${ this._scrollbarWidth }px`;
+        this._element.style.paddingLeft = `${this._scrollbarWidth}px`;
       }
 
       if (this._isBodyOverflowing && !isModalOverflowing) {
-        this._element.style.paddingRight = `${ this._scrollbarWidth }px`;
+        this._element.style.paddingRight = `${this._scrollbarWidth}px`;
       }
     }
 
@@ -402,7 +402,7 @@ const Modal = ($ => {
       this._originalBodyPadding = document.body.style.paddingRight || '';
 
       if (this._isBodyOverflowing) {
-        document.body.style.paddingRight = `${ bodyPadding + this._scrollbarWidth }px`;
+        document.body.style.paddingRight = `${bodyPadding + this._scrollbarWidth}px`;
       }
     }
 
@@ -434,7 +434,7 @@ const Modal = ($ => {
 
         if (typeof config === 'string') {
           if (data[config] === undefined) {
-            throw new Error(`No method named "${ config }"`);
+            throw new Error(`No method named "${config}"`);
           }
           data[config](relatedTarget);
         } else if (_config.show) {

@@ -18,7 +18,7 @@ const Alert = ($ => {
   const NAME = 'alert';
   const VERSION = '4.0.0-alpha.6';
   const DATA_KEY = 'bs.alert';
-  const EVENT_KEY = `.${ DATA_KEY }`;
+  const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
   const JQUERY_NO_CONFLICT = $.fn[NAME];
   const TRANSITION_DURATION = 150;
@@ -28,9 +28,9 @@ const Alert = ($ => {
   };
 
   const Event = {
-    CLOSE: `close${ EVENT_KEY }`,
-    CLOSED: `closed${ EVENT_KEY }`,
-    CLICK_DATA_API: `click${ EVENT_KEY }${ DATA_API_KEY }`
+    CLOSE: `close${EVENT_KEY}`,
+    CLOSED: `closed${EVENT_KEY}`,
+    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
   };
 
   const ClassName = {
@@ -88,7 +88,7 @@ const Alert = ($ => {
       }
 
       if (!parent) {
-        parent = $(element).closest(`.${ ClassName.ALERT }`)[0];
+        parent = $(element).closest(`.${ClassName.ALERT}`)[0];
       }
 
       return parent;
