@@ -18,11 +18,13 @@ if ( has_post_thumbnail() ) {
         $featured_image = '<img src="'
                         . get_template_directory_uri()
                         . '/img/default-page.png" />';
+		// no user input here
         echo $featured_image;
     } else {
         $featured_image = '<img src="'
                         . get_template_directory_uri()
                         . '/img/default-post.png" />';
+		// no user input here
         echo $featured_image;
     }
 }

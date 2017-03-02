@@ -38,7 +38,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-sm-5">
-                    <p id="footer-site-title"><?php echo ( get_theme_mod( 'bestreloaded_footer_bottom_tagline' ) ); ?></p>
+                    <p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_footer_bottom_tagline' ) ); ?></p>
                 </div>
                 <div class="col-sm-7">
                     <nav role="navigation">

@@ -9,17 +9,15 @@
   */
 ?>
 
-<?php if ( get_theme_mod( 'bestreloaded_display_featured_bar' ) ) : ?>
-<div class="row">
-    <div class="col-sm-12 text-center">
-        <div class="featured-bar">
-            <p class="lead">
-				<?php if ( get_theme_mod( 'bestreloaded_featured_bar' ) ) {
-					echo do_shortcode( get_theme_mod( 'bestreloaded_featured_bar' ) );
-				} ?>
-			</p>
-        </div>
-		<hr class="hr-row-divider" style="clear: both;">
-    </div>
-</div><!-- end .row -->
-<?php endif; ?>
+<?php if ( get_theme_mod( 'bestreloaded_display_featured_bar' ) && get_theme_mod( 'bestreloaded_featured_bar' ) ) { ?>
+	<div class="row">
+	    <div class="col-sm-12 text-center">
+	        <div class="featured-bar">
+	            <p class="lead">
+						<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'bestreloaded_featured_bar' ) ) ); ?>
+				</p>
+	        </div>
+			<hr class="hr-row-divider" style="clear: both;">
+	    </div>
+	</div><!-- end .row -->
+<?php } ?>
