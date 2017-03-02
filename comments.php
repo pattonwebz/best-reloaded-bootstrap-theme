@@ -70,6 +70,9 @@
     <?php endif; ?>
 	<div class="comment-fields">
     <?php
+		$commenter = wp_get_current_commenter();
+		$req = get_option( 'require_name_email' );
+		$aria_req = ( $req ? " aria-required='true'" : '' );
         comment_form( array(
             'comment_field' 		=> '<div class="comment-form-comment form-group row">' .
                                    			'<label for="comment" class="col-12">Enter Your Comment</label>' .
