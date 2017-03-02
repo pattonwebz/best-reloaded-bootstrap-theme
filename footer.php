@@ -38,7 +38,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-sm-5">
-                    <p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_footer_bottom_tagline' ) ); ?></p>
+                    <p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_footer_bottom_tagline', '&copy; 2017 '. get_bloginfo( 'name' ) ) ); ?></p>
                 </div>
                 <div class="col-sm-7">
                     <nav role="navigation">
@@ -50,7 +50,7 @@
 								'depth'      => 1,
 								'container'  => false,
 								'menu_class' => 'nav justify-content-end',
-								'fallback_cb' => 'topbar_nav_fallback',
+								'fallback_cb' => 'footer_nav_fallback',
 								'walker' => new wp_bootstrap_navwalker())
 							);
 						?>
