@@ -42,7 +42,6 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
 			} else {
 	            echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">Home</a></li></ul>';
 			}
-            echo '<ul><li><a href="' . esc_url( home_url() ) . '" title="Home">Home</a></li></ul>';
         }
 
         // This theme uses Featured Images (also known as post thumbnails)
