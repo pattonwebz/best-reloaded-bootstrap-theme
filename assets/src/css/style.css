@@ -218,6 +218,12 @@ header .navbar .container {
   letter-spacing: -5px;
   margin-top: 5px;
 }
+.name-text h1.long-title,
+.name-text span.h1.long-title {
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: -2px;
+}
 
 .site-title a:hover, .site-title a:focus {
   text-decoration: none;
@@ -366,17 +372,24 @@ header .navbar .container {
 .carousel .carousel-indicators {
   bottom: 0px;
 }
-.carousel .carousel-inner .carousel-caption {
+.carousel .carousel-inner .carousel-item {
+  max-height: 370px;
+}
+.carousel .carousel-inner .carousel-item .carousel-caption {
   background: rgba(0, 0, 0, 0.8);
   left: 0%;
   right: 0%;
   bottom: 0%;
-  padding: 0px 20px 30px;
+  padding: 10px 20px 30px;
 }
 @media (min-width: 768px) {
-  .carousel .carousel-inner .carousel-caption {
-    padding: 0px 50px 30px;
+  .carousel .carousel-inner .carousel-item .carousel-caption {
+    padding: 10px 50px 30px;
   }
+}
+.carousel .carousel-inner .carousel-item img {
+  width: 100%;
+  height: auto;
 }
 
 /* --------------------------------------- *
@@ -418,7 +431,10 @@ header .navbar .container {
 }
 
 .pager {
-  padding-left: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   list-style: none;
   display: flex;
 }

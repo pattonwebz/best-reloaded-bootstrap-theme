@@ -6,15 +6,22 @@
         bottom: 0px;
     }
     .carousel-inner{
-        .carousel-caption {
-            background: rgba(0,0,0,0.8);
-            left: 0%;
-            right: 0%;
-            bottom: 0%;
-            padding: 0px 20px 30px;
-            @media (min-width:768px){
-                padding: 0px 50px 30px;
-            }
+		.carousel-item {
+			max-height:370px;
+        	.carousel-caption {
+            	background: rgba(0,0,0,0.8);
+            	left: 0%;
+	            right: 0%;
+	            bottom: 0%;
+	            padding: 10px 20px 30px;
+	            @media (min-width:768px){
+	                padding: 10px 50px 30px;
+	            }
+			}
+			img{
+				width:100%;
+				height:auto;
+			}
         }
     }
 }

@@ -6,5 +6,8 @@
  * @since Best Reloaded 0.9
  */
 jQuery(document).ready(function($){
-    // empty
+    // deal with very long titles
+    if( $('.name-text .site-title').height() > 110 ){
+		$('.name-text .site-title').addClass('long-title');
+	}
 });

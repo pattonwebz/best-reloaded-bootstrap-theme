@@ -11,11 +11,16 @@ header {
 }
 .name-text {
     h1,
-    span.h1{
+    span.h1 {
         font-size: 90px;
         line-height: 90px;
         letter-spacing: -5px;
         margin-top:5px;
+		&.long-title {
+			font-size: 40px;
+			line-height: 40px;
+			letter-spacing: -2px;
+		}
     }
 }
 .site-title {
