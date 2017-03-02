@@ -28,20 +28,13 @@
     <div class="carousel-item <?php if ($i==0) { echo esc_attr( 'active' ); $i++; } ?>">
 
         <?php
-
-
                 // Else, display image without being wrapped in anchor element
                 get_template_part( 'featured', 'image' );
-
         ?>
 
         <div class="carousel-caption d-none d-md-block">
 
-
-
                 <h2><?php the_title(); ?></h2>
-
-
 
             <?php the_excerpt(); ?>
         </div>
@@ -50,7 +43,7 @@
 <?php endwhile; else : ?>
 
     <div>
-        <p class="hero-p" style="padding: 40px;">Setup your slides in the admin area by using the "Slide" custom post type, we'll take care of the rest!</p>
+        <p class="hero-p" style="padding: 40px;"><?php esc_html_e("Sorry, couldn't get any slides."); ?></p>
     </div>
 
 <?php endif; ?>
