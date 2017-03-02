@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 
         postcss: {
             options: {
-                map: true,
+                map: false,
                 processors: [
 					require('postcss-flexbugs-fixes'),
                     require('autoprefixer')({
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 			},
 			buildminify: {
 				options:{
-					sourceMap:true,
+					sourceMap:false,
 					processors: [
 						require('postcss-clean')
 	                ]
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 			},
 			thememinify: {
 				options:{
-					sourceMap:true,
+					sourceMap:false,
 					processors: [
 						require('postcss-clean')
 	                ]
