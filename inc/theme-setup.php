@@ -48,7 +48,7 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
         add_theme_support( 'post-thumbnails' );
 
 		// Adds the image sizes we use
-		add_image_size('featured-slide', '865', '400', true);
+		add_image_size('featured-slide', '865', '370', true);
 
         // This feature enables post and comment RSS feed links to head
         add_theme_support( 'automatic-feed-links' );
