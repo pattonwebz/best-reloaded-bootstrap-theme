@@ -102,7 +102,7 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
         if ( !is_admin() ) {
 
 			// this is the main theme scripts file
-            wp_register_script( 'best-reloaded-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('bootstrap'), 0.4, true );
+            wp_register_script( 'best-reloaded-scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array('bootstrap'), 0.9, true );
             // bootstrap scripts
 			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery', 'tether'), '4.0.0-alpha.6', true );
 			// tether - needed by bootstrap affix

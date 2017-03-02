@@ -181,7 +181,15 @@ module.exports = function(grunt) {
 				},
 				files: [
 					{ src: 'assets/js/bootstrap.js', dest: 'assets/js/bootstrap.min.js' }, // All the Bootstrap JS
-					{ src: 'assets/src/js/*.js', dest: 'assets/js/scripts.js'}
+					{ src: 'assets/js/scripts.js', dest: 'assets/js/scripts.min.js'}
+				]
+			},
+			theme: {
+				options: {
+					banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+				},
+				files: [
+					{ src: 'assets/js/scripts.js', dest: 'assets/js/scripts.min.js'}
 				]
 			}
 
@@ -192,9 +200,14 @@ module.exports = function(grunt) {
 		copy: {
 			build: {
 			    files: [
-
 			    	{expand: true, cwd: 'node_modules/bootstrap/scss/', src: ['**'], dest: 'assets/src/scss/bootstrap/'},
 					{expand: true, cwd: 'node_modules/bootstrap/js/src/', src: ['**'], dest: 'assets/src/js/bootstrap/', filter: 'isFile'},
+					{src: ['assets/src/js/scripts.js'], dest: 'assets/js/scripts.js', filter: 'isFile'},
+			    ],
+			},
+			theme: {
+			    files: [
+					{src: ['assets/src/js/scripts.js'], dest: 'assets/js/scripts.js', filter: 'isFile'},
 			    ],
 			},
 		},
@@ -212,9 +225,7 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask('default', ['less', 'postcss', 'githubChanges', 'watch']);
-    grunt.registerTask('dev', ['less:dev', 'postcss:dev']);
-    grunt.registerTask('production', ['less:production', 'postcss:production']);
+    grunt.registerTask('default', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme']);
 	grunt.registerTask('build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'uglify:dev']);
-	grunt.registerTask('theme', ['sass:theme', 'postcss:theme', 'postcss:thememinify']);
+	grunt.registerTask('theme', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme']);
 };
