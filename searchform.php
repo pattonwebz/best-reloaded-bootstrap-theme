@@ -9,7 +9,7 @@
   */
 ?>
 <form role="search" method="get" class="form-inline my2 my-lg-0" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-    <label class="visually-hidden sr-only" for="s">Search:</label>
-    <input type="text" class="form-control mr-sm-2" placeholder="<?php echo esc_attr('type and hit "enter" to search'); ?>" name="s" id="s" />
-    <button type="submit" class="btn btn-outline-success my-2 my-sm-0" id="searchsubmit" value="Search" />Search</button>
+    <label class="visually-hidden sr-only" for="s"><?php esc_html_e( 'Search:', 'best-reloaded' ); ?></label>
+    <input type="text" class="form-control mr-sm-2" placeholder="<?php echo esc_attr_e('type and hit "enter" to search'); ?>" name="s" id="s" />
+    <button type="submit" class="btn btn-outline-success my-2 my-sm-0" id="searchsubmit" value="Search" /><?php esc_html_e( 'Search', 'best-reloaded' ); ?></button>
 </form>
