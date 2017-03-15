@@ -14,10 +14,10 @@
 
         <div id="main_content" role="main">
             <div class="row">
-                <div class="col-sm-12">
-                    <h2 style="font-size: 3em; text-align: center; margin: -5px auto 33px;">page not found</h2>
+                <div class="col-sm-12 not-found-404">
+                    <h2 class="title">page not found</h2>
                     <p class="hero-p">Sorry, but the page you were trying to view does not exist.<br/>It looks like this was the result of either:</p>
-                    <ul style="display: table; margin: 30px auto 35px; font-size: 1.5em; list-style: none; text-align: center;">
+                    <ul>
                         <li>a mistyped address</li>
                         <li>an out-of-date link</li>
                     </ul>
@@ -56,7 +56,7 @@
                 <?php endwhile; else: ?>
 
                 <div class="col-sm-9">
-                    <p class="hero-p" style="font-size: 2em; padding: 25px 0;">there are currently no posts to display :(</p>
+                    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>
                 </div>
 
                 <?php endif; ?>

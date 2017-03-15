@@ -89,4 +89,4 @@
                 </div>
             <?php } ?>
         </div><!-- end .row -->
-        <hr class="hr-row-divider" style="clear: both;">
+        <hr class="hr-row-divider">

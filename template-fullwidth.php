@@ -25,7 +25,7 @@
 
                 <?php endwhile; else: ?>
 
-                    <p class="hero-p" style="font-size: 2em; padding: 25px 0;">there is currently nothing to display :(</p>
+                    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>
 
                 <?php endif; ?>
 

@@ -46,3 +46,30 @@ h6, .h6 {
 .page-title{
     letter-spacing:-1px;
 }
+
+.no-content-message {
+	font-size: 2em;
+	padding: 30px 0;
+	.in-loop {
+		padding:25px 0 35px;
+	}
+}
+
+.hr-row-divider {
+	clear:both;
+}
+
+.not-found-404 {
+	h2.title {
+		font-size: 3em;
+		text-align: center;
+		margin: -5px auto 33px;
+	}
+	ul {
+		display: table;
+		font-size: 1.5em;
+		list-style: none;
+		text-align: center;
+		margin: 30px auto 35px; 
+	}
+}

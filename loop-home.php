@@ -43,7 +43,7 @@
 <?php endwhile; else: ?>
 
 <div class="col-sm-9">
-    <p class="hero-p" style="font-size: 2em; padding: 25px 0 35px;">there are currently no posts to display :(</p>
+    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>
 </div>
 
 <?php endif; ?>

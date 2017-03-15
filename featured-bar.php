@@ -17,7 +17,7 @@
 						<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'bestreloaded_featured_bar' ) ) ); ?>
 				</p>
 	        </div>
-			<hr class="hr-row-divider" style="clear: both;">
+			<hr class="hr-row-divider"">
 	    </div>
 	</div><!-- end .row -->
 <?php } ?>
