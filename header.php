@@ -32,7 +32,6 @@
 			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<?php
 					wp_nav_menu( array(
-						'menu'       		=> 'nav_topbar',
 						'theme_location' 	=> 'nav_topbar',
 						'depth'      		=> 0,
 						'container'  		=> false,
