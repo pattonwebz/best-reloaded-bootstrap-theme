@@ -49,7 +49,7 @@ $best_doNotGetDuplicates[] = get_the_ID();
 <?php endwhile; else : ?>
 
     <div>
-        <p class="hero-p no-content-message"><?php esc_html_e("Sorry, couldn't get any slides."); ?></p>
+        <p class="hero-p no-content-message"><?php esc_html_e("Sorry, couldn't get any slides.", 'best-reloaded' ); ?></p>
     </div>
 
 <?php endif; ?>

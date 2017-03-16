@@ -38,7 +38,7 @@ function best_reloaded_customizer($wp_customize){
     ) );
     $wp_customize->add_control( 'bestreloaded_display_header_banner_area', array(
         'label' => __('Display Header Banner Area', 'best-reloaded'),
-		'description' => __('Toggle on/off the the header slot.'),
+		'description' => __('Toggle on/off the the header slot.', 'best-reloaded' ),
         'section' => 'best_reloaded_header',
         'settings' => 'bestreloaded_display_header_banner_area',
         'type' => 'checkbox'
@@ -51,7 +51,7 @@ function best_reloaded_customizer($wp_customize){
    ) );
    $wp_customize->add_control( 'bestreloaded_header_banner_area', array(
        'label' => __('Header Banner Area', 'best-reloaded'),
-	   'description'	=> __('Enter the text you want to show in the header slot. Accepts some basic html.'),
+	   'description'	=> __('Enter the text you want to show in the header slot. Accepts some basic html.', 'best-reloaded' ),
        'section' => 'best_reloaded_header',
        'settings' => 'bestreloaded_header_banner_area',
        'type' => 'textarea'
