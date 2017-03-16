@@ -210,6 +210,15 @@ module.exports = function(grunt) {
 					{src: ['assets/src/js/scripts.js'], dest: 'assets/js/scripts.js', filter: 'isFile'},
 			    ],
 			},
+			// configuration to get the WPORG friendly verion - IE no unneeded files
+			dist: {
+				files: [
+					{expand: true, src: ['*.php', 'style.css', 'changelog', 'readme.txt'], dest: 'dist/best-reloaded/'},
+					{expand: true, src: ['inc/**'], dest: 'dist/best-reloaded/'},
+					{expand: true, src: ['assets/**', '!assets/src/**'], dest: 'dist/best-reloaded/'},
+				],
+			}
+
 		},
 
 
@@ -228,4 +237,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme']);
 	grunt.registerTask('build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'uglify:dev']);
 	grunt.registerTask('theme', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme']);
+	grunt.registerTask('dist', ['copy:dist']);
 };
