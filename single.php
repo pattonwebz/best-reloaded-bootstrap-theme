@@ -19,10 +19,19 @@
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                         <h2 class="page-title"><?php the_title(); ?></h2>
-                        <span class="meta text-muted"><span class="glyphicon glyphicon-pencil"></span> Written by <?php the_author_link(); ?> on <?php the_time('F j, Y'); ?> and posted in <?php the_category( ' and ' ); ?>.</span>
+                        <span class="meta text-muted">
+							<span class="glyphicon glyphicon-pencil"></span>
+							<?php
+							esc_html_e( ' Written by ', 'best-reloaded' );
+							the_author_link();
+							esc_html_e( ' on ', 'best-reloaded' );
+							the_time('F j, Y');
+							esc_html_e( ' and posted in ', 'best-reloaded' );
+							the_category( ' and ' ); ?>.
+						</span>
                         <ul class="prev-next-single pager clearfix">
-                            <li class="previous"><?php previous_post_link( '%link', '&larr; Previous Post' ); ?></li>
-                            <li class="next"><?php next_post_link( '%link', 'Next Post &rarr;' ); ?></li>
+                            <li class="previous"><?php previous_post_link( '%link', '&larr; ' . esc_html__( 'Previous Post', 'best-reloaded' ) ); ?></li>
+                            <li class="next"><?php next_post_link( '%link', esc_html__( 'Next Post', 'best-reloaded' ) . '&rarr;' ); ?></li>
                         </ul>
 
 						<div id="social">
@@ -44,12 +53,11 @@
             				</div>
                         <?php } ?>
                         <?php the_content(); ?>
-                        <?php the_tags( '<span class="post-tags"><span class="meta">Tags:</span> ', ' ', '</span>' ); /* &#8226; */ ?>
+                        <?php the_tags( '<span class="post-tags"><span class="meta">'. esc_html__('Tags: ', 'best-reloaded' ) .'</span> ', ' ', '</span>' ); /* &#8226; */ ?>
                         <?php wp_link_pages( array(
-                            'before' => '<hr class="hr-row-divider"><p class="wp-link-pages hero-p">Continue Reading: ',
+                            'before' => '<hr class="hr-row-divider"><p class="wp-link-pages hero-p">' . esc_html__('Continue Reading: ', 'best-reloaded' ),
                             'after' => '</p>'
                         )); ?>
-                        <?php get_template_part( 'ads', 'posts' ); ?>
 
                     <?php endwhile; else: ?>
 

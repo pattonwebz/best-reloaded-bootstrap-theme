@@ -23,7 +23,7 @@
         );
         $loop = new WP_Query( $args );
         if ( $loop->have_posts() ) :
-            echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';
+            echo '<hr class="hr-row-divider"><h3 class="related-posts-title">'. esc_html__('Related Articles', 'best-reloaded' ) .'</h3><div class="row">';
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
                 <div class="col-md-4">
@@ -36,29 +36,6 @@
                 </div><?php
             endwhile;
             echo '</div>';
-        else :
-            $args = array(
-                'orderby'             => 'rand',
-                'ignore_sticky_posts' => true,
-                'posts_per_page'      => 2
-            );
-            $loop = new WP_Query( $args );
-            if ( $loop->have_posts() ) :
-                echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';
-                while ( $loop->have_posts() ) : $loop->the_post(); ?>
-
-                    <div class="col-md-4">
-                        <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>" class="post-thumb">
-                            <span>
-                                <?php get_template_part( 'featured', 'image' ); ?>
-                            </span>
-                        </a>
-                        <h4 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
-                    </div><?php
-
-                endwhile;
-                echo '</div>';
-            endif;
         endif;
         wp_reset_query();
     // Else, display two random articles
@@ -70,7 +47,7 @@
         );
         $loop = new WP_Query( $args );
         if ( $loop->have_posts() ) :
-            echo '<hr class="hr-row-divider"><h3 class="related-posts-title">Related Articles</h3><div class="row">';
+            echo '<hr class="hr-row-divider"><h3 class="related-posts-title">'. esc_html__('Related Articles', 'best-reloaded' ) .'</h3><div class="row">';
             while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
                 <div class="col-md-4">
