@@ -11,7 +11,7 @@
 ?>
     <div id="comments">
     <?php if ( post_password_required() ) : ?>
-        <p class="nopassword hero-p"><?php echo 'This post is password protected.<br/>Please enter the password to view any comments.'; ?></p>
+        <p class="nopassword hero-p"><?php esc_html_e( 'This post is password protected.', 'best-reloaded' ); ?><br/><?php esc_html_e( 'Please enter the password to view any comments.', 'best-reloaded' ); ?></p>
     </div><!-- #comments -->
     <?php
             /* Stop the rest of comments.php from being processed,
@@ -66,7 +66,7 @@
          */
         elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) :
     ?>
-        <p class="nocomments hero-p"><?php echo 'Comments are closed.'; ?></p>
+        <p class="nocomments hero-p"><?php esc_html_e( 'Comments are closed.', 'best-reloaded' ); ?></p>
     <?php endif; ?>
 	<div class="comment-fields">
     <?php
