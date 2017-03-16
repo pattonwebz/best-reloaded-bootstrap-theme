@@ -19,7 +19,7 @@
 
                     <?php
                             echo '<p class="hero-p">';
-                            posts_nav_link(' &#183; ', 'previous page', 'next page');
+                            posts_nav_link(' &#183; ', esc_html__('previous page', 'best-reloaded' ), esc_html__('next page', 'best-reloaded' ) );
                             echo '</p><hr class="hr-row-divider">';
                     ?>
 

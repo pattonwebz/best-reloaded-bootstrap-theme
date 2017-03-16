@@ -32,9 +32,9 @@
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
         <nav id="comment-nav-above">
-            <h1 class="visually-hidden"><?php echo 'comment navigation'; ?></h1>
-            <div class="nav-previous"><?php previous_comments_link( '&larr; older comments' /* __() */ ); ?></div>
-            <div class="nav-next"><?php next_comments_link( 'newer comments &rarr;' /* __() */ ); ?></div>
+            <h1 class="visually-hidden"><?php esc_html_e('comment navigation', 'best-reloaded' ); ?></h1>
+            <div class="nav-previous"><?php previous_comments_link( '&larr; ' . esc_html__('older comments', 'best-reloaded' ) ); ?></div>
+            <div class="nav-next"><?php next_comments_link( esc_html__('newer comments', 'best-reloaded' ) . '&rarr;' ); ?></div>
         </nav>
         <?php endif; // check for comment navigation ?>
 
@@ -52,9 +52,9 @@
 
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
         <nav id="comment-nav-below">
-            <h1 class="visually-hidden"><?php echo 'comment navigation'; ?></h1>
-            <div class="nav-previous pull-left"><?php previous_comments_link( '&larr; older comments' /* __() */ ); ?></div>
-            <div class="nav-next pull-right"><?php next_comments_link( 'newer comments &rarr;' /* __() */ ); ?></div>
+			<h1 class="visually-hidden"><?php esc_html_e('comment navigation', 'best-reloaded' ); ?></h1>
+			<div class="nav-previous pull-left"><?php previous_comments_link( '&larr; ' . esc_html__('older comments', 'best-reloaded' ) ); ?></div>
+			<div class="nav-next pull-right"><?php next_comments_link( esc_html__('newer comments', 'best-reloaded' ) . '&rarr;' ); ?></div>
         </nav>
         <?php endif; // check for comment navigation ?>
 
@@ -75,10 +75,10 @@
 		$aria_req = ( $req ? " aria-required='true'" : '' );
         comment_form( array(
             'comment_field' 		=> '<div class="comment-form-comment form-group row">' .
-                                   			'<label for="comment" class="col-12">Enter Your Comment</label>' .
+                                   			'<label for="comment" class="col-12">' . esc_html__('Enter Your Comment', 'best-reloaded' ) . '</label>' .
                                    			'<textarea id="comment" name="comment" class="form-control col-12" rows="5" aria-required="true"></textarea>' .
                                			'</div>',
-			'label_submit'			=> 'Leave Comment',
+			'label_submit'			=> esc_html__('Leave Comment', 'best-reloaded' ),
 	        'comment_notes_after' 	=> '',
 			'fields' 				=> array(
 			  	'author' =>

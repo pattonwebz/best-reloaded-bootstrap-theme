@@ -63,7 +63,7 @@
 						</a>
 					</div>
 				<?php } else {
-                    // if the header image is not set or checkbox is off then output text site-title
+                    // if the header image is not set output text site-title
                     ?>
 					<div class="name-text">
 						<?php if( is_home() || is_front_page() ) {
