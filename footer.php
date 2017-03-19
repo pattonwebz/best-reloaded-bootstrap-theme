@@ -45,11 +45,11 @@
 
                         <?php
 							wp_nav_menu( array(
-								'theme_location' => 'nav_footer',
+								'theme_location' => 'best_reloaded_nav_footer',
 								'depth'      => 1,
 								'container'  => false,
 								'menu_class' => 'nav justify-content-end',
-								'fallback_cb' => 'footer_nav_fallback',
+								'fallback_cb' => 'best_reloaded_footer_nav_fallback',
 								'walker' => new wp_bootstrap_navwalker())
 							);
 						?>

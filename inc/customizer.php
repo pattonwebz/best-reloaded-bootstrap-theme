@@ -33,7 +33,7 @@ function best_reloaded_customizer($wp_customize){
 
 	$wp_customize->add_setting( 'bestreloaded_display_header_banner_area', array(
         'default' => 0,
-        'sanitize_callback' => 'bestreloaded_sanitize_checkbox',
+        'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
         'type' => 'theme_mod'
     ) );
     $wp_customize->add_control( 'bestreloaded_display_header_banner_area', array(
@@ -46,7 +46,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_header_banner_area', array(
        'default' => '<!-- html accepted -->',
-       'sanitize_callback' => 'bestreloaded_sanitize_textarea',
+       'sanitize_callback' => 'best_reloaded_sanitize_textarea',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_header_banner_area', array(
@@ -59,7 +59,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_display_intro_text', array(
        'default' => 1,
-       'sanitize_callback' => 'bestreloaded_sanitize_checkbox',
+       'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_intro_text', array(
@@ -71,7 +71,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_intro_text', array(
        'default' => __('Welcome to our awesome site!<br/>This space is the perfect place to say a <a href="#">little something</a> about yourself.', 'best-reloaded' ),
-       'sanitize_callback' => 'bestreloaded_sanitize_textarea',
+       'sanitize_callback' => 'best_reloaded_sanitize_textarea',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_intro_text', array(
@@ -83,7 +83,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_display_homepage_widget_row', array(
        'default' => 1,
-       'sanitize_callback' => 'bestreloaded_sanitize_checkbox',
+       'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_homepage_widget_row', array(
@@ -95,7 +95,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_display_featured_bar', array(
        'default' => 0,
-       'sanitize_callback' => 'bestreloaded_sanitize_checkbox',
+       'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_featured_bar', array(
@@ -107,7 +107,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_featured_bar', array(
        'default' => __('Something Important (set background color, image, text, and <a href="#">link</a>)', 'best-reloaded' ),
-       'sanitize_callback' => 'bestreloaded_sanitize_textarea',
+       'sanitize_callback' => 'best_reloaded_sanitize_textarea',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_featured_bar', array(
@@ -119,7 +119,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_display_footer_top', array(
        'default' => 1,
-       'sanitize_callback' => 'bestreloaded_sanitize_checkbox',
+       'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_footer_top', array(
@@ -131,7 +131,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'bestreloaded_display_footer_bottom', array(
        'default' => 1,
-       'sanitize_callback' => 'bestreloaded_sanitize_checkbox',
+       'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
        'type' => 'theme_mod'
    ) );
    $wp_customize->add_control( 'bestreloaded_display_footer_bottom', array(
@@ -142,7 +142,7 @@ function best_reloaded_customizer($wp_customize){
    ) );
 
    $wp_customize->add_setting( 'bestreloaded_footer_bottom_tagline', array(
-	   'sanitize_callback' => 'bestreloaded_sanitize_textarea',
+	   'sanitize_callback' => 'best_reloaded_sanitize_textarea',
        'default' => __('&copy; 2017 <a href="#">Site Title</a>', 'best-reloaded'),
        'type' => 'theme_mod'
    ) );
@@ -163,12 +163,12 @@ function best_reloaded_customizer($wp_customize){
  * @param $input string
  * @return $output sanitized string
  */
-function bestreloaded_sanitize_textarea( $input ) {
+function best_reloaded_sanitize_textarea( $input ) {
 	global $allowedposttags;
 	$output = wp_kses( $input, $allowedposttags );
 	return $output;
 }
-add_filter( 'bestreloaded_sanitize_textarea', 'bestreloaded_sanitize_textarea' );
+add_filter( 'best_reloaded_sanitize_textarea', 'best_reloaded_sanitize_textarea' );
 
 /**
  * Sanitization for checkbox input
@@ -184,4 +184,4 @@ function bestreloaded_sanitize_checkbox( $input ) {
 	}
 	return $output;
 }
-add_filter( 'bestreloaded_sanitize_checkbox', 'bestreloaded_sanitize_checkbox' );
+add_filter( 'best_reloaded_sanitize_checkbox', 'best_reloaded_sanitize_checkbox' );

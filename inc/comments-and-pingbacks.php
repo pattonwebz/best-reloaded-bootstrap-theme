@@ -8,7 +8,7 @@
  * @since Best Reloaded 0.1
  */
 
-function respond_comment( $comment, $args, $depth ) {
+function best_reloaded_respond_comment( $comment, $args, $depth ) {
     switch ( $comment->comment_type ) :
         case 'pingback' :
         case 'trackback' :

@@ -12,21 +12,21 @@
  * Theme Setup Function
  * ============================================================= */
 
-add_action( 'after_setup_theme', 'pwwp_bestreloaded_setup' );
-if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
-    function pwwp_bestreloaded_setup() {
+add_action( 'after_setup_theme', 'best_reloaded_setup' );
+if ( !function_exists( 'best_reloaded_setup' ) ) {
+    function best_reloaded_setup() {
 
         // Set the content width
         if ( ! isset( $content_width ) ) $content_width = 690;
 
         // This theme uses wp_nav_menu() in two locations
         register_nav_menus( array(
-            'nav_topbar' => 'Topbar Navigation',
-            'nav_footer' => 'Footer Navigation'
+            'best_reloaded_nav_topbar' => __('Topbar Navigation', 'best-reloaded' ),
+            'best_reloaded_nav_footer' => __('Footer Navigation', 'best-reloaded' )
         ) );
 
         // Fallback function for Topbar Navigation if it isn't set
-        function topbar_nav_fallback() {
+        function best_reloaded_topbar_nav_fallback() {
 			if( is_user_logged_in() ) {
 				echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
 			} else {
@@ -36,7 +36,7 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
 
 
         // Fallback function for Footer Navigation if it isn't set
-        function footer_nav_fallback() {
+        function best_reloaded_footer_nav_fallback() {
 			if( is_user_logged_in() ) {
 				echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
 			} else {
@@ -55,6 +55,7 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
 
         // This enables WP 4.1+ title-tag support. Fallback in place for
         // old versions
+        // FALLBACK REMOVED - ONLY NEED TO SUPPORT 2 VERSIONS PREVIOUS
         add_theme_support( 'title-tag' );
 
 		// custom logo and background support via customizer
@@ -79,9 +80,9 @@ if ( !function_exists( 'pwwp_bestreloaded_setup' ) ) {
  * Enqueue Styles
  * ============================================================= */
 
-add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_styles' );
-if ( !function_exists( 'pwwp_load_bestreloaded_styles' ) ) {
-    function pwwp_load_bestreloaded_styles() {
+add_action( 'wp_enqueue_scripts', 'best_reloaded_load_styles' );
+if ( !function_exists( 'best_reloaded_load_styles' ) ) {
+    function best_reloaded_load_styles() {
         if ( !is_admin() ) {
 			wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/assets/css/bootstrap.min.css', "4.0.0-alpha.6" );
 			wp_enqueue_style ( 'bootstrap-styles' );
@@ -95,9 +96,9 @@ if ( !function_exists( 'pwwp_load_bestreloaded_styles' ) ) {
  * Enqueue Javascript
  * ============================================================= */
 
-add_action( 'wp_enqueue_scripts', 'pwwp_load_bestreloaded_scripts' );
-if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
-    function pwwp_load_bestreloaded_scripts() {
+add_action( 'wp_enqueue_scripts', 'best_reloaded_load_scripts' );
+if ( !function_exists( 'best_reloaded_load_scripts' ) ) {
+    function best_reloaded_load_scripts() {
         if ( !is_admin() ) {
 
 			// this is the main theme scripts file
@@ -123,10 +124,10 @@ if ( !function_exists( 'pwwp_load_bestreloaded_scripts' ) ) {
  * Echo out color options from admin panel
  * ============================================================= */
 
-//add_action( 'wp_head', 'pwwp_bestreloaded_theme_options' );
+add_action( 'wp_head', 'best_reloaded_theme_options' );
 
-if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
-    function pwwp_bestreloaded_theme_options() {
+if ( !function_exists( 'best_reloaded_theme_options' ) ) {
+    function best_reloaded_theme_options() {
 
 		// these are all hex values
         $text_color_featured    	= get_theme_mod( 'bestreloaded_text_color_featured_content' );
@@ -180,10 +181,10 @@ if ( !function_exists( 'pwwp_bestreloaded_theme_options' ) ) {
  * Remove rel attribute from the category list
  * ============================================================= */
 
-add_filter('wp_list_categories', 'pwwp_remove_category_list_rel');
-add_filter('the_category', 'pwwp_remove_category_list_rel');
-if ( !function_exists( 'pwwp_remove_category_list_rel' ) ) {
-    function pwwp_remove_category_list_rel($output) {
+add_filter('wp_list_categories', 'best_reloaded_remove_category_list_rel');
+add_filter('the_category', 'best_reloaded_remove_category_list_rel');
+if ( !function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
+    function best_reloaded_remove_category_list_rel($output) {
         $output = str_replace(' rel="category tag"', '', $output);
         return $output;
     }
@@ -193,15 +194,15 @@ if ( !function_exists( 'pwwp_remove_category_list_rel' ) ) {
  * Custom excerpt length and styling
  * ============================================================= */
 
-add_filter( 'excerpt_length', 'pwwp_custom_excerpt_length', 999 );
-if ( !function_exists( 'pwwp_custom_excerpt_length' ) ) {
-    function pwwp_custom_excerpt_length() {
+add_filter( 'excerpt_length', 'best_reloaded_custom_excerpt_length', 999 );
+if ( !function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
+    function best_reloaded_custom_excerpt_length() {
         return 40;
     }
 }
-add_filter('excerpt_more', 'pwwp_new_excerpt_more');
-if ( !function_exists( 'pwwp_new_excerpt_more' ) ) {
-    function pwwp_new_excerpt_more( $more ) {
+add_filter('excerpt_more', 'best_reloaded_new_excerpt_more');
+if ( !function_exists( 'best_reloaded_new_excerpt_more' ) ) {
+    function best_reloaded_new_excerpt_more( $more ) {
         return ' ...';
     }
 }
@@ -210,9 +211,9 @@ if ( !function_exists( 'pwwp_new_excerpt_more' ) ) {
  * Tweak tagcloud settings
  * ============================================================= */
 
-add_filter( 'widget_tag_cloud_args', 'pwwp_custom_tag_cloud_widget' );
-if ( !function_exists( 'pwwp_custom_tag_cloud_widget' ) ) {
-    function pwwp_custom_tag_cloud_widget( $args ) {
+add_filter( 'widget_tag_cloud_args', 'best_reloaded_custom_tag_cloud_widget' );
+if ( !function_exists( 'best_reloaded_custom_tag_cloud_widget' ) ) {
+    function best_reloaded_custom_tag_cloud_widget( $args ) {
         $args['largest'] = 18;
         $args['smallest'] = 14;
         $args['unit'] = 'px';

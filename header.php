@@ -31,11 +31,11 @@
 			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<?php
 					wp_nav_menu( array(
-						'theme_location' 	=> 'nav_topbar',
+						'theme_location' 	=> 'best_reloaded_nav_topbar',
 						'depth'      		=> 0,
 						'container'  		=> false,
 						'menu_class' 		=> 'navbar-nav mr-auto',
-						'fallback_cb' 		=> 'topbar_nav_fallback',
+						'fallback_cb' 		=> 'best_reloaded_topbar_nav_fallback',
 						'walker'            => new wp_bootstrap_navwalker()
 					) );
 
