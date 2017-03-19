@@ -52,4 +52,5 @@ $best_doNotGetDuplicates[] = get_the_ID();
         <p class="hero-p no-content-message"><?php esc_html_e("Sorry, couldn't get any slides.", 'best-reloaded' ); ?></p>
     </div>
 
-<?php endif; ?>
+<?php endif;
+wp_reset_postdata();

@@ -22,7 +22,12 @@
 
                     <h2 class="page-title"><?php the_title(); ?></h2>
                     <?php the_content(); ?>
-
+					<?php wp_link_pages( array(
+						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'best-reloaded' ) . '</span>',
+						'after'       => '</div>',
+						'link_before' => '<span>',
+						'link_after'  => '</span>',
+					) ); ?>
                 <?php endwhile; else: ?>
 
                     <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>

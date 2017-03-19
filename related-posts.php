@@ -37,7 +37,7 @@
             endwhile;
             echo '</div>';
         endif;
-        wp_reset_query();
+        wp_reset_postdata();
     // Else, display two random articles
     } else {
         $args = array(
@@ -62,6 +62,6 @@
             endwhile;
             echo '</div>';
         endif;
-        wp_reset_query();
+        wp_reset_postdata();
     }
-?>
+	

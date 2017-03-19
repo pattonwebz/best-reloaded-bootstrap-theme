@@ -10,18 +10,16 @@
 ?>
 
 <?php
-	global $best_doNotGetDuplicates;
-	if( !is_array( $best_doNotGetDuplicates ) ){
-		$best_doNotGetDuplicates = array();
-	}
-    $args = array(
-		'posts_per_page' 	=> 3,
- 		'post__not_in' 		=> $best_doNotGetDuplicates
-	);
-    $loop = new WP_Query( $args );
-    if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
-?>
-
+global $best_doNotGetDuplicates;
+if( !is_array( $best_doNotGetDuplicates ) ){
+	$best_doNotGetDuplicates = array();
+}
+$args = array(
+	'posts_per_page' 	=> 3,
+	'post__not_in' 		=> $best_doNotGetDuplicates
+);
+$loop = new WP_Query( $args );
+if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();	?>
 <div class="col-sm-3">
     <article  <?php post_class(); ?> >
         <header>
@@ -39,11 +37,9 @@
     </article>
     <hr class="hr-row-divider">
 </div><!-- end col-sm-3 -->
-
 <?php endwhile; else: ?>
-
 <div class="col-sm-9">
     <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>
 </div>
-
-<?php endif; ?>
+<?php endif;
+wp_reset_postdata();

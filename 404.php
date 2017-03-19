@@ -29,10 +29,11 @@
 
                 <?php
                     global $postcount;
-
                     $args = array( 'posts_per_page' => 3 );
+					// query for 3 latest posts
                     $loop = new WP_Query( $args );
                     if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); if ( ++$postcount > 3 ) continue;
+					wp_reset_postdata();
                 ?>
 
                 <div class="col-sm-4">
