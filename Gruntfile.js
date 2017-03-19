@@ -213,9 +213,14 @@ module.exports = function(grunt) {
 			// configuration to get the WPORG friendly verion - IE no unneeded files
 			dist: {
 				files: [
+					// only the needed files from root
 					{expand: true, src: ['*.php', 'style.css', 'changelog', 'readme.txt', 'screenshot.png'], dest: 'dist/best-reloaded/'},
+					// all files inside /inc/
 					{expand: true, src: ['inc/**'], dest: 'dist/best-reloaded/'},
-					{expand: true, src: ['assets/**', '!assets/src/**'], dest: 'dist/best-reloaded/'},
+					// only css files - no maps
+					{expand: true, src: ['assets/css/*.css'], dest: 'dist/best-reloaded/'},
+					// only combined scripts, no individuals
+					{expand: true, src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js'], dest: 'dist/best-reloaded/'},
 				],
 			}
 
