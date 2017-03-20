@@ -4,6 +4,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+		pkg: grunt.file.readJSON('package.json'),
+
 		sass: {
 
 			theme: {
@@ -214,19 +216,52 @@ module.exports = function(grunt) {
 			dist: {
 				files: [
 					// only the needed files from root
-					{expand: true, src: ['*.php', 'style.css', 'changelog', 'readme.txt', 'screenshot.png'], dest: 'dist/best-reloaded/'},
+					// style.css is copied seporately
+					{
+						expand: true,
+						src: ['*.php', 'changelog', 'readme.txt', 'screenshot.png'],
+						dest: 'dist/best-reloaded/'
+					},
 					// all files inside /inc/
-					{expand: true, src: ['inc/**'], dest: 'dist/best-reloaded/'},
+					{
+						expand: true,
+						src: ['inc/**'],
+						dest: 'dist/best-reloaded/'
+					},
 					// only css files - no maps
-					{expand: true, src: ['assets/css/*.css'], dest: 'dist/best-reloaded/'},
+					// note the unminifide style.css file is copied seporately
+					{
+						expand: true,
+						src: ['assets/css/style.min.css', 'assets/css/bootstrap.css', 'assets/css/bootstrap.min.css'],
+						dest: 'dist/best-reloaded/'
+					},
 					// only combined scripts, no individuals
-					{expand: true, src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js'], dest: 'dist/best-reloaded/'},
+					{
+						expand: true,
+						src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js'],
+						dest: 'dist/best-reloaded/'
+					},
 				],
+			},
+			versionReplace: {
+				files:[
+					// copy stylesheets and insert version number from package.json
+					{
+						expand: true,
+						src: ['style.css', 'assets/css/style.css'],
+						dest: 'dist/best-reloaded/'
+					},
+				],
+				options: {
+					process: function (content, srcpath) {
+						console.log('processing');
+						var pkgVersion = grunt.file.readJSON('package.json').version;
+						return content.replace('{{ VERSION }}', pkgVersion);
+					},
+				},
 			}
 
 		},
-
-
         watch: {
             styles: {
                 files: ['assets/scss/**/*.scss'], // which files to watch
@@ -242,5 +277,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme']);
 	grunt.registerTask('build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'uglify:dev']);
 	grunt.registerTask('theme', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme']);
-	grunt.registerTask('dist', ['copy:dist']);
+	grunt.registerTask('dist', ['copy:dist', 'copy:versionReplace']);
 };
