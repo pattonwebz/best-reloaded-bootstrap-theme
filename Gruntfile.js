@@ -241,6 +241,12 @@ module.exports = function(grunt) {
 						src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js', 'assets/js/tether.js', 'assets/js/tether.min.js'],
 						dest: 'dist/best-reloaded/'
 					},
+					// copy img directory
+					{
+						expand: true,
+						src: ['assets/img/**'],
+						dest: 'dist/best-reloaded/'
+					},
 				],
 			},
 			versionReplace: {
