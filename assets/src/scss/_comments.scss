@@ -1,7 +1,7 @@
 // Comments
 // --------------------------------------------------
 #comments{
-    .commentlist {
+    .commentlist, .form-group {
         margin-left: 0;
         padding-left: 0;
     }
@@ -11,6 +11,9 @@
             list-style: none;
         }
     }
+	label {
+		padding: 0;
+	}
     .pingback{
         position: relative;
         padding: 20px;

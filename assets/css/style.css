@@ -337,12 +337,15 @@ header .navbar .container {
   margin-bottom: 5px;
 }
 
-#comments .commentlist {
+#comments .commentlist, #comments .form-group {
   margin-left: 0;
   padding-left: 0;
 }
 #comments li.comment, #comments li.pingpack {
   list-style: none;
+}
+#comments label {
+  padding: 0;
 }
 #comments .pingback, #comments article.comment {
   position: relative;
