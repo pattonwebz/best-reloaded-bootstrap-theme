@@ -52,7 +52,7 @@ function best_reloaded_respond_comment( $comment, $args, $depth ) {
 
             <div class="edit-reply">
                 <?php edit_comment_link( esc_html__('Edit.', 'best-reloaded' ) . ' &#x270E;', '<span class="edit-link">', '</span>' ); ?>
-                <?php comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html_e( 'Reply', 'best-reloaded' ) .' <span>&#x21A9;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+                <?php comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( 'Reply ', 'best-reloaded' ) .' <span>&#x21A9;</span>', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
             </div><!-- .reply -->
         </article><!-- #comment-## -->
 
