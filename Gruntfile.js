@@ -238,7 +238,7 @@ module.exports = function(grunt) {
 					// only combined scripts, no individuals
 					{
 						expand: true,
-						src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js'],
+						src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js', 'assets/js/tether.js', 'assets/js/tether.min.js'],
 						dest: 'dist/best-reloaded/'
 					},
 				],
