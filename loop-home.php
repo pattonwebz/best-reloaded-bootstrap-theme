@@ -32,7 +32,7 @@ if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();	
         </header>
         <?php the_excerpt(); ?>
         <footer>
-			<span class="meta"><?php the_time('F j, Y'); ?> &#8226; <a href="<?php comments_link(); ?>" title="<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>"><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></a></span>
+			<span class="meta"><?php the_time( get_option( 'date_format' ) ); ?> &#8226; <a href="<?php comments_link(); ?>" title="<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>"><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></a></span>
         </footer>
     </article>
     <hr class="hr-row-divider">

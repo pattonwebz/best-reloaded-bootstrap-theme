@@ -25,7 +25,7 @@
 							esc_html_e( ' Written by ', 'best-reloaded' );
 							the_author_link();
 							esc_html_e( ' on ', 'best-reloaded' );
-							the_time('F j, Y');
+							the_time( get_option( 'date_format' ) );
 							esc_html_e( ' and posted in ', 'best-reloaded' );
 							the_category( ' and ' ); ?>.
 						</span>
