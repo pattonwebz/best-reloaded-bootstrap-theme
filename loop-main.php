@@ -60,7 +60,7 @@
     if ( is_search() ) {
         echo '<p class="hero-p no-content-message in-loop">' . esc_html('Sorry, nothing matches that criteria', 'best-reloaded' ) . '</p><hr class="hr-row-divider">';
     } else {
-        echo '<p class="hero-p no-content-message in-loop">' . esc_html('There are currently no posts to display :(', 'best-reloaded' ) . '</p><hr class="hr-row-divider">';
+        echo '<p class="hero-p no-content-message in-loop">' . esc_html('There are currently no posts to display.', 'best-reloaded' ) . '</p><hr class="hr-row-divider">';
     }
 
 endif; ?>

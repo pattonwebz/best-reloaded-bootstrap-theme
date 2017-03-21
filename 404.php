@@ -57,7 +57,7 @@
                 <?php endwhile; else: ?>
 
                 <div class="col-sm-9">
-                    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>
+                    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display.', 'best-reloaded' ); ?></p>
                 </div>
 
                 <?php endif; ?>

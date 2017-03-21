@@ -39,7 +39,7 @@ if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();	
 </div><!-- end col-sm-3 -->
 <?php endwhile; else: ?>
 <div class="col-sm-9">
-    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display :(', 'best-reloaded' ); ?></p>
+    <p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display.', 'best-reloaded' ); ?></p>
 </div>
 <?php endif;
 wp_reset_postdata();
