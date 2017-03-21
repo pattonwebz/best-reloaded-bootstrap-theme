@@ -158,15 +158,15 @@ color: #818a91;
 cursor: not-allowed;
 }
 
-.gform_fields input, .gform_fields .has-success input, .has-success .gform_fields select, .gform_fields .has-success select, .has-success .gform_fields textarea, .gform_fields .has-success textarea {
+.gform_fields .has-success input, .has-success .gform_fields select, .gform_fields .has-success select, .has-success .gform_fields textarea, .gform_fields .has-success textarea {
 border-color: #5cb85c;
 }
 
-.gform_fields input, .gform_fields .has-warning input, .has-warning .gform_fields select, .gform_fields .has-warning select, .has-warning .gform_fields textarea, .gform_fields .has-warning textarea {
+.gform_fields .has-warning input, .has-warning .gform_fields select, .gform_fields .has-warning select, .has-warning .gform_fields textarea, .gform_fields .has-warning textarea {
 border-color: #f0ad4e;
 }
 
-.gform_fields input, .gform_fields .has-danger input, .has-danger .gform_fields select, .gform_fields .has-danger select, .has-danger .gform_fields textarea, .gform_fields .has-danger textarea {
+.gform_fields .has-danger input, .has-danger .gform_fields select, .gform_fields .has-danger select, .has-danger .gform_fields textarea, .gform_fields .has-danger textarea {
 border-color: #d9534f;
 }
 
@@ -261,12 +261,12 @@ margin-bottom: 10px;
   vertical-align: middle;
 }
 
-.form-inline .input-group .gform_fields input, .gform_fields
-.form-inline .input-group input,
-.form-inline .input-group .gform_fields select, .gform_fields
-.form-inline .input-group select,
-.form-inline .input-group .gform_fields textarea, .gform_fields
-.form-inline .input-group textarea {
+.form-inline .input-group .gform_fields input,
+.gform_fields .form-inline .input-group input,
+.form-inline .input-group .gform_fields select,
+.gform_fields .form-inline .input-group select,
+.form-inline .input-group .gform_fields textarea,
+.gform_fields .form-inline .input-group textarea {
   width: auto;
 }
 .form-inline .input-group > .form-control, .form-inline .gform_fields .input-group > input, .gform_fields .form-inline .input-group > input, .form-inline .gform_fields .input-group > select, .gform_fields .form-inline .input-group > select, .form-inline .gform_fields .input-group > textarea, .gform_fields .form-inline .input-group > textarea {
