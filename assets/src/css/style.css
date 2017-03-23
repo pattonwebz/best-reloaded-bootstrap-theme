@@ -228,6 +228,22 @@ h6, .h6 {
   margin: 30px auto 35px;
 }
 
+.navigation .nav-links {
+  display: flex;
+}
+.navigation .nav-links:first-child {
+  text-align: left !important;
+}
+.navigation .nav-links div {
+  flex: 2;
+}
+.navigation .nav-links a {
+  font-size: 1.8rem;
+}
+.navigation .nav-links .nav-next {
+  text-align: right;
+}
+
 /* --------------------------------------- *
 * Header                               *
 * ---------------------------------------- */
