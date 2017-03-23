@@ -15,9 +15,6 @@ add_action( 'after_setup_theme', 'best_reloaded_setup' );
 if ( !function_exists( 'best_reloaded_setup' ) ) {
     function best_reloaded_setup() {
 
-        // Set the content width
-        if ( ! isset( $content_width ) ) $content_width = 690;
-
         // This theme uses wp_nav_menu() in two locations
         register_nav_menus( array(
             'best_reloaded_nav_topbar' => __('Topbar Navigation', 'best-reloaded' ),
@@ -74,6 +71,13 @@ if ( !function_exists( 'best_reloaded_setup' ) ) {
     /* ===| end bestreloaded_setup() |================================== */
 }
 /* ===| end !function_exists |================================== */
+
+// set content_sideth
+function best_reloaded_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'best_reloaded_content_width', 763 );
+}
+add_action( 'after_setup_theme', 'best_reloaded_content_width', 0 );
+
 
 /* =============================================================
  * Enqueue Styles

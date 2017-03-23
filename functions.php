@@ -7,9 +7,6 @@
   * @since Best Reloaded 0.1
   */
 
-// Set the content width
-if ( ! isset( $content_width ) ) $content_width = 730;
-
 // Contains all functions essential to setting the theme
 require( trailingslashit( get_template_directory() ) . 'inc/theme-setup.php' );
 // Sets up comments and pingbacks for the theme
