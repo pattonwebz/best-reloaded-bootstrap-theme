@@ -18,7 +18,12 @@
 
                     <?php
                             echo '<p class="hero-p">';
-                            posts_nav_link(' &#183; ', esc_html__('previous page', 'best-reloaded' ), esc_html__('next page', 'best-reloaded' ) );
+								$args = array(
+									'prev_text'          => esc_html__('previous page', 'best-reloaded' ),
+									'next_text'          => esc_html__('next page', 'best-reloaded' ),
+									'screen_reader_text' => esc_html__('Posts Navigation', 'best-reloaded' )
+								);
+								the_posts_navigation( $args );
                             echo '</p><hr class="hr-row-divider">';
                     ?>
 
