@@ -37,7 +37,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-sm-5">
-                    <p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_footer_bottom_tagline', sprintf( __( '&copy; %1$s %2$s' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) ) ) ); ?></p>
+                    <p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_footer_bottom_tagline', sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) ) ) ); ?></p>
                 </div>
                 <div class="col-sm-7">
                     <nav role="navigation">

@@ -135,7 +135,7 @@ function best_reloaded_customizer($wp_customize){
 
    $wp_customize->add_setting( 'footer_bottom_tagline', array(
 	   'sanitize_callback' => 'best_reloaded_sanitize_textarea',
-       'default' => sprintf( __( '&copy; %1$s %2$s' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) )
+       'default' => sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) )
    ) );
    $wp_customize->add_control( 'footer_bottom_tagline', array(
        'label' => __('Footer Bottom Tagline', 'best-reloaded'),
