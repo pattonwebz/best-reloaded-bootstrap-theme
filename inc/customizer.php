@@ -159,7 +159,6 @@ function best_reloaded_sanitize_textarea( $input ) {
 	$output = wp_kses( $input, $allowedposttags );
 	return $output;
 }
-add_filter( 'best_reloaded_sanitize_textarea', 'best_reloaded_sanitize_textarea' );
 
 /**
  * Sanitization for checkbox input
@@ -175,4 +174,3 @@ function best_reloaded_sanitize_checkbox( $input ) {
 	}
 	return $output;
 }
-add_filter( 'best_reloaded_sanitize_checkbox', 'best_reloaded_sanitize_checkbox' );
