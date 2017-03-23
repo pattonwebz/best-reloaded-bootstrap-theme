@@ -9,7 +9,7 @@
 ?>
 
 <?php get_header(); ?>
-        <?php get_template_part( 'featured', 'bar' ); ?>
+        <?php get_template_part( 'inc/parts/featured', 'bar' ); ?>
 
         <div class="row">
             <div class="col-md-8">

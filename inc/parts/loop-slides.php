@@ -33,7 +33,7 @@ $best_doNotGetDuplicates[] = get_the_ID();
 
     <?php
             // display image without being wrapped in anchor element - should link this
-            get_template_part( 'featured', 'image' );
+            get_template_part( 'inc/parts/featured', 'image' );
     ?>
 
     <div class="carousel-caption d-none d-md-block">

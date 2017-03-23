@@ -32,7 +32,7 @@
 
 				    <!-- Wrapper for slides -->
     				<div class="carousel-inner" role="listbox">
-    				    <?php get_template_part( 'loop', 'slides' ); ?>
+    				    <?php get_template_part( 'inc/parts/loop', 'slides' ); ?>
     				</div>
 
 					<!-- Controls -->
@@ -57,7 +57,7 @@
 
             <?php get_sidebar( 'home' ); ?>
 
-            <?php get_template_part( 'loop', 'home' ); ?>
+            <?php get_template_part( 'inc/parts/loop', 'home' ); ?>
 
         </div><!-- end .row -->
     </div><!-- end #main_content -->

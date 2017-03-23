@@ -16,7 +16,7 @@
             <header>
                 <a href="<?php the_permalink(); ?>" class="post-thumb">
                     <span>
-                        <?php get_template_part( 'featured', 'image' ); ?>
+                        <?php get_template_part( 'inc/parts/featured', 'image' ); ?>
                     </span>
                 </a>
                 <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
@@ -31,7 +31,7 @@
             <header>
                 <a href="<?php the_permalink(); ?>" class="post-thumb">
                     <span>
-                        <?php get_template_part( 'featured', 'image' ); ?>
+                        <?php get_template_part( 'inc/parts/featured', 'image' ); ?>
                     </span>
                 </a>
                 <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>

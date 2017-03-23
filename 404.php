@@ -10,7 +10,7 @@
 ?>
 
 <?php get_header(); ?>
-        <?php get_template_part( 'featured', 'bar' ); ?>
+        <?php get_template_part( 'inc/parts/featured', 'bar' ); ?>
 
         <div id="main_content" role="main">
             <div class="row">
@@ -41,7 +41,7 @@
                         <header>
                             <a href="<?php the_permalink(); ?>" class="post-thumb">
                                 <span>
-                                    <?php get_template_part( 'featured', 'image' ); ?>
+                                    <?php get_template_part( 'inc/parts/featured', 'image' ); ?>
                                 </span>
                             </a>
                             <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
