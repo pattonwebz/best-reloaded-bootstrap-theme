@@ -3,6 +3,7 @@
   * single.php
   * Displays content for a single blog post
   *
+  *
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */
