@@ -29,7 +29,7 @@ if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 $best_doNotGetDuplicates[] = get_the_ID();
 ?>
 
-<div class="carousel-item <?php if ($i==0) { echo esc_attr( 'active' ); $i++; } ?>">
+<div class="carousel-item <?php if ($i==0) { echo 'active'; $i++; } ?>">
 
     <?php
             // display image without being wrapped in anchor element - should link this
