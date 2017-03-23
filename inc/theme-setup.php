@@ -3,7 +3,6 @@
  * theme-setup.php
  * Theme setup functions
  *
- * @package WordPress
  * @subpackage Best_Reloaded
  * @since Best Reloaded 0.1
  */

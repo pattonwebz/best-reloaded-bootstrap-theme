@@ -3,7 +3,6 @@
   * loop-slides.php
   * Loop used to generate the slider
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

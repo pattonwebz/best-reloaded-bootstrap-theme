@@ -3,7 +3,6 @@
  * featured-post-open.php
  * Displays post opening feature/ad
  *
- * @package WordPress
  * @subpackage Best_Reloaded
  * @since Best Reloaded 0.10
  */

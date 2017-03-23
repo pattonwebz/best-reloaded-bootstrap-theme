@@ -3,7 +3,6 @@
  * regisger-sidebars.php
  * Register sidebars and widgetized areas
  *
- * @package WordPress
  * @subpackage Best_Reloaded
  * @since Best Reloaded 0.1
  */

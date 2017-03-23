@@ -3,7 +3,6 @@
   * loop-main.php
   * The main loop used primarily by index.php and search.php
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

@@ -3,7 +3,6 @@
   * functions.php
   * Main theme functions file
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

@@ -5,7 +5,6 @@
   * template-content-right.php
   * Template for placing main content on the right
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

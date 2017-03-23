@@ -5,7 +5,6 @@
   * template-fullwidth.php
   * Page template used for full width pages
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

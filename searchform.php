@@ -3,7 +3,6 @@
   * searchform.php
   * This is the markup that is used whenever the default wordpress seach is called front-end
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

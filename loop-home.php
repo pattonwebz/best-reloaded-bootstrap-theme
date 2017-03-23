@@ -3,7 +3,6 @@
   * loop-home.php
   * Outputs the main homepage posts loop
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

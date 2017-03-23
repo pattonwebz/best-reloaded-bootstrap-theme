@@ -3,7 +3,6 @@
   * page.php
   * Displays content for a single page
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

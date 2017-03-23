@@ -3,7 +3,6 @@
   * single.php
   * Displays content for a single blog post
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

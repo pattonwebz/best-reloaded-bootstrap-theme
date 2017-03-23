@@ -3,7 +3,6 @@
  * footer.php
  * Outputs the site footer and closes any remaining opened tags
  *
- * @package WordPress
  * @subpackage Best_Reloaded
  * @since Best Reloaded 0.1
  */

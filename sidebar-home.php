@@ -4,7 +4,6 @@
   * Displays the set of widget areas available for editing in the
   * #main_content section of template-home.php
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */

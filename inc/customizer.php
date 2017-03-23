@@ -3,7 +3,6 @@
   * customizer.php
   * Adds the themes options to the customizer
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.7
   */

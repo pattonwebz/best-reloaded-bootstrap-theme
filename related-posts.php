@@ -3,7 +3,6 @@
   * related-posts.php
   * Displays related posts based on post tags for blog entries
   *
-  * @package WordPress
   * @subpackage Best_Reloaded
   * @since Best Reloaded 0.1
   */
@@ -64,4 +63,3 @@
         endif;
         wp_reset_postdata();
     }
-	
