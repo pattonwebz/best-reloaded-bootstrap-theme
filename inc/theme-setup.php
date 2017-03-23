@@ -87,10 +87,8 @@ add_action( 'wp_enqueue_scripts', 'best_reloaded_load_styles' );
 if ( !function_exists( 'best_reloaded_load_styles' ) ) {
     function best_reloaded_load_styles() {
         if ( !is_admin() ) {
-			wp_register_style( 'bootstrap-styles', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-alpha.6' );
-			wp_enqueue_style ( 'bootstrap-styles' );
-            wp_register_style( 'best-reloaded-styles', get_template_directory_uri() . '/assets/css/style.min.css', array(), '0.10.0' );
-            wp_enqueue_style ( 'best-reloaded-styles' );
+			wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-alpha.6' );
+            wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array('bootstrap'), '0.13.0' );
         }
     }
 }
@@ -103,17 +101,14 @@ add_action( 'wp_enqueue_scripts', 'best_reloaded_load_scripts' );
 if ( !function_exists( 'best_reloaded_load_scripts' ) ) {
     function best_reloaded_load_scripts() {
         if ( !is_admin() ) {
-
-			// this is the main theme scripts file
-            wp_register_script( 'best-reloaded-scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array('bootstrap'), '0.10.0', true );
             // bootstrap scripts
 			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery', 'tether'), '4.0.0-alpha.6', true );
 			// tether - needed by bootstrap affix
 			wp_register_script( 'tether', get_template_directory_uri() . '/assets/js/tether.min.js', array('jquery'), '1.4.0', true );
 
-			// enqueue the main theme scripts file - which will in turn include
-			// bootstrap, tether and jQuery due to dependancy chaing
-			wp_enqueue_script( 'best-reloaded-scripts' );
+			// enqueue the main theme scripts file - which will in turn
+			// bootstrap, tether and jQuery due to dependancy chaining
+            wp_register_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array('bootstrap', 'jquery'), '0.13.0', true );
 
 			// only enqueue comment-reply script on single pages
             if ( is_single() ) wp_enqueue_script( 'comment-reply' );
@@ -199,7 +194,10 @@ if ( !function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
 
 add_filter( 'excerpt_length', 'best_reloaded_custom_excerpt_length', 999 );
 if ( !function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
-    function best_reloaded_custom_excerpt_length() {
+    function best_reloaded_custom_excerpt_length($length) {
+		if( is_admin() ) {
+			return $length;
+		}
         return 40;
     }
 }
