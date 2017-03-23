@@ -11,7 +11,7 @@
 <?php
 
 if ( has_post_thumbnail() ) {
-    the_post_thumbnail( 'featured-slide', array( 'class' => 'd-block img-fluid' ));
+    the_post_thumbnail( 'best-reloaded-featured-img', array( 'class' => 'd-block img-fluid' ));
 } else {
     $featured_image_url = get_template_directory_uri() . '/assets/img/default-post.jpg';
 	if( $featured_image_url ){

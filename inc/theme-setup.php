@@ -26,7 +26,7 @@ if ( !function_exists( 'best_reloaded_setup' ) ) {
 			if( is_user_logged_in() ) {
 				echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
 			} else {
-	            echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">' . esc_html__('Home', 'best-reloaded') . '</a></li></ul>';
+	            echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="' . esc_attr__( 'Home', 'best-reloaded' ) . '" class="nav-link">' . esc_html__('Home', 'best-reloaded') . '</a></li></ul>';
 			}
         }
 
@@ -36,7 +36,7 @@ if ( !function_exists( 'best_reloaded_setup' ) ) {
 			if( is_user_logged_in() ) {
 				echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
 			} else {
-	            echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">' . esc_html__('Home', 'best-reloaded') . '</a></li></ul>';
+	            echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="' . esc_attr__( 'Home', 'best-reloaded' ) . '" class="nav-link">' . esc_html__('Home', 'best-reloaded') . '</a></li></ul>';
 			}
         }
 
@@ -44,7 +44,7 @@ if ( !function_exists( 'best_reloaded_setup' ) ) {
         add_theme_support( 'post-thumbnails' );
 
 		// Adds the image sizes we use
-		add_image_size('featured-slide', '865', '370', true);
+		add_image_size('best-reloaded-featured-img', '865', '370', true);
 
         // This feature enables post and comment RSS feed links to head
         add_theme_support( 'automatic-feed-links' );
