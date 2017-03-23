@@ -26,7 +26,7 @@ if ( !function_exists( 'best_reloaded_setup' ) ) {
 			if( is_user_logged_in() ) {
 				echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
 			} else {
-	            echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">Home</a></li></ul>';
+	            echo '<ul class="navbar-nav mr-auto"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">' . esc_html__('Home', 'best-reloaded') . '</a></li></ul>';
 			}
         }
 
@@ -36,7 +36,7 @@ if ( !function_exists( 'best_reloaded_setup' ) ) {
 			if( is_user_logged_in() ) {
 				echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" class="nav-link">'. esc_html__('Add a menu', 'best-reloaded') .'</a></li></ul>';
 			} else {
-	            echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">Home</a></li></ul>';
+	            echo '<ul class="nav"><li class="nav-item"><a href="' . esc_url( home_url() ) . '" title="Home" class="nav-link">' . esc_html__('Home', 'best-reloaded') . '</a></li></ul>';
 			}
         }
 
