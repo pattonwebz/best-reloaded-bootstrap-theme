@@ -254,6 +254,10 @@ header .navbar .container {
   text-decoration: none;
 }
 
+.logged-in.admin-bar .fixed-top {
+  padding-top: 40px;
+}
+
 #site-footer {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   border-top: 3px solid #f26535;
