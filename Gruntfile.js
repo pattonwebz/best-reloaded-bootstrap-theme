@@ -178,18 +178,12 @@ module.exports = function(grunt) {
 		uglify: {
 			// this is the "dev" config - used with "grunt watch" command
 			dev: {
-				options: {
-					banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-				},
 				files: [
 					{ src: 'assets/js/bootstrap.js', dest: 'assets/js/bootstrap.min.js' }, // All the Bootstrap JS
 					{ src: 'assets/js/scripts.js', dest: 'assets/js/scripts.min.js'}
 				]
 			},
 			theme: {
-				options: {
-					banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-				},
 				files: [
 					{ src: 'assets/js/scripts.js', dest: 'assets/js/scripts.min.js'}
 				]
