@@ -21,4 +21,4 @@ An answer to that question.
 == Resources ==
 * Bootstrap styles and scripts © 2011-2017 The Bootstrap Authors and Twitter, Inc - MIT Licence
 * Tether.io © 2014-2017 HubSpot - MIT License
-* /assets/images/
+* Images inside /assets/img/ - 'default-post.jpg', 'featured-bg-thumb.png' - owned by theme author - CC0
