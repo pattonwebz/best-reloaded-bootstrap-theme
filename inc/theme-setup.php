@@ -108,7 +108,7 @@ if ( !function_exists( 'best_reloaded_load_scripts' ) ) {
 
 			// enqueue the main theme scripts file - which will in turn
 			// bootstrap, tether and jQuery due to dependancy chaining
-            wp_register_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array('bootstrap', 'jquery'), '0.13.0', true );
+            wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array('bootstrap', 'jquery'), '0.13.0', true );
 
 			// only enqueue comment-reply script on single pages
             if ( is_single() ) wp_enqueue_script( 'comment-reply' );
