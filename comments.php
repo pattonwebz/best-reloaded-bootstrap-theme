@@ -1,10 +1,11 @@
 <?php
 /**
  * The comments.php file.
+ *
  * Template for comments and pingbacks
  *
- * @subpackage Best_Reloaded
- * @since Best Reloaded 0.1
+ * @package Best_Reloaded
+ * @since Best Reloaded v0.1
  */
 
 ?>

@@ -1,9 +1,10 @@
 <?php
 /**
- * 404.php
+ * The 404.php file.
+ *
  * Displays a page when a link is broken or mistyped
  *
- * @subpackage Best_Reloaded
+ * @package Best_Reloaded
  * @since      Best Reloaded 0.1
  */
 

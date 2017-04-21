@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "GPLv3",
+  "license": "GPLv2+",
   "devDependencies": {
     "autoprefixer": "*",
     "babel": "^6.5.2",

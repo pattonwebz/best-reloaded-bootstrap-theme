@@ -1,10 +1,11 @@
 <?php
  /**
   * The related-posts.php file.
+  *
   * Displays related posts based on post tags for blog entries
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.1
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.1
   */
 
 ?>
@@ -15,10 +16,10 @@ $tags = wp_get_post_tags( $post->ID );
 if ( $tags ) {
 	$first_tag = $tags[0]->term_id;
 	$args = array(
-	'tag__in'          => array( $first_tag ),
-	'post__not_in'     => array( $post->ID ),
-	'posts_per_page'   => 2,
-	'caller_get_posts' => 1,
+		'tag__in'          => array( $first_tag ),
+		'post__not_in'     => array( $post->ID ),
+		'posts_per_page'   => 2,
+		'caller_get_posts' => 1,
 	);
 	$loop = new WP_Query( $args );
 	if ( $loop->have_posts() ) :

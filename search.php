@@ -1,10 +1,11 @@
 <?php
  /**
   * The search.php file.
+  *
   * Default template for search templates
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.1
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.1
   */
 
 ?>

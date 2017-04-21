@@ -1,10 +1,11 @@
 <?php
  /**
   * The searchform.php file.
+  *
   * This is the markup that is used whenever the default wordpress seach is called front-end
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.1
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.1
   */
 
 ?>

@@ -5,8 +5,8 @@
   * Contains all the main functions of the theme and includes files for
   * additional parts.
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.1
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.1
   */
 
 // Contains all functions essential to setting the theme.

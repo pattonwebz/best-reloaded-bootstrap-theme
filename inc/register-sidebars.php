@@ -4,8 +4,8 @@
  *
  * Register sidebars and widgetized areas
  *
- * @subpackage Best_Reloaded
- * @since Best Reloaded 0.1
+ * @package Best_Reloaded
+ * @since Best Reloaded v0.1
  */
 
 add_action( 'widgets_init', 'best_reloaded_widgets_init' );

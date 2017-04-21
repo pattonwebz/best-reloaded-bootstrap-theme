@@ -6,8 +6,8 @@
   *
   * Page template used for setting the front page
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.1
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.1
   */
 
 ?>

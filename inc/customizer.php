@@ -5,8 +5,8 @@
   * Adds the themes options to the customizer. Contains all the panels, options,
   * and sanitization functions used by our customizer settings.
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.7
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.7
   */
 
 add_action( 'customize_register', 'best_reloaded_customizer' );

@@ -4,8 +4,8 @@
   *
   * Loop used to generate the slider
   *
-  * @subpackage Best_Reloaded
-  * @since Best Reloaded 0.1
+  * @package Best_Reloaded
+  * @since Best Reloaded v0.1
   */
 
 ?>

@@ -4,8 +4,8 @@
  *
  * Displays post opening feature/ad
  *
- * @subpackage Best_Reloaded
- * @since Best Reloaded 0.10
+ * @package Best_Reloaded
+ * @since Best Reloaded v0.10
  */
 
 ?>
