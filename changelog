@@ -1,5 +1,6 @@
 1.0.0 	- Fix bootstrap.min.js enqueue
 		- Fix image reference in styles for thumb
+		- Fix all main theme php files to better fit WordPress standards.
 
 0.14.0 = WordPress.org Debut
 
