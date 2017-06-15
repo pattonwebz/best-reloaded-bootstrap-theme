@@ -1,7 +1,8 @@
 # Travis CI configuration file.
 # @link https://travis-ci.org/
 
-# For use with the Twenty Sixteen WordPress theme
+# Original version of this file was for the Twenty Sixteen WordPress theme it
+# is duplicated and modified.
 # @link https://github.com/WordPress/twentysixteen/
 
 # Declare project language and PHP versions to test against.
@@ -9,6 +10,7 @@
 language: php
 
 # Declare versions of PHP to use. Use one decimal max.
+# PLEASE try move to PHP7... please :)
 php:
     - "7.0"
     - "5.6"
@@ -26,9 +28,15 @@ sudo: false
 # Declare which versions of WordPress to test against.
 # Also declare whether or not to test in Multisite.
 env:
-    # Trunk (current version in development is 4.4)
+    # Trunk (current version in development is 4.9)
     # @link https://github.com/WordPress/WordPress
     - WP_VERSION=master WP_MULTISITE=0
+    # only test against 3 latest versions. Multisite only on latest stable.
+    # @link https://github.com/WordPress/WordPress
+    - WP_VERSION=4.8 WP_MULTISITE=0
+    - WP_VERSION=4.8 WP_MULTISITE=1
+    - WP_VERSION=4.7 WP_MULTISITE=0
+    - WP_VERSION=4.6 WP_MULTISITE=0
 
 # Use this to prepare your build for testing.
 # e.g. copy database configurations, environment variables, etc.
