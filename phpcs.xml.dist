@@ -29,14 +29,6 @@
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 	</rule>
 
-	<!-- Verify that the text_domain is set to the desired text-domain.
-		 Multiple valid text domains can be provided as a comma-delimited list. -->
-	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="text_domain" type="array" value="best-reloaded" />
-		</properties>
-	</rule>
-
 	<!-- Allow for theme specific exceptions to the file name rules based
 		 on the theme hierarchy. -->
 	<rule ref="WordPress.Files.FileName">
