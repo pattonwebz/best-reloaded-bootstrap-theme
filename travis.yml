@@ -34,9 +34,9 @@ env:
     # only test against 3 latest versions. Multisite only on latest stable.
     # @link https://github.com/WordPress/WordPress
     - WP_VERSION=4.8 WP_MULTISITE=0
-    - WP_VERSION=4.8 WP_MULTISITE=1
-    - WP_VERSION=4.7 WP_MULTISITE=0
-    - WP_VERSION=4.6 WP_MULTISITE=0
+    #- WP_VERSION=4.8 WP_MULTISITE=1
+    #- WP_VERSION=4.7 WP_MULTISITE=0
+    #- WP_VERSION=4.6 WP_MULTISITE=0
 
 # Use this to prepare your build for testing.
 # e.g. copy database configurations, environment variables, etc.
