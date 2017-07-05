@@ -140,13 +140,13 @@ if ( ! function_exists( 'best_reloaded_theme_options' ) ) {
 	function best_reloaded_theme_options() {
 
 		// these are all hex values.
-		$text_color_featured    	= get_theme_mod( 'bestreloaded_text_color_featured_content' );
-		$link_color_main 			= get_theme_mod( 'bestreloaded_link_color_main' );
-		$link_color_hover_main 		= get_theme_mod( 'bestreloaded_link_hover_color_main' );
-		$link_color_footer 			= get_theme_mod( 'bestreloaded_link_color_footer' );
-		$link_color_hover_footer	= get_theme_mod( 'bestreloaded_link_hover_color_footer' );
-		$link_color_featured    	= get_theme_mod( 'bestreloaded_link_color_featured_content' );
-		$link_color_hover_featured 	= get_theme_mod( 'bestreloaded_link_hover_color_featured_content' ); ?>
+		$text_color_featured    	= get_theme_mod( 'text_color_featured_content' );
+		$link_color_main 			= get_theme_mod( 'link_color_main' );
+		$link_color_hover_main 		= get_theme_mod( 'link_hover_color_main' );
+		$link_color_footer 			= get_theme_mod( 'link_color_footer' );
+		$link_color_hover_footer	= get_theme_mod( 'link_hover_color_footer' );
+		$link_color_featured    	= get_theme_mod( 'link_color_featured_content' );
+		$link_color_hover_featured 	= get_theme_mod( 'link_hover_color_featured_content' ); ?>
 
 			<style type="text/css">
 

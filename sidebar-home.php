@@ -11,7 +11,7 @@
 
 ?>
 
-<?php if ( get_theme_mod( 'bestreloaded_display_homepage_widget_row' ) ) : ?>
+<?php if ( get_theme_mod( 'display_homepage_widget_row' ) ) : ?>
 
 	<div class="row widget-area">
 

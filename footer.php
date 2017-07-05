@@ -14,7 +14,7 @@
 
 	<footer id="site-footer" class="container" role="contentinfo">
 
-		<?php if ( get_theme_mod( 'bestreloaded_display_footer_top' ) ) : ?>
+		<?php if ( get_theme_mod( 'display_footer_top' ) ) : ?>
 
 		<div class="footer-top">
 			<div class="widget-area row">
@@ -46,12 +46,12 @@
 		</div><!-- end .footer-top -->
 
 		<?php endif; ?>
-		<?php if ( get_theme_mod( 'bestreloaded_display_footer_bottom' ) ) : ?>
+		<?php if ( get_theme_mod( 'display_footer_bottom' ) ) : ?>
 
 		<div class="footer-bottom">
 			<div class="row">
 				<div class="col-sm-5">
-					<p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'bestreloaded_footer_bottom_tagline',
+					<p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'footer_bottom_tagline',
 						// translators: 1 is current year, 2 is site name.
 						sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) )
 					) ); ?></p>
