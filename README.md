@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pattonwebz/best-reloaded-bootstrap-theme.svg?branch=master)](https://travis-ci.org/pattonwebz/best-reloaded-bootstrap-theme) [![Build Status](https://scrutinizer-ci.com/g/pattonwebz/best-reloaded-bootstrap-theme/badges/build.png?b=master)](https://scrutinizer-ci.com/g/pattonwebz/best-reloaded-bootstrap-theme/build-status/master)
+
 # Using The Best Reloaded Theme Package
 
 This theme uses NPM and Grunt to run various development and build tasks. To get started you will need to install the dependencies. You may already have grunt-cli installed globally.

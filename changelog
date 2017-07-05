@@ -1,6 +1,9 @@
 1.0.0 	- Fix bootstrap.min.js enqueue
 		- Fix image reference in styles for thumb
 		- Fix all main theme php files to fit WordPress PHPCS standards.
+		- Fix theme mods don't need prefixes - stored in prefixed array
+		- Enhancement - swap to using filters and actions to build featured bar
+		- Enhancement - Added travis.ci testing for php and a ruleset for phpcs
 
 0.14.0 = WordPress.org Debut
 
