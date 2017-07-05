@@ -18,7 +18,7 @@ require( trailingslashit( get_template_directory() ) . 'inc/register-sidebars.ph
 // Register Custom Navigation Walker.
 // This is a 3rd party class - only require if the class isn't added already.
 if ( ! class_exists( 'wp_bootstrap_navwalker', false ) ) {
-	require( trailingslashit( get_template_directory() ) . 'inc/wp_bootstrap_navwalker.php' );
+	require( trailingslashit( get_template_directory() ) . 'inc/class-wp-bootstrap-navwalker.php' );
 }
 // Adds customizer controls, settings and sanitization functions.
 require( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
