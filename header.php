@@ -82,9 +82,9 @@
 					</div>
 				<?php } ?>
 			</div><!-- end .col-md-8 -->
-			<?php if ( get_theme_mod( 'bestreloaded_display_header_banner_area' ) ) { ?>
+			<?php if ( get_theme_mod( 'display_header_banner_area' ) ) { ?>
 				<div class="col-sm-4 header-banner-area">
-					<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'bestreloaded_header_banner_area' ) ) ); ?>
+					<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'header_banner_area' ) ) ); ?>
 				</div>
 			<?php } ?>
 		</div><!-- end .row -->
