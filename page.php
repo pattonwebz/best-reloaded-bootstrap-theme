@@ -37,6 +37,10 @@
 
 				</div><!-- end #main_content -->
 				<hr class="hr-row-divider">
+
+					<?php comments_template(); ?>
+
+				<hr class="hr-row-divider">
 			</div><!-- end .col-md-8 -->
 
 			<?php get_sidebar( 'main' ); ?>
