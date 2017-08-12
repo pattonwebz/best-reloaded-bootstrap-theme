@@ -2,7 +2,7 @@ import Tooltip from './tooltip';
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-alpha.6): popover.js
+ * Bootstrap (v4.0.0-beta): popover.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -16,16 +16,18 @@ const Popover = ($ => {
    */
 
   const NAME = 'popover';
-  const VERSION = '4.0.0-alpha.6';
+  const VERSION = '4.0.0-beta';
   const DATA_KEY = 'bs.popover';
   const EVENT_KEY = `.${DATA_KEY}`;
   const JQUERY_NO_CONFLICT = $.fn[NAME];
+  const CLASS_PREFIX = 'bs-popover';
+  const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g');
 
   const Default = $.extend({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip">' + '<h3 class="popover-title"></h3>' + '<div class="popover-content"></div></div>'
+    template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   });
 
   const DefaultType = $.extend({}, Tooltip.DefaultType, {
@@ -38,8 +40,8 @@ const Popover = ($ => {
   };
 
   const Selector = {
-    TITLE: '.popover-title',
-    CONTENT: '.popover-content'
+    TITLE: '.popover-header',
+    CONTENT: '.popover-body'
   };
 
   const Event = {
@@ -53,15 +55,14 @@ const Popover = ($ => {
     FOCUSOUT: `focusout${EVENT_KEY}`,
     MOUSEENTER: `mouseenter${EVENT_KEY}`,
     MOUSELEAVE: `mouseleave${EVENT_KEY}`
-  };
 
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+    /**
+     * ------------------------------------------------------------------------
+     * Class Definition
+     * ------------------------------------------------------------------------
+     */
 
-  class Popover extends Tooltip {
+  };class Popover extends Tooltip {
 
     // getters
 
@@ -99,6 +100,10 @@ const Popover = ($ => {
       return this.getTitle() || this._getContent();
     }
 
+    addAttachmentClass(attachment) {
+      $(this.getTipElement()).addClass(`${CLASS_PREFIX}-${attachment}`);
+    }
+
     getTipElement() {
       return this.tip = this.tip || $(this.config.template)[0];
     }
@@ -111,14 +116,20 @@ const Popover = ($ => {
       this.setElementContent($tip.find(Selector.CONTENT), this._getContent());
 
       $tip.removeClass(`${ClassName.FADE} ${ClassName.SHOW}`);
-
-      this.cleanupTether();
     }
 
     // private
 
     _getContent() {
       return this.element.getAttribute('data-content') || (typeof this.config.content === 'function' ? this.config.content.call(this.element) : this.config.content);
+    }
+
+    _cleanTipClass() {
+      const $tip = $(this.getTipElement());
+      const tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
+      if (tabClass !== null && tabClass.length > 0) {
+        $tip.removeClass(tabClass.join(''));
+      }
     }
 
     // static
