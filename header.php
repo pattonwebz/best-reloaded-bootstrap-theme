@@ -20,15 +20,15 @@
 <body <?php body_class(); ?>>
 	<header>
 
-		<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
+		<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
 
 			<div class="container">
 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'best-reloaded' ); ?>">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'best-reloaded' ); ?>">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<div class="collapse navbar-collapse" id="headerNav">
 						<?php
 						wp_nav_menu( array(
 							'theme_location' 	=> 'best_reloaded_nav_topbar',
