@@ -115,9 +115,9 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 	function best_reloaded_load_scripts() {
 		if ( ! is_admin() ) {
 			// register bootstrap scripts.
-			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'tether' ), '4.0.0-alpha.6', true );
+			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'popper' ), '4.0.0-beta', true );
 			// register tether - needed by bootstrap affix.
-			wp_register_script( 'tether', get_template_directory_uri() . '/assets/js/tether.min.js', array( 'jquery' ), '1.4.0', true );
+			wp_register_script( 'popper', get_template_directory_uri() . '/assets/js/popper.min.js', array( 'jquery' ), '1.11.1', true );
 
 			// enqueue the main theme scripts file - which will in turn enqueue
 			// bootstrap, tether and jQuery due to dependancy chaining.
