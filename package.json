@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "GPLv2+",
+  "author": "William Patton",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pattonwebz/best-reloaded-bootstrap-theme.git"
+  },
+  "license": "GPL-3.0",
   "devDependencies": {
     "autoprefixer": "*",
     "babel": "^6.5.2",
