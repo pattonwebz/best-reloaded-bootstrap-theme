@@ -42,7 +42,12 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 		 */
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat( "\t", $depth );
-			$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\" >\n";
+			// find all links with an id in the output.
+			preg_match_all( '/(<a.*?id=\"|\')(.*?)\"|\'.*?>/im', $output, $matches );
+			if ( end( $matches[2] ) ) {
+				$labledby = 'aria-labelledby="' . end( $matches[2] ) . '"';
+			}
+			$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\" " . $labledby . ">\n";
 		}
 
 		/**
@@ -120,6 +125,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$atts['aria-haspopup']	= 'true';
 				$atts['aria-expanded']	= 'false';
 				$atts['class']			= 'dropdown-toggle nav-link';
+				$atts['id']				= 'menu-item-dropdown-' . $item->ID;
 			} else {
 				$atts['href'] 	= ! empty( $item->url ) ? $item->url : '';
 				$atts['class']	= 'nav-link';
