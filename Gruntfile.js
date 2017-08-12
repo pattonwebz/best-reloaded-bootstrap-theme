@@ -123,7 +123,8 @@ module.exports = function(grunt) {
 					'assets/js/scrollspy.js' : 'assets/src/js/bootstrap/scrollspy.js',
 					'assets/js/tab.js'       : 'assets/src/js/bootstrap/tab.js',
 					'assets/js/tooltip.js'   : 'assets/src/js/bootstrap/tooltip.js',
-					'assets/js/popover.js'   : 'assets/src/js/bootstrap/popover.js'
+					'assets/js/popover.js'   : 'assets/src/js/bootstrap/popover.js',
+					'assets/js/popper.js'    : 'assets/src/js/popper.js'
 				}
 			},
 			dist: {
@@ -142,7 +143,8 @@ module.exports = function(grunt) {
 					]
 		        },
 		        files: {
-		          	'<%= concat.bootstrap.dest %>' : '<%= concat.bootstrap.dest %>'
+		          	'<%= concat.bootstrap.dest %>' : '<%= concat.bootstrap.dest %>',
+					'assets/js/popper.js'         : 'assets/js/popper.js'
 		        }
 		    }
 
@@ -176,11 +178,11 @@ module.exports = function(grunt) {
 
 		// configure an uglify task
 		uglify: {
-			// this is the "dev" config - used with "grunt watch" command
 			dev: {
 				files: [
 					{ src: 'assets/js/bootstrap.js', dest: 'assets/js/bootstrap.min.js' }, // All the Bootstrap JS
-					{ src: 'assets/js/scripts.js', dest: 'assets/js/scripts.min.js'}
+					{ src: 'assets/js/popper.js', dest: 'assets/js/popper.min.js' }, // Popper.
+					{ src: 'assets/js/scripts.js', dest: 'assets/js/popper.min.js' }
 				]
 			},
 			theme: {
@@ -198,6 +200,7 @@ module.exports = function(grunt) {
 			    files: [
 			    	{expand: true, cwd: 'node_modules/bootstrap/scss/', src: ['**'], dest: 'assets/src/scss/bootstrap/'},
 					{expand: true, cwd: 'node_modules/bootstrap/js/src/', src: ['**'], dest: 'assets/src/js/bootstrap/', filter: 'isFile'},
+					{src: ['node_modules/popper.js/dist/popper.js'], dest: 'assets/src/js/popper.js'},
 					{src: ['assets/src/js/scripts.js'], dest: 'assets/js/scripts.js', filter: 'isFile'},
 			    ],
 			},
@@ -232,7 +235,7 @@ module.exports = function(grunt) {
 					// only combined scripts, no individuals
 					{
 						expand: true,
-						src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js', 'assets/js/tether.js', 'assets/js/tether.min.js'],
+						src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js', 'assets/js/popper.js', 'assets/js/popper.min.js'],
 						dest: 'dist/best-reloaded/'
 					},
 					// copy img directory
