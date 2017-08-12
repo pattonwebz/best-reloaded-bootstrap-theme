@@ -32,7 +32,7 @@
 						<?php
 						wp_nav_menu( array(
 							'theme_location' 	=> 'best_reloaded_nav_topbar',
-							'depth'      		=> 0,
+							'depth'      		=> 2,
 							'container'  		=> false,
 							'menu_class' 		=> 'navbar-nav mr-auto',
 							'fallback_cb' 		=> 'best_reloaded_topbar_nav_fallback',
