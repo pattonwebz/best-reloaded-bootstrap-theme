@@ -104,7 +104,7 @@
 					'<input id="url" name="url" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author_url'] ) .
 					'" size="30" /></div>',
 			),
-			'class_submit'			=> 'submit btn btn-lg btn-warning',
+			'class_submit'			=> 'submit btn btn-lg btn-theme',
 		));
 	?>
 	</div>

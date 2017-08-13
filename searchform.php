@@ -12,5 +12,5 @@
 <form role="search" method="get" class="form-inline my2 my-lg-0" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="visually-hidden sr-only" for="s"><?php esc_html_e( 'Search:', 'best-reloaded' ); ?></label>
 	<input type="text" class="form-control mr-sm-2" placeholder="<?php esc_attr_e( 'type and hit "enter" to search', 'best-reloaded' ); ?>" name="s" id="s" />
-	<button type="submit" class="btn btn-outline-success my-2 my-sm-0" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'best-reloaded' ); ?>" /><?php esc_html_e( 'Search', 'best-reloaded' ); ?></button>
+	<button type="submit" class="btn btn-outline-theme my-2 my-sm-0" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'best-reloaded' ); ?>" /><?php esc_html_e( 'Search', 'best-reloaded' ); ?></button>
 </form>
