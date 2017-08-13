@@ -12,6 +12,9 @@ License: GNU General Public License (3.0)
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
+// import the bootstrap functions file.
+@import "bootstrap/functions";
+// variables and mixins files include the bootstrap versions of those files as well.
 @import "variables";
 @import "mixins";
 @import "scaffold";
@@ -24,6 +27,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 @import "comments";
 @import "slider";
 @import "featured-bar";
+@import "buttons";
 @import "social-block";
 @import "single";
 @import "effects";

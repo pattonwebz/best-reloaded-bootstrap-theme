@@ -467,6 +467,53 @@ header .navbar .container {
   margin-bottom: 0;
 }
 
+.btn-theme {
+  color: #fff;
+  background-color: #e5450f;
+  border-color: #f26535;
+}
+.btn-theme:hover {
+  color: #fff;
+  background-color: #c13a0c;
+  border-color: #e5450f;
+}
+.btn-theme:focus, .btn-theme.focus {
+  box-shadow: 0 0 0 3px rgba(242, 101, 53, 0.5);
+}
+.btn-theme.disabled, .btn-theme:disabled {
+  background-color: #e5450f;
+  border-color: #f26535;
+}
+.btn-theme:active, .btn-theme.active, .show > .btn-theme.dropdown-toggle {
+  background-color: #c13a0c;
+  background-image: none;
+  border-color: #e5450f;
+}
+
+.btn-outline-theme {
+  color: #f58a65;
+  background-color: transparent;
+  background-image: none;
+  border-color: #f58a65;
+}
+.btn-outline-theme:hover {
+  color: #fff;
+  background-color: #f58a65;
+  border-color: #f58a65;
+}
+.btn-outline-theme:focus, .btn-outline-theme.focus {
+  box-shadow: 0 0 0 3px rgba(245, 138, 101, 0.5);
+}
+.btn-outline-theme.disabled, .btn-outline-theme:disabled {
+  color: #f58a65;
+  background-color: transparent;
+}
+.btn-outline-theme:active, .btn-outline-theme.active, .show > .btn-outline-theme.dropdown-toggle {
+  color: #fff;
+  background-color: #f58a65;
+  border-color: #f58a65;
+}
+
 /* ------------------------------------- *
  * Social sharing block                  *
  * ------------------------------------- */

@@ -1,0 +1,7 @@
+.btn-theme{
+	@include button-variant( $primaryColorDark, $primaryColor );
+}
+
+.btn-outline-theme{
+	@include button-outline-variant( $primaryColorLight );
+}

@@ -6,3 +6,6 @@ $primaryColorDark: darken($primaryColor, 10%);
 $primaryColorLight: lighten($primaryColor, 10%);
 $secondaries-vlightGrey:#ddd;
 $secondaries-darkGrey:#2f2f2f;
+
+// Duped from bootstrap scss files
+@import "bootstrap/variables";
