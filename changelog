@@ -1,3 +1,9 @@
+1.1.0	- Swap to Bootstrap@4.0.0-beta.
+	- Swap out Tether for Popper as new dependency.
+	- Accesibility tweak for navwalker.
+	- New `.btn-theme` and `.btn-outline-theme`.
+	- Fix missing comments ability for pages.
+
 1.0.1	- Fix topbar nav to depth arg of 2 instead of 0 to fix dropdowns.
 		- Remove right alignment on topbar toggler button.
 
