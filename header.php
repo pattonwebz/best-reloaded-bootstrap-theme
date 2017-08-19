@@ -21,27 +21,35 @@
 	<header>
 
 		<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
-
 			<div class="container">
 
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'best-reloaded' ); ?>">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+				<?php
+				if ( get_theme_mod( 'display_navbar_brand', false ) ) {
+					// navbar is toggled on, get the branding.
+					best_reloaded_do_navbar_brand();
+				}
+				?>
 
-					<div class="collapse navbar-collapse" id="headerNav">
-						<?php
-						wp_nav_menu( array(
-							'theme_location' 	=> 'best_reloaded_nav_topbar',
-							'depth'      		=> 2,
-							'container'  		=> false,
-							'menu_class' 		=> 'navbar-nav mr-auto',
-							'fallback_cb' 		=> 'best_reloaded_topbar_nav_fallback',
-							'walker'            => new wp_bootstrap_navwalker(),
-						) );
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'best-reloaded' ); ?>">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
+				<div class="collapse navbar-collapse" id="headerNav">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' 	=> 'best_reloaded_nav_topbar',
+						'depth'      		=> 2,
+						'container'  		=> false,
+						'menu_class' 		=> 'navbar-nav mr-auto',
+						'fallback_cb' 		=> 'best_reloaded_topbar_nav_fallback',
+						'walker'            => new wp_bootstrap_navwalker(),
+					) );
+					// if the navbar search is on then output searchform.
+					if ( get_theme_mod( 'display_navbar_search' ) ) {
 						get_search_form();
-						?>
-					</div>
+					}
+					?>
+				</div>
 
 			</div>
 		</nav>
@@ -82,7 +90,7 @@
 					</div>
 				<?php } ?>
 			</div><!-- end .col-md-8 -->
-			<?php if ( get_theme_mod( 'display_header_banner_area' ) ) { ?>
+			<?php if ( get_theme_mod( 'display_header_banner_area', true ) ) { ?>
 				<div class="col-sm-4 header-banner-area">
 					<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'header_banner_area' ) ) ); ?>
 				</div>
