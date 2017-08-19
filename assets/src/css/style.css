@@ -274,6 +274,12 @@ header .navbar .container {
   padding-top: 40px;
 }
 
+img#brand-img {
+  width: 30px;
+  height: 30px;
+  max-width: inherit;
+}
+
 #site-footer {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   border-top: 3px solid #f26535;
