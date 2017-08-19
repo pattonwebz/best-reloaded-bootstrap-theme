@@ -1,8 +1,11 @@
+1.2.0	- Add options for outputting image and site-title as .navbar-brand.
+		- Add ability to toggle navbar search form on and off.
+
 1.1.0	- Swap to Bootstrap@4.0.0-beta.
-	- Swap out Tether for Popper as new dependency.
-	- Accesibility tweak for navwalker.
-	- New `.btn-theme` and `.btn-outline-theme`.
-	- Fix missing comments ability for pages.
+		- Swap out Tether for Popper as new dependency.
+		- Accesibility tweak for navwalker.
+		- New `.btn-theme` and `.btn-outline-theme`.
+		- Fix missing comments ability for pages.
 
 1.0.1	- Fix topbar nav to depth arg of 2 instead of 0 to fix dropdowns.
 		- Remove right alignment on topbar toggler button.
@@ -24,7 +27,7 @@
 		- Rework enqueue scripts/styles
 		- Remove some unneeded escapes
 		- Some pagination changes and styles
-		- Remove an unneccesary filters from sanitization functions
+		- Remove an unnecessary filters from sanitization functions
 
 0.12.0	- Translation fixes
 		- Prefix all functions
