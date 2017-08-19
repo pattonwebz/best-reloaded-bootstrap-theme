@@ -22,6 +22,10 @@ function best_reloaded_customizer( $wp_customize ) {
 		'title' => __( 'Header', 'best-reloaded' ),
 		'priority' => 100,
 	) );
+	$wp_customize->add_section( 'best_reloaded_navbar', array(
+		'title' => __( 'Header Navbar', 'best-reloaded' ),
+		'priority' => 100,
+	) );
 	$wp_customize->add_section( 'best_reloaded_footer', array(
 		'title' => __( 'Footer', 'best-reloaded' ),
 		'priority' => 100,
@@ -63,6 +67,63 @@ function best_reloaded_customizer( $wp_customize ) {
 		'section' => 'header',
 		'settings' => 'header_banner_area',
 		'type' => 'textarea',
+	) );
+
+	$wp_customize->add_setting( 'display_navbar_search', array(
+		'default' => 1,
+		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'display_navbar_search', array(
+		'label' => __( 'Toggle on/off the navbar search form. Checked = on', 'best-reloaded' ),
+		'section' => 'best_reloaded_navbar',
+		'settings' => 'display_navbar_search',
+		'type' => 'checkbox',
+	) );
+	$wp_customize->add_setting( 'display_navbar_brand', array(
+		'default' => 0,
+		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'display_navbar_brand', array(
+		'label' => __( 'Enable the navbar branding options which can be a small image and the site-title.', 'best-reloaded' ),
+		'section' => 'best_reloaded_navbar',
+		'settings' => 'display_navbar_brand',
+		'type' => 'checkbox',
+	) );
+	$wp_customize->add_setting( 'brand_image', array(
+		'default' => '',
+		'sanitize_callback' => 'best_reloaded_sanitize_image',
+	) );
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'brand_image',
+			array(
+				'label'      => __( 'Add a brand image to the navbar.', 'best-reloaded' ),
+				'section'    => 'best_reloaded_navbar',
+				'settings'   => 'brand_image',
+				'description' => __( 'Choose an image to use for brand image in navbar. It should be 30px X 30px. Leave empty for no image.', 'best-reloaded' ),
+			)
+		)
+	);
+	$wp_customize->add_setting( 'display_brand_text', array(
+		'default' => 0,
+		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'display_brand_text', array(
+		'label' => __( 'Select the checkbox to display the site title in the navbar as brand text.', 'best-reloaded' ),
+		'section' => 'best_reloaded_navbar',
+		'settings' => 'display_brand_text',
+		'type' => 'checkbox',
+	) );
+	$wp_customize->add_setting( 'allow_long_brand', array(
+		'default' => 0,
+		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'allow_long_brand', array(
+		'label' => __( 'Very long titles break the default navbar layout, if you want to allow very long titles here then check this box. NOTE: You can also turn off the search form for more space.', 'best-reloaded' ),
+		'section' => 'best_reloaded_navbar',
+		'settings' => 'allow_long_brand',
+		'type' => 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'display_intro_text', array(
@@ -172,14 +233,39 @@ function best_reloaded_sanitize_textarea( $input ) {
 /**
  * Sanitization for checkbox input
  *
- * @param string $input	(1 or empty) to depeict a checkbox state.
- * @return string/booleen $output	'1' or false.
+ * @param booleen $input	we either have a value or it's empty to depeict
+ *                       	a checkbox state.
+ * @return booleen $output
  */
 function best_reloaded_sanitize_checkbox( $input ) {
 	if ( $input ) {
-		$output = '1';
+		$output = true;
 	} else {
 		$output = false;
 	}
 	return $output;
+}
+
+/**
+ * Santization for image uploads.
+ *
+ * @param  string $input	This should be a direct url to an image file..
+ * @return string          	Return an excaped url to a file.
+ */
+function best_reloaded_sanitize_image( $input ) {
+
+	// allowed file types.
+	$mimes = array(
+		'jpg|jpeg|jpe' => 'image/jpeg',
+		'gif'          => 'image/gif',
+		'png'          => 'image/png',
+	);
+
+	// check file type from file name.
+	$file_ext = wp_check_filetype( $input, $mimes );
+	// if filetype matches the allowed types set above then cast to output,
+	// otherwise pass empty string.
+	$output = ( $file_ext['ext'] ? $input : '' );
+	// if file has a valid mime type return it as valud url.
+	return esc_url_raw( $output );
 }
