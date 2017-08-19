@@ -108,3 +108,31 @@ function best_reloaded_jptweak_remove_share() {
 	remove_filter( 'the_content', array( 'Jetpack_Likes', 'post_likes' ), 30, 1 );
 }
 add_action( 'loop_end', 'best_reloaded_jptweak_remove_share' );
+
+/**
+ * Echos the markup output by navbar branding function.
+ *
+ * @since v1.2.0
+ *
+ * @return void
+ */
+function best_reloaded_output_navbar_brand() {
+	// try get the branding markup.
+	$output = best_reloaded_bootstrap_navbar_branding();
+	// if we have output to use then echo it.
+	if ( $output ) {
+		$allowed_brand_tags = array(
+			'span' => array(
+				'class' => array(),
+			),
+			'img' => array(
+				'id'	=> array(),
+				'class'	=> array(),
+				'src' => array(),
+				'alt' => array(),
+			),
+		);
+		echo wp_kses( apply_filters( 'best_reloaded_filter_navbar_brand', best_reloaded_navbar_branding() ), $allowed_brand_tags );
+	}
+}
+add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand' );

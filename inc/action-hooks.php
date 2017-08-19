@@ -19,3 +19,15 @@ function best_reloaded_do_featurebar() {
 	 */
 	do_action( 'best_reloaded_do_featurebar' );
 }
+
+/**
+ * Fires the navbar-brand action hook.
+ *
+ * @since 1.2.0
+ */
+function best_reloaded_do_navbar_brand() {
+	/**
+	 * Used to output whatever featured content is desired in the opening bar.
+	 */
+	do_action( 'best_reloaded_do_navbar_brand' );
+}

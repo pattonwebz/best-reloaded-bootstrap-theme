@@ -22,6 +22,8 @@ if ( ! class_exists( 'wp_bootstrap_navwalker', false ) ) {
 }
 // Adds customizer controls, settings and sanitization functions.
 require( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
+// Custom functions.
+require trailingslashit( get_template_directory() ) . 'inc/custom-functions.php';
 // Contains the action hooks and filters for the theme.
 require( trailingslashit( get_template_directory() ) . 'inc/action-hooks.php' );
 // Hooks theme features to actions.
