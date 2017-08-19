@@ -132,7 +132,7 @@ function best_reloaded_output_navbar_brand() {
 				'alt' => array(),
 			),
 		);
-		echo wp_kses( apply_filters( 'best_reloaded_filter_navbar_brand', best_reloaded_navbar_branding() ), $allowed_brand_tags );
+		echo wp_kses( apply_filters( 'best_reloaded_filter_navbar_brand', $output ), $allowed_brand_tags );
 	}
 }
 add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand' );
