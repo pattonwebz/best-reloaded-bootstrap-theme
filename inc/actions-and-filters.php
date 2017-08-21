@@ -137,10 +137,16 @@ function best_reloaded_output_navbar_brand() {
 }
 add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand' );
 
+/**
+ * Returns or echos some entry meta based on conditionals.
+ * NOTE: Will fail silently.
+ *
+ * @param  boolean $echo flag to indicate echo or return.
+ *
+ * @return string/void	 Can return either a string or nothing if echoing.
+ */
 function best_reloaded_output_post_meta( $echo = true ) {
 	// single posts/CPTS but not pages.
-	error_log( is_single(), 0 );
-	error_log( is_singular( 'page' ), 0 );
 	if ( is_single() && ! is_singular( 'page' ) ) {
 		ob_start(); ?>
 		<div class="meta">
@@ -159,10 +165,8 @@ function best_reloaded_output_post_meta( $echo = true ) {
 	$output = ob_get_clean();
 	}
 	if ( $echo ) {
-		error_log( 'echo', 0 );
 		echo wp_kses_post( $output );
 	} else {
-		error_log( 'return', 0 );
 		return $output;
 	}
 }

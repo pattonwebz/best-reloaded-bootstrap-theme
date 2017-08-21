@@ -36,6 +36,8 @@ function best_reloaded_do_navbar_brand() {
  * Fires after outputting the_title() on various pages.
  *
  * @since 1.2.2
+ *
+ * @param  boolean $echo flag for echo or return.
  */
 function best_reloaded_do_after_the_title( $echo = true ) {
 	/**
