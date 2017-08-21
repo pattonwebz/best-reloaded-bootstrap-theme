@@ -142,12 +142,22 @@ add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand'
  * NOTE: Will fail silently.
  *
  * @param  boolean $echo flag to indicate echo or return.
+ * @param  string  $type string indicating type of meta we want, can be FALSE.
  *
  * @return string/void	 Can return either a string or nothing if echoing.
  */
-function best_reloaded_output_post_meta( $echo = true ) {
-	// single posts/CPTS but not pages.
-	if ( is_single() && ! is_singular( 'page' ) ) {
+function best_reloaded_output_post_meta( $echo = true, $type = false ) {
+	// if no specific type was requested, figure it out.
+	if ( is_home() ) {
+		$type = 'home';
+	} elseif ( is_front_page() ) {
+		$type = 'front-page';
+	} elseif ( is_single() && ! is_singular( 'page' ) ) {
+		$type = 'single';
+	}
+	$output = '';
+	// if $type is single OR no type is passed and it is single but not a page...
+	if ( 'single' === $type ) {
 		ob_start(); ?>
 		<div class="meta">
 			<span class="entry-meta text-muted">
@@ -161,13 +171,40 @@ function best_reloaded_output_post_meta( $echo = true ) {
 				the_category( ' and ' ); ?>.
 			</span>
 		</div>
-	<?php
-	$output = ob_get_clean();
-	}
-	if ( $echo ) {
-		echo wp_kses_post( $output );
+		<?php
+		$output = ob_get_clean();
+	} elseif ( 'front-page' === $type ) {
+		ob_start(); ?>
+		<footer class="meta">
+			<span class="entry-meta">
+				<?php the_time( get_option( 'date_format' ) ); ?> &#8226;
+				<a href="<?php comments_link(); ?>" title="<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>">
+					<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>
+				</a>
+			</span>
+		</footer>
+		<?php
+		$output = ob_get_clean();
 	} else {
-		return $output;
+		ob_start(); ?>
+		<footer class="meta">
+			<span class="entry-meta">
+				<?php esc_html_e( 'Written by', 'best-reloaded' ); ?> <?php the_author_link(); ?>
+				<?php esc_html_e( 'on', 'best-reloaded' ); ?> <?php the_time( get_option( 'date_format' ) ); ?>
+				<?php esc_html_e( 'in', 'best-reloaded' ); ?> <?php the_category( ' and ' ); ?>
+				<?php esc_html_e( 'with', 'best-reloaded' ); ?> <a href="<?php comments_link(); ?>" title="<?php comments_number( 'no comments', 'one comment', '% comments' ); ?>"><?php comments_number( 'no comments', 'one Comment', '% comments' ); ?></a>
+			</span>
+		</footer>
+		<?php
+		$output = ob_get_clean();
+	} // End if().
+
+	// either return or echo the output.
+	if ( $echo ) {
+		echo wp_kses_post( apply_filters( 'best_reloaded_post_meta_output', $output ) );
+	} else {
+		return apply_filters( 'best_reloaded_post_meta_output', $output );
 	}
 }
-add_action( 'best_reloaded_do_after_the_title', 'best_reloaded_output_post_meta', 10, 1 );
+
+add_action( 'best_reloaded_do_post_meta', 'best_reloaded_output_post_meta', 10, 2 );

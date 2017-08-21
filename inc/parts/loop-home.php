@@ -40,9 +40,7 @@
 				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 			</header>
 			<?php the_excerpt(); ?>
-			<footer>
-				<span class="meta"><?php the_time( get_option( 'date_format' ) ); ?> &#8226; <a href="<?php comments_link(); ?>" title="<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>"><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></a></span>
-			</footer>
+			<?php best_reloaded_do_post_meta(); ?>
 		</article>
 		<hr class="hr-row-divider">
 	</div><!-- end col-sm-3 -->

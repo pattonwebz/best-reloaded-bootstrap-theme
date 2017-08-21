@@ -38,10 +38,11 @@ function best_reloaded_do_navbar_brand() {
  * @since 1.2.2
  *
  * @param  boolean $echo flag for echo or return.
+ * @param  boolean $type a type setting for the meta we want. Can be blank.
  */
-function best_reloaded_do_after_the_title( $echo = true ) {
+function best_reloaded_do_post_meta( $echo = true, $type = false ) {
 	/**
 	 * Used to output whatever after post meta items you want
 	 */
-	do_action( 'best_reloaded_do_after_the_title', $echo );
+	do_action( 'best_reloaded_do_post_meta', $echo, $type );
 }

@@ -21,10 +21,10 @@
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<h2 class="page-title"><?php the_title(); ?></h2>
-						<?php best_reloaded_do_after_the_title(); ?>
+						<?php best_reloaded_do_post_meta(); ?>
 						<ul class="prev-next-single pager clearfix">
 							<li class="previous"><?php previous_post_link( '%link', '&larr; ' . esc_html__( 'Previous Post', 'best-reloaded' ) ); ?></li>
-							<li class="next"><?php next_post_link( '%link', esc_html__( 'Next Post', 'best-reloaded' ) . '&rarr;' ); ?></li>
+							<li class="next"><?php next_post_link( '%link', esc_html__( 'Next Post', 'best-reloaded' ) . ' &rarr;' ); ?></li>
 						</ul>
 
 						<div id="social">
