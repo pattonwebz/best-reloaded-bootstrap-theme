@@ -13,7 +13,7 @@
 <?php get_header(); ?>
 		<?php // This is the hook used to add featurebar content.
 		best_reloaded_do_featurebar(); ?>
-		
+
 		<div class="row">
 			<div class="col-md-8">
 				<div id="main_content" role="main">
@@ -21,16 +21,7 @@
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<h2 class="page-title"><?php the_title(); ?></h2>
-						<span class="meta text-muted">
-							<span class="glyphicon glyphicon-pencil"></span>
-							<?php
-							esc_html_e( ' Written by ', 'best-reloaded' );
-							the_author_link();
-							esc_html_e( ' on ', 'best-reloaded' );
-							the_time( get_option( 'date_format' ) );
-							esc_html_e( ' and posted in ', 'best-reloaded' );
-							the_category( ' and ' ); ?>.
-						</span>
+						<?php best_reloaded_do_after_the_title(); ?>
 						<ul class="prev-next-single pager clearfix">
 							<li class="previous"><?php previous_post_link( '%link', '&larr; ' . esc_html__( 'Previous Post', 'best-reloaded' ) ); ?></li>
 							<li class="next"><?php next_post_link( '%link', esc_html__( 'Next Post', 'best-reloaded' ) . '&rarr;' ); ?></li>
