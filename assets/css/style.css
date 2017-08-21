@@ -194,6 +194,10 @@ h6, .h6 {
   }
 }
 
+.entry-title {
+  margin-top: 1rem;
+}
+
 .featured-bar-post p, .featured-bar-post .hero-p {
   font-size: 18px;
   line-height: 28px;
@@ -378,8 +382,8 @@ img#brand-img {
 }
 
 #comments .commentlist, #comments .form-group {
-  margin-left: 0;
-  padding-left: 0;
+  margin: 1rem 0;
+  padding: 0;
 }
 #comments li.comment, #comments li.pingpack {
   list-style: none;
@@ -579,6 +583,7 @@ img#brand-img {
 .wp-block-cover-image.alignfull,
 .wp-block-cover-image.alignwide {
   margin-left: -60px;
+  width: auto;
 }
 
 .pager {
