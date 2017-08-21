@@ -20,10 +20,3 @@
 	</div><!-- end .row -->
 
 <?php endif; ?>
-
-<div class="row blog-three-up">
-	<div class="col-sm-3 widget-area">
-
-		<?php dynamic_sidebar( 'sidebar-4' ); ?>
-
-	</div><!-- end .col-sm-3 -->
