@@ -39,8 +39,9 @@ h6, .h6 {
 }
 .meta{
     .entry-meta{
-        color:#666;
-        font-style:italic;
+		@include font-family_2();
+        font-style: italic;
+		font-size: .9rem;
     }
 }
 .page-title{

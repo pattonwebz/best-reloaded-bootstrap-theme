@@ -1,8 +1,13 @@
 // Scaffolding
 // --------------------------------------------------
-body{
+body {
     padding-top: 60px; /* accounts for the floating top navbar */
 	background: #f5f5f5;
+}
+@media( min-width: 768px ) {
+	body {
+		padding-top: 90px;
+	}
 }
 
 /* responsive images */

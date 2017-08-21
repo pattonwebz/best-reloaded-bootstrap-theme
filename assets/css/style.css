@@ -17,6 +17,11 @@ body {
   background: #f5f5f5;
 }
 
+@media (min-width: 768px) {
+  body {
+    padding-top: 90px;
+  }
+}
 /* responsive images */
 img,
 .size-auto,
@@ -201,8 +206,10 @@ h6, .h6 {
 }
 
 .meta .entry-meta {
-  color: #666;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
+  font-style: italic;
+  font-size: .9rem;
 }
 
 .page-title {
@@ -530,6 +537,29 @@ img#brand-img {
   background-color: #f58a65;
   border-color: #f58a65;
 }
+.bg-dark .btn-outline-theme {
+  color: #fff;
+  background-color: #e5450f;
+  border-color: #f26535;
+}
+.bg-dark .btn-outline-theme:hover {
+  color: #fff;
+  background-color: #c13a0c;
+  border-color: #e5450f;
+}
+.bg-dark .btn-outline-theme:focus, .bg-dark .btn-outline-theme.focus {
+  -webkit-box-shadow: 0 0 0 3px rgba(242, 101, 53, 0.5);
+          box-shadow: 0 0 0 3px rgba(242, 101, 53, 0.5);
+}
+.bg-dark .btn-outline-theme.disabled, .bg-dark .btn-outline-theme:disabled {
+  background-color: #e5450f;
+  border-color: #f26535;
+}
+.bg-dark .btn-outline-theme:active, .bg-dark .btn-outline-theme.active, .show > .bg-dark .btn-outline-theme.dropdown-toggle {
+  background-color: #c13a0c;
+  background-image: none;
+  border-color: #e5450f;
+}
 
 /* ------------------------------------- *
  * Social sharing block                  *
@@ -540,6 +570,15 @@ img#brand-img {
 }
 #social-block.affix {
   top: 50px;
+}
+
+/* --------------------------------------- *
+* Gutenberg Blocks Styles                  *
+* ---------------------------------------- */
+.wp-block-cover-text.alignfull, .wp-block-cover-text.alignwide,
+.wp-block-cover-image.alignfull,
+.wp-block-cover-image.alignwide {
+  margin-left: -60px;
 }
 
 .pager {
