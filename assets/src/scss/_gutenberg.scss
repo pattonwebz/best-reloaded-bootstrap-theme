@@ -1,0 +1,12 @@
+/* --------------------------------------- *
+* Gutenberg Blocks Styles                  *
+* ---------------------------------------- */
+
+.wp-block-cover-text,
+.wp-block-cover-image {
+	&.alignfull,
+	&.alignwide {
+		margin-left: -60px;
+		width: auto;
+	}
+}
