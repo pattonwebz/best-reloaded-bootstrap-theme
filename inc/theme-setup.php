@@ -83,6 +83,16 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 		);
 		add_theme_support( 'custom-background', $custom_bg_args );
 
+		add_theme_support( 'gutenberg', array(
+			'wide-images' => true,
+			'colors' => array(
+				'#e5450f',
+				'#f26535',
+				'#f58a65',
+				'#2f2f2f',
+			),
+		) );
+
 	}
 }// End if().
 
