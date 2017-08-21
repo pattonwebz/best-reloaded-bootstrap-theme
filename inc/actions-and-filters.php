@@ -136,3 +136,34 @@ function best_reloaded_output_navbar_brand() {
 	}
 }
 add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand' );
+
+function best_reloaded_output_post_meta( $echo = true ) {
+	// single posts/CPTS but not pages.
+	error_log( is_single(), 0 );
+	error_log( is_singular( 'page' ), 0 );
+	if ( is_single() && ! is_singular( 'page' ) ) {
+		ob_start(); ?>
+		<div class="meta">
+			<span class="entry-meta text-muted">
+				<i class="fa fa-pencil"></i>
+				<?php
+				esc_html_e( ' Written by ', 'best-reloaded' );
+				the_author_link();
+				esc_html_e( ' on ', 'best-reloaded' );
+				the_time( get_option( 'date_format' ) );
+				esc_html_e( ' and posted in ', 'best-reloaded' );
+				the_category( ' and ' ); ?>.
+			</span>
+		</div>
+	<?php
+	$output = ob_get_clean();
+	}
+	if ( $echo ) {
+		error_log( 'echo', 0 );
+		echo wp_kses_post( $output );
+	} else {
+		error_log( 'return', 0 );
+		return $output;
+	}
+}
+add_action( 'best_reloaded_do_after_the_title', 'best_reloaded_output_post_meta', 10, 1 );
