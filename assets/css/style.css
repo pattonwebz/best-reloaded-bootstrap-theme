@@ -393,40 +393,34 @@ img#brand-img {
 }
 #comments .pingback, #comments article.comment {
   position: relative;
-  padding: 20px;
-  margin: 15px 0;
+  padding: 1.25rem;
+  margin: 1rem 0;
   background-color: #fcfcfc;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 0 20px #f2f2f2;
-  box-shadow: inset 0 0 20px #f2f2f2;
-  line-height: 1.7;
-  font-size: 15px;
+          box-shadow: inset 0 0 20px #f2f2f2;
+  line-height: 1.7rem;
+  font-size: .9rem;
 }
 #comments article .comment-meta {
   position: relative;
 }
 #comments article .comment-meta .avatar {
   float: left;
-  padding: 3px;
-  margin-right: 14px;
-  margin-bottom: 8px;
+  padding: .2rem;
+  margin-right: .9rem;
+  margin-bottom: .5rem;
   background: #fff;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   -webkit-box-shadow: 0 2px 4px #e9e9e9;
-  box-shadow: 0 2px 4px #e9e9e9;
+          box-shadow: 0 2px 4px #e9e9e9;
 }
 #comments article .comment-meta .fn {
   float: left;
-  position: relative;
-  top: 5px;
-  font-size: 22px;
+  font-size: 1.4rem;
   line-height: 1.1;
-}
-#comments article .comment-reply-link span {
-  position: relative;
-  top: 1px;
 }
 #comments article .comment-content {
   clear: both;
@@ -434,10 +428,10 @@ img#brand-img {
   top: 1%;
 }
 #comments article .comment-content p {
-  font-size: 15px;
+  font-size: .9rem;
 }
 #comments article .edit-reply {
-  margin-top: 5px;
+  margin-top: .45rem;
 }
 
 /* --------------------------------------- *
@@ -464,6 +458,16 @@ img#brand-img {
 .carousel .carousel-inner .carousel-item img {
   width: 100%;
   height: auto;
+}
+.carousel .carousel-control-prev,
+.carousel .carousel-control-next {
+  width: 5rem;
+  height: 5rem;
+  background: #e5450f;
+}
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+  margin-left: 0.4rem;
 }
 
 /* --------------------------------------- *

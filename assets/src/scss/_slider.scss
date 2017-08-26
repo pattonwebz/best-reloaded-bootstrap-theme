@@ -24,4 +24,15 @@
 			}
         }
     }
+	.carousel-control-prev,
+	.carousel-control-next {
+		width: 5rem;
+		height: 5rem;
+		background: #e5450f;
+	}
+
+	.carousel-control-prev-icon,
+	.carousel-control-next-icon {
+		margin-left: 0.4rem;
+	}
 }
