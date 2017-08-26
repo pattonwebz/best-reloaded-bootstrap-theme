@@ -17,6 +17,9 @@ $args = array(
 	'posts_per_page' => get_theme_mod( 'slider_limit', 3 ),
 	'post__not_in' => get_option( 'sticky_posts' ),
 );
+if ( get_theme_mod( 'slider_category', false ) ) {
+	$args['category__in'] = get_theme_mod( 'slider_category' );
+}
 $loop = new WP_Query( $args );
 $i = 0;
 // set a global to track post IDs we don't want output in other loops on this page.

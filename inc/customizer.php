@@ -159,6 +159,18 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' => 'text',
 	) );
 
+	$wp_customize->add_setting( 'slider_category', array(
+		'default' => '',
+		'sanitize_callback' => 'theme_slug_sanitize_select',
+	) );
+
+	$wp_customize->add_control( 'slider_category', array(
+		'label' => __( 'Category For Slider (leave empty for all)', 'best-reloaded' ),
+		'section' => 'best_reloaded_home',
+		'type' => 'select',
+		'choices' => best_reloaded_get_categories(),
+	) );
+
 	$wp_customize->add_setting( 'display_homepage_widget_row', array(
 		'default' => 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
@@ -229,7 +241,24 @@ function best_reloaded_customizer( $wp_customize ) {
 }
 
 /**
- * Sanitization for textarea field
+ * Build an array of categories.
+ *
+ * @return array of site categories as a `term_id` => `name` array.
+ */
+function best_reloaded_get_categories() {
+	// get all the categories.
+	$categories = get_categories();
+	$categories_array = [];
+	// loop though categories and store key as `term_id` and value as `name`.
+	foreach ( $categories as $category ) {
+		$categories_array[ $category->term_id ] = $category->name;
+	}
+	// return an array of categories, otherwise empty array.
+	return $categories_array;
+}
+
+/**
+ * Sanitization for textarea field against list of allwed tags in posts.
  *
  * @param string $input 	text area string to sanitize.
  *
@@ -249,6 +278,8 @@ function best_reloaded_sanitize_textarea( $input ) {
  * @return booleen $output
  */
 function best_reloaded_sanitize_checkbox( $input ) {
+	// Checkbox is booleen, it can only be in 2 states, if we have any input
+	// consider it as true otherwise it's false.
 	if ( $input ) {
 		$output = true;
 	} else {
@@ -260,7 +291,8 @@ function best_reloaded_sanitize_checkbox( $input ) {
 /**
  * Santization for image uploads.
  *
- * @param  string $input	This should be a direct url to an image file..
+ * @param  string $input	This should be a direct url to an image file.
+ *
  * @return string          	Return an excaped url to a file.
  */
 function best_reloaded_sanitize_image( $input ) {
@@ -274,9 +306,33 @@ function best_reloaded_sanitize_image( $input ) {
 
 	// check file type from file name.
 	$file_ext = wp_check_filetype( $input, $mimes );
+
 	// if filetype matches the allowed types set above then cast to output,
 	// otherwise pass empty string.
 	$output = ( $file_ext['ext'] ? $input : '' );
-	// if file has a valid mime type return it as valud url.
+
+	// if file has a valid mime type return it as raw url.
 	return esc_url_raw( $output );
+}
+
+/**
+ * Sanitize term ids for select box customizer setting.
+ *
+ * @param  integer $input   A number representing category id.
+ * @param  mixed   $setting Object containeing the info about the
+ *                          settings/control that is being sanitized.
+ *
+ * @return integer
+ */
+function best_reloaded_sanitize_cetegory_select( $input, $setting ) {
+
+	// input must be a integer.
+	$input = absint( $input );
+	// get the list of possible select options from setting being sanitized.
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	// return input if integer and matching an item in the choices array
+	// otherwise return default option.
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+
 }
