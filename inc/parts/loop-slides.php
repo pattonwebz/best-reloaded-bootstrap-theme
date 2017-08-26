@@ -11,12 +11,11 @@
 ?>
 
 <?php
-// need to subtract any sticky posts from the posts per page number due to
-// sticky posts being included but not counted by posts_per_page.
-$sticky = count( get_option( 'sticky_posts' ) );
+// 3 posts, exclude stickies.
 $args = array(
 	'post_type' => 'post',
-	'posts_per_page' => 3 - $sticky,
+	'posts_per_page' => get_theme_mod( 'slider_limit', 3 ),
+	'post__not_in' => get_option( 'sticky_posts' ),
 );
 $loop = new WP_Query( $args );
 $i = 0;
@@ -31,8 +30,10 @@ if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 		$best_do_not_get_duplicates[] = get_the_ID();
 ?>
 
-<div class="carousel-item <?php if ( 0 === $i ) { echo 'active';
-	$i++; } ?>">
+<div class="carousel-item <?php if ( 0 === $i ) {
+	echo esc_attr( 'active' );
+	$i++;
+} ?>">
 
 	<?php
 			// display image without being wrapped in anchor element - should link this.

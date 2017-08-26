@@ -26,9 +26,10 @@
 				<div id="carousel-home" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
-						<li data-target="#carousel-home" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-home" data-slide-to="1"></li>
-						<li data-target="#carousel-home" data-slide-to="2"></li>
+						<?php $slides_max = get_theme_mod( 'slider_limit', 3 );
+						for ( $i = 0; $i < $slides_max ; $i++ ) { ?>
+							<li data-target="#carousel-home" data-slide-to="0" class="<?php if ( 0 === $i ) { echo esc_attr( 'active' ); } ?>"></li>
+						<?php } ?>
 					</ol>
 
 					<!-- Wrapper for slides -->

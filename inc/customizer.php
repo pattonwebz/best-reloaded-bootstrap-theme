@@ -148,6 +148,17 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' => 'textarea',
 	) );
 
+	$wp_customize->add_setting( 'slider_limit', array(
+		'default' => 3,
+		'sanitize_callback' => 'absint',
+	) );
+	$wp_customize->add_control( 'slider_limit', array(
+		'label' => __( 'Homepage Slider', 'best-reloaded' ),
+		'section' => 'best_reloaded_home',
+		'settings' => 'slider_limit',
+		'type' => 'text',
+	) );
+
 	$wp_customize->add_setting( 'display_homepage_widget_row', array(
 		'default' => 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
