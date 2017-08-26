@@ -12,7 +12,7 @@
 ?>
 
 <?php get_header(); ?>
-	<?php if ( get_theme_mod( 'display_intro_text' ) && get_theme_mod( 'intro_text' ) ) : ?>
+	<?php if ( get_theme_mod( 'display_intro_text', true ) && get_theme_mod( 'intro_text', false ) ) : ?>
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<p class="hero-p"><?php echo wp_kses_post( get_theme_mod( 'intro_text' ) ); ?></p>
