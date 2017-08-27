@@ -52,7 +52,7 @@
 
 			<div class="col-md-3 widget-area">
 				<?php
-				if ( is_active_sidebar( 'sidebar-2' ) ) {
+				if ( is_active_sidebar( 'slider-row-sidebar' ) ) {
 					dynamic_sidebar( 'sidebar-2 ' );
 				} else {
 					the_widget( 'WP_Widget_Recent_Comments' );

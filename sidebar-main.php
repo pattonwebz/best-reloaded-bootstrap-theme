@@ -12,5 +12,5 @@
 ?>
 
 <div class="col-md-4 widget-area sidebar" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php dynamic_sidebar( 'main-sidebar' ); ?>
 </div><!-- end .col-md-4 .widget-area .sidebar -->

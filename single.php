@@ -42,7 +42,7 @@
 							</div>
 						</div>
 
-						<?php if ( is_active_sidebar( 'sidebar-9' ) || ( true === get_post_meta( $post->ID, 'ofo', true ) && true === get_post_meta( $post->ID, 'ofo-text', true ) ) ) { ?>
+						<?php if ( is_active_sidebar( 'before-post-widgets' ) || ( true === get_post_meta( $post->ID, 'ofo', true ) && true === get_post_meta( $post->ID, 'ofo-text', true ) ) ) { ?>
 							<div class="featured-bar featured-bar-post">
 									<?php get_template_part( 'inc/parts/featured', 'post-open' ); ?>
 							</div>

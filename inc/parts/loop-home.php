@@ -12,8 +12,8 @@
 <div class="row blog-three-up">
 	<div class="col-sm-3 widget-area">
 		<?php
-		if ( is_active_sidebar( 'sidebar-4' ) ) {
-			dynamic_sidebar( 'sidebar-4' );
+		if ( is_active_sidebar( 'frontpage-blog-row-sidebar' ) ) {
+			dynamic_sidebar( 'frontpage-blog-row-sidebar' );
 		} else {
 			the_widget( 'WP_Widget_Tag_Cloud' );
 		} ?>

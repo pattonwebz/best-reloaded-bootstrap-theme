@@ -16,8 +16,8 @@
 			echo do_shortcode( wp_kses_post( get_post_meta( $post->ID, 'ofo-text', true ) ) );
 		}
 	} else {
-		if ( dynamic_sidebar( 'sidebar-9' ) ) {
-			dynamic_sidebar( 'sidebar-9' );
+		if ( is_active_sidebar( 'before-post-widgets' ) ) {
+			dynamic_sidebar( 'before-post-widgets' );
 		}
 	} ?>
 </div>
