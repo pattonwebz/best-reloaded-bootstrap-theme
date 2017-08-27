@@ -24,8 +24,9 @@ module.exports = function(grunt) {
 				},
 				files: {
 					// the first path is the output and the second is the input.
-					'assets/src/css/bootstrap.css'	: 'assets/src/scss/bootstrap/bootstrap.scss',
-					'assets/src/css/style.css'		: 'assets/src/scss/style.scss'
+					'assets/src/css/bootstrap.css'		: 'assets/src/scss/bootstrap/bootstrap.scss',
+					'assets/src/css/font-awesome.css' 	: 'assets/src/scss/font-awesome/font-awesome.scss',
+					'assets/src/css/style.css' 			: 'assets/src/scss/style.scss'
 				}
 			}
 
@@ -71,8 +72,9 @@ module.exports = function(grunt) {
 			},
 			build: {
 				files: {
-					'assets/css/bootstrap.css'	: 'assets/src/css/bootstrap.css',
-					'assets/css/style.css'		: 'assets/src/css/style.css'
+					'assets/css/bootstrap.css'		: 'assets/src/css/bootstrap.css',
+					'assets/css/font-awesome.css'	: 'assets/src/css/font-awesome.css',
+					'assets/css/style.css'			: 'assets/src/css/style.css'
 				}
 			},
 			buildminify: {
@@ -83,8 +85,9 @@ module.exports = function(grunt) {
 					]
 				},
 				files: {
-					'assets/css/bootstrap.min.css': 'assets/css/bootstrap.css',
-					'assets/css/style.min.css': 'assets/src/css/style.css'
+					'assets/css/bootstrap.min.css' 		: 'assets/css/bootstrap.css',
+					'assets/css/font-awesome.min.css'	: 'assets/css/font-awesome.css',
+					'assets/css/style.min.css' 			: 'assets/src/css/style.css'
 				}
 			},
 			theme: {
@@ -197,14 +200,16 @@ module.exports = function(grunt) {
 
 		},
 
-		// Bootstrap is added to the devDependencies and installed with npm,
-		// copy the appropriate files to the /src/ folder.
+		// Bootstrap, popper and font-awesome are added to the devDependencies
+		//  and installed with npm, copy the appropriate files to the /src/ folder.
 		copy: {
 			build: {
 				files: [
 					{expand: true, cwd: 'node_modules/bootstrap/scss/', src: ['**'], dest: 'assets/src/scss/bootstrap/'},
 					{expand: true, cwd: 'node_modules/bootstrap/js/src/', src: ['**'], dest: 'assets/src/js/bootstrap/', filter: 'isFile'},
 					{src: ['node_modules/popper.js/dist/popper.js'], dest: 'assets/src/js/popper/popper.js'},
+					{expand: true, cwd: 'node_modules/font-awesome/scss/', src: ['**'], dest: 'assets/src/scss/font-awesome/'},
+					{expand: true, cwd: 'node_modules/font-awesome/fonts/', src: ['**'], dest: 'assets/fonts/'},
 					{src: ['assets/src/js/scripts.js'], dest: 'assets/js/scripts.js', filter: 'isFile'},
 				],
 			},
@@ -246,6 +251,12 @@ module.exports = function(grunt) {
 				{
 					expand: true,
 					src: ['assets/img/**'],
+					dest: 'dist/best-reloaded/'
+				},
+				// copy fonts directory.
+				{
+					expand: true,
+					src: ['assets/fonts/**'],
 					dest: 'dist/best-reloaded/'
 				}],
 			},
