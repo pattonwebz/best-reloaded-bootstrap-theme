@@ -16,8 +16,8 @@
 <?php // This is the hook used to add featurebar content.
 best_reloaded_do_featurebar(); ?>
 
-<div class="row">
-	<div class="col-md-8 content-right">
+<div class="row flex-row-reverse">
+	<div class="col-md-8">
 		<div id="main_content" role="main">
 
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

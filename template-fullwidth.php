@@ -17,7 +17,7 @@
 		best_reloaded_do_featurebar(); ?>
 
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-12">
 				<div id="main_content" role="main">
 
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

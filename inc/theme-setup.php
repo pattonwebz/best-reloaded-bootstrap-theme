@@ -113,9 +113,32 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 		if ( ! is_admin() ) {
 			wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-alpha.6' );
 			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '0.13.0' );
+			// we want to add some additional styles based on navmenu choice.
+			$nav_style = get_theme_mod( 'navbar_style', 'fixed-top' );
+			switch ( $nav_style ) {
+				case 'fixed-top':
+					$css = '
+					body { padding-top: 60px; }
+					@media( min-width: 768px ) {
+						body { padding-top: 90px; }
+					}
+					';
+					break;
+				case 'fixed-bottom':
+					$css = '
+					body { padding-bottom: 60px; }
+					';
+					break;
+				case 'sticky-top':
+					$css = '
+					#main_navbar { margin-bottom: 40px; }
+					';
+					break;
+			}
+			wp_add_inline_style( 'best-reloaded', $css, 20 );
 		}
 	}
-}
+} // End if().
 add_action( 'wp_enqueue_scripts', 'best_reloaded_load_styles' );
 
 if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
@@ -134,7 +157,8 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '0.13.0', true );
 
 			// only enqueue comment-reply script on single pages.
-			if ( is_single() ) { wp_enqueue_script( 'comment-reply' );
+			if ( is_single() ) {
+				wp_enqueue_script( 'comment-reply' );
 			}
 		}
 	}
