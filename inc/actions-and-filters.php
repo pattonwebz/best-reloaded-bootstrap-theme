@@ -77,7 +77,7 @@ add_action( 'widgets_init', 'best_reloaded_remove_recent_comments_style' );
  */
 function best_reloaded_add_class_the_tags( $html ) {
 	$postid = get_the_ID();
-	$html = str_replace( '<a','<a class="label label-default"', $html );
+	$html = str_replace( '<a','<a class="badge badge-dark"', $html );
 	return $html;
 }
 add_filter( 'the_tags','best_reloaded_add_class_the_tags',10,1 );
