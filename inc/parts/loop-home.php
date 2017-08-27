@@ -19,13 +19,18 @@
 		} ?>
 	</div><!-- end .col-sm-3 -->
 	<?php
+	// get the global that stores posts we don't want duplicated here.
 	global $best_do_not_get_duplicates;
+	// it should exist and be an array but incase it doesn't cast it as one.
 	if ( ! is_array( $best_do_not_get_duplicates ) ) {
 		$best_do_not_get_duplicates = array();
 	}
+	// sticky posts mess with the loop counter, merge them into the array we
+	// don't want to duplciate.
+	$best_excluded_ids = array_merge( $best_do_not_get_duplicates, get_option( 'sticky_posts' ) );
 	$args = array(
 		'posts_per_page' 	=> 3,
-		'post__not_in' 		=> $best_do_not_get_duplicates,
+		'post__not_in' 		=> $best_excluded_ids,
 	);
 	$loop = new WP_Query( $args );
 	if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();	?>
