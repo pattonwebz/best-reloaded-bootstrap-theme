@@ -17,7 +17,7 @@ $args = array(
 	'posts_per_page' => get_theme_mod( 'slider_limit', 3 ),
 	'post__not_in' => get_option( 'sticky_posts' ),
 );
-if ( get_theme_mod( 'slider_category', false ) ) {
+if ( get_theme_mod( 'slider_category', 0 ) ) {
 	$args['category__in'] = get_theme_mod( 'slider_category' );
 }
 $loop = new WP_Query( $args );
