@@ -31,8 +31,10 @@ header {
         }
     }
 }
+
+// if we're logged in and have an admin bar showing add some extra padding.
 .logged-in.admin-bar {
-	.fixed-top {
+	#main_navbar.fixed-top {
 		padding-top: 40px;
 	}
 }

@@ -113,7 +113,7 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 		if ( ! is_admin() ) {
 			wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-alpha.6' );
 			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '0.13.0' );
-			// we want to add some additional styles based on navmenu choice.
+			// we want to add some additional styles based on navbar style.
 			$nav_style = get_theme_mod( 'navbar_style', 'fixed-top' );
 			switch ( $nav_style ) {
 				case 'fixed-top':
@@ -126,7 +126,7 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 					break;
 				case 'fixed-bottom':
 					$css = '
-					body { padding-bottom: 60px; }
+					body { padding: 60px 0; }
 					';
 					break;
 				case 'sticky-top':

@@ -24,7 +24,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_section( 'best_reloaded_navbar', array(
-		'title' 	=> __( 'Header Navbar', 'best-reloaded' ),
+		'title' 	=> __( 'Main Navbar', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
 		'priority' 	=> 94,
 	) );
@@ -294,6 +294,19 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' 		=> 'textarea',
 	) );
 
+	$wp_customize->add_setting( 'layout_selection', array(
+		'default' 			=> '',
+		'sanitize_callback' => 'best_reloaded_sanitize_layout_selection',
+	) );
+
+	$wp_customize->add_control( 'layout_selection', array(
+		'label' 		=> __( 'Layout Selection', 'best-reloaded' ),
+		'description' 	=> __( 'Choose the layout you want the site to follow.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_other',
+		'type' 			=> 'radio',
+		'choices' 		=> best_reloaded_get_layout_styles(),
+	) );
+
 }
 
 /**
@@ -326,6 +339,19 @@ function best_reloaded_get_navbar_styles() {
 		'fixed-top' => 'Fixed Top',
 		'fixed-bottom'	=> 'Fixed Bottom',
 		'sticky-top'	=> 'Sticky Top',
+	);
+	return $options;
+}
+
+/**
+ * Returns an array of radio buttons for selecting a site layout.
+ *
+ * @return array
+ */
+function best_reloaded_get_layout_styles() {
+	$options = array(
+		''					=> 'Right Sidebar',
+		'flex-row-reverse' 	=> 'Left Sidebar',
 	);
 	return $options;
 }
@@ -420,6 +446,26 @@ function best_reloaded_sanitize_cetegory_select( $input, $setting ) {
  * @return string containing a classname.
  */
 function best_reloaded_sanitize_navbar_style( $input, $setting ) {
+
+	// get the list of possible select options from setting being sanitized.
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	// return input if matching an item in the choices array
+	// otherwise return default option.
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+
+}
+
+/**
+ * Sanitize strings against postible layout selections.
+ *
+ * @param  srting $input   String containing a layout string.
+ * @param  mixed  $setting Object containeing the info about the
+ *                         settings/control that is being sanitized.
+ *
+ * @return string
+ */
+function best_reloaded_sanitize_layout_selection( $input, $setting ) {
 
 	// get the list of possible select options from setting being sanitized.
 	$choices = $setting->manager->get_control( $setting->id )->choices;

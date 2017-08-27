@@ -208,3 +208,61 @@ function best_reloaded_output_post_meta( $echo = true, $type = false ) {
 }
 
 add_action( 'best_reloaded_do_post_meta', 'best_reloaded_output_post_meta', 10, 2 );
+
+/**
+ * Returns or echos a classname string for use defining theme layouts.
+ *
+ * @param  string  $classname_string any classnames to be output.
+ * @param  boolean $echo             flag to decide when to echo or return.
+ *
+ * @return string
+ */
+function best_reloaded_layout_output_classnames( $classname_string, $echo = true ) {
+	// either echo or return any passed classnames.
+	if ( $echo ) {
+		// echo classnames inside a `class=""` attribute`.
+		echo 'class="' . esc_attr( apply_filters( 'best_reloaded_filter_layout_classnames', $classname_string ) ) . '"';
+	} else {
+		// return just the classnames.
+		return apply_filters( 'best_reloaded_filter_layout_classnames', $classname_string );
+	}
+}
+add_action( 'best_reloaded_do_layout_selection', 'best_reloaded_layout_output_classnames', 10, 2 );
+
+/**
+ * Filter for layout classnames to add any specific classes wanted.
+ *
+ * @param  string $classname_string a string of classnames to output.
+ *
+ * @return string
+ */
+function best_reloaded_filter_layout_classnames_output( $classname_string ) {
+	// get the layout selection string.
+	$layout = get_theme_mod( 'layout_selection', '' );
+	// if we got a layout selection then append a space then it to the string.
+	if ( $layout ) {
+		$classname_string .= ' ' . $layout;
+	}
+	// return the string with any modifications applied.
+	return $classname_string;
+}
+add_filter( 'best_reloaded_filter_layout_classnames', 'best_reloaded_filter_layout_classnames_output' );
+
+/**
+ * Accepts a string of classes and adds any addition ones to it based on user
+ * option settings before echoing it.
+ *
+ * @param  string $classnames string of classnames to start with.
+ */
+function best_reloaded_output_navbar_classes( $classnames ) {
+	$classes = $classnames;
+	// add the navbar_style class to the classes string.
+	$classes .= ' ' . get_theme_mod( 'navbar_style', 'fixed-top' );
+	/**
+	 * TODO: Selection for navbar color shemes like .bg-* and .text-*.
+	 *
+	 * @var string
+	 */
+	echo esc_attr( $classes );
+}
+add_action( 'best_reloaded_do_navbar_classes', 'best_reloaded_output_navbar_classes', 10, 1 );

@@ -12,16 +12,9 @@ License: GNU General Public License (3.0)
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 body {
-  padding-top: 60px;
-  /* accounts for the floating top navbar */
   background: #f5f5f5;
 }
 
-@media (min-width: 768px) {
-  body {
-    padding-top: 90px;
-  }
-}
 /* responsive images */
 img,
 .size-auto,
@@ -282,7 +275,7 @@ header .navbar .container {
   text-decoration: none;
 }
 
-.logged-in.admin-bar .fixed-top {
+.logged-in.admin-bar #main_navbar.fixed-top {
   padding-top: 40px;
 }
 

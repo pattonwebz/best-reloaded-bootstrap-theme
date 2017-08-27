@@ -46,3 +46,32 @@ function best_reloaded_do_post_meta( $echo = true, $type = false ) {
 	 */
 	do_action( 'best_reloaded_do_post_meta', $echo, $type );
 }
+
+/**
+ * Fires during the main row div before content layout is decided.
+ *
+ * @since 1.3.0
+ *
+ * @param string $classname_string  a string containing any classnames
+ *                                  to output for layout reasons.
+ */
+function best_reloaded_do_layout_selection( $classname_string = 'row' ) {
+	/**
+	 * Used to output classnames at the layout select div.
+	 */
+	do_action( 'best_reloaded_do_layout_selection', $classname_string );
+}
+
+/**
+ * Fires during nabar output.
+ *
+ * @param  string $classnames any classnames wanting to pass to the navbar.
+ */
+function best_reloaded_do_navbar_classes( $classnames = '' ) {
+	/**
+	 * Used to output the classnames based on option selection.
+	 *
+	 * @var string of classnames
+	 */
+	do_action( 'best_reloaded_do_navbar_classes', $classnames );
+}
