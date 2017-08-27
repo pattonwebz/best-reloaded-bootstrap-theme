@@ -19,81 +19,81 @@ add_action( 'customize_register', 'best_reloaded_customizer' );
 function best_reloaded_customizer( $wp_customize ) {
 
 	$wp_customize->add_panel( 'best_reloaded_theme_settings_panel', array(
-		'title'	=> __( 'Best Reloaded Theme Settings', 'best-reloaded' ),
-		'priority' => 20,
+		'title'		=> __( 'Best Reloaded Theme Settings', 'best-reloaded' ),
+		'priority' 	=> 20,
 	) );
 
 	$wp_customize->add_section( 'best_reloaded_navbar', array(
-		'title' => __( 'Header Navbar', 'best-reloaded' ),
+		'title' 	=> __( 'Header Navbar', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' => 94,
+		'priority' 	=> 94,
 	) );
 	$wp_customize->add_section( 'best_reloaded_header', array(
-		'title' => __( 'Site Title Row', 'best-reloaded' ),
+		'title' 	=> __( 'Site Title Row', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' => 95,
+		'priority' 	=> 95,
 	) );
 	$wp_customize->add_section( 'best_reloaded_other', array(
-		'title' => __( 'Sitewide Options', 'best-reloaded' ),
+		'title' 	=> __( 'Sitewide Options', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' => 96,
+		'priority' 	=> 96,
 	) );
 
 	$wp_customize->add_section( 'best_reloaded_frontpage', array(
-		'title' => __( 'FrontPage Specific Options', 'best-reloaded' ),
+		'title' 	=> __( 'FrontPage Specific Options', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' => 96,
+		'priority' 	=> 96,
 	) );
 
 	$wp_customize->add_section( 'best_reloaded_slider', array(
-		'title'	=> __( 'Slider Settings', 'best-reloaded' ),
+		'title'		=> __( 'Slider Settings', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' => 98,
+		'priority' 	=> 98,
 	) );
 	$wp_customize->add_section( 'best_reloaded_footer', array(
-		'title' => __( 'Footer Options', 'best-reloaded' ),
+		'title' 	=> __( 'Footer Options', 'best-reloaded' ),
 		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' => 100,
+		'priority' 	=> 100,
 	) );
 	// Navbar options.
 	$wp_customize->add_setting( 'navbar_style', array(
-		'default' => 'fixed-top',
+		'default' 			=> 'fixed-top',
 		'sanitize_callback' => 'best_reloaded_sanitize_navbar_style',
 	) );
 	$wp_customize->add_control( 'navbar_style', array(
-		'label' => __( 'Navbar Style', 'best-reloaded' ),
-		'description' => __( 'Select the style of navbar you want.', 'best-reloaded' ),
-		'section' => 'best_reloaded_navbar',
-		'type' => 'select',
-		'choices' => best_reloaded_get_navbar_styles(),
+		'label' 		=> __( 'Navbar Style', 'best-reloaded' ),
+		'description' 	=> __( 'Select the style of navbar you want.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'type' 			=> 'select',
+		'choices' 		=> best_reloaded_get_navbar_styles(),
 	) );
 
 	$wp_customize->add_setting( 'display_navbar_search', array(
-		'default' => 1,
+		'default' 			=> 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_navbar_search', array(
-		'label' => __( 'Toggle on/off the navbar search form.', 'best-reloaded' ),
-		'description' => __( 'Search form appears on right side of navbar.', 'best-reloaded' ),
-		'section' => 'best_reloaded_navbar',
-		'settings' => 'display_navbar_search',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Toggle on/off the navbar search form.', 'best-reloaded' ),
+		'description' 	=> __( 'Search form appears on right side of navbar.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'settings' 		=> 'display_navbar_search',
+		'type' 			=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'display_navbar_brand', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_navbar_brand', array(
-		'label' => __( 'Enable the navbar brand.', 'best-reloaded' ),
-		'description' => __( 'Branding options can be a small image and the site-title', 'best-reloaded' ),
-		'section' => 'best_reloaded_navbar',
-		'settings' => 'display_navbar_brand',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Enable the navbar brand.', 'best-reloaded' ),
+		'description' 	=> __( 'Branding options can be a small image and the site-title', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'settings' 		=> 'display_navbar_brand',
+		'type' 			=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'brand_image', array(
-		'default' => '',
+		'default' 			=> '',
 		'sanitize_callback' => 'best_reloaded_sanitize_image',
 	) );
 	$wp_customize->add_control(
@@ -101,194 +101,197 @@ function best_reloaded_customizer( $wp_customize ) {
 			$wp_customize,
 			'brand_image',
 			array(
-				'label'      => __( 'Add a brand image to the navbar.', 'best-reloaded' ),
-				'section'    => 'best_reloaded_navbar',
-				'settings'   => 'brand_image',
-				'description' => __( 'Choose an image to use for brand image in navbar. It should be 30px X 30px. Leave empty for no image.', 'best-reloaded' ),
+				'label'			=> __( 'Add a brand image to the navbar.', 'best-reloaded' ),
+				'section' 		=> 'best_reloaded_navbar',
+				'settings' 		=> 'brand_image',
+				'description' 	=> __( 'Choose an image to use for brand image in navbar. It should be 30px X 30px. Leave empty for no image.', 'best-reloaded' ),
 			)
 		)
 	);
 
 	$wp_customize->add_setting( 'display_brand_text', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_brand_text', array(
-		'label' => __( 'Select the checkbox to display the site title in the navbar as brand text.', 'best-reloaded' ),
-		'section' => 'best_reloaded_navbar',
-		'settings' => 'display_brand_text',
-		'type' => 'checkbox',
+		'label' 	=> __( 'Display the site title in the navbar as brand text.', 'best-reloaded' ),
+		'section' 	=> 'best_reloaded_navbar',
+		'settings' 	=> 'display_brand_text',
+		'type' 		=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'allow_long_brand', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'allow_long_brand', array(
 		'label'			=> __( 'Allow Long Titles', 'best-reloaded' ),
-		'description' => __( 'Very long titles break the default navbar layout, if you want to allow very long titles here then check this box. NOTE: You can also turn off the search form for more space.', 'best-reloaded' ),
-		'section' => 'best_reloaded_navbar',
-		'settings' => 'allow_long_brand',
-		'type' => 'checkbox',
+		'description' 	=> __( 'Very long titles break the default navbar layout, if you want to allow very long titles here then check this box. NOTE: You can also turn off the search form for more space.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'settings' 		=> 'allow_long_brand',
+		'type' 			=> 'checkbox',
 	) );
 
 	// site title section options.
 	$wp_customize->add_setting( 'small_site_title', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'small_site_title', array(
-		'label' => __( 'Use smaller font-size for site title. Note: this is already applied for titles that are too large for the bigger font-size.', 'best-reloaded' ),
-		'section' => 'best_reloaded_header',
-		'settings' => 'small_site_title',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Use smaller font-size for site title.', 'best-reloaded' ),
+		'description' 	=> __( 'Note: this is already applied automattically for titles that are too large for the bigger font-size.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_header',
+		'settings' 		=> 'small_site_title',
+		'type' 			=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'display_header_banner_area', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 
 	) );
 	$wp_customize->add_control( 'display_header_banner_area', array(
-		'label' => __( 'Display Header Banner Area', 'best-reloaded' ),
-		'description' => __( 'Toggle on/off the the header banner slot.', 'best-reloaded' ),
-		'section' => 'best_reloaded_header',
-		'settings' => 'display_header_banner_area',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Display Header Banner Area', 'best-reloaded' ),
+		'description' 	=> __( 'Toggle on/off the the header banner slot.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_header',
+		'settings' 		=> 'display_header_banner_area',
+		'type' 			=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'header_banner_area', array(
-		'default' => '<!-- html accepted -->',
+		'default' 			=> '<!-- html accepted -->',
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 
 	) );
 	$wp_customize->add_control( 'header_banner_area', array(
-		'label' => __( 'Header Banner Area', 'best-reloaded' ),
-		'description'	=> __( 'Enter the text you want to show in the header slot. Accepts some basic html.', 'best-reloaded' ),
-		'section' => 'best_reloaded_header',
-		'settings' => 'header_banner_area',
-		'type' => 'textarea',
+		'label' 		=> __( 'Header Banner Area', 'best-reloaded' ),
+		'description' 	=> __( 'Enter the text you want to show in the header slot. Accepts some basic html.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_header',
+		'settings' 		=> 'header_banner_area',
+		'type' 			=> 'textarea',
 	) );
 
 	// Frontpage specific options.
 	$wp_customize->add_setting( 'display_intro_text', array(
-		'default' => 1,
+		'default' 			=> 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_intro_text', array(
-		'label' => __( 'Display the frontpage intro text.', 'best-reloaded' ),
-		'description'	=> __( 'This intro text is unique to the frontpage.', 'best-reloaded' ),
-		'section' => 'best_reloaded_frontpage',
-		'settings' => 'display_intro_text',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Display the frontpage intro text.', 'best-reloaded' ),
+		'description' 	=> __( 'This intro text is unique to the frontpage.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_frontpage',
+		'settings' 		=> 'display_intro_text',
+		'type' 			=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'intro_text', array(
-		'default' => __( 'Welcome to our awesome site!<br/>This space is the perfect place to say a <a href="#">little something</a> about yourself.', 'best-reloaded' ),
+		'default' 			=> __( 'Welcome to our awesome site!<br/>This space is the perfect place to say a <a href="#">little something</a> about yourself.', 'best-reloaded' ),
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'intro_text', array(
-		'label' => __( 'Frontpage Intro Text', 'best-reloaded' ),
-		'section' => 'best_reloaded_frontpage',
-		'settings' => 'intro_text',
-		'type' => 'textarea',
+		'label' 	=> __( 'Frontpage Intro Text', 'best-reloaded' ),
+		'section' 	=> 'best_reloaded_frontpage',
+		'settings' 	=> 'intro_text',
+		'type' 		=> 'textarea',
 	) );
 
 	$wp_customize->add_setting( 'display_homepage_widget_row', array(
-		'default' => 1,
+		'default' 			=> 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_homepage_widget_row', array(
-		'label' => __( 'Display Homepage Widget Row', 'best-reloaded' ),
-		'section' => 'best_reloaded_frontpage',
-		'settings' => 'display_homepage_widget_row',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Display Frontpage Widget Row', 'best-reloaded' ),
+		'description' 	=> __( 'A additional row of widgets can be output on the frontapge.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_frontpage',
+		'settings' 		=> 'display_homepage_widget_row',
+		'type' 			=> 'checkbox',
 	) );
 
 	// Slider options.
 	$wp_customize->add_setting( 'slider_limit', array(
-		'default' => 3,
+		'default' 			=> 3,
 		'sanitize_callback' => 'absint',
 	) );
 	$wp_customize->add_control( 'slider_limit', array(
-		'label' => __( 'Number of Slides', 'best-reloaded' ),
-		'description'	=> __( 'Set the number of slides you want to appear in the slider.', 'best-reloaded' ),
-		'section' => 'best_reloaded_slider',
-		'settings' => 'slider_limit',
-		'type' => 'text',
+		'label' 		=> __( 'Number of Slides', 'best-reloaded' ),
+		'description' 	=> __( 'Set the number of slides you want to appear in the slider.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_slider',
+		'settings' 		=> 'slider_limit',
+		'type' 			=> 'text',
 	) );
 
 	$wp_customize->add_setting( 'slider_category', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_cetegory_select',
 	) );
 
 	$wp_customize->add_control( 'slider_category', array(
-		'label' => __( 'Category For Slider', 'best-reloaded' ),
-		'description' => __( 'Choose the category to output for the slider.', 'best-reloaded' ),
-		'section' => 'best_reloaded_slider',
-		'type' => 'select',
-		'choices' => best_reloaded_get_categories(),
+		'label' 		=> __( 'Category For Slider', 'best-reloaded' ),
+		'description' 	=> __( 'Choose the category to output for the slider.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_slider',
+		'type' 			=> 'select',
+		'choices' 		=> best_reloaded_get_categories(),
 	) );
 
 	// Other sitewide options.
 	$wp_customize->add_setting( 'display_featured_bar', array(
-		'default' => 0,
+		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_featured_bar', array(
-		'label' => __( 'Display Featured Content Bar', 'best-reloaded' ),
-		'section' => 'best_reloaded_other',
-		'settings' => 'display_featured_bar',
-		'type' => 'checkbox',
+		'label' 	=> __( 'Display Featured Content Bar', 'best-reloaded' ),
+		'section' 	=> 'best_reloaded_other',
+		'settings' 	=> 'display_featured_bar',
+		'type' 		=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'featured_bar', array(
-		'default' => __( 'Something Important (set background color, image, text, and <a href="#">link</a>)', 'best-reloaded' ),
+		'default' 			=> __( 'Something Important (set background color, image, text, and <a href="#">link</a>)', 'best-reloaded' ),
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'featured_bar', array(
-		'label' => __( 'Feature Bar Content', 'best-reloaded' ),
-		'section' => 'best_reloaded_other',
-		'settings' => 'featured_bar',
-		'type' => 'textarea',
+		'label' 	=> __( 'Feature Bar Content', 'best-reloaded' ),
+		'section' 	=> 'best_reloaded_other',
+		'settings' 	=> 'featured_bar',
+		'type' 		=> 'textarea',
 	) );
 
 	// Footer section options.
 	$wp_customize->add_setting( 'display_footer_top', array(
-		'default' => 1,
+		'default' 			=> 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_footer_top', array(
-		'label' => __( 'Display Footer Top', 'best-reloaded' ),
-		'description'	=> __( 'Display the footer widget row.', 'best-reloaded' ),
-		'section' => 'best_reloaded_footer',
-		'settings' => 'display_footer_top',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Display Footer Top', 'best-reloaded' ),
+		'description' 	=> __( 'Display the footer widget row.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_footer',
+		'settings' 		=> 'display_footer_top',
+		'type' 			=> 'checkbox',
 	) );
 
 	$wp_customize->add_setting( 'display_footer_bottom', array(
-		'default' => 1,
+		'default' 			=> 1,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_footer_bottom', array(
-		'label' => __( 'Display Footer Bottom', 'best-reloaded' ),
-		'description'	=> __( 'Displays the footer bottom row with the tagline or copyrights and the footer nav.', 'best-reloaded' ),
-		'section' => 'best_reloaded_footer',
-		'settings' => 'display_footer_bottom',
-		'type' => 'checkbox',
+		'label' 		=> __( 'Display Footer Bottom', 'best-reloaded' ),
+		'description' 	=> __( 'Displays the footer bottom row with the tagline or copyrights and the footer nav.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_footer',
+		'settings' 		=> 'display_footer_bottom',
+		'type' 			=> 'checkbox',
 	) );
 
+	// bottom tagline/copyrights default value is generated.
 	$wp_customize->add_setting( 'footer_bottom_tagline', array(
-		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 		// translators: 1 is current year, 2 is site name.
-		'default' => sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) ),
+		'default' 			=> sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) ),
+		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'footer_bottom_tagline', array(
-		'label' => __( 'Footer Bottom Tagline', 'best-reloaded' ),
-		'section' => 'best_reloaded_footer',
-		'settings' => 'footer_bottom_tagline',
-		'type' => 'textarea',
+		'label' 	=> __( 'Footer Text', 'best-reloaded' ),
+		'section' 	=> 'best_reloaded_footer',
+		'settings' 	=> 'footer_bottom_tagline',
+		'type' 		=> 'textarea',
 	) );
 
 }
