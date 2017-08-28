@@ -20,7 +20,7 @@
 <body <?php body_class(); ?>>
 	<header>
 
-		<nav id="main_navbar" class="<?php best_reloaded_do_navbar_classes( 'navbar navbar-expand-md' ); ?> navbar-light bg-light">
+		<nav id="main_navbar" <?php best_reloaded_do_navbar_classes( 'navbar navbar-expand-md' ); ?>>
 			<div class="container">
 
 				<?php

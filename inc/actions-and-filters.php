@@ -258,11 +258,11 @@ function best_reloaded_output_navbar_classes( $classnames ) {
 	$classes = $classnames;
 	// add the navbar_style class to the classes string.
 	$classes .= ' ' . get_theme_mod( 'navbar_style', 'fixed-top' );
-	/**
-	 * TODO: Selection for navbar color shemes like .bg-* and .text-*.
-	 *
-	 * @var string
-	 */
-	echo esc_attr( $classes );
+	// add the navbar color modifier class.
+	$classes .= ' ' . get_theme_mod( 'navbar-color', 'navbar-light' );
+	// add the navbar bg modifier class.
+	$classes .= ' ' . get_theme_mod( 'navbar-bg', 'bg-light' );
+	// echo the classes.
+	echo 'class="' . esc_attr( $classes ) . '"';
 }
 add_action( 'best_reloaded_do_navbar_classes', 'best_reloaded_output_navbar_classes', 10, 1 );

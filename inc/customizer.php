@@ -67,6 +67,28 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' 			=> 'select',
 		'choices' 		=> best_reloaded_get_navbar_styles(),
 	) );
+	$wp_customize->add_setting( 'navbar-color', array(
+		'default' 			=> 'navbar-light',
+		'sanitize_callback' => 'best_reloaded_sanitize_select',
+	) );
+	$wp_customize->add_control( 'navbar-color', array(
+		'label' 		=> __( 'Navbar Text Color', 'best-reloaded' ),
+		'description' 	=> __( 'Select the color items in the navbar.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'type' 			=> 'select',
+		'choices' 		=> best_reloaded_get_navbar_colors(),
+	) );
+	$wp_customize->add_setting( 'navbar-bg', array(
+		'default' 			=> 'bg-light',
+		'sanitize_callback' => 'best_reloaded_sanitize_select',
+	) );
+	$wp_customize->add_control( 'navbar-bg', array(
+		'label' 		=> __( 'Navbar Color', 'best-reloaded' ),
+		'description' 	=> __( 'Select the color of navbar you want.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'type' 			=> 'select',
+		'choices' 		=> best_reloaded_get_navbar_bgs(),
+	) );
 
 	$wp_customize->add_setting( 'display_navbar_search', array(
 		'default' 			=> 1,
@@ -344,6 +366,39 @@ function best_reloaded_get_navbar_styles() {
 }
 
 /**
+ * Returns an array of possible classnames for use with the navbar.
+ *
+ * @return array
+ */
+function best_reloaded_get_navbar_colors() {
+	// note that these classes indicate bg color and modfy color to the oposite.
+	$options = array(
+		'navbar-light' 	=> 'Dark',
+		'navbar-dark'	=> 'Light',
+	);
+	return $options;
+}
+
+/**
+ * Returns an array of possible classnames for use with the navbar.
+ *
+ * @return array
+ */
+function best_reloaded_get_navbar_bgs() {
+	$options = array(
+		'bg-light' 		=> 'Light',
+		'bg-dark' 		=> 'Dark',
+		'bg-secondary' 	=> 'Light Grey',
+		'bg-primary' 	=> 'Blue',
+		'bg-info' 		=> 'Light Blue',
+		'bg-success' 	=> 'Green',
+		'bg-danger' 	=> 'Red',
+		'bg-warning' 	=> 'Yellow',
+	);
+	return $options;
+}
+
+/**
  * Returns an array of radio buttons for selecting a site layout.
  *
  * @return array
@@ -466,6 +521,26 @@ function best_reloaded_sanitize_navbar_style( $input, $setting ) {
  * @return string
  */
 function best_reloaded_sanitize_layout_selection( $input, $setting ) {
+
+	// get the list of possible select options from setting being sanitized.
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	// return input if matching an item in the choices array
+	// otherwise return default option.
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+
+}
+
+/**
+ * Sanitize navbar classnames for select box customizer setting.
+ *
+ * @param  srting $input   String containing a classname.
+ * @param  mixed  $setting Object containeing the info about the
+ *                         settings/control that is being sanitized.
+ *
+ * @return string containing a classname.
+ */
+function best_reloaded_sanitize_select( $input, $setting ) {
 
 	// get the list of possible select options from setting being sanitized.
 	$choices = $setting->manager->get_control( $setting->id )->choices;
