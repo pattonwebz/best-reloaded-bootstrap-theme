@@ -356,7 +356,7 @@ function best_reloaded_customizer( $wp_customize ) {
 function best_reloaded_get_categories() {
 	// get all the categories.
 	$categories = get_categories();
-	$categories_array = [];
+	$categories_array = array();
 
 	// Add entry for all posts.
 	$categories_array[0] = 'All Categories';
