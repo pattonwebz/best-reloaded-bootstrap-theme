@@ -93,6 +93,9 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 			),
 		) );
 
+		// we'll want to use these over built in breadcrumbs.
+		add_theme_support( 'yoast-seo-breadcrumbs' );
+
 	}
 }// End if().
 
