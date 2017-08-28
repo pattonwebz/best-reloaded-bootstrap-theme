@@ -45,7 +45,7 @@
 						'walker'            => new wp_bootstrap_navwalker(),
 					) );
 					// if the navbar search is on then output searchform.
-					if ( get_theme_mod( 'display_navbar_search' ) ) {
+					if ( get_theme_mod( 'display_navbar_search', true ) ) {
 						get_search_form();
 					}
 					?>
