@@ -21,8 +21,8 @@
 					<?php
 							echo '<p class="hero-p">';
 								$args = array(
-									'prev_text'          => esc_html__( 'previous page', 'best-reloaded' ),
-									'next_text'          => esc_html__( 'next page', 'best-reloaded' ),
+									'prev_text'          => '<i class="fa fa-arrow-left"></i> ' . esc_html__( 'Previous Page', 'best-reloaded' ),
+									'next_text'          => esc_html__( 'Next Page', 'best-reloaded' ) . ' <i class="fa fa-arrow-right"></i>',
 									'screen_reader_text' => esc_html__( 'Posts Navigation', 'best-reloaded' ),
 								);
 								the_posts_navigation( $args );
