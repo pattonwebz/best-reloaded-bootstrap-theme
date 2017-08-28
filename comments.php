@@ -13,6 +13,7 @@
 	<?php if ( post_password_required() ) : ?>
 		<p class="nopassword hero-p"><?php esc_html_e( 'This post is password protected.', 'best-reloaded' ); ?><br/><?php esc_html_e( 'Please enter the password to view any comments.', 'best-reloaded' ); ?></p>
 	</div><!-- #comments -->
+	<hr class="hr-row-divider">
 	<?php
 
 			/*
@@ -33,10 +34,10 @@
 		</h3>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above">
-			<h1 class="visually-hidden"><?php esc_html_e( 'comment navigation', 'best-reloaded' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( '&larr; ' . esc_html__( 'older comments', 'best-reloaded' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( esc_html__( 'newer comments', 'best-reloaded' ) . '&rarr;' ); ?></div>
+		<nav id="comment-nav-above" class="clearfix">
+			<h3 class="sr-only"><?php esc_html_e( 'comment navigation', 'best-reloaded' ); ?></h3>
+			<div class="nav-previous pull-left"><?php previous_comments_link( '<i class="fa fa-arrow-left"></i> ' . esc_html__( 'older comments', 'best-reloaded' ) ); ?></div>
+			<div class="nav-next pull-right"><?php next_comments_link( esc_html__( 'newer comments', 'best-reloaded' ) . ' <i class="fa fa-arrow-right"></i>' ); ?></div>
 		</nav>
 		<?php endif; // Check for comment navigation. ?>
 
@@ -57,14 +58,12 @@
 		</ol>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-below">
-			<h1 class="visually-hidden"><?php esc_html_e( 'comment navigation', 'best-reloaded' ); ?></h1>
-			<div class="nav-previous pull-left"><?php previous_comments_link( '&larr; ' . esc_html__( 'older comments', 'best-reloaded' ) ); ?></div>
-			<div class="nav-next pull-right"><?php next_comments_link( esc_html__( 'newer comments', 'best-reloaded' ) . '&rarr;' ); ?></div>
+		<nav id="comment-nav-below" class="clearfix">
+			<h3 class="sr-only"><?php esc_html_e( 'comment navigation', 'best-reloaded' ); ?></h3>
+			<div class="nav-previous pull-left"><?php previous_comments_link( '<i class="fa fa-arrow-left"></i> ' . esc_html__( 'older comments', 'best-reloaded' ) ); ?></div>
+			<div class="nav-next pull-right"><?php next_comments_link( esc_html__( 'newer comments', 'best-reloaded' ) . ' <i class="fa fa-arrow-right"></i>' ); ?></div>
 		</nav>
 	<?php endif; // Check for comment navigation. ?>
-
-		<hr class="hr-row-divider">
 
 	<?php
 
