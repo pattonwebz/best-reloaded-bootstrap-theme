@@ -36,7 +36,7 @@ if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 <div class="carousel-item <?php if ( 0 === $i ) {
 	echo esc_attr( 'active' );
 	$i++;
-} ?>">
+} ?>" role="option">
 
 	<?php
 			// display image without being wrapped in anchor element - should link this.
