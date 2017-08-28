@@ -44,9 +44,12 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			$indent = str_repeat( "\t", $depth );
 			// find all links with an id in the output.
 			preg_match_all( '/(<a.*?id=\"|\')(.*?)\"|\'.*?>/im', $output, $matches );
+			// with pointer at end of array check if we got an ID match.
 			if ( end( $matches[2] ) ) {
+				// build a string to use as aria-labelledby.
 				$labledby = 'aria-labelledby="' . end( $matches[2] ) . '"';
 			}
+
 			$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\" " . $labledby . ">\n";
 		}
 
@@ -128,7 +131,14 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$atts['id']				= 'menu-item-dropdown-' . $item->ID;
 			} else {
 				$atts['href'] 	= ! empty( $item->url ) ? $item->url : '';
-				$atts['class']	= 'nav-link';
+				// if we are in a dropdown then the the class .dropdown-item
+				// should be used instead of .nav-link.
+				if( $depth > 0 ){
+					$atts['class']	= 'dropdown-item';
+				} else {
+					$atts['class']	= 'nav-link';
+				}
+
 			}
 			// Loop through the array of extra link classes plucked from the
 			// parent <li>s classes array.
@@ -243,7 +253,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$fallback_output = '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_attr( 'Add a menu', '' ) . '</a></li>';
 				$fallback_output = '</ul>';
 				if ( $container ) {
-					$fb_output = '</' . esc_attr( $container ) . '>';
+					$fallback_output = '</' . esc_attr( $container ) . '>';
 				}
 
 				// if $args has 'echo' key and it's true echo, otherwise return.
