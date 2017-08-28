@@ -115,7 +115,6 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', '4.7.0' );
 			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '0.13.0' );
 			if ( get_theme_mod( 'enable_font-awesome', true ) ) {
-				error_log( 'fa included...', 0 );
 				wp_enqueue_style( 'font-awesome' );
 			}
 
