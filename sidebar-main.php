@@ -10,7 +10,11 @@
   */
 
 ?>
-
-<div class="col-md-4 widget-area sidebar" role="complementary">
-	<?php dynamic_sidebar( 'main-sidebar' ); ?>
+<div class="col-md-4 widget-area sidebar" role="complementary"><?php
+if ( is_active_sidebar( 'main-sidebar' ) ) {
+	dynamic_sidebar( 'main-sidebar' );
+} else {
+	the_widget( 'WP_Widget_Recent_Posts' );
+	the_widget( 'WP_Widget_Recent_Comments' );
+} ?>
 </div><!-- end .col-md-4 .widget-area .sidebar -->
