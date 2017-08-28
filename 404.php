@@ -12,8 +12,8 @@
 
 <?php get_header(); ?>
 	<?php // This is the hook used to add featurebar content.
-	best_reloaded_do_featurebar(); ?>
-
+	best_reloaded_do_featurebar();
+	best_reloaded_do_before_main_content_row(); ?>
 		<div id="main_content" role="main">
 			<div class="row">
 				<div class="col-sm-12 not-found-404">

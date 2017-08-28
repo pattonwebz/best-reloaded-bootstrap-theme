@@ -75,3 +75,13 @@ function best_reloaded_do_navbar_classes( $classnames = '' ) {
 	 */
 	do_action( 'best_reloaded_do_navbar_classes', $classnames );
 }
+
+/**
+ * Fires before the main content container.
+ */
+function best_reloaded_do_before_main_content_row() {
+	/**
+	 * Can be used to output an additional row above the main content row.
+	 */
+	do_action( 'best_reloaded_do_before_content_row' );
+}

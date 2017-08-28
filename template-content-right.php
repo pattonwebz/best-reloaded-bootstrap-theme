@@ -14,8 +14,8 @@
 
 <?php get_header(); ?>
 <?php // This is the hook used to add featurebar content.
-best_reloaded_do_featurebar(); ?>
-
+best_reloaded_do_featurebar();
+best_reloaded_do_before_main_content_row() ?>
 <div class="row flex-row-reverse">
 	<div class="col-md-8">
 		<div id="main_content" role="main">
