@@ -19,6 +19,6 @@ if ( has_post_thumbnail() ) {
 } else {
 	$featured_image_url = get_template_directory_uri() . '/assets/img/default-post.jpg';
 	if ( $featured_image_url ) {
-		echo '<img src="' . esc_url( $featured_image_url ) . '" class="d-block img-fluid" />';
+		echo '<img src="' . esc_url( $featured_image_url ) . '" class="d-block img-fluid" alt="' . esc_attr( get_the_title() ) . '"/>';
 	}
 }

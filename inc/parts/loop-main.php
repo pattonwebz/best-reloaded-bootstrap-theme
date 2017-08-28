@@ -16,7 +16,7 @@
 
 		<article <?php post_class(); ?> >
 			<header>
-				<a href="<?php the_permalink(); ?>" class="post-thumb">
+				<a href="<?php the_permalink(); ?>" class="post-thumb" title="<?php esc_attr( get_the_title ) ?>">
 					<span>
 						<?php get_template_part( 'inc/parts/featured', 'image' ); ?>
 					</span>
