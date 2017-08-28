@@ -55,6 +55,11 @@ function best_reloaded_customizer( $wp_customize ) {
 		'panel'		=> 'best_reloaded_theme_settings_panel',
 		'priority' 	=> 100,
 	) );
+	$wp_customize->add_section( 'best_reloaded_misc', array(
+		'title'		=> __( 'Misc Options', 'best-reloaded' ),
+		'panel'		=> 'best_reloaded_theme_settings_panel',
+		'priority'	=> 100,
+	) );
 	// Navbar options.
 	$wp_customize->add_setting( 'navbar_style', array(
 		'default' 			=> 'fixed-top',
@@ -327,6 +332,18 @@ function best_reloaded_customizer( $wp_customize ) {
 		'section' 		=> 'best_reloaded_other',
 		'type' 			=> 'radio',
 		'choices' 		=> best_reloaded_get_layout_styles(),
+	) );
+
+	$wp_customize->add_setting( 'enable_font-awesome', array(
+		'default' 			=> 1,
+		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'enable_font-awesome', array(
+		'label' 		=> __( 'Enable Font-Awesome.', 'best-reloaded' ),
+		'description' 	=> __( 'Includes the Font-Awesome css and fonts.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_misc',
+		'settings' 		=> 'enable_font-awesome',
+		'type' 			=> 'checkbox',
 	) );
 
 }
