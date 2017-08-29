@@ -150,6 +150,25 @@ a:hover, a:focus {
   /* Above WP toolbar. */
 }
 
+a.skip-link.sr-only.sr-only-focusable:focus {
+  position: absolute;
+  left: 1rem;
+  top: 1.1rem;
+  height: auto;
+  width: auto;
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem 1rem;
+  background: #f1f1f1;
+  color: #0073aa;
+  z-index: 100000;
+  line-height: normal;
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
+}
+
 /* --------------------------------------- *
 * Typography                               *
 * ---------------------------------------- */

@@ -48,7 +48,7 @@
 		<?php endif; ?>
 		<?php if ( get_theme_mod( 'display_footer_bottom', true ) ) : ?>
 
-		<div class="footer-bottom">
+		<div class="footer-bottom" role="contentinfo">
 			<div class="row">
 				<div class="col-sm-5">
 					<p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'footer_bottom_tagline',

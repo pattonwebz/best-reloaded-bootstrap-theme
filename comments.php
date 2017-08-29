@@ -60,8 +60,8 @@
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 		<nav id="comment-nav-below" class="clearfix">
 			<h3 class="sr-only"><?php esc_html_e( 'comment navigation', 'best-reloaded' ); ?></h3>
-			<div class="nav-previous pull-left"><?php previous_comments_link( '<i class="fa fa-arrow-left"></i> ' . esc_html__( 'older comments', 'best-reloaded' ) ); ?></div>
-			<div class="nav-next pull-right"><?php next_comments_link( esc_html__( 'newer comments', 'best-reloaded' ) . ' <i class="fa fa-arrow-right"></i>' ); ?></div>
+			<div class="nav-previous pull-left"><?php previous_comments_link( '<i class="fa fa-arrow-left" aria-hidden="true"></i> ' . esc_html__( 'older comments', 'best-reloaded' ) ); ?></div>
+			<div class="nav-next pull-right"><?php next_comments_link( esc_html__( 'newer comments', 'best-reloaded' ) . ' <i class="fa fa-arrow-right" aria-hidden="true"></i>' ); ?></div>
 		</nav>
 	<?php endif; // Check for comment navigation. ?>
 

@@ -18,9 +18,10 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<a class="skip-link sr-only sr-only-focusable" href="#main_content" tabindex="1">Skip to Content</a>
 	<header>
 
-		<nav id="main_navbar" <?php best_reloaded_do_navbar_classes( 'navbar navbar-expand-md' ); ?>>
+		<div id="main_navbar" <?php best_reloaded_do_navbar_classes( 'navbar navbar-expand-md' ); ?>>
 			<div class="container">
 
 				<?php
@@ -31,10 +32,10 @@
 				?>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'best-reloaded' ); ?>">
-					<span class="navbar-toggler-icon"></span>
+					<span class="navbar-toggler-icon"></span><span class="sr-only">Toggle Navigation</span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="headerNav">
+				<nav class="collapse navbar-collapse" id="headerNav" role="navigation">
 					<?php
 					wp_nav_menu( array(
 						'theme_location' 	=> 'best_reloaded_nav_topbar',
@@ -49,14 +50,14 @@
 						get_search_form();
 					}
 					?>
-				</div>
+				</nav>
 
 			</div>
-		</nav>
+		</div>
 
 	</header>
 	<div class="container container-main container-wrapper">
-		<div class="row">
+		<div class="row" role="banner">
 			<div class="col-sm-8 site-header">
 
 				<?php
@@ -68,6 +69,7 @@
 					<div class="name-logo">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 							<img src="<?php echo esc_url( $image[0] ) ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							<span class="sr-only"><?php echo esc_html( get_bloginfo( 'name', 'display' ) ); ?></span>
 						</a>
 					</div>
 				<?php } else {
