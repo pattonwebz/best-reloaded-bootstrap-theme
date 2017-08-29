@@ -275,6 +275,8 @@ add_action( 'best_reloaded_do_navbar_classes', 'best_reloaded_output_navbar_clas
  *
  * @link: https://www.thewebtaylor.com/articles/wordpress-creating-breadcrumbs-without-a-plugin
  * @link: https://github.com/BenSibley/ignite/blob/master/inc/breadcrumbs.php
+ *
+ * @param array $args An array of arguments that can be used to override default args.
  */
 function best_reloaded_do_breadcrumbs( $args = array() ) {
 	// TODO: we want to defer to yoast breadcrumbs when we can.
@@ -285,29 +287,26 @@ function best_reloaded_do_breadcrumbs( $args = array() ) {
 			</div>
 		');
 	} else {
-
-		if ( is_front_page() ) {
-			return;
-		}
-		if ( get_theme_mod( 'ct_ignite_show_breadcrumbs_setting' ) == 'no' ) {
-			return;
-		}
+		/**
+		 * This is the themes built in breadcrumbs feature, it's in need of
+		 * improvement but it fills the space when yoast is not available.
+		 */
 		global $post;
 		$defaults  = array(
 			'separator_icon'      => '&gt;',
 			'breadcrumbs_id'      => 'breadcrumbs',
 			'breadcrumbs_classes' => 'breadcrumb-trail breadcrumbs',
-			'home_title'          => esc_html__( 'Home', 'ignite' )
+			'home_title'          => esc_html( 'Home', 'best-reloaded' ),
 		);
-		$args      = apply_filters( 'ct_ignite_breadcrumbs_args', wp_parse_args( $args, $defaults ) );
+		$args      = wp_parse_args( $args, $defaults );
 		$separator = '<span class="separator"> ' . esc_html( $args['separator_icon'] ) . ' </span>';
-		/***** Begin Markup *****/
-		// Open the breadcrumbs
+
+		// Open the breadcrumbs.
 		$html = '<div id="' . esc_attr( $args['breadcrumbs_id'] ) . '" class="' . esc_attr( $args['breadcrumbs_classes'] ) . '">';
-		// Add Homepage link & separator (always present)
+		// Add Homepage link & separator (always present).
 		$html .= '<span class="item-home"><a class="bread-link bread-home" href="' . get_home_url() . '" title="' . esc_attr( $args['home_title'] ) . '">' . esc_html( $args['home_title'] ) . '</a></span>';
 		$html .= $separator;
-		// Post
+		// Post.
 		if ( is_singular( 'post' ) ) {
 
 			$category = get_the_category( $post->ID );
@@ -346,7 +345,7 @@ function best_reloaded_do_breadcrumbs( $args = array() ) {
 			$html .= '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . $post->post_title . '">' . wp_strip_all_tags( $post->post_title ) . '</span></span>';
 		} elseif ( is_category() ) {
 			$parent = get_queried_object()->category_parent;
-			if ( $parent !== 0 ) {
+			if ( 0 !== $parent ) {
 				$parent_category = get_category( $parent );
 				$category_link   = get_category_link( $parent );
 				$html .= '<span class="item-parent item-parent-' . esc_attr( $parent_category->slug ) . '"><a class="bread-parent bread-parent-' . esc_attr( $parent_category->slug ) . '" href="' . esc_url( $category_link ) . '" title="' . esc_attr( $parent_category->name ) . '">' . esc_html( $parent_category->name ) . '</a></span>';
@@ -369,12 +368,11 @@ function best_reloaded_do_breadcrumbs( $args = array() ) {
 		} elseif ( is_search() ) {
 			$html .= '<span class="item-current item-search"><span class="bread-current bread-search">Search results for: ' . get_search_query() . '</span></span>';
 		} elseif ( is_404() ) {
-			$html .= '<span>' . __( 'Error 404', 'ignite' ) . '</span>';
+			$html .= '<span>' . __( 'Error 404', 'best-reloaded' ) . '</span>';
 		} elseif ( is_home() ) {
 			$html .= '<span>' . esc_html( get_the_title( get_option( 'page_for_posts' ) ) ) . '</span>';
-		}
+		} // End if().
 		$html .= '</div>';
-		$html = apply_filters( 'ct_ignite_breadcrumbs_filter', $html );
 		echo wp_kses_post( $html );
 
 	} // End if().
