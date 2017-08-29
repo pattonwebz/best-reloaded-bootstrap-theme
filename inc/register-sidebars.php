@@ -42,7 +42,7 @@ function best_reloaded_widgets_init() {
 		'name'          => __( 'Front-page: Widget Row', 'best-reloaded' ),
 		'id'            => 'frontpage-widget-row',
 		'description'   => __( 'Widgets placed in this area will appear in the row beneath the slider when this area is toggled on in customizer. A maximum of 3 widgets can be used in this area.', 'best-reloaded' ),
-		'before_widget' => '<div class="col-sm-4"><aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div class="col"><aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside><hr class="hr-row-divider"></div>',
 		'before_title'  => '<h3 class="widget-title h4">',
 		'after_title'   => '</h3>',
@@ -60,39 +60,9 @@ function best_reloaded_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Footer: First Column', 'best-reloaded' ),
-		'id'            => 'footer-col-1',
+		'id'            => 'footer-col',
 		'description'   => __( 'Widgets placed in this area will appear in the far left column of the footer on all pages.', 'best-reloaded' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title h4">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer: Second Column', 'best-reloaded' ),
-		'id'            => 'footer-col-2',
-		'description'   => __( 'Widgets placed in this area will appear in the middle left column of the footer on all pages.', 'best-reloaded' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title h4">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer: Third Column', 'best-reloaded' ),
-		'id'            => 'footer-col-3',
-		'description'   => __( 'Widgets placed in this area will appear in the middle right column of the footer on all pages.', 'best-reloaded' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title h4">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer: Fourth Column', 'best-reloaded' ),
-		'id'            => 'footer-col-4',
-		'description'   => __( 'Widgets placed in this area will appear in the far right column of the footer on all pages.', 'best-reloaded' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s col">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title h4">',
 		'after_title'   => '</h3>',

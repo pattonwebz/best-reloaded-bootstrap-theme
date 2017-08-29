@@ -13,41 +13,18 @@
 	</div><!-- end .container.container-main -->
 
 	<footer id="site-footer" class="container" role="contentinfo">
-
-		<?php if ( get_theme_mod( 'display_footer_top', 0 ) ) : ?>
-
-		<div class="footer-top">
-			<div class="widget-area row">
-				<div class="footer-widget-col col-md-3">
-					<?php
-					if ( ! dynamic_sidebar( 'footer-col-1' ) ) {
-						echo '&nbsp;';
-					} ?>
-				</div>
-				<div class="footer-widget-col col-md-3">
-					<?php
-					if ( ! dynamic_sidebar( 'footer-col-2' ) ) {
-						echo '&nbsp;';
-					} ?>
-				</div>
-				<div class="footer-widget-col col-md-3">
-					<?php
-					if ( ! dynamic_sidebar( 'footer-col-3' ) ) {
-						echo '&nbsp;';
-					}?>
-				</div>
-				<div class="footer-widget-col col-md-3">
-					<?php
-					if ( ! dynamic_sidebar( 'footer-col-4' ) ) {
-						echo '&nbsp;';
-					} ?>
-				</div>
-			</div><!-- end .widget-area -->
-		</div><!-- end .footer-top -->
-
-		<?php endif; ?>
-		<?php if ( get_theme_mod( 'display_footer_bottom', true ) ) : ?>
-
+		<?php
+		if ( get_theme_mod( 'display_footer_top', true ) ) {
+			if ( is_active_sidebar( 'footer-col' ) ) { ?>
+				<div class="footer-top">
+					<div class="widget-area row">
+						<?php dynamic_sidebar( 'footer-col' ); ?>
+					</div><!-- end .widget-area -->
+				</div><!-- end .footer-top -->
+			<?php
+			}
+		}
+		if ( get_theme_mod( 'display_footer_bottom', true ) ) { ?>
 		<div class="footer-bottom" role="contentinfo">
 			<div class="row">
 				<div class="col-sm-5">
@@ -76,7 +53,7 @@
 			</div><!-- end .row -->
 		</div><!-- end .footer-bottom -->
 
-		<?php endif; ?>
+		<?php }; ?>
 
 	</footer>
 
