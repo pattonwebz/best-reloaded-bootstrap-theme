@@ -346,6 +346,18 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' 			=> 'checkbox',
 	) );
 
+	$wp_customize->add_setting( 'enable_slim_mode', array(
+		'default' 			=> 0,
+		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'enable_slim_mode', array(
+		'label' 		=> __( 'Enable Slim Mode.', 'best-reloaded' ),
+		'description' 	=> __( 'Slim mode uses .css and .js files that have some features removed. This can help improve site performace but some of the dropped elements may be needed by or other plugins or in the content you create so by default the full Bootstrap is included.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_misc',
+		'settings' 		=> 'enable_slim_mode',
+		'type' 			=> 'checkbox',
+	) );
+
 }
 
 /**
