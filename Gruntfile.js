@@ -25,6 +25,7 @@ module.exports = function(grunt) {
 				files: {
 					// the first path is the output and the second is the input.
 					'assets/src/css/bootstrap.css'		: 'assets/src/scss/bootstrap/bootstrap.scss',
+					'assets/src/css/bootstrap-slim.css'	: 'assets/src/scss/bootstrap/bootstrap-slim.scss',
 					'assets/src/css/font-awesome.css' 	: 'assets/src/scss/font-awesome/font-awesome.scss',
 					'assets/src/css/style.css' 			: 'assets/src/scss/style.scss'
 				}
@@ -73,6 +74,7 @@ module.exports = function(grunt) {
 			build: {
 				files: {
 					'assets/css/bootstrap.css'		: 'assets/src/css/bootstrap.css',
+					'assets/css/bootstrap-slim.css'	: 'assets/src/css/bootstrap-slim.css',
 					'assets/css/font-awesome.css'	: 'assets/src/css/font-awesome.css',
 					'assets/css/style.css'			: 'assets/src/css/style.css'
 				}
@@ -86,6 +88,7 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'assets/css/bootstrap.min.css' 		: 'assets/css/bootstrap.css',
+					'assets/css/bootstrap-slim.min.css'	: 'assets/css/bootstrap-slim.css',
 					'assets/css/font-awesome.min.css'	: 'assets/css/font-awesome.css',
 					'assets/css/style.min.css' 			: 'assets/src/css/style.css'
 				}
@@ -145,8 +148,9 @@ module.exports = function(grunt) {
 					]
 				},
 				files: {
-					'<%= concat.bootstrap.dest %>' : '<%= concat.bootstrap.dest %>',
-					'assets/js/popper.js'         : 'assets/js/popper.js'
+					'<%= concat.bootstrap.dest %>' 		: '<%= concat.bootstrap.dest %>',
+					'<%= concat.bootstrap_slim.dest %>' : '<%= concat.bootstrap_slim.dest %>',
+					'assets/js/popper.js'				: 'assets/js/popper.js'
 				}
 			}
 
@@ -176,6 +180,16 @@ module.exports = function(grunt) {
 				//dest: 'dist/js/<%= pkg.name %>.js'
 				dest: 'assets/js/bootstrap.js'
 			},
+			bootstrap_slim: {
+				src: [
+				  'assets/js/util.js',
+				  'assets/js/button.js',
+				  'assets/js/carousel.js',
+				  'assets/js/dropdown.js'
+				],
+				//dest: 'dist/js/<%= pkg.name %>.js'
+				dest: 'assets/js/bootstrap-slim.js'
+			},
 			popper: {
 				src: [
 					'assets/js/popper.js',
@@ -189,6 +203,7 @@ module.exports = function(grunt) {
 			dev: {
 				files: [
 					{ src: 'assets/js/bootstrap.js', dest: 'assets/js/bootstrap.min.js' }, // All the Bootstrap JS
+					{ src: 'assets/js/bootstrap-slim.js', dest: 'assets/js/bootstrap-slim.min.js' }, // Slim Bootstrap JS
 					{ src: 'assets/js/popper.js', dest: 'assets/js/popper.min.js' }, // Popper.
 				]
 			},
@@ -238,13 +253,13 @@ module.exports = function(grunt) {
 				// note the unminifide style.css file is copied seporately.
 				{
 					expand: true,
-					src: ['assets/css/style.min.css', 'assets/css/bootstrap.css', 'assets/css/bootstrap.min.css'],
+					src: ['assets/css/style.min.css', 'assets/css/bootstrap.css', 'assets/css/bootstrap.min.css', 'assets/css/bootstrap-slim.css', 'assets/css/bootstrap-slim.min.css'],
 					dest: 'dist/best-reloaded/'
 				},
 				// only combined scripts, no individuals.
 				{
 					expand: true,
-					src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js', 'assets/js/popper.js', 'assets/js/popper.min.js'],
+					src: ['assets/js/scripts.js', 'assets/js/scripts.min.js', 'assets/js/bootstrap.js', 'assets/js/bootstrap.min.js', 'assets/js/bootstrap-slim.js', 'assets/js/bootstrap-slim.min.js', 'assets/js/popper.js', 'assets/js/popper.min.js'],
 					dest: 'dist/best-reloaded/'
 				},
 				// copy img directory.
