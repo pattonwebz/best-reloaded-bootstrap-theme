@@ -308,10 +308,11 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' 			=> 'checkbox',
 	) );
 
+	$default_tagline = sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) );
 	// bottom tagline/copyrights default value is generated.
 	$wp_customize->add_setting( 'footer_bottom_tagline', array(
 		// translators: 1 is current year, 2 is site name.
-		'default' 			=> sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) ),
+		'default' 			=> $default_tagline,
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'footer_bottom_tagline', array(
@@ -352,7 +353,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'enable_slim_mode', array(
 		'label' 		=> __( 'Enable Slim Mode.', 'best-reloaded' ),
-		'description' 	=> __( 'Slim mode uses .css and .js files that have some features removed. This can help improve site performace but some of the dropped elements may be needed by or other plugins or in the content you create so by default the full Bootstrap is included.', 'best-reloaded' ),
+		'description' 	=> __( 'Slim mode uses css and js files that have some features not used in the theme removed. By default the full Bootstrap is included.', 'best-reloaded' ),
 		'section' 		=> 'best_reloaded_misc',
 		'settings' 		=> 'enable_slim_mode',
 		'type' 			=> 'checkbox',
