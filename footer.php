@@ -34,8 +34,8 @@
 					) ); ?></p>
 				</div>
 				<div class="col-sm-7 align-self-center">
-					<nav role="navigation">
-
+					<nav role="navigation" aria-label="Footer Menu">
+						<span class="sr-only">Footer Menu</span>
 						<?php
 							wp_nav_menu( array(
 								'theme_location' => 'best_reloaded_nav_footer',

@@ -35,7 +35,8 @@
 					<span class="navbar-toggler-icon"></span><span class="sr-only">Toggle Navigation</span>
 				</button>
 
-				<nav class="collapse navbar-collapse" id="headerNav" role="navigation">
+				<nav class="collapse navbar-collapse" id="headerNav" role="navigation" aria-label="Main Menu">
+					<span class="sr-only">Main Menu</span>
 					<?php
 					wp_nav_menu( array(
 						'theme_location' 	=> 'best_reloaded_nav_topbar',
