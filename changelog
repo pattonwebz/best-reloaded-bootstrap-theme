@@ -1,3 +1,8 @@
+1.4.0	- Added a 'slim mode' for the Bootstrap Styles and Scripts. Includes only what is needed by the theme. Big savings on JS.
+			- bootstrap.min.js  =  51.4kb  :  bootstrap-slim.min.js  =  16.2kb
+			 	- ~35kb saving or a 68% saving.
+			- bootstrap.min.css = 141.8kb  :  bootstrap-slim.min.css = 130.4kb
+				- ~10kb saving or an 8% saving.
 1.3.0	- Fix: Swapped to front-page.php for front template, instead of a page template.
 		- Enhancement: Added Gutenberg wide image support and a color swatch.
 		- Enhancement: Added a hook and action for outputting post meta.
@@ -9,11 +14,11 @@
 		- Fix: Swap from `label` to `badge` for post tags class outputs.
 		- Enhancement: Add font-awesome.
 		- Enhancement: Many new style options for navbar.
-			- postion: top, bottom, sticky
+			- position: top, bottom, sticky
 			- bg colors and text color
 		- Enhancement: New options for slider.
 			- option to set category used, number of slides.
-		- Tweak: Many still tweaks, changes and reworks.
+		- Tweak: Many smaller tweaks, changes and reworks.
 1.2.1	- Fix: No background color for body.
 		- Fix: Navbar function instead of variable bug.
 1.2.0	- Add options for outputting image and site-title as .navbar-brand.
@@ -21,7 +26,7 @@
 
 1.1.0	- Swap to Bootstrap@4.0.0-beta.
 		- Swap out Tether for Popper as new dependency.
-		- Accesibility tweak for navwalker.
+		- Accessibility tweak for navwalker.
 		- New `.btn-theme` and `.btn-outline-theme`.
 		- Fix missing comments ability for pages.
 

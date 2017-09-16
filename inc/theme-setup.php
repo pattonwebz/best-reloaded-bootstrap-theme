@@ -124,7 +124,7 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 
 
 			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', '4.7.0' );
-			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '1.3.0' );
+			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '1.4.0' );
 
 			if ( get_theme_mod( 'enable_font-awesome', true ) ) {
 				wp_enqueue_style( 'font-awesome' );
@@ -176,7 +176,7 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 
 			// enqueue the main theme scripts file - which will in turn enqueue
 			// bootstrap, tether and jQuery due to dependancy chaining.
-			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '0.13.0', true );
+			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '1.4.0', true );
 
 			// only enqueue comment-reply script on single pages.
 			if ( is_single() ) {
