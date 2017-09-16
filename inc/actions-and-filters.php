@@ -148,7 +148,11 @@ add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand'
  */
 function best_reloaded_output_post_meta( $echo = true, $type = false ) {
 	// if no specific type was requested, figure it out.
-	if ( is_home() ) {
+	// NOTE: due to a quirk of using a front-page.php template `is_home()` and
+	// `is_front_page()` are true when no static page is set. Test that first.
+	if ( is_home() && is_front_page() ) {
+		$type = 'front-page';
+	} elseif ( is_home() ) {
 		$type = 'home';
 	} elseif ( is_front_page() ) {
 		$type = 'front-page';
