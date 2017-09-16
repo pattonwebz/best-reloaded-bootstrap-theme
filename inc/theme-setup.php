@@ -114,9 +114,18 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 	 */
 	function best_reloaded_load_styles() {
 		if ( ! is_admin() ) {
-			wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-alpha.6' );
+			// we can either have full bootstrap or a slim version. For ease
+			// keep handle the same but change src and tag the slim version.
+			if ( ! get_theme_mod( 'enable_slim_mode', false ) ){
+				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-beta' );
+			} else {
+				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap-slim.min.css', '4.0.0-beta-slim' );
+			}
+
+
 			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', '4.7.0' );
-			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '0.13.0' );
+			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '1.3.0' );
+
 			if ( get_theme_mod( 'enable_font-awesome', true ) ) {
 				wp_enqueue_style( 'font-awesome' );
 			}
@@ -155,9 +164,14 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 	 */
 	function best_reloaded_load_scripts() {
 		if ( ! is_admin() ) {
-			// register bootstrap scripts.
-			wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'popper' ), '4.0.0-beta', true );
-			// register tether - needed by bootstrap affix.
+			// we can either have full bootstrap or a slim version. For ease
+			// keep handle the same but change src and tag the slim version.
+			if ( ! get_theme_mod( 'enable_slim_mode', false ) ){
+				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'popper' ), '4.0.0-beta', true );
+			} else {
+				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap-slim.min.js', array( 'jquery', 'popper' ), '4.0.0-beta-slim', true );
+			}
+			// register popper - needed by bootstrap affix.
 			wp_register_script( 'popper', get_template_directory_uri() . '/assets/js/popper.min.js', array( 'jquery' ), '1.11.1', true );
 
 			// enqueue the main theme scripts file - which will in turn enqueue
