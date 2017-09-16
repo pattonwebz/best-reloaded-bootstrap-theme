@@ -10,7 +10,7 @@
 
 ?>
 <div class="row blog-three-up">
-	<div class="col-sm-3 widget-area">
+	<div class="col-md-12 col-lg widget-area">
 		<?php
 		if ( is_active_sidebar( 'frontpage-blog-row-sidebar' ) ) {
 			dynamic_sidebar( 'frontpage-blog-row-sidebar' );
@@ -34,7 +34,7 @@
 	);
 	$loop = new WP_Query( $args );
 	if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();	?>
-	<div class="col-sm-3">
+	<div class="col-sm-12 col-md">
 		<article  <?php post_class(); ?> >
 			<header>
 				<a href="<?php the_permalink(); ?>" class="post-thumb">
