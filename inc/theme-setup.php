@@ -11,7 +11,6 @@
 /*
  * Theme Setup Function
  */
-add_action( 'after_setup_theme', 'best_reloaded_setup' );
 if ( ! function_exists( 'best_reloaded_setup' ) ) {
 	/**
 	 * Main theme setup functiion.
@@ -85,6 +84,7 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 
 	}
 }// End if().
+add_action( 'after_setup_theme', 'best_reloaded_setup' );
 
 /**
  * Sets the content width
@@ -101,8 +101,8 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 	 */
 	function best_reloaded_load_styles() {
 		if ( ! is_admin() ) {
-			wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-alpha.6' );
-			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '0.13.0' );
+			wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-beta' );
+			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '1.4.2' );
 		}
 	}
 }
@@ -121,7 +121,7 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 
 			// enqueue the main theme scripts file - which will in turn enqueue
 			// bootstrap, tether and jQuery due to dependancy chaining.
-			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '0.13.0', true );
+			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '1.4.2', true );
 
 			// only enqueue comment-reply script on single pages.
 			if ( is_single() ) { wp_enqueue_script( 'comment-reply' );
@@ -186,8 +186,6 @@ if ( ! function_exists( 'best_reloaded_theme_options' ) ) {
 }// End if().
 add_action( 'wp_head', 'best_reloaded_theme_options' );
 
-
-
 add_filter( 'wp_list_categories', 'best_reloaded_remove_category_list_rel' );
 add_filter( 'the_category', 'best_reloaded_remove_category_list_rel' );
 if ( ! function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
@@ -203,8 +201,6 @@ if ( ! function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
 		return $output;
 	}
 }
-
-
 
 add_filter( 'excerpt_length', 'best_reloaded_custom_excerpt_length', 999 );
 if ( ! function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
@@ -222,6 +218,7 @@ if ( ! function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
 		return 40;
 	}
 }
+
 add_filter( 'excerpt_more', 'best_reloaded_new_excerpt_more' );
 if ( ! function_exists( 'best_reloaded_new_excerpt_more' ) ) {
 	/**

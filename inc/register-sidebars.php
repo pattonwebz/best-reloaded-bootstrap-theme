@@ -12,6 +12,8 @@ add_action( 'widgets_init', 'best_reloaded_widgets_init' );
 
 /**
  * Function hooked to widgets_init to add our sidebars.
+ *
+ * Each of these can be unregistered by `id` later (such as in a child theme)
  */
 function best_reloaded_widgets_init() {
 

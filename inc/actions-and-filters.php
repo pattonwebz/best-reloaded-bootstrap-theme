@@ -30,7 +30,7 @@ function best_reloaded_featurebar() {
 	echo wp_kses_post( apply_filters( 'best_reloaded_filter_featurebar', $bar_content ) );
 }
 
- // Hook to the cloud_one_do_featurebar action hook.
+ // Hook to the best_reloaded_do_featurebar action hook.
 add_action( 'best_reloaded_do_featurebar', 'best_reloaded_featurebar' );
 
  /**
