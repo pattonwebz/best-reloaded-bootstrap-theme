@@ -136,3 +136,49 @@ function best_reloaded_output_navbar_brand() {
 	}
 }
 add_action( 'best_reloaded_do_navbar_brand', 'best_reloaded_output_navbar_brand' );
+
+/**
+ * Return or echo the post meta info.
+ *
+ * @param  string  $type string containing a type of meta to generate.
+ * @param  bool    $echo to echo or not, default true.
+ *
+ * @return mixed        returns either a string of html or void.
+ */
+function best_reloaded_output_post_meta( $type = 'full', $echo = true ) {
+	// inital output set to FALSE.
+	$output = false;
+	// use the $type flag to decide what style of meta to generate.
+	switch ( $type ) {
+		case 'full' :
+			ob_start(); ?>
+			<!-- full post meta -->
+			<span class="meta"><?php esc_html_e( 'Written by', 'best-reloaded' ); ?> <?php the_author_link(); ?></span>
+			<span class="meta"><?php esc_html_e( 'on', 'best-reloaded' ); ?> <?php the_time( get_option( 'date_format' ) ); ?></span>
+			<span class="meta"><?php esc_html_e( 'in', 'best-reloaded' ); ?> <?php the_category( ' and ' ); ?></span>
+			<span class="meta"><?php esc_html_e( 'with', 'best-reloaded' ); ?> <a href="<?php comments_link(); ?>" title="<?php comments_number( 'no comments', 'one comment', '% comments' ); ?>"><?php comments_number( 'no comments', 'one Comment', '% comments' ); ?></a></span>
+			<?php
+			$output = ob_get_clean();
+
+		case 'mini' :
+			ob_start(); ?>
+			<!-- mini post meta -->
+			<span class="meta"><?php the_time( get_option( 'date_format' ) ); ?> &#8226; <a href="<?php comments_link(); ?>" title="<?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?>"><?php comments_number( 'No Comments', 'One Comment', '% Comments' ); ?></a></span>
+			<?php
+			$output = ob_get_clean();
+
+	}
+
+	// offer a filter to modify the post meta before we either echo or return it.
+	apply_filters( 'best_reloaded_filter_post_meta', $output );
+
+	// do we have $output to echo or return?
+	if( $echo && $output) {
+		// if echo is true and we have an output then echo it...
+		echo $output;
+	} else {
+		// here we either have no $output html or we don't want to echo.
+		return $output;
+	}
+}
+add_action( 'best_reloaded_do_post_meta', 'best_reloaded_output_post_meta', 10, 2 );
