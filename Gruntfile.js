@@ -275,6 +275,20 @@ module.exports = function(grunt) {
 					dest: 'dist/best-reloaded/'
 				}],
 			},
+			addJQueryRemapAtTop: {
+				files:[
+				// need to remap $ to jQuery in these files.
+				{
+					expand: true,
+					src: ['assets/js/bootstrap.js', 'assets/js/bootstrap-slim.js'],
+				}],
+				options: {
+					process: function (content, srcpath) {
+						console.log( 'processing' );
+						return 'var $ = jQuery;\n' + content;
+					},
+				},
+			},
 			versionReplace: {
 				files:[
 				// copy stylesheets and insert version number from package.json.
@@ -306,7 +320,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask( 'default', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme'] );
-	grunt.registerTask( 'build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'uglify:dev'] );
+	grunt.registerTask( 'build', ['copy:build', 'sass:build', 'postcss:build', 'postcss:buildminify', 'babel:build', 'concat', 'babel:dist', 'copy:addJQueryRemapAtTop', 'uglify:dev'] );
 	grunt.registerTask( 'theme', ['sass:theme', 'postcss:theme', 'postcss:thememinify', 'copy:theme', 'uglify:theme'] );
 	grunt.registerTask( 'dist', ['copy:dist', 'copy:versionReplace'] );
 };
