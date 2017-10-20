@@ -1,13 +1,14 @@
+import $ from 'jquery';
 import Tooltip from './tooltip';
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta): popover.js
+ * Bootstrap (v4.0.0-beta.2): popover.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const Popover = ($ => {
+const Popover = (() => {
 
   /**
    * ------------------------------------------------------------------------
@@ -16,7 +17,7 @@ const Popover = ($ => {
    */
 
   const NAME = 'popover';
-  const VERSION = '4.0.0-beta';
+  const VERSION = '4.0.0-beta.2';
   const DATA_KEY = 'bs.popover';
   const EVENT_KEY = `.${DATA_KEY}`;
   const JQUERY_NO_CONFLICT = $.fn[NAME];
@@ -105,7 +106,8 @@ const Popover = ($ => {
     }
 
     getTipElement() {
-      return this.tip = this.tip || $(this.config.template)[0];
+      this.tip = this.tip || $(this.config.template)[0];
+      return this.tip;
     }
 
     setContent() {
@@ -149,7 +151,7 @@ const Popover = ($ => {
         }
 
         if (typeof config === 'string') {
-          if (data[config] === undefined) {
+          if (typeof data[config] === 'undefined') {
             throw new Error(`No method named "${config}"`);
           }
           data[config]();
@@ -172,7 +174,7 @@ const Popover = ($ => {
   };
 
   return Popover;
-})(jQuery);
+})($);
 
 export default Popover;
 //# sourceMappingURL=popover.js.map
