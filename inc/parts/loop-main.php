@@ -32,9 +32,9 @@
 		<article <?php post_class(); ?> >
 			<header>
 				<a href="<?php the_permalink(); ?>" class="post-thumb">
-					<span>
+					<div class="hoverspan">
 						<?php get_template_part( 'inc/parts/featured', 'image' ); ?>
-					</span>
+					</div>
 				</a>
 				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 			</header>

@@ -507,14 +507,14 @@ img#brand-img {
 * --------------------------------------- */
 /* thumbnail floating effect */
 .post-thumb {
-  display: inline-block;
   max-width: 100%;
   position: relative;
+  margin-bottom: 10px;
   bottom: 0;
   transition: bottom 0.3s ease-in-out; }
   .post-thumb img {
     border-radius: 3px; }
-  .post-thumb span {
+  .post-thumb .hoverspan {
     display: block;
     padding: 5px;
     border: 1px solid #ddd;
@@ -523,8 +523,25 @@ img#brand-img {
     transition: box-shadow 0.3s ease-in-out; }
   .post-thumb:hover {
     bottom: 10px; }
-    .post-thumb:hover span {
+    .post-thumb:hover .hoverspan {
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); }
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both; }
+
+.animated.infinite {
+  animation-iteration-count: infinite; }
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible; }
+  to {
+    transform: translate3d(0, 0, 0); } }
+
+.slideInUp {
+  animation-name: slideInUp; }
 
 .btn > .caret, .gform_button > .caret,
 .dropup > .btn > .caret,
