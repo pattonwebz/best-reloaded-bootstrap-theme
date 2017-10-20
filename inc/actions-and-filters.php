@@ -305,8 +305,10 @@ function best_reloaded_do_breadcrumbs( $args = array() ) {
 		$args      = wp_parse_args( $args, $defaults );
 		$separator = '<span class="separator"> ' . esc_html( $args['separator_icon'] ) . ' </span>';
 
+		// Open a wrapper.
+		$html = '<div class="col-12">';
 		// Open the breadcrumbs.
-		$html = '<div id="' . esc_attr( $args['breadcrumbs_id'] ) . '" class="' . esc_attr( $args['breadcrumbs_classes'] ) . '">';
+		$html .= '<p id="' . esc_attr( $args['breadcrumbs_id'] ) . '" class="' . esc_attr( $args['breadcrumbs_classes'] ) . '">';
 		// Add Homepage link & separator (always present).
 		$html .= '<span class="item-home"><a class="bread-link bread-home" href="' . get_home_url() . '" title="' . esc_attr( $args['home_title'] ) . '">' . esc_html( $args['home_title'] ) . '</a></span>';
 		$html .= $separator;
@@ -376,6 +378,7 @@ function best_reloaded_do_breadcrumbs( $args = array() ) {
 		} elseif ( is_home() ) {
 			$html .= '<span>' . esc_html( get_the_title( get_option( 'page_for_posts' ) ) ) . '</span>';
 		} // End if().
+		$html .= '</p>';
 		$html .= '</div>';
 		echo wp_kses_post( $html );
 
