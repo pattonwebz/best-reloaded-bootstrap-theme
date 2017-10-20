@@ -1,3 +1,12 @@
+1.5.0	- Updated to Bootstrap@4.0.0.beta.2
+		- Updated Popper to 1.12.5
+		- Swapped from grunt-contrib-sass to grunt-sass
+			- contrib was throwing invalid css warnings at bootstraps new method of adding color variables in root for post-processing.
+1.4.4	- Fix: Breadcrumbs wrapped in a proper container.
+1.4.3	- Enhancement: no longer a capped amount of widgets in various rows.
+		- Accessibility: Added skip link, some aria values, roles.
+		- Accessibility: Added text describers for header and footer navs.
+		- Dev: WP-Bootstrap-Navwalker has early header/diver support added.
 1.4.0	- Added a 'slim mode' for the Bootstrap Styles and Scripts. Includes only what is needed by the theme. Big savings on JS.
 			- bootstrap.min.js  =  51.4kb  :  bootstrap-slim.min.js  =  16.2kb
 			 	- ~35kb saving or a 68% saving.

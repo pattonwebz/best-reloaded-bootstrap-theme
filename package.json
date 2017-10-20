@@ -1,6 +1,6 @@
 {
   "name": "best-reloaded",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "A Bootstrap 4 powered theme with a vibrant edge to the color scheme. It has an emphasis on clear typography with enough space for your content to breath.",
   "main": "Gruntfile.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "babel-eslint": "^7.1.1",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.0",
     "babel-preset-es2015": "^6.18.0",
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "^4.0.0-beta.2",
     "cssnano": "^3.10.0",
     "font-awesome": "^4.7.0",
     "grunt": "~1.0.1",
@@ -26,13 +26,13 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "~1.0.0",
     "grunt-contrib-less": "~1.4.0",
-    "grunt-contrib-sass": "~1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "~1.0.0",
     "grunt-github-changes": "~0.1.0",
     "grunt-postcss": "~0.8.0",
+    "grunt-sass": "^2.0.0",
     "jit-grunt": "~0.10.0",
-    "popper.js": "^1.11.1",
+    "popper.js": "^1.12.5",
     "postcss-clean": "^1.0.2",
     "postcss-flexbugs-fixes": "~2.1.0"
   }
