@@ -8,6 +8,7 @@
   * @package Best_Reloaded
   * @since Best Reloaded v0.7
   */
+require_once( trailingslashit( get_template_directory() ) . 'inc/customizer/upsell/class-customize.php' );
 
 add_action( 'customize_register', 'best_reloaded_customizer' );
 

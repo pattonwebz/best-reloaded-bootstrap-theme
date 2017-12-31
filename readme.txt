@@ -27,3 +27,4 @@ This theme uses `Bootstrap` and the `WP Bootstrap Navwalker` so navigation is li
 * Font Awesome by Dave Gandy - http://fontawesome.io - CSS MIT licence, Fonts SIL OFL 1.1
 * Images used by theme (found in /assets/img/) are owned by theme author - Available under CC0
 * Images appearing in screenshot are owned by theme author - Available under CC0
+* TRT-Customizer-Pro used as base for customizer upsell block - https://github.com/justintadlock/trt-customizer-pro/ - Available under GLPv2
