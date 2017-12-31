@@ -253,7 +253,7 @@ module.exports = function(grunt) {
 				// note the unminifide style.css file is copied seporately.
 				{
 					expand: true,
-					src: ['assets/css/style.min.css', 'assets/css/bootstrap.css', 'assets/css/bootstrap.min.css', 'assets/css/bootstrap-slim.css', 'assets/css/bootstrap-slim.min.css'],
+					src: ['assets/css/style.min.css', 'assets/css/bootstrap.css', 'assets/css/bootstrap.min.css', 'assets/css/bootstrap-slim.css', 'assets/css/bootstrap-slim.min.css', 'assets/css/font-awesome.css', 'assets/css/font-awesome.min.css'],
 					dest: 'dist/best-reloaded/'
 				},
 				// only combined scripts, no individuals.
