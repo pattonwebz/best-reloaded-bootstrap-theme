@@ -32,11 +32,11 @@
 				?>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'best-reloaded' ); ?>">
-					<span class="navbar-toggler-icon"></span><span class="sr-only">Toggle Navigation</span>
+					<span class="navbar-toggler-icon"></span><span class="sr-only"><?php esc_html_e( 'Toggle Navigation', 'best-reloaded' ); ?></span>
 				</button>
 
 				<nav class="collapse navbar-collapse" id="headerNav" role="navigation" aria-label="Main Menu">
-					<span class="sr-only">Main Menu</span>
+					<span class="sr-only"><?php esc_html_e( 'Main Menu', 'best-reloaded' ); ?></span>
 					<?php
 					wp_nav_menu( array(
 						'theme_location' 	=> 'best_reloaded_nav_topbar',
