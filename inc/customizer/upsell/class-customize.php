@@ -5,7 +5,7 @@
  * @since  1.0.0
  * @access public
  */
-final class Example_1_Customize {
+final class Best_Reloaded_Customize {
 
 	/**
 	 * Returns the instance.
@@ -62,10 +62,10 @@ final class Example_1_Customize {
 	public function sections( $manager ) {
 
 		// Load custom sections.
-		require_once( trailingslashit( get_template_directory() ) . 'inc/customizer/upsell/section-pro.php' );
+		require_once( trailingslashit( get_template_directory() ) . 'inc/customizer/upsell/class-best-reloaded-upsell-section.php' );
 
 		// Register custom section types.
-		$manager->register_section_type( 'Customize_Upsell_Section' );
+		$manager->register_section_type( 'Best_Reloaded_Upsell_Section' );
 		ob_start(); ?>
 <p><?php esc_html_e( 'I hate crippleware and lite versions. This is the full theme.', 'best-reloaded' ); ?></p>
 <p><?php esc_html_e( 'You can contact me for support or customizations.', 'best-reloaded' ); ?></p>
@@ -76,9 +76,9 @@ final class Example_1_Customize {
 
 		// Register sections.
 		$manager->add_section(
-			new Customize_Upsell_Section(
+			new Best_Reloaded_Upsell_Section(
 				$manager,
-				'upsell-section',
+				'best-reloaded-upsell',
 				array(
 					'title'    => esc_html__( 'Best Reloaded', 'best-reloaded' ),
 					'pro_text' => esc_html__( 'Help and Support',         'best-reloaded' ),
@@ -99,11 +99,10 @@ final class Example_1_Customize {
 	 */
 	public function enqueue_control_scripts() {
 
-		wp_enqueue_script( 'example-1-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/upsell/customize-controls.js', array( 'customize-controls' ) );
+		wp_enqueue_script( 'best-reloaded-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/upsell/customize-controls.js', array( 'customize-controls' ) );
 
-		wp_enqueue_style( 'example-1-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/upsell/customize-controls.css' );
+		wp_enqueue_style( 'best-reloaded-customize-controls', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/upsell/customize-controls.css' );
 	}
 }
 
-// Doing this customizer thang!
-Example_1_Customize::get_instance();
+Best_Reloaded_Customize::get_instance();

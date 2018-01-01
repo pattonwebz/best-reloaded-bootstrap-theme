@@ -1,7 +1,7 @@
 ( function( api ) {
 
 	// Extends our custom "example-1" section.
-	api.sectionConstructor['upsell-section'] = api.Section.extend( {
+	api.sectionConstructor['best-reloaded-upsell'] = api.Section.extend( {
 
 		// No events for this type of section.
 		attachEvents: function () {},
@@ -14,19 +14,17 @@
 
 } )( wp.customize );
 
-function add_or_remove_active(){
-	if ( jQuery( '#accordion-section-upsell-section div.info' ).css( 'display' ) === 'none' ) {
-		console.log( 'display none' );
-		jQuery( '#accordion-section-upsell-section' ).addClass( 'active' );
+function add_or_remove_active( el ){
+	if ( jQuery( el ).find( 'div.info' ).css( 'display' ) === 'none' ) {
+		jQuery( el ).addClass( 'active' );
 	} else {
-		console.log( 'NOT display none' );
-		jQuery( '#accordion-section-upsell-section' ).removeClass( 'active' );
+		jQuery( el ).removeClass( 'active' );
 	}
 }
 
 jQuery( 'document' ).ready( function() {
-	jQuery( '#accordion-section-upsell-section div.info' ).html( jQuery( '#accordion-section-upsell-section div.info' ).text() );
-	jQuery( '#accordion-section-upsell-section' ).click( function() {
-		jQuery( this ).find( 'div.info' ).slideToggle( 400, 'swing', add_or_remove_active() );
+	jQuery( '#accordion-section-best-reloaded-upsell div.info' ).html( jQuery( '#accordion-section-best-reloaded-upsell div.info' ).text() );
+	jQuery( '#accordion-section-best-reloaded-upsell' ).click( function() {
+		jQuery( this ).find( 'div.info' ).slideToggle( 450, 'swing', add_or_remove_active( this ) );
 	});
 })

@@ -1,5 +1,6 @@
 1.6.0	- Added a small upsell block in customizer.
 		- Fix: correctly copy font-awesome styles during `grunt dist`.
+		- Added a link on the slide title.
 1.5.0	- Updated to Bootstrap@4.0.0.beta.2
 		- Updated Popper to 1.12.5
 		- Swapped from grunt-contrib-sass to grunt-sass

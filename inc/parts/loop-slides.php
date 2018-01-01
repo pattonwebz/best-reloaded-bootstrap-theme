@@ -45,7 +45,7 @@ if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 
 	<div class="carousel-caption d-none d-md-block">
 
-			<h2><a href="<?php echo esc_html( get_the_permalink() ); ?>"><?php the_title(); ?></a></h2>
+			<h2><a href="<?php echo esc_html( get_the_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a></h2>
 
 		<?php the_excerpt(); ?>
 	</div>

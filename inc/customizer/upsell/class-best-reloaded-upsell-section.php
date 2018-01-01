@@ -5,7 +5,7 @@
  * @since  1.0.0
  * @access public
  */
-class Customize_Upsell_Section extends WP_Customize_Section {
+class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 
 	/**
 	 * The type of customize section being rendered.
@@ -14,7 +14,7 @@ class Customize_Upsell_Section extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'upsell-section';
+	public $type = 'best-reloaded-upsell';
 
 	/**
 	 * Custom button text to output.
