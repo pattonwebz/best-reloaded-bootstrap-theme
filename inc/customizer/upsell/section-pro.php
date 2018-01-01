@@ -35,6 +35,15 @@ class Customize_Upsell_Section extends WP_Customize_Section {
 	public $pro_url = '';
 
 	/**
+	 * Custom description text.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
+	 */
+	public $pro_description = '';
+
+	/**
 	 * Add custom parameters to pass to the JS via JSON.
 	 *
 	 * @since  1.0.0
@@ -46,6 +55,7 @@ class Customize_Upsell_Section extends WP_Customize_Section {
 
 		$json['pro_text'] = $this->pro_text;
 		$json['pro_url']  = esc_url( $this->pro_url );
+		$json['pro_description'] = $this->pro_description;
 
 		return $json;
 	}
@@ -65,17 +75,14 @@ class Customize_Upsell_Section extends WP_Customize_Section {
 				{{ data.title }}
 
 				<# if ( data.pro_text && data.pro_url ) { #>
-					<a href="{{ data.pro_url }}" class="button button-secondary alignright" target="_blank">{{ data.pro_text }}</a>
+					<a href="{{ data.pro_url }}" class="button button-primary alignright" target="_blank">{{ data.pro_text }}</a>
 				<# } #>
 			</h3>
-
+			<# if ( data.pro_description ) { #>
 			<div class="info" style="display:none;">
-				<p>I hate crippleware and lite versions. This is the full theme.</p>
-				<p>You can contact me for support or customizations.</p>
-				<hr>
-				<p>If you like this theme consider giving it a <a href="https://wordpress.org/support/theme/best-reloaded/reviews/" target="_blank">5 star rating</a>.</p>
+				{{ data.pro_description }}
 			</div>
-
+			<# } #>
 		</li>
 	<?php }
 }

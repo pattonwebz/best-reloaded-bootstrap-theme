@@ -25,6 +25,7 @@ function add_or_remove_active(){
 }
 
 jQuery( 'document' ).ready( function() {
+	jQuery( '#accordion-section-upsell-section div.info' ).html( jQuery( '#accordion-section-upsell-section div.info' ).text() );
 	jQuery( '#accordion-section-upsell-section' ).click( function() {
 		jQuery( this ).find( 'div.info' ).slideToggle( 400, 'swing', add_or_remove_active() );
 	});

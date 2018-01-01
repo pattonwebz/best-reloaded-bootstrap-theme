@@ -66,6 +66,13 @@ final class Example_1_Customize {
 
 		// Register custom section types.
 		$manager->register_section_type( 'Customize_Upsell_Section' );
+		ob_start(); ?>
+<p><?php esc_html_e( 'I hate crippleware and lite versions. This is the full theme.', 'best-reloaded' ); ?></p>
+<p><?php esc_html_e( 'You can contact me for support or customizations.', 'best-reloaded' ); ?></p>
+<hr>
+<p><?php esc_html_e( 'If you like this theme consider giving it a ', 'best-reloaded' ); ?><a href="<?php echo esc_url( 'https://wordpress.org/support/theme/best-reloaded/reviews/ ' ); ?>" target="_blank"><?php esc_html_e( '5 star rating', 'best-reloaded' ); ?></a>.</p>
+		<?php
+		$description = ob_get_clean();
 
 		// Register sections.
 		$manager->add_section(
@@ -76,6 +83,7 @@ final class Example_1_Customize {
 					'title'    => esc_html__( 'Best Reloaded', 'best-reloaded' ),
 					'pro_text' => esc_html__( 'Help and Support',         'best-reloaded' ),
 					'pro_url'  => esc_url( 'https://www.pattonwebz.com/best-reloaded-bootstrap-theme/' ),
+					'pro_description' => $description,
 					'priority'   => 1,
 				)
 			)
