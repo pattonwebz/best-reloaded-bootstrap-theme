@@ -108,6 +108,18 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' 			=> 'checkbox',
 	) );
 
+	$wp_customize->add_setting( 'search_color', array(
+		'default' 			=> 'btn-theme',
+		'sanitize_callback' => 'best_reloaded_sanitize_select',
+	) );
+	$wp_customize->add_control( 'search_color', array(
+		'label' 		=> __( 'Search Color', 'best-reloaded' ),
+		'description' 	=> __( 'Select the color of search you want.', 'best-reloaded' ),
+		'section' 		=> 'best_reloaded_navbar',
+		'type' 			=> 'select',
+		'choices' 		=> best_reloaded_get_search_colors(),
+	) );
+
 	$wp_customize->add_setting( 'display_navbar_brand', array(
 		'default' 			=> 0,
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
@@ -425,6 +437,27 @@ function best_reloaded_get_navbar_bgs() {
 		'bg-success' 	=> 'Green',
 		'bg-danger' 	=> 'Red',
 		'bg-warning' 	=> 'Yellow',
+	);
+	return $options;
+}
+
+/**
+ * Returns an array of possible classnames for use with the search box.
+ *
+ * @return array
+ */
+function best_reloaded_get_search_colors() {
+	$options = array(
+		'btn-theme'           => 'Orange',
+		'btn-info'            => 'Blue',
+		'btn-warning'         => 'Yellow',
+		'btn-danger'          => 'Red',
+		'btn-success'         => 'Green',
+		'btn-outline-theme'	  => 'Outline Orange',
+		'btn-outline-info'    => 'Outline Blue',
+		'btn-outline-warning' => 'Outline Yellow',
+		'btn-outline-danger'  => 'Outline Red',
+		'btn-outline-success' => 'Outline Green',
 	);
 	return $options;
 }
