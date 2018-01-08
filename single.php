@@ -44,12 +44,17 @@
 						</div>
 
 						<?php if ( is_active_sidebar( 'before-post-widgets' ) || ( true === get_post_meta( $post->ID, 'ofo', true ) && true === get_post_meta( $post->ID, 'ofo-text', true ) ) ) { ?>
-							<div class="featured-bar featured-bar-post">
+							<div id="featured-block-postopen" class="featured-bar featured-bar-post">
 									<?php get_template_part( 'inc/parts/featured', 'post-open' ); ?>
 							</div>
 						<?php } ?>
 						<?php the_content(); ?>
 						<?php the_tags( '<span class="post-tags"><span class="meta">' . esc_html__( 'Tags: ', 'best-reloaded' ) . '</span> ', ' ', '</span>' ); ?>
+						<?php if ( is_active_sidebar( 'after-post-widgets' ) ) { ?>
+							<div id="featured-block-postclose" class="featured-bar featured-bar-post">
+									<?php get_template_part( 'inc/parts/featured', 'post-close' ); ?>
+							</div>
+						<?php } ?>
 						<?php wp_link_pages( array(
 							'before' => '<hr class="hr-row-divider"><p class="wp-link-pages hero-p">' . esc_html__( 'Continue Reading: ', 'best-reloaded' ),
 							'after' => '</p>',

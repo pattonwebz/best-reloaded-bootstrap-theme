@@ -61,9 +61,9 @@ if ( ! function_exists( 'best_reloaded_widgets_init' ) ) {
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Footer: First Column', 'best-reloaded' ),
+			'name'          => __( 'Footer Row', 'best-reloaded' ),
 			'id'            => 'footer-col',
-			'description'   => __( 'Widgets placed in this area will appear in the far left column of the footer on all pages.', 'best-reloaded' ),
+			'description'   => __( 'Widgets placed in this area will appear in the footer on all pages.', 'best-reloaded' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s col">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title h4">',
@@ -72,7 +72,7 @@ if ( ! function_exists( 'best_reloaded_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'          => __( 'Post: Before Post', 'best-reloaded' ),
 			'id'            => 'before-post-widgets',
-			'description'   => __( 'Widgets added here will display below the post header and but before the post content. Use if for a text advert.', 'best-reloaded' ),
+			'description'   => __( 'Widgets added here will display below the post header and meta but before the post content. Use if for a text advert.', 'best-reloaded' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title h4">',
@@ -81,7 +81,7 @@ if ( ! function_exists( 'best_reloaded_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'          => __( 'Post: After Post', 'best-reloaded' ),
 			'id'            => 'after-post-widgets',
-			'description'   => __( 'Widgets added here will display after post (directly after the_content). Use it for a newsletter sign-up form or other text advert.', 'best-reloaded' ),
+			'description'   => __( 'Widgets added here will display after post (directly after the_content). Use it for a newsletter sign-up or similar.', 'best-reloaded' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title h4">',

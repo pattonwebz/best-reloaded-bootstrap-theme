@@ -9,7 +9,7 @@
  */
 
 ?>
-<div id="post-open" class="content-column-widgets">
+<div id="featured-bar-postopen" class="content-column-widgets">
 	<?php
 	if ( get_post_meta( $post->ID, 'ofo', true ) === 'true' ) {
 		if ( get_post_meta( $post->ID, 'ofo-text', true ) ) {
