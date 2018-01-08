@@ -51,6 +51,8 @@ if ( ! function_exists( 'best_reloaded_setting_defaults' ) ) {
 	 * Helper function to return the values used as the default settings throughout
 	 * the theme.
 	 *
+	 * @since 1.7.0
+	 *
 	 * @param  string $field a single field being requested.
 	 *
 	 * @return mixed         either a mixed type value or an array of values.

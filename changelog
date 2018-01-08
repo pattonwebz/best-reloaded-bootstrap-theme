@@ -1,3 +1,8 @@
+1.7.0	- A lot of developer and child theme friendly focused changes. All relevant functions are now overridable or filterable.
+			- Moved default settings to a filterable array.
+			- Made all options helper functions filterable.
+		- Made the postend widget area output like expected.
+		- Added a few more options to the search button color choices.
 1.6.0	- Added a small upsell block in customizer.
 		- Fix: correctly copy font-awesome styles during `grunt dist`.
 		- Enhancement: Added a link on the slide title.
