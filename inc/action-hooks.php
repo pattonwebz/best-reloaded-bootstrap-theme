@@ -2,7 +2,8 @@
 /**
  * The action-hooks.php file.
  *
- * Sets up any action hooks used in the theme
+ * Sets up any action hooks used in the theme, these functions don't need to be
+ * overridden as they can be halted by remove_action instead.
  *
  * @package Best_Reloaded
  * @since Best Reloaded v1
@@ -63,7 +64,7 @@ function best_reloaded_do_layout_selection( $classname_string = 'row' ) {
 }
 
 /**
- * Fires during nabar output.
+ * Fires during navbar output.
  *
  * @param  string $classnames any classnames wanting to pass to the navbar.
  */

@@ -199,10 +199,9 @@ if ( ! function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
 		return $output;
 	}
 }
+add_filter( 'wp_list_categories', 'best_reloaded_remove_category_list_rel' );
+add_filter( 'the_category', 'best_reloaded_remove_category_list_rel' );
 
-
-
-add_filter( 'excerpt_length', 'best_reloaded_custom_excerpt_length', 999 );
 if ( ! function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
 	/**
 	 * Custom excerpt length and more text
@@ -218,7 +217,8 @@ if ( ! function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
 		return 40;
 	}
 }
-add_filter( 'excerpt_more', 'best_reloaded_new_excerpt_more' );
+add_filter( 'excerpt_length', 'best_reloaded_custom_excerpt_length', 999 );
+
 if ( ! function_exists( 'best_reloaded_new_excerpt_more' ) ) {
 	/**
 	 * Function to handle custom excerpt more link
@@ -238,8 +238,8 @@ if ( ! function_exists( 'best_reloaded_new_excerpt_more' ) ) {
 		return ' &hellip; ' . $link;
 	}
 }
+add_filter( 'excerpt_more', 'best_reloaded_new_excerpt_more' );
 
-add_filter( 'widget_tag_cloud_args', 'best_reloaded_custom_tag_cloud_widget' );
 if ( ! function_exists( 'best_reloaded_custom_tag_cloud_widget' ) ) {
 	/**
 	 * Custom tagcloud tweaks
@@ -255,3 +255,4 @@ if ( ! function_exists( 'best_reloaded_custom_tag_cloud_widget' ) ) {
 		return $args;
 	}
 }
+add_filter( 'widget_tag_cloud_args', 'best_reloaded_custom_tag_cloud_widget' );
