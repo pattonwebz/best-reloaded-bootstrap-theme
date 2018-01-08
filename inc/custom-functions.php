@@ -131,7 +131,7 @@ function best_reloaded_get_navbar_styles() {
 		'fixed-bottom'	=> 'Fixed Bottom',
 		'sticky-top'	=> 'Sticky Top',
 	);
-	return $options;
+	return apply_filters( 'best_reloaded_filter_get_navbar_styles', $options );
 }
 
 /**
@@ -145,7 +145,7 @@ function best_reloaded_get_navbar_colors() {
 		'navbar-light' 	=> 'Dark',
 		'navbar-dark'	=> 'Light',
 	);
-	return $options;
+	return apply_filters( 'best_reloaded_filter_get_navbar_colors', $options );
 }
 
 /**
@@ -164,7 +164,7 @@ function best_reloaded_get_navbar_bgs() {
 		'bg-danger' 	=> 'Red',
 		'bg-warning' 	=> 'Yellow',
 	);
-	return $options;
+	return apply_filters( 'best_reloaded_filter_get_navbar_bgs', $options );
 }
 
 /**
@@ -185,7 +185,7 @@ function best_reloaded_get_search_colors() {
 		'btn-outline-danger'  => 'Outline Red',
 		'btn-outline-success' => 'Outline Green',
 	);
-	return $options;
+	return apply_filters( 'best_reloaded_filter_get_search_colors', $options );
 }
 
 /**
@@ -198,7 +198,7 @@ function best_reloaded_get_layout_styles() {
 		''					=> 'Right Sidebar',
 		'flex-row-reverse' 	=> 'Left Sidebar',
 	);
-	return $options;
+	return apply_filters( 'best_reloaded_filter_get_layout_styles', $options );
 }
 
 /**
