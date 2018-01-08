@@ -288,7 +288,7 @@ function best_reloaded_sanitize_cetegory_select( $input, $setting ) {
 /**
  * Sanitize navbar classnames for select box customizer setting.
  *
- * @param  srting $input   String containing a classname.
+ * @param  string $input   String containing a classname.
  * @param  mixed  $setting Object containeing the info about the
  *                         settings/control that is being sanitized.
  *
@@ -308,7 +308,7 @@ function best_reloaded_sanitize_navbar_style( $input, $setting ) {
 /**
  * Sanitize strings against postible layout selections.
  *
- * @param  srting $input   String containing a layout string.
+ * @param  string $input   String containing a layout string.
  * @param  mixed  $setting Object containeing the info about the
  *                         settings/control that is being sanitized.
  *
@@ -328,7 +328,7 @@ function best_reloaded_sanitize_layout_selection( $input, $setting ) {
 /**
  * Sanitize navbar classnames for select box customizer setting.
  *
- * @param  srting $input   String containing a classname.
+ * @param  string $input   String containing a classname.
  * @param  mixed  $setting Object containeing the info about the
  *                         settings/control that is being sanitized.
  *
