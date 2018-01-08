@@ -179,11 +179,15 @@ function best_reloaded_get_search_colors() {
 		'btn-warning'         => 'Yellow',
 		'btn-danger'          => 'Red',
 		'btn-success'         => 'Green',
+		'btn-light'           => 'Light',
+		'btn-dark'            => 'Dark',
 		'btn-outline-theme'	  => 'Outline Orange',
 		'btn-outline-info'    => 'Outline Blue',
 		'btn-outline-warning' => 'Outline Yellow',
 		'btn-outline-danger'  => 'Outline Red',
 		'btn-outline-success' => 'Outline Green',
+		'btn-outline-light'   => 'Outline Light',
+		'btn-outline-dark'    => 'Outline Dark',
 	);
 	return apply_filters( 'best_reloaded_filter_get_search_colors', $options );
 }
