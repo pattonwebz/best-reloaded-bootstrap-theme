@@ -14,7 +14,7 @@
 
 	<footer id="site-footer" class="container" role="contentinfo">
 		<?php
-		if ( get_theme_mod( 'display_footer_top', true ) ) {
+		if ( get_theme_mod( 'display_footer_top', best_reloaded_setting_defaults( 'display_footer_top' ) ) ) {
 			if ( is_active_sidebar( 'footer-col' ) ) { ?>
 				<div class="footer-top">
 					<div class="widget-area row">
@@ -24,14 +24,11 @@
 			<?php
 			}
 		}
-		if ( get_theme_mod( 'display_footer_bottom', true ) ) { ?>
+		if ( get_theme_mod( 'display_footer_bottom', best_reloaded_setting_defaults( 'display_footer_bottom' ) ) ) { ?>
 		<div class="footer-bottom" role="contentinfo">
 			<div class="row">
 				<div class="col-sm-5">
-					<p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'footer_bottom_tagline',
-						// translators: 1 is current year, 2 is site name.
-						sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) )
-					) ); ?></p>
+					<p id="footer-site-title"><?php echo wp_kses_post( get_theme_mod( 'footer_bottom_tagline', best_reloaded_setting_defaults( 'footer_bottom_tagline' ) ) ); ?></p>
 				</div>
 				<div class="col-sm-7 align-self-center">
 					<nav role="navigation" aria-label="Footer Menu">

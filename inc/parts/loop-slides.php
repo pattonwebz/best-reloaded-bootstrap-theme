@@ -14,11 +14,11 @@
 // 3 posts, exclude stickies.
 $args = array(
 	'post_type' => 'post',
-	'posts_per_page' => get_theme_mod( 'slider_limit', 3 ),
+	'posts_per_page' => get_theme_mod( 'slider_limit', best_reloaded_setting_defaults( 'slider_limit' ) ),
 	'post__not_in' => get_option( 'sticky_posts' ),
 );
-if ( get_theme_mod( 'slider_category', 0 ) ) {
-	$args['category__in'] = get_theme_mod( 'slider_category' );
+if ( get_theme_mod( 'slider_category', best_reloaded_setting_defaults( 'slider_category' ) ) ) {
+	$args['category__in'] = get_theme_mod( 'slider_category', best_reloaded_setting_defaults( 'slider_category' ) );
 }
 $loop = new WP_Query( $args );
 $i = 0;

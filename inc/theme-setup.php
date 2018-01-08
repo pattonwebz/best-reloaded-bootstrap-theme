@@ -116,22 +116,21 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 		if ( ! is_admin() ) {
 			// we can either have full bootstrap or a slim version. For ease
 			// keep handle the same but change src and tag the slim version.
-			if ( ! get_theme_mod( 'enable_slim_mode', false ) ){
+			if ( ! get_theme_mod( 'enable_slim_mode', best_reloaded_setting_defaults( 'enable_slim_mode' ) ) ) {
 				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-beta' );
 			} else {
 				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap-slim.min.css', '4.0.0-beta-slim' );
 			}
 
-
 			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', '4.7.0' );
 			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '1.4.0' );
 
-			if ( get_theme_mod( 'enable_font-awesome', true ) ) {
+			if ( get_theme_mod( 'enable_font-awesome', best_reloaded_setting_defaults( 'enable_font-awesome' ) ) ) {
 				wp_enqueue_style( 'font-awesome' );
 			}
 
 			// we want to add some additional styles based on navbar style.
-			$nav_style = get_theme_mod( 'navbar_style', 'fixed-top' );
+			$nav_style = get_theme_mod( 'navbar_style', best_reloaded_setting_defaults( 'navbar_style' ) );
 			switch ( $nav_style ) {
 				case 'fixed-top':
 					$css = '
@@ -153,7 +152,7 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 					break;
 			}
 			wp_add_inline_style( 'best-reloaded', $css, 20 );
-		}
+		} // End if().
 	}
 } // End if().
 add_action( 'wp_enqueue_scripts', 'best_reloaded_load_styles' );
@@ -166,7 +165,7 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 		if ( ! is_admin() ) {
 			// we can either have full bootstrap or a slim version. For ease
 			// keep handle the same but change src and tag the slim version.
-			if ( ! get_theme_mod( 'enable_slim_mode', false ) ){
+			if ( ! get_theme_mod( 'enable_slim_mode', best_reloaded_setting_defaults( 'enable_slim_mode' ) ) ) {
 				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'popper' ), '4.0.0-beta', true );
 			} else {
 				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap-slim.min.js', array( 'jquery', 'popper' ), '4.0.0-beta-slim', true );

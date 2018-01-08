@@ -19,20 +19,20 @@ function best_reloaded_bootstrap_navbar_branding() {
 	// initial value for the output is false.
 	$brand_output = false;
 	// check for image set in theme options theme options.
-	$brand_image = get_theme_mod( 'brand_image', '' );
+	$brand_image = get_theme_mod( 'brand_image', best_reloaded_setting_defaults( 'brand_image' ) );
 	// Did we get an image or is the brand text turned on?
-	if ( $brand_image || get_theme_mod( 'display_brand_text', false ) ) {
+	if ( $brand_image || get_theme_mod( 'display_brand_text', best_reloaded_setting_defaults( 'display_brand_text' ) ) ) {
 		// since we have at least 1 of the items then start the output.
 		$brand_output = '<span class="h1 navbar-brand mb-0">';
 		if ( $brand_image ) {
 			// we have an image.
 			$brand_output .= '<img id="brand-img" class="d-inline-block align-top mr-2" src="' . esc_url( $brand_image ) . '" >';
 		}
-		if ( get_theme_mod( 'display_brand_text' ) ) {
+		if ( get_theme_mod( 'display_brand_text', best_reloaded_setting_defaults( 'display_brand_text' ) ) ) {
 			// text is toggled on, get site title.
 			$site_title = get_bloginfo( 'name', 'display' );
 			// very long site titles break the navbar so cap it at a generous 50 chars.
-			if ( strlen( $site_title ) <= 50 || get_theme_mod( 'allow_long_brand', false ) ) {
+			if ( strlen( $site_title ) <= 50 || get_theme_mod( 'allow_long_brand', best_reloaded_setting_defaults( 'allow_long_brand' ) ) ) {
 				$brand_output .= esc_html( $site_title );
 			}
 		}
@@ -41,14 +41,6 @@ function best_reloaded_bootstrap_navbar_branding() {
 	// this will return the markup if we have any or it will return false.
 	return $brand_output;
 }
-
-/**
- *
- *
- * @param  string                            $field [description]
- *
- * @return [type]                                   [description]
- */
 
 /**
  * Helper function to return the values used as the default settings throughout

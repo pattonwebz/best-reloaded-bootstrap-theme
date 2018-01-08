@@ -12,21 +12,24 @@
 ?>
 
 <?php get_header(); ?>
-	<?php if ( get_theme_mod( 'display_intro_text', true ) && get_theme_mod( 'intro_text', false ) ) : ?>
+	<?php
+	// Having the default value of 'intro_text' be FALSE is intentional as to
+	// not output the example text on the front-end until in customizer.
+	if ( get_theme_mod( 'display_intro_text', best_reloaded_setting_defaults( 'display_intro_text' ) ) && get_theme_mod( 'intro_text', false ) ) { ?>
 		<div class="row">
 			<div class="col-sm-12 text-center">
-				<p class="hero-p"><?php echo wp_kses_post( get_theme_mod( 'intro_text' ) ); ?></p>
+				<p class="hero-p"><?php echo wp_kses_post( get_theme_mod( 'intro_text', best_reloaded_setting_defaults( 'intro_text' ) ) ); ?></p>
 				<hr class="hr-row-divider">
 			</div><!-- end .col-xs-12 -->
 		</div><!-- end .row -->
-	<?php endif; ?>
+	<?php } ?>
 	<div id="main_content" role="main">
 		<div class="row">
 			<div class="col-md-9">
 				<div id="carousel-home" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
-						<?php $slides_max = get_theme_mod( 'slider_limit', 3 );
+						<?php $slides_max = get_theme_mod( 'slider_limit', best_reloaded_setting_defaults( 'slider_limit' ) );
 						for ( $i = 0; $i < $slides_max ; $i++ ) { ?>
 							<li data-target="#carousel-home" data-slide-to="<?php echo esc_attr( $i ); ?>" class="<?php if ( 0 === $i ) { echo esc_attr( 'active' ); } ?>"></li>
 						<?php } ?>

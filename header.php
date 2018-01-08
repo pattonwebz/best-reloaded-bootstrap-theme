@@ -25,7 +25,7 @@
 			<div class="container">
 
 				<?php
-				if ( get_theme_mod( 'display_navbar_brand', false ) ) {
+				if ( get_theme_mod( 'display_navbar_brand', best_reloaded_setting_defaults( 'display_navbar_brand' ) ) ) {
 					// navbar is toggled on, get the branding.
 					best_reloaded_do_navbar_brand();
 				}
@@ -47,7 +47,7 @@
 						'walker'            => new wp_bootstrap_navwalker(),
 					) );
 					// if the navbar search is on then output searchform.
-					if ( get_theme_mod( 'display_navbar_search', true ) ) {
+					if ( get_theme_mod( 'display_navbar_search', best_reloaded_setting_defaults( 'display_navbar_search' ) ) ) {
 						get_search_form();
 					}
 					?>
@@ -62,7 +62,7 @@
 			<div class="col-sm-8 site-header">
 
 				<?php
-				$custom_logo_id = get_theme_mod( 'custom_logo', false );
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
 				if ( $custom_logo_id ) {
 					// Since we have a custom logo get the url of it.
 					$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -75,7 +75,7 @@
 					</div>
 				<?php } else {
 					// If the header image is not set output text site-title.
-					$small_title = get_theme_mod( 'small_site_title', false );
+					$small_title = get_theme_mod( 'small_site_title', best_reloaded_setting_defaults( 'small_site_title' ) );
 					if ( $small_title ) {
 						$small_title = ' long-title';
 					} else {
@@ -99,9 +99,10 @@
 					</div>
 				<?php } ?>
 			</div><!-- end .col-md-8 -->
-			<?php if ( get_theme_mod( 'display_header_banner_area', true ) ) { ?>
+			<?php if ( get_theme_mod( 'display_header_banner_area', best_reloaded_setting_defaults( 'display_header_banner_area' ) ) ) { ?>
 				<div class="col-sm-4 header-banner-area">
-					<?php echo do_shortcode( wp_kses_post( get_theme_mod( 'header_banner_area' ) ) ); ?>
+					<?php // intentially using empty string as default here.
+					echo do_shortcode( wp_kses_post( get_theme_mod( 'header_banner_area', '' ) ) ); ?>
 				</div>
 			<?php } ?>
 		</div><!-- end .row -->

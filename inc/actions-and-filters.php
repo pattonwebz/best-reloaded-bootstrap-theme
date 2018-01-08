@@ -242,7 +242,7 @@ add_action( 'best_reloaded_do_layout_selection', 'best_reloaded_layout_output_cl
  */
 function best_reloaded_filter_layout_classnames_output( $classname_string ) {
 	// get the layout selection string.
-	$layout = get_theme_mod( 'layout_selection', '' );
+	$layout = get_theme_mod( 'layout_selection', best_reloaded_setting_defaults( 'layout_selection' ) );
 	// if we got a layout selection then append a space then it to the string.
 	if ( $layout ) {
 		$classname_string .= ' ' . $layout;
@@ -261,7 +261,7 @@ add_filter( 'best_reloaded_filter_layout_classnames', 'best_reloaded_filter_layo
 function best_reloaded_output_navbar_classes( $classnames ) {
 	$classes = $classnames;
 	// add the navbar_style class to the classes string.
-	$classes .= ' ' . get_theme_mod( 'navbar_style', 'fixed-top' );
+	$classes .= ' ' . get_theme_mod( 'navbar_style', best_reloaded_setting_defaults( 'navbar_style' ) );
 	// add the navbar color modifier class.
 	$classes .= ' ' . get_theme_mod( 'navbar-color', best_reloaded_setting_defaults( 'navbar-color' ) );
 	// add the navbar bg modifier class.
