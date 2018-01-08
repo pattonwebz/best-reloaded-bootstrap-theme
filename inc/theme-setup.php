@@ -186,65 +186,6 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'best_reloaded_load_scripts' );
 
-
-
-if ( ! function_exists( 'best_reloaded_theme_options' ) ) {
-	/**
-	 * Echo out color options from admin panel
-	 **/
-	function best_reloaded_theme_options() {
-
-		// these are all hex values.
-		$text_color_featured    	= get_theme_mod( 'text_color_featured_content' );
-		$link_color_main 			= get_theme_mod( 'link_color_main' );
-		$link_color_hover_main 		= get_theme_mod( 'link_hover_color_main' );
-		$link_color_footer 			= get_theme_mod( 'link_color_footer' );
-		$link_color_hover_footer	= get_theme_mod( 'link_hover_color_footer' );
-		$link_color_featured    	= get_theme_mod( 'link_color_featured_content' );
-		$link_color_hover_featured 	= get_theme_mod( 'link_hover_color_featured_content' ); ?>
-
-			<style type="text/css">
-
-			<?php
-			if ( $text_color_featured ) { ?>
-				.featured-bar { color: <?php echo esc_html( $text_color_featured ); ?>; }
-			<?php } ?>
-			<?php if ( $link_color_featured ) { ?>
-				.featured-bar a { color: <?php echo esc_html( $link_color_featured ); ?>; }
-			<?php } ?>
-			<?php if ( $link_color_hover_featured ) { ?>
-				.featured-bar a:hover { color: <?php echo esc_html( $link_color_hover_featured ); ?>; }
-			<?php } ?>
-			<?php if ( $link_color_main ) { ?>
-				a, .comment-notes .required, .comment-form-author .required,
-				.comment-form-email .required, .comment-form-url .required, .comment-form-comment .required { color: <?php echo esc_html( $link_color_main ); ?>; }
-				footer .container.container-main.footer-top { border-top-color: <?php echo esc_html( $link_color_main ); ?>; }
-				.flex-direction-nav li a, .flex-control-nav li a.active,
-				.flex-control-nav li a:hover, .flex-control-nav li a:focus,
-				.sub-menu li > a:hover, .sub-menu .active > a, .sub-menu .active > a:hover { background-color: <?php echo esc_html( $link_color_main ); ?>; }
-				.wp-caption a:hover img { border-color: <?php echo esc_html( $link_color_main ); ?>; }
-			<?php } ?>
-			<?php if ( $link_color_hover_main ) { ?>
-				a:hover { color: <?php echo esc_html( $link_color_hover_main ); ?>; }
-			<?php } ?>
-			<?php if ( $link_color_footer ) { ?>
-				footer .container.container-main a { color: <?php echo esc_html( $link_color_footer ); ?>; }
-			<?php } ?>
-			<?php if ( $link_color_hover_footer ) { ?>
-				footer .container.container-main a:hover { color: <?php echo esc_html( $link_color_hover_footer );  ?>; }
-			<?php } ?>
-
-			</style>
-
-		<?php
-	}
-}// End if().
-add_action( 'wp_head', 'best_reloaded_theme_options' );
-
-
-
-add_filter( 'wp_list_categories', 'best_reloaded_remove_category_list_rel' );
-add_filter( 'the_category', 'best_reloaded_remove_category_list_rel' );
 if ( ! function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
 	/**
 	 * Remove rel attribute from the category list
