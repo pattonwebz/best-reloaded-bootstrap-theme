@@ -19,51 +19,12 @@ add_action( 'customize_register', 'best_reloaded_customizer' );
  */
 function best_reloaded_customizer( $wp_customize ) {
 
-	$wp_customize->add_panel( 'best_reloaded_theme_settings_panel', array(
-		'title'		=> __( 'Best Reloaded Theme Settings', 'best-reloaded' ),
-		'priority' 	=> 20,
-	) );
+	// get the defaults from a function that returns a maybe filtered array.
+	$defaults = best_reloaded_setting_defaults();
 
-	$wp_customize->add_section( 'best_reloaded_navbar', array(
-		'title' 	=> __( 'Main Navbar', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' 	=> 94,
-	) );
-	$wp_customize->add_section( 'best_reloaded_header', array(
-		'title' 	=> __( 'Site Title Row', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' 	=> 95,
-	) );
-	$wp_customize->add_section( 'best_reloaded_other', array(
-		'title' 	=> __( 'Sitewide Options', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' 	=> 96,
-	) );
-
-	$wp_customize->add_section( 'best_reloaded_frontpage', array(
-		'title' 	=> __( 'FrontPage Specific Options', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' 	=> 96,
-	) );
-
-	$wp_customize->add_section( 'best_reloaded_slider', array(
-		'title'		=> __( 'Slider Settings', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' 	=> 98,
-	) );
-	$wp_customize->add_section( 'best_reloaded_footer', array(
-		'title' 	=> __( 'Footer Options', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority' 	=> 100,
-	) );
-	$wp_customize->add_section( 'best_reloaded_misc', array(
-		'title'		=> __( 'Misc Options', 'best-reloaded' ),
-		'panel'		=> 'best_reloaded_theme_settings_panel',
-		'priority'	=> 100,
-	) );
 	// Navbar options.
 	$wp_customize->add_setting( 'navbar_style', array(
-		'default' 			=> 'fixed-top',
+		'default' 			=> $defaults['navbar_style'],
 		'sanitize_callback' => 'best_reloaded_sanitize_navbar_style',
 	) );
 	$wp_customize->add_control( 'navbar_style', array(
@@ -74,7 +35,7 @@ function best_reloaded_customizer( $wp_customize ) {
 		'choices' 		=> best_reloaded_get_navbar_styles(),
 	) );
 	$wp_customize->add_setting( 'navbar-color', array(
-		'default' 			=> 'navbar-light',
+		'default' 			=> $defaults['navbar-color'],
 		'sanitize_callback' => 'best_reloaded_sanitize_select',
 	) );
 	$wp_customize->add_control( 'navbar-color', array(
@@ -85,7 +46,7 @@ function best_reloaded_customizer( $wp_customize ) {
 		'choices' 		=> best_reloaded_get_navbar_colors(),
 	) );
 	$wp_customize->add_setting( 'navbar-bg', array(
-		'default' 			=> 'bg-light',
+		'default' 			=> $defaults['navbar-bg'],
 		'sanitize_callback' => 'best_reloaded_sanitize_select',
 	) );
 	$wp_customize->add_control( 'navbar-bg', array(
@@ -97,7 +58,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'display_navbar_search', array(
-		'default' 			=> 1,
+		'default' 			=> $defaults['display_navbar_search'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_navbar_search', array(
@@ -109,7 +70,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'search_color', array(
-		'default' 			=> 'btn-theme',
+		'default' 			=> $defaults['search_color'],
 		'sanitize_callback' => 'best_reloaded_sanitize_select',
 	) );
 	$wp_customize->add_control( 'search_color', array(
@@ -121,7 +82,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'display_navbar_brand', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['display_navbar_brand'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_navbar_brand', array(
@@ -133,7 +94,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'brand_image', array(
-		'default' 			=> '',
+		'default' 			=> $defaults['brand_image'],
 		'sanitize_callback' => 'best_reloaded_sanitize_image',
 	) );
 	$wp_customize->add_control(
@@ -150,7 +111,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting( 'display_brand_text', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['display_brand_text'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_brand_text', array(
@@ -161,7 +122,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'allow_long_brand', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['allow_long_brand'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'allow_long_brand', array(
@@ -174,7 +135,7 @@ function best_reloaded_customizer( $wp_customize ) {
 
 	// site title section options.
 	$wp_customize->add_setting( 'small_site_title', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['small_site_title'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'small_site_title', array(
@@ -186,7 +147,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'display_header_banner_area', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['display_header_banner_area'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 
 	) );
@@ -199,7 +160,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'header_banner_area', array(
-		'default' 			=> '<!-- html accepted -->',
+		'default' 			=> $defaults['header_banner_area'],
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 
 	) );
@@ -213,7 +174,7 @@ function best_reloaded_customizer( $wp_customize ) {
 
 	// Frontpage specific options.
 	$wp_customize->add_setting( 'display_intro_text', array(
-		'default' 			=> 1,
+		'default' 			=> $defaults['display_intro_text'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_intro_text', array(
@@ -225,7 +186,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'intro_text', array(
-		'default' 			=> __( 'Welcome to our awesome site!<br/>This space is the perfect place to say a <a href="#">little something</a> about yourself.', 'best-reloaded' ),
+		'default' 			=> $defaults['intro_text'],
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'intro_text', array(
@@ -236,7 +197,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'display_homepage_widget_row', array(
-		'default' 			=> 1,
+		'default' 			=> $defaults['display_homepage_widget_row'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_homepage_widget_row', array(
@@ -249,7 +210,7 @@ function best_reloaded_customizer( $wp_customize ) {
 
 	// Slider options.
 	$wp_customize->add_setting( 'slider_limit', array(
-		'default' 			=> 3,
+		'default' 			=> $defaults['slider_limit'],
 		'sanitize_callback' => 'absint',
 	) );
 	$wp_customize->add_control( 'slider_limit', array(
@@ -261,7 +222,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'slider_category', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['slider_category'],
 		'sanitize_callback' => 'best_reloaded_sanitize_cetegory_select',
 	) );
 
@@ -275,7 +236,7 @@ function best_reloaded_customizer( $wp_customize ) {
 
 	// Other sitewide options.
 	$wp_customize->add_setting( 'display_featured_bar', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['display_featured_bar'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_featured_bar', array(
@@ -286,7 +247,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'featured_bar', array(
-		'default' 			=> __( 'Something Important (set background color, image, text, and <a href="#">link</a>)', 'best-reloaded' ),
+		'default' 			=> $defaults['featured_bar'],
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'featured_bar', array(
@@ -298,7 +259,7 @@ function best_reloaded_customizer( $wp_customize ) {
 
 	// Footer section options.
 	$wp_customize->add_setting( 'display_footer_top', array(
-		'default' 			=> 1,
+		'default' 			=> $defaults['display_footer_top'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_footer_top', array(
@@ -310,7 +271,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'display_footer_bottom', array(
-		'default' 			=> 1,
+		'default' 			=> $defaults['display_footer_bottom'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'display_footer_bottom', array(
@@ -321,11 +282,8 @@ function best_reloaded_customizer( $wp_customize ) {
 		'type' 			=> 'checkbox',
 	) );
 
-	$default_tagline = sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) );
-	// bottom tagline/copyrights default value is generated.
 	$wp_customize->add_setting( 'footer_bottom_tagline', array(
-		// translators: 1 is current year, 2 is site name.
-		'default' 			=> $default_tagline,
+		'default' 			=> $defaults['footer_bottom_tagline'],
 		'sanitize_callback' => 'best_reloaded_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'footer_bottom_tagline', array(
@@ -336,7 +294,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'layout_selection', array(
-		'default' 			=> '',
+		'default' 			=> $defaults['layout_selection'],
 		'sanitize_callback' => 'best_reloaded_sanitize_layout_selection',
 	) );
 
@@ -349,7 +307,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'enable_font-awesome', array(
-		'default' 			=> 1,
+		'default' 			=> $defaults['enable_font-awesome'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'enable_font-awesome', array(
@@ -361,7 +319,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'enable_slim_mode', array(
-		'default' 			=> 0,
+		'default' 			=> $defaults['enable_slim_mode'],
 		'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'enable_slim_mode', array(

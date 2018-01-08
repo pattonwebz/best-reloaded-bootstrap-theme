@@ -263,9 +263,9 @@ function best_reloaded_output_navbar_classes( $classnames ) {
 	// add the navbar_style class to the classes string.
 	$classes .= ' ' . get_theme_mod( 'navbar_style', 'fixed-top' );
 	// add the navbar color modifier class.
-	$classes .= ' ' . get_theme_mod( 'navbar-color', 'navbar-light' );
+	$classes .= ' ' . get_theme_mod( 'navbar-color', best_reloaded_setting_defaults( 'navbar-color' ) );
 	// add the navbar bg modifier class.
-	$classes .= ' ' . get_theme_mod( 'navbar-bg', 'bg-light' );
+	$classes .= ' ' . get_theme_mod( 'navbar-bg', best_reloaded_setting_defaults( 'navbar-bg' ) );
 	// echo the classes.
 	echo 'class="' . esc_attr( $classes ) . '"';
 }
