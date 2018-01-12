@@ -1,4 +1,4 @@
-=== Theme Name ===
+=== Best Reloaded ===
 Contributors: williampatton
 Tags: left-sidebar, right-sidebar, custom-menu, featured-images, full-width-template, theme-options, threaded-comments, translation-ready
 Requires at least: 4.5
