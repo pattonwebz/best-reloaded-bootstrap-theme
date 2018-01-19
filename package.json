@@ -1,6 +1,6 @@
 {
   "name": "best-reloaded",
-  "version": "1.7.0",
+  "version": "2.0",
   "description": "A Bootstrap 4 powered theme with a vibrant edge to the color scheme. It has an emphasis on clear typography with enough space for your content to breath.",
   "main": "Gruntfile.js",
   "scripts": {
