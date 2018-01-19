@@ -115,7 +115,22 @@ module.exports = function(grunt) {
 		babel: {
 			build: {
 				options: {
-					sourceMap: true
+					sourceMap: true,
+					presets: [
+						[
+							"es2015",
+							{
+								"modules": false,
+								"loose": true
+							}
+						]
+					],
+					"plugins": [
+						"transform-es2015-modules-strip",
+						"transform-es2015-destructuring",
+					    "transform-es2015-parameters",
+					    "transform-object-rest-spread"
+					]
 				},
 				files: {
 					'assets/js/util.js'      : 'assets/src/js/bootstrap/util.js',
@@ -139,7 +154,7 @@ module.exports = function(grunt) {
 							"es2015",
 							{
 								"modules": false,
-								"loose": true
+								"loose": true,
 							}
 						]
 					],

@@ -1,40 +1,35 @@
-import $ from 'jquery';
-import Popper from 'popper.js';
-import Util from './util';
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): tooltip.js
+ * Bootstrap (v4.0.0): tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const Tooltip = (() => {
-
-  /**
-   * Check for Popper dependency
-   * Popper - https://popper.js.org
-   */
-  if (typeof Popper === 'undefined') {
-    throw new Error('Bootstrap tooltips require Popper.js (https://popper.js.org)');
-  }
-
+var Tooltip = function ($) {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = 'tooltip';
-  const VERSION = '4.0.0-beta.2';
-  const DATA_KEY = 'bs.tooltip';
-  const EVENT_KEY = `.${DATA_KEY}`;
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  const TRANSITION_DURATION = 150;
-  const CLASS_PREFIX = 'bs-tooltip';
-  const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g');
+  var NAME = 'tooltip';
+  var VERSION = '4.0.0';
+  var DATA_KEY = 'bs.tooltip';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var TRANSITION_DURATION = 150;
+  var CLASS_PREFIX = 'bs-tooltip';
+  var BSCLS_PREFIX_REGEX = new RegExp('(^|\\s)' + CLASS_PREFIX + '\\S+', 'g');
 
-  const DefaultType = {
+  var DefaultType = {
     animation: 'boolean',
     template: 'string',
     title: '(string|element|function)',
@@ -45,10 +40,11 @@ const Tooltip = (() => {
     placement: '(string|function)',
     offset: '(number|string)',
     container: '(string|element|boolean)',
-    fallbackPlacement: '(string|array)'
+    fallbackPlacement: '(string|array)',
+    boundary: '(string|element)'
   };
 
-  const AttachmentMap = {
+  var AttachmentMap = {
     AUTO: 'auto',
     TOP: 'top',
     RIGHT: 'right',
@@ -56,7 +52,7 @@ const Tooltip = (() => {
     LEFT: 'left'
   };
 
-  const Default = {
+  var Default = {
     animation: true,
     template: '<div class="tooltip" role="tooltip">' + '<div class="arrow"></div>' + '<div class="tooltip-inner"></div></div>',
     trigger: 'hover focus',
@@ -67,39 +63,40 @@ const Tooltip = (() => {
     placement: 'top',
     offset: 0,
     container: false,
-    fallbackPlacement: 'flip'
+    fallbackPlacement: 'flip',
+    boundary: 'scrollParent'
   };
 
-  const HoverState = {
+  var HoverState = {
     SHOW: 'show',
     OUT: 'out'
   };
 
-  const Event = {
-    HIDE: `hide${EVENT_KEY}`,
-    HIDDEN: `hidden${EVENT_KEY}`,
-    SHOW: `show${EVENT_KEY}`,
-    SHOWN: `shown${EVENT_KEY}`,
-    INSERTED: `inserted${EVENT_KEY}`,
-    CLICK: `click${EVENT_KEY}`,
-    FOCUSIN: `focusin${EVENT_KEY}`,
-    FOCUSOUT: `focusout${EVENT_KEY}`,
-    MOUSEENTER: `mouseenter${EVENT_KEY}`,
-    MOUSELEAVE: `mouseleave${EVENT_KEY}`
+  var Event = {
+    HIDE: 'hide' + EVENT_KEY,
+    HIDDEN: 'hidden' + EVENT_KEY,
+    SHOW: 'show' + EVENT_KEY,
+    SHOWN: 'shown' + EVENT_KEY,
+    INSERTED: 'inserted' + EVENT_KEY,
+    CLICK: 'click' + EVENT_KEY,
+    FOCUSIN: 'focusin' + EVENT_KEY,
+    FOCUSOUT: 'focusout' + EVENT_KEY,
+    MOUSEENTER: 'mouseenter' + EVENT_KEY,
+    MOUSELEAVE: 'mouseleave' + EVENT_KEY
   };
 
-  const ClassName = {
+  var ClassName = {
     FADE: 'fade',
     SHOW: 'show'
   };
 
-  const Selector = {
+  var Selector = {
     TOOLTIP: '.tooltip',
     TOOLTIP_INNER: '.tooltip-inner',
     ARROW: '.arrow'
   };
 
-  const Trigger = {
+  var Trigger = {
     HOVER: 'hover',
     FOCUS: 'focus',
     CLICK: 'click',
@@ -111,9 +108,18 @@ const Tooltip = (() => {
      * ------------------------------------------------------------------------
      */
 
-  };class Tooltip {
+  };
+  var Tooltip = function () {
+    function Tooltip(element, config) {
+      _classCallCheck(this, Tooltip);
 
-    constructor(element, config) {
+      /**
+       * Check for Popper dependency
+       * Popper - https://popper.js.org
+       */
+      if (typeof Popper === 'undefined') {
+        throw new TypeError('Bootstrap tooltips require Popper.js (https://popper.js.org)');
+      }
 
       // private
       this._isEnabled = true;
@@ -122,7 +128,7 @@ const Tooltip = (() => {
       this._activeTrigger = {};
       this._popper = null;
 
-      // protected
+      // Protected
       this.element = element;
       this.config = this._getConfig(config);
       this.tip = null;
@@ -130,58 +136,30 @@ const Tooltip = (() => {
       this._setListeners();
     }
 
-    // getters
+    // Getters
 
-    static get VERSION() {
-      return VERSION;
-    }
+    // Public
 
-    static get Default() {
-      return Default;
-    }
-
-    static get NAME() {
-      return NAME;
-    }
-
-    static get DATA_KEY() {
-      return DATA_KEY;
-    }
-
-    static get Event() {
-      return Event;
-    }
-
-    static get EVENT_KEY() {
-      return EVENT_KEY;
-    }
-
-    static get DefaultType() {
-      return DefaultType;
-    }
-
-    // public
-
-    enable() {
+    Tooltip.prototype.enable = function enable() {
       this._isEnabled = true;
-    }
+    };
 
-    disable() {
+    Tooltip.prototype.disable = function disable() {
       this._isEnabled = false;
-    }
+    };
 
-    toggleEnabled() {
+    Tooltip.prototype.toggleEnabled = function toggleEnabled() {
       this._isEnabled = !this._isEnabled;
-    }
+    };
 
-    toggle(event) {
+    Tooltip.prototype.toggle = function toggle(event) {
       if (!this._isEnabled) {
         return;
       }
 
       if (event) {
-        const dataKey = this.constructor.DATA_KEY;
-        let context = $(event.currentTarget).data(dataKey);
+        var dataKey = this.constructor.DATA_KEY;
+        var context = $(event.currentTarget).data(dataKey);
 
         if (!context) {
           context = new this.constructor(event.currentTarget, this._getDelegateConfig());
@@ -196,7 +174,6 @@ const Tooltip = (() => {
           context._leave(null, context);
         }
       } else {
-
         if ($(this.getTipElement()).hasClass(ClassName.SHOW)) {
           this._leave(null, this);
           return;
@@ -204,9 +181,9 @@ const Tooltip = (() => {
 
         this._enter(null, this);
       }
-    }
+    };
 
-    dispose() {
+    Tooltip.prototype.dispose = function dispose() {
       clearTimeout(this._timeout);
 
       $.removeData(this.element, this.constructor.DATA_KEY);
@@ -230,25 +207,27 @@ const Tooltip = (() => {
       this.element = null;
       this.config = null;
       this.tip = null;
-    }
+    };
 
-    show() {
+    Tooltip.prototype.show = function show() {
+      var _this = this;
+
       if ($(this.element).css('display') === 'none') {
         throw new Error('Please use show on visible elements');
       }
 
-      const showEvent = $.Event(this.constructor.Event.SHOW);
+      var showEvent = $.Event(this.constructor.Event.SHOW);
       if (this.isWithContent() && this._isEnabled) {
         $(this.element).trigger(showEvent);
 
-        const isInTheDom = $.contains(this.element.ownerDocument.documentElement, this.element);
+        var isInTheDom = $.contains(this.element.ownerDocument.documentElement, this.element);
 
         if (showEvent.isDefaultPrevented() || !isInTheDom) {
           return;
         }
 
-        const tip = this.getTipElement();
-        const tipId = Util.getUID(this.constructor.NAME);
+        var tip = this.getTipElement();
+        var tipId = Util.getUID(this.constructor.NAME);
 
         tip.setAttribute('id', tipId);
         this.element.setAttribute('aria-describedby', tipId);
@@ -259,12 +238,12 @@ const Tooltip = (() => {
           $(tip).addClass(ClassName.FADE);
         }
 
-        const placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this.element) : this.config.placement;
+        var placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this.element) : this.config.placement;
 
-        const attachment = this._getAttachment(placement);
+        var attachment = this._getAttachment(placement);
         this.addAttachmentClass(attachment);
 
-        const container = this.config.container === false ? document.body : $(this.config.container);
+        var container = this.config.container === false ? document.body : $(this.config.container);
 
         $(tip).data(this.constructor.DATA_KEY, this);
 
@@ -285,21 +264,24 @@ const Tooltip = (() => {
             },
             arrow: {
               element: Selector.ARROW
+            },
+            preventOverflow: {
+              boundariesElement: this.config.boundary
             }
           },
-          onCreate: data => {
+          onCreate: function onCreate(data) {
             if (data.originalPlacement !== data.placement) {
-              this._handlePopperPlacementChange(data);
+              _this._handlePopperPlacementChange(data);
             }
           },
-          onUpdate: data => {
-            this._handlePopperPlacementChange(data);
+          onUpdate: function onUpdate(data) {
+            _this._handlePopperPlacementChange(data);
           }
         });
 
         $(tip).addClass(ClassName.SHOW);
 
-        // if this is a touch-enabled device we add extra
+        // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
@@ -307,17 +289,17 @@ const Tooltip = (() => {
           $('body').children().on('mouseover', null, $.noop);
         }
 
-        const complete = () => {
-          if (this.config.animation) {
-            this._fixTransition();
+        var complete = function complete() {
+          if (_this.config.animation) {
+            _this._fixTransition();
           }
-          const prevHoverState = this._hoverState;
-          this._hoverState = null;
+          var prevHoverState = _this._hoverState;
+          _this._hoverState = null;
 
-          $(this.element).trigger(this.constructor.Event.SHOWN);
+          $(_this.element).trigger(_this.constructor.Event.SHOWN);
 
           if (prevHoverState === HoverState.OUT) {
-            this._leave(null, this);
+            _this._leave(null, _this);
           }
         };
 
@@ -327,21 +309,23 @@ const Tooltip = (() => {
           complete();
         }
       }
-    }
+    };
 
-    hide(callback) {
-      const tip = this.getTipElement();
-      const hideEvent = $.Event(this.constructor.Event.HIDE);
-      const complete = () => {
-        if (this._hoverState !== HoverState.SHOW && tip.parentNode) {
+    Tooltip.prototype.hide = function hide(callback) {
+      var _this2 = this;
+
+      var tip = this.getTipElement();
+      var hideEvent = $.Event(this.constructor.Event.HIDE);
+      var complete = function complete() {
+        if (_this2._hoverState !== HoverState.SHOW && tip.parentNode) {
           tip.parentNode.removeChild(tip);
         }
 
-        this._cleanTipClass();
-        this.element.removeAttribute('aria-describedby');
-        $(this.element).trigger(this.constructor.Event.HIDDEN);
-        if (this._popper !== null) {
-          this._popper.destroy();
+        _this2._cleanTipClass();
+        _this2.element.removeAttribute('aria-describedby');
+        $(_this2.element).trigger(_this2.constructor.Event.HIDDEN);
+        if (_this2._popper !== null) {
+          _this2._popper.destroy();
         }
 
         if (callback) {
@@ -357,7 +341,7 @@ const Tooltip = (() => {
 
       $(tip).removeClass(ClassName.SHOW);
 
-      // if this is a touch-enabled device we remove the extra
+      // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
       if ('ontouchstart' in document.documentElement) {
         $('body').children().off('mouseover', null, $.noop);
@@ -368,46 +352,45 @@ const Tooltip = (() => {
       this._activeTrigger[Trigger.HOVER] = false;
 
       if (Util.supportsTransitionEnd() && $(this.tip).hasClass(ClassName.FADE)) {
-
         $(tip).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
       } else {
         complete();
       }
 
       this._hoverState = '';
-    }
+    };
 
-    update() {
+    Tooltip.prototype.update = function update() {
       if (this._popper !== null) {
         this._popper.scheduleUpdate();
       }
-    }
+    };
 
-    // protected
+    // Protected
 
-    isWithContent() {
+    Tooltip.prototype.isWithContent = function isWithContent() {
       return Boolean(this.getTitle());
-    }
+    };
 
-    addAttachmentClass(attachment) {
-      $(this.getTipElement()).addClass(`${CLASS_PREFIX}-${attachment}`);
-    }
+    Tooltip.prototype.addAttachmentClass = function addAttachmentClass(attachment) {
+      $(this.getTipElement()).addClass(CLASS_PREFIX + '-' + attachment);
+    };
 
-    getTipElement() {
+    Tooltip.prototype.getTipElement = function getTipElement() {
       this.tip = this.tip || $(this.config.template)[0];
       return this.tip;
-    }
+    };
 
-    setContent() {
-      const $tip = $(this.getTipElement());
+    Tooltip.prototype.setContent = function setContent() {
+      var $tip = $(this.getTipElement());
       this.setElementContent($tip.find(Selector.TOOLTIP_INNER), this.getTitle());
-      $tip.removeClass(`${ClassName.FADE} ${ClassName.SHOW}`);
-    }
+      $tip.removeClass(ClassName.FADE + ' ' + ClassName.SHOW);
+    };
 
-    setElementContent($element, content) {
-      const html = this.config.html;
-      if (typeof content === 'object' && (content.nodeType || content.jquery)) {
-        // content is a DOM node or a jQuery
+    Tooltip.prototype.setElementContent = function setElementContent($element, content) {
+      var html = this.config.html;
+      if ((typeof content === 'undefined' ? 'undefined' : _typeof(content)) === 'object' && (content.nodeType || content.jquery)) {
+        // Content is a DOM node or a jQuery
         if (html) {
           if (!$(content).parent().is($element)) {
             $element.empty().append(content);
@@ -418,60 +401,70 @@ const Tooltip = (() => {
       } else {
         $element[html ? 'html' : 'text'](content);
       }
-    }
+    };
 
-    getTitle() {
-      let title = this.element.getAttribute('data-original-title');
+    Tooltip.prototype.getTitle = function getTitle() {
+      var title = this.element.getAttribute('data-original-title');
 
       if (!title) {
         title = typeof this.config.title === 'function' ? this.config.title.call(this.element) : this.config.title;
       }
 
       return title;
-    }
+    };
 
-    // private
+    // Private
 
-    _getAttachment(placement) {
+    Tooltip.prototype._getAttachment = function _getAttachment(placement) {
       return AttachmentMap[placement.toUpperCase()];
-    }
+    };
 
-    _setListeners() {
-      const triggers = this.config.trigger.split(' ');
+    Tooltip.prototype._setListeners = function _setListeners() {
+      var _this3 = this;
 
-      triggers.forEach(trigger => {
+      var triggers = this.config.trigger.split(' ');
+
+      triggers.forEach(function (trigger) {
         if (trigger === 'click') {
-          $(this.element).on(this.constructor.Event.CLICK, this.config.selector, event => this.toggle(event));
+          $(_this3.element).on(_this3.constructor.Event.CLICK, _this3.config.selector, function (event) {
+            return _this3.toggle(event);
+          });
         } else if (trigger !== Trigger.MANUAL) {
-          const eventIn = trigger === Trigger.HOVER ? this.constructor.Event.MOUSEENTER : this.constructor.Event.FOCUSIN;
-          const eventOut = trigger === Trigger.HOVER ? this.constructor.Event.MOUSELEAVE : this.constructor.Event.FOCUSOUT;
+          var eventIn = trigger === Trigger.HOVER ? _this3.constructor.Event.MOUSEENTER : _this3.constructor.Event.FOCUSIN;
+          var eventOut = trigger === Trigger.HOVER ? _this3.constructor.Event.MOUSELEAVE : _this3.constructor.Event.FOCUSOUT;
 
-          $(this.element).on(eventIn, this.config.selector, event => this._enter(event)).on(eventOut, this.config.selector, event => this._leave(event));
+          $(_this3.element).on(eventIn, _this3.config.selector, function (event) {
+            return _this3._enter(event);
+          }).on(eventOut, _this3.config.selector, function (event) {
+            return _this3._leave(event);
+          });
         }
 
-        $(this.element).closest('.modal').on('hide.bs.modal', () => this.hide());
+        $(_this3.element).closest('.modal').on('hide.bs.modal', function () {
+          return _this3.hide();
+        });
       });
 
       if (this.config.selector) {
-        this.config = $.extend({}, this.config, {
+        this.config = _extends({}, this.config, {
           trigger: 'manual',
           selector: ''
         });
       } else {
         this._fixTitle();
       }
-    }
+    };
 
-    _fixTitle() {
-      const titleType = typeof this.element.getAttribute('data-original-title');
+    Tooltip.prototype._fixTitle = function _fixTitle() {
+      var titleType = _typeof(this.element.getAttribute('data-original-title'));
       if (this.element.getAttribute('title') || titleType !== 'string') {
         this.element.setAttribute('data-original-title', this.element.getAttribute('title') || '');
         this.element.setAttribute('title', '');
       }
-    }
+    };
 
-    _enter(event, context) {
-      const dataKey = this.constructor.DATA_KEY;
+    Tooltip.prototype._enter = function _enter(event, context) {
+      var dataKey = this.constructor.DATA_KEY;
 
       context = context || $(event.currentTarget).data(dataKey);
 
@@ -498,15 +491,15 @@ const Tooltip = (() => {
         return;
       }
 
-      context._timeout = setTimeout(() => {
+      context._timeout = setTimeout(function () {
         if (context._hoverState === HoverState.SHOW) {
           context.show();
         }
       }, context.config.delay.show);
-    }
+    };
 
-    _leave(event, context) {
-      const dataKey = this.constructor.DATA_KEY;
+    Tooltip.prototype._leave = function _leave(event, context) {
+      var dataKey = this.constructor.DATA_KEY;
 
       context = context || $(event.currentTarget).data(dataKey);
 
@@ -532,25 +525,25 @@ const Tooltip = (() => {
         return;
       }
 
-      context._timeout = setTimeout(() => {
+      context._timeout = setTimeout(function () {
         if (context._hoverState === HoverState.OUT) {
           context.hide();
         }
       }, context.config.delay.hide);
-    }
+    };
 
-    _isWithActiveTrigger() {
-      for (const trigger in this._activeTrigger) {
+    Tooltip.prototype._isWithActiveTrigger = function _isWithActiveTrigger() {
+      for (var trigger in this._activeTrigger) {
         if (this._activeTrigger[trigger]) {
           return true;
         }
       }
 
       return false;
-    }
+    };
 
-    _getConfig(config) {
-      config = $.extend({}, this.constructor.Default, $(this.element).data(), config);
+    Tooltip.prototype._getConfig = function _getConfig(config) {
+      config = _extends({}, this.constructor.Default, $(this.element).data(), config);
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -570,13 +563,13 @@ const Tooltip = (() => {
       Util.typeCheckConfig(NAME, config, this.constructor.DefaultType);
 
       return config;
-    }
+    };
 
-    _getDelegateConfig() {
-      const config = {};
+    Tooltip.prototype._getDelegateConfig = function _getDelegateConfig() {
+      var config = {};
 
       if (this.config) {
-        for (const key in this.config) {
+        for (var key in this.config) {
           if (this.constructor.Default[key] !== this.config[key]) {
             config[key] = this.config[key];
           }
@@ -584,24 +577,24 @@ const Tooltip = (() => {
       }
 
       return config;
-    }
+    };
 
-    _cleanTipClass() {
-      const $tip = $(this.getTipElement());
-      const tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
+    Tooltip.prototype._cleanTipClass = function _cleanTipClass() {
+      var $tip = $(this.getTipElement());
+      var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
       if (tabClass !== null && tabClass.length > 0) {
         $tip.removeClass(tabClass.join(''));
       }
-    }
+    };
 
-    _handlePopperPlacementChange(data) {
+    Tooltip.prototype._handlePopperPlacementChange = function _handlePopperPlacementChange(data) {
       this._cleanTipClass();
       this.addAttachmentClass(this._getAttachment(data.placement));
-    }
+    };
 
-    _fixTransition() {
-      const tip = this.getTipElement();
-      const initConfigAnimation = this.config.animation;
+    Tooltip.prototype._fixTransition = function _fixTransition() {
+      var tip = this.getTipElement();
+      var initConfigAnimation = this.config.animation;
       if (tip.getAttribute('x-placement') !== null) {
         return;
       }
@@ -610,14 +603,14 @@ const Tooltip = (() => {
       this.hide();
       this.show();
       this.config.animation = initConfigAnimation;
-    }
+    };
 
-    // static
+    // Static
 
-    static _jQueryInterface(config) {
+    Tooltip._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        let data = $(this).data(DATA_KEY);
-        const _config = typeof config === 'object' && config;
+        var data = $(this).data(DATA_KEY);
+        var _config = (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config;
 
         if (!data && /dispose|hide/.test(config)) {
           return;
@@ -630,13 +623,52 @@ const Tooltip = (() => {
 
         if (typeof config === 'string') {
           if (typeof data[config] === 'undefined') {
-            throw new Error(`No method named "${config}"`);
+            throw new TypeError('No method named "' + config + '"');
           }
           data[config]();
         }
       });
-    }
-  }
+    };
+
+    _createClass(Tooltip, null, [{
+      key: 'VERSION',
+      get: function get() {
+        return VERSION;
+      }
+    }, {
+      key: 'Default',
+      get: function get() {
+        return Default;
+      }
+    }, {
+      key: 'NAME',
+      get: function get() {
+        return NAME;
+      }
+    }, {
+      key: 'DATA_KEY',
+      get: function get() {
+        return DATA_KEY;
+      }
+    }, {
+      key: 'Event',
+      get: function get() {
+        return Event;
+      }
+    }, {
+      key: 'EVENT_KEY',
+      get: function get() {
+        return EVENT_KEY;
+      }
+    }, {
+      key: 'DefaultType',
+      get: function get() {
+        return DefaultType;
+      }
+    }]);
+
+    return Tooltip;
+  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -652,7 +684,5 @@ const Tooltip = (() => {
   };
 
   return Tooltip;
-})($, Popper);
-
-export default Tooltip;
+}($, Popper);
 //# sourceMappingURL=tooltip.js.map

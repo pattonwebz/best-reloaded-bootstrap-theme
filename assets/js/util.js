@@ -1,32 +1,25 @@
-import $ from 'jquery';
+
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): util.js
+ * Bootstrap (v4.0.0): util.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const Util = (() => {
-
+var Util = function ($) {
   /**
    * ------------------------------------------------------------------------
    * Private TransitionEnd Helpers
    * ------------------------------------------------------------------------
    */
 
-  let transition = false;
+  var transition = false;
 
-  const MAX_UID = 1000000;
+  var MAX_UID = 1000000;
 
-  const TransitionEndEvent = {
-    WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'transitionend',
-    OTransition: 'oTransitionEnd otransitionend',
-    transition: 'transitionend'
-
-    // shoutout AngusCroll (https://goo.gl/pxwQGp)
-  };function toType(obj) {
+  // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  function toType(obj) {
     return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
   }
 
@@ -34,7 +27,7 @@ const Util = (() => {
     return {
       bindType: transition.end,
       delegateType: transition.end,
-      handle(event) {
+      handle: function handle(event) {
         if ($(event.target).is(this)) {
           return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
@@ -44,33 +37,27 @@ const Util = (() => {
   }
 
   function transitionEndTest() {
-    if (window.QUnit) {
+    if (typeof window !== 'undefined' && window.QUnit) {
       return false;
     }
 
-    const el = document.createElement('bootstrap');
-
-    for (const name in TransitionEndEvent) {
-      if (typeof el.style[name] !== 'undefined') {
-        return {
-          end: TransitionEndEvent[name]
-        };
-      }
-    }
-
-    return false;
+    return {
+      end: 'transitionend'
+    };
   }
 
   function transitionEndEmulator(duration) {
-    let called = false;
+    var _this = this;
 
-    $(this).one(Util.TRANSITION_END, () => {
+    var called = false;
+
+    $(this).one(Util.TRANSITION_END, function () {
       called = true;
     });
 
-    setTimeout(() => {
+    setTimeout(function () {
       if (!called) {
-        Util.triggerTransitionEnd(this);
+        Util.triggerTransitionEnd(_this);
       }
     }, duration);
 
@@ -87,63 +74,70 @@ const Util = (() => {
     }
   }
 
+  function escapeId(selector) {
+    // We escape IDs in case of special selectors (selector = '#myId:something')
+    // $.escapeSelector does not exist in jQuery < 3
+    selector = typeof $.escapeSelector === 'function' ? $.escapeSelector(selector).substr(1) : selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
+
+    return selector;
+  }
+
   /**
    * --------------------------------------------------------------------------
    * Public Util Api
    * --------------------------------------------------------------------------
    */
 
-  const Util = {
+  var Util = {
 
     TRANSITION_END: 'bsTransitionEnd',
 
-    getUID(prefix) {
+    getUID: function getUID(prefix) {
       do {
         // eslint-disable-next-line no-bitwise
         prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
       } while (document.getElementById(prefix));
       return prefix;
     },
-
-    getSelectorFromElement(element) {
-      let selector = element.getAttribute('data-target');
+    getSelectorFromElement: function getSelectorFromElement(element) {
+      var selector = element.getAttribute('data-target');
       if (!selector || selector === '#') {
         selector = element.getAttribute('href') || '';
       }
 
+      // If it's an ID
+      if (selector.charAt(0) === '#') {
+        selector = escapeId(selector);
+      }
+
       try {
-        const $selector = $(document).find(selector);
+        var $selector = $(document).find(selector);
         return $selector.length > 0 ? selector : null;
-      } catch (error) {
+      } catch (err) {
         return null;
       }
     },
-
-    reflow(element) {
+    reflow: function reflow(element) {
       return element.offsetHeight;
     },
-
-    triggerTransitionEnd(element) {
+    triggerTransitionEnd: function triggerTransitionEnd(element) {
       $(element).trigger(transition.end);
     },
-
-    supportsTransitionEnd() {
+    supportsTransitionEnd: function supportsTransitionEnd() {
       return Boolean(transition);
     },
-
-    isElement(obj) {
+    isElement: function isElement(obj) {
       return (obj[0] || obj).nodeType;
     },
-
-    typeCheckConfig(componentName, config, configTypes) {
-      for (const property in configTypes) {
+    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+      for (var property in configTypes) {
         if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
-          const expectedTypes = configTypes[property];
-          const value = config[property];
-          const valueType = value && Util.isElement(value) ? 'element' : toType(value);
+          var expectedTypes = configTypes[property];
+          var value = config[property];
+          var valueType = value && Util.isElement(value) ? 'element' : toType(value);
 
           if (!new RegExp(expectedTypes).test(valueType)) {
-            throw new Error(`${componentName.toUpperCase()}: ` + `Option "${property}" provided type "${valueType}" ` + `but expected type "${expectedTypes}".`);
+            throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
           }
         }
       }
@@ -153,7 +147,5 @@ const Util = (() => {
   setTransitionEndSupport();
 
   return Util;
-})($);
-
-export default Util;
+}($);
 //# sourceMappingURL=util.js.map

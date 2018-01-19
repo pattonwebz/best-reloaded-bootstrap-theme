@@ -1,64 +1,62 @@
-import $ from 'jquery';
-import Popper from 'popper.js';
-import Util from './util';
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): dropdown.js
+ * Bootstrap (v4.0.0): dropdown.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const Dropdown = (() => {
-
-  /**
-   * Check for Popper dependency
-   * Popper - https://popper.js.org
-   */
-  if (typeof Popper === 'undefined') {
-    throw new Error('Bootstrap dropdown require Popper.js (https://popper.js.org)');
-  }
-
+var Dropdown = function ($) {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = 'dropdown';
-  const VERSION = '4.0.0-beta.2';
-  const DATA_KEY = 'bs.dropdown';
-  const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = '.data-api';
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  const ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
-  const SPACE_KEYCODE = 32; // KeyboardEvent.which value for space key
-  const TAB_KEYCODE = 9; // KeyboardEvent.which value for tab key
-  const ARROW_UP_KEYCODE = 38; // KeyboardEvent.which value for up arrow key
-  const ARROW_DOWN_KEYCODE = 40; // KeyboardEvent.which value for down arrow key
-  const RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
-  const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEYCODE}|${ARROW_DOWN_KEYCODE}|${ESCAPE_KEYCODE}`);
+  var NAME = 'dropdown';
+  var VERSION = '4.0.0';
+  var DATA_KEY = 'bs.dropdown';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var DATA_API_KEY = '.data-api';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
+  var SPACE_KEYCODE = 32; // KeyboardEvent.which value for space key
+  var TAB_KEYCODE = 9; // KeyboardEvent.which value for tab key
+  var ARROW_UP_KEYCODE = 38; // KeyboardEvent.which value for up arrow key
+  var ARROW_DOWN_KEYCODE = 40; // KeyboardEvent.which value for down arrow key
+  var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
+  var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + '|' + ARROW_DOWN_KEYCODE + '|' + ESCAPE_KEYCODE);
 
-  const Event = {
-    HIDE: `hide${EVENT_KEY}`,
-    HIDDEN: `hidden${EVENT_KEY}`,
-    SHOW: `show${EVENT_KEY}`,
-    SHOWN: `shown${EVENT_KEY}`,
-    CLICK: `click${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-    KEYDOWN_DATA_API: `keydown${EVENT_KEY}${DATA_API_KEY}`,
-    KEYUP_DATA_API: `keyup${EVENT_KEY}${DATA_API_KEY}`
+  var Event = {
+    HIDE: 'hide' + EVENT_KEY,
+    HIDDEN: 'hidden' + EVENT_KEY,
+    SHOW: 'show' + EVENT_KEY,
+    SHOWN: 'shown' + EVENT_KEY,
+    CLICK: 'click' + EVENT_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    KEYDOWN_DATA_API: 'keydown' + EVENT_KEY + DATA_API_KEY,
+    KEYUP_DATA_API: 'keyup' + EVENT_KEY + DATA_API_KEY
   };
 
-  const ClassName = {
+  var ClassName = {
     DISABLED: 'disabled',
     SHOW: 'show',
     DROPUP: 'dropup',
+    DROPRIGHT: 'dropright',
+    DROPLEFT: 'dropleft',
     MENURIGHT: 'dropdown-menu-right',
-    MENULEFT: 'dropdown-menu-left'
+    MENULEFT: 'dropdown-menu-left',
+    POSITION_STATIC: 'position-static'
   };
 
-  const Selector = {
+  var Selector = {
     DATA_TOGGLE: '[data-toggle="dropdown"]',
     FORM_CHILD: '.dropdown form',
     MENU: '.dropdown-menu',
@@ -66,21 +64,27 @@ const Dropdown = (() => {
     VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled)'
   };
 
-  const AttachmentMap = {
+  var AttachmentMap = {
     TOP: 'top-start',
     TOPEND: 'top-end',
     BOTTOM: 'bottom-start',
-    BOTTOMEND: 'bottom-end'
+    BOTTOMEND: 'bottom-end',
+    RIGHT: 'right-start',
+    RIGHTEND: 'right-end',
+    LEFT: 'left-start',
+    LEFTEND: 'left-end'
   };
 
-  const Default = {
+  var Default = {
     offset: 0,
-    flip: true
+    flip: true,
+    boundary: 'scrollParent'
   };
 
-  const DefaultType = {
+  var DefaultType = {
     offset: '(number|string|function)',
-    flip: 'boolean'
+    flip: 'boolean',
+    boundary: '(string|element)'
 
     /**
      * ------------------------------------------------------------------------
@@ -88,9 +92,11 @@ const Dropdown = (() => {
      * ------------------------------------------------------------------------
      */
 
-  };class Dropdown {
+  };
+  var Dropdown = function () {
+    function Dropdown(element, config) {
+      _classCallCheck(this, Dropdown);
 
-    constructor(element, config) {
       this._element = element;
       this._popper = null;
       this._config = this._getConfig(config);
@@ -100,29 +106,17 @@ const Dropdown = (() => {
       this._addEventListeners();
     }
 
-    // getters
+    // Getters
 
-    static get VERSION() {
-      return VERSION;
-    }
+    // Public
 
-    static get Default() {
-      return Default;
-    }
-
-    static get DefaultType() {
-      return DefaultType;
-    }
-
-    // public
-
-    toggle() {
+    Dropdown.prototype.toggle = function toggle() {
       if (this._element.disabled || $(this._element).hasClass(ClassName.DISABLED)) {
         return;
       }
 
-      const parent = Dropdown._getParentFromElement(this._element);
-      const isActive = $(this._menu).hasClass(ClassName.SHOW);
+      var parent = Dropdown._getParentFromElement(this._element);
+      var isActive = $(this._menu).hasClass(ClassName.SHOW);
 
       Dropdown._clearMenus();
 
@@ -130,10 +124,10 @@ const Dropdown = (() => {
         return;
       }
 
-      const relatedTarget = {
+      var relatedTarget = {
         relatedTarget: this._element
       };
-      const showEvent = $.Event(Event.SHOW, relatedTarget);
+      var showEvent = $.Event(Event.SHOW, relatedTarget);
 
       $(parent).trigger(showEvent);
 
@@ -141,20 +135,36 @@ const Dropdown = (() => {
         return;
       }
 
-      let element = this._element;
-      // for dropup with alignment we use the parent as popper container
-      if ($(parent).hasClass(ClassName.DROPUP)) {
-        if ($(this._menu).hasClass(ClassName.MENULEFT) || $(this._menu).hasClass(ClassName.MENURIGHT)) {
-          element = parent;
+      // Disable totally Popper.js for Dropdown in Navbar
+      if (!this._inNavbar) {
+        /**
+         * Check for Popper dependency
+         * Popper - https://popper.js.org
+         */
+        if (typeof Popper === 'undefined') {
+          throw new TypeError('Bootstrap dropdown require Popper.js (https://popper.js.org)');
         }
+        var element = this._element;
+        // For dropup with alignment we use the parent as popper container
+        if ($(parent).hasClass(ClassName.DROPUP)) {
+          if ($(this._menu).hasClass(ClassName.MENULEFT) || $(this._menu).hasClass(ClassName.MENURIGHT)) {
+            element = parent;
+          }
+        }
+        // If boundary is not `scrollParent`, then set position to `static`
+        // to allow the menu to "escape" the scroll parent's boundaries
+        // https://github.com/twbs/bootstrap/issues/24251
+        if (this._config.boundary !== 'scrollParent') {
+          $(parent).addClass(ClassName.POSITION_STATIC);
+        }
+        this._popper = new Popper(element, this._menu, this._getPopperConfig());
       }
-      this._popper = new Popper(element, this._menu, this._getPopperConfig());
 
-      // if this is a touch-enabled device we add extra
+      // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-      if ('ontouchstart' in document.documentElement && !$(parent).closest(Selector.NAVBAR_NAV).length) {
+      if ('ontouchstart' in document.documentElement && $(parent).closest(Selector.NAVBAR_NAV).length === 0) {
         $('body').children().on('mouseover', null, $.noop);
       }
 
@@ -163,55 +173,57 @@ const Dropdown = (() => {
 
       $(this._menu).toggleClass(ClassName.SHOW);
       $(parent).toggleClass(ClassName.SHOW).trigger($.Event(Event.SHOWN, relatedTarget));
-    }
+    };
 
-    dispose() {
+    Dropdown.prototype.dispose = function dispose() {
       $.removeData(this._element, DATA_KEY);
       $(this._element).off(EVENT_KEY);
       this._element = null;
       this._menu = null;
       if (this._popper !== null) {
         this._popper.destroy();
+        this._popper = null;
       }
-      this._popper = null;
-    }
+    };
 
-    update() {
+    Dropdown.prototype.update = function update() {
       this._inNavbar = this._detectNavbar();
       if (this._popper !== null) {
         this._popper.scheduleUpdate();
       }
-    }
+    };
 
-    // private
+    // Private
 
-    _addEventListeners() {
-      $(this._element).on(Event.CLICK, event => {
+    Dropdown.prototype._addEventListeners = function _addEventListeners() {
+      var _this = this;
+
+      $(this._element).on(Event.CLICK, function (event) {
         event.preventDefault();
         event.stopPropagation();
-        this.toggle();
+        _this.toggle();
       });
-    }
+    };
 
-    _getConfig(config) {
-      config = $.extend({}, this.constructor.Default, $(this._element).data(), config);
+    Dropdown.prototype._getConfig = function _getConfig(config) {
+      config = _extends({}, this.constructor.Default, $(this._element).data(), config);
 
       Util.typeCheckConfig(NAME, config, this.constructor.DefaultType);
 
       return config;
-    }
+    };
 
-    _getMenuElement() {
+    Dropdown.prototype._getMenuElement = function _getMenuElement() {
       if (!this._menu) {
-        const parent = Dropdown._getParentFromElement(this._element);
+        var parent = Dropdown._getParentFromElement(this._element);
         this._menu = $(parent).find(Selector.MENU)[0];
       }
       return this._menu;
-    }
+    };
 
-    _getPlacement() {
-      const $parentDropdown = $(this._element).parent();
-      let placement = AttachmentMap.BOTTOM;
+    Dropdown.prototype._getPlacement = function _getPlacement() {
+      var $parentDropdown = $(this._element).parent();
+      var placement = AttachmentMap.BOTTOM;
 
       // Handle dropup
       if ($parentDropdown.hasClass(ClassName.DROPUP)) {
@@ -219,50 +231,54 @@ const Dropdown = (() => {
         if ($(this._menu).hasClass(ClassName.MENURIGHT)) {
           placement = AttachmentMap.TOPEND;
         }
+      } else if ($parentDropdown.hasClass(ClassName.DROPRIGHT)) {
+        placement = AttachmentMap.RIGHT;
+      } else if ($parentDropdown.hasClass(ClassName.DROPLEFT)) {
+        placement = AttachmentMap.LEFT;
       } else if ($(this._menu).hasClass(ClassName.MENURIGHT)) {
         placement = AttachmentMap.BOTTOMEND;
       }
       return placement;
-    }
+    };
 
-    _detectNavbar() {
+    Dropdown.prototype._detectNavbar = function _detectNavbar() {
       return $(this._element).closest('.navbar').length > 0;
-    }
+    };
 
-    _getPopperConfig() {
-      const offsetConf = {};
+    Dropdown.prototype._getPopperConfig = function _getPopperConfig() {
+      var _this2 = this;
+
+      var offsetConf = {};
       if (typeof this._config.offset === 'function') {
-        offsetConf.fn = data => {
-          data.offsets = $.extend({}, data.offsets, this._config.offset(data.offsets) || {});
+        offsetConf.fn = function (data) {
+          data.offsets = _extends({}, data.offsets, _this2._config.offset(data.offsets) || {});
           return data;
         };
       } else {
         offsetConf.offset = this._config.offset;
       }
-      const popperConfig = {
+      var popperConfig = {
         placement: this._getPlacement(),
         modifiers: {
           offset: offsetConf,
           flip: {
             enabled: this._config.flip
+          },
+          preventOverflow: {
+            boundariesElement: this._config.boundary
           }
         }
+      };
 
-        // Disable Popper.js for Dropdown in Navbar
-      };if (this._inNavbar) {
-        popperConfig.modifiers.applyStyle = {
-          enabled: !this._inNavbar
-        };
-      }
       return popperConfig;
-    }
+    };
 
-    // static
+    // Static
 
-    static _jQueryInterface(config) {
+    Dropdown._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        let data = $(this).data(DATA_KEY);
-        const _config = typeof config === 'object' ? config : null;
+        var data = $(this).data(DATA_KEY);
+        var _config = (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' ? config : null;
 
         if (!data) {
           data = new Dropdown(this, _config);
@@ -271,23 +287,23 @@ const Dropdown = (() => {
 
         if (typeof config === 'string') {
           if (typeof data[config] === 'undefined') {
-            throw new Error(`No method named "${config}"`);
+            throw new TypeError('No method named "' + config + '"');
           }
           data[config]();
         }
       });
-    }
+    };
 
-    static _clearMenus(event) {
+    Dropdown._clearMenus = function _clearMenus(event) {
       if (event && (event.which === RIGHT_MOUSE_BUTTON_WHICH || event.type === 'keyup' && event.which !== TAB_KEYCODE)) {
         return;
       }
 
-      const toggles = $.makeArray($(Selector.DATA_TOGGLE));
-      for (let i = 0; i < toggles.length; i++) {
-        const parent = Dropdown._getParentFromElement(toggles[i]);
-        const context = $(toggles[i]).data(DATA_KEY);
-        const relatedTarget = {
+      var toggles = $.makeArray($(Selector.DATA_TOGGLE));
+      for (var i = 0; i < toggles.length; i++) {
+        var parent = Dropdown._getParentFromElement(toggles[i]);
+        var context = $(toggles[i]).data(DATA_KEY);
+        var relatedTarget = {
           relatedTarget: toggles[i]
         };
 
@@ -295,7 +311,7 @@ const Dropdown = (() => {
           continue;
         }
 
-        const dropdownMenu = context._menu;
+        var dropdownMenu = context._menu;
         if (!$(parent).hasClass(ClassName.SHOW)) {
           continue;
         }
@@ -304,13 +320,13 @@ const Dropdown = (() => {
           continue;
         }
 
-        const hideEvent = $.Event(Event.HIDE, relatedTarget);
+        var hideEvent = $.Event(Event.HIDE, relatedTarget);
         $(parent).trigger(hideEvent);
         if (hideEvent.isDefaultPrevented()) {
           continue;
         }
 
-        // if this is a touch-enabled device we remove the extra
+        // If this is a touch-enabled device we remove the extra
         // empty mouseover listeners we added for iOS support
         if ('ontouchstart' in document.documentElement) {
           $('body').children().off('mouseover', null, $.noop);
@@ -321,21 +337,31 @@ const Dropdown = (() => {
         $(dropdownMenu).removeClass(ClassName.SHOW);
         $(parent).removeClass(ClassName.SHOW).trigger($.Event(Event.HIDDEN, relatedTarget));
       }
-    }
+    };
 
-    static _getParentFromElement(element) {
-      let parent;
-      const selector = Util.getSelectorFromElement(element);
+    Dropdown._getParentFromElement = function _getParentFromElement(element) {
+      var parent = void 0;
+      var selector = Util.getSelectorFromElement(element);
 
       if (selector) {
         parent = $(selector)[0];
       }
 
       return parent || element.parentNode;
-    }
+    };
 
-    static _dataApiKeydownHandler(event) {
-      if (!REGEXP_KEYDOWN.test(event.which) || /button/i.test(event.target.tagName) && event.which === SPACE_KEYCODE || /input|textarea/i.test(event.target.tagName)) {
+    // eslint-disable-next-line complexity
+
+
+    Dropdown._dataApiKeydownHandler = function _dataApiKeydownHandler(event) {
+      // If not input/textarea:
+      //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
+      // If input/textarea:
+      //  - If space key => not a dropdown command
+      //  - If key is other than escape
+      //    - If key is not up or down => not a dropdown command
+      //    - If trigger inside the menu => not a dropdown command
+      if (/input|textarea/i.test(event.target.tagName) ? event.which === SPACE_KEYCODE || event.which !== ESCAPE_KEYCODE && (event.which !== ARROW_DOWN_KEYCODE && event.which !== ARROW_UP_KEYCODE || $(event.target).closest(Selector.MENU).length) : !REGEXP_KEYDOWN.test(event.which)) {
         return;
       }
 
@@ -346,13 +372,12 @@ const Dropdown = (() => {
         return;
       }
 
-      const parent = Dropdown._getParentFromElement(this);
-      const isActive = $(parent).hasClass(ClassName.SHOW);
+      var parent = Dropdown._getParentFromElement(this);
+      var isActive = $(parent).hasClass(ClassName.SHOW);
 
       if (!isActive && (event.which !== ESCAPE_KEYCODE || event.which !== SPACE_KEYCODE) || isActive && (event.which === ESCAPE_KEYCODE || event.which === SPACE_KEYCODE)) {
-
         if (event.which === ESCAPE_KEYCODE) {
-          const toggle = $(parent).find(Selector.DATA_TOGGLE)[0];
+          var toggle = $(parent).find(Selector.DATA_TOGGLE)[0];
           $(toggle).trigger('focus');
         }
 
@@ -360,21 +385,21 @@ const Dropdown = (() => {
         return;
       }
 
-      const items = $(parent).find(Selector.VISIBLE_ITEMS).get();
+      var items = $(parent).find(Selector.VISIBLE_ITEMS).get();
 
-      if (!items.length) {
+      if (items.length === 0) {
         return;
       }
 
-      let index = items.indexOf(event.target);
+      var index = items.indexOf(event.target);
 
       if (event.which === ARROW_UP_KEYCODE && index > 0) {
-        // up
+        // Up
         index--;
       }
 
       if (event.which === ARROW_DOWN_KEYCODE && index < items.length - 1) {
-        // down
+        // Down
         index++;
       }
 
@@ -383,9 +408,27 @@ const Dropdown = (() => {
       }
 
       items[index].focus();
-    }
+    };
 
-  }
+    _createClass(Dropdown, null, [{
+      key: 'VERSION',
+      get: function get() {
+        return VERSION;
+      }
+    }, {
+      key: 'Default',
+      get: function get() {
+        return Default;
+      }
+    }, {
+      key: 'DefaultType',
+      get: function get() {
+        return DefaultType;
+      }
+    }]);
+
+    return Dropdown;
+  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -393,11 +436,11 @@ const Dropdown = (() => {
    * ------------------------------------------------------------------------
    */
 
-  $(document).on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.MENU, Dropdown._dataApiKeydownHandler).on(`${Event.CLICK_DATA_API} ${Event.KEYUP_DATA_API}`, Dropdown._clearMenus).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+  $(document).on(Event.KEYDOWN_DATA_API, Selector.DATA_TOGGLE, Dropdown._dataApiKeydownHandler).on(Event.KEYDOWN_DATA_API, Selector.MENU, Dropdown._dataApiKeydownHandler).on(Event.CLICK_DATA_API + ' ' + Event.KEYUP_DATA_API, Dropdown._clearMenus).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
     event.preventDefault();
     event.stopPropagation();
     Dropdown._jQueryInterface.call($(this), 'toggle');
-  }).on(Event.CLICK_DATA_API, Selector.FORM_CHILD, e => {
+  }).on(Event.CLICK_DATA_API, Selector.FORM_CHILD, function (e) {
     e.stopPropagation();
   });
 
@@ -415,7 +458,5 @@ const Dropdown = (() => {
   };
 
   return Dropdown;
-})($, Popper);
-
-export default Dropdown;
+}($, Popper);
 //# sourceMappingURL=dropdown.js.map

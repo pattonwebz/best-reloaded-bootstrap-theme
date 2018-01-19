@@ -1,40 +1,40 @@
-import $ from 'jquery';
-import Util from './util';
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): alert.js
+ * Bootstrap (v4.0.0): alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const Alert = (() => {
-
+var Alert = function ($) {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = 'alert';
-  const VERSION = '4.0.0-beta.2';
-  const DATA_KEY = 'bs.alert';
-  const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = '.data-api';
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  const TRANSITION_DURATION = 150;
+  var NAME = 'alert';
+  var VERSION = '4.0.0';
+  var DATA_KEY = 'bs.alert';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var DATA_API_KEY = '.data-api';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var TRANSITION_DURATION = 150;
 
-  const Selector = {
+  var Selector = {
     DISMISS: '[data-dismiss="alert"]'
   };
 
-  const Event = {
-    CLOSE: `close${EVENT_KEY}`,
-    CLOSED: `closed${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+  var Event = {
+    CLOSE: 'close' + EVENT_KEY,
+    CLOSED: 'closed' + EVENT_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
-  const ClassName = {
+  var ClassName = {
     ALERT: 'alert',
     FADE: 'fade',
     SHOW: 'show'
@@ -45,63 +45,63 @@ const Alert = (() => {
      * ------------------------------------------------------------------------
      */
 
-  };class Alert {
+  };
+  var Alert = function () {
+    function Alert(element) {
+      _classCallCheck(this, Alert);
 
-    constructor(element) {
       this._element = element;
     }
 
-    // getters
+    // Getters
 
-    static get VERSION() {
-      return VERSION;
-    }
+    // Public
 
-    // public
-
-    close(element) {
+    Alert.prototype.close = function close(element) {
       element = element || this._element;
 
-      const rootElement = this._getRootElement(element);
-      const customEvent = this._triggerCloseEvent(rootElement);
+      var rootElement = this._getRootElement(element);
+      var customEvent = this._triggerCloseEvent(rootElement);
 
       if (customEvent.isDefaultPrevented()) {
         return;
       }
 
       this._removeElement(rootElement);
-    }
+    };
 
-    dispose() {
+    Alert.prototype.dispose = function dispose() {
       $.removeData(this._element, DATA_KEY);
       this._element = null;
-    }
+    };
 
-    // private
+    // Private
 
-    _getRootElement(element) {
-      const selector = Util.getSelectorFromElement(element);
-      let parent = false;
+    Alert.prototype._getRootElement = function _getRootElement(element) {
+      var selector = Util.getSelectorFromElement(element);
+      var parent = false;
 
       if (selector) {
         parent = $(selector)[0];
       }
 
       if (!parent) {
-        parent = $(element).closest(`.${ClassName.ALERT}`)[0];
+        parent = $(element).closest('.' + ClassName.ALERT)[0];
       }
 
       return parent;
-    }
+    };
 
-    _triggerCloseEvent(element) {
-      const closeEvent = $.Event(Event.CLOSE);
+    Alert.prototype._triggerCloseEvent = function _triggerCloseEvent(element) {
+      var closeEvent = $.Event(Event.CLOSE);
 
       $(element).trigger(closeEvent);
       return closeEvent;
-    }
+    };
 
-    _removeElement(element) {
+    Alert.prototype._removeElement = function _removeElement(element) {
+      var _this = this;
+
       $(element).removeClass(ClassName.SHOW);
 
       if (!Util.supportsTransitionEnd() || !$(element).hasClass(ClassName.FADE)) {
@@ -109,19 +109,21 @@ const Alert = (() => {
         return;
       }
 
-      $(element).one(Util.TRANSITION_END, event => this._destroyElement(element, event)).emulateTransitionEnd(TRANSITION_DURATION);
-    }
+      $(element).one(Util.TRANSITION_END, function (event) {
+        return _this._destroyElement(element, event);
+      }).emulateTransitionEnd(TRANSITION_DURATION);
+    };
 
-    _destroyElement(element) {
+    Alert.prototype._destroyElement = function _destroyElement(element) {
       $(element).detach().trigger(Event.CLOSED).remove();
-    }
+    };
 
-    // static
+    // Static
 
-    static _jQueryInterface(config) {
+    Alert._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
-        const $element = $(this);
-        let data = $element.data(DATA_KEY);
+        var $element = $(this);
+        var data = $element.data(DATA_KEY);
 
         if (!data) {
           data = new Alert(this);
@@ -132,9 +134,9 @@ const Alert = (() => {
           data[config](this);
         }
       });
-    }
+    };
 
-    static _handleDismiss(alertInstance) {
+    Alert._handleDismiss = function _handleDismiss(alertInstance) {
       return function (event) {
         if (event) {
           event.preventDefault();
@@ -142,9 +144,17 @@ const Alert = (() => {
 
         alertInstance.close(this);
       };
-    }
+    };
 
-  }
+    _createClass(Alert, null, [{
+      key: 'VERSION',
+      get: function get() {
+        return VERSION;
+      }
+    }]);
+
+    return Alert;
+  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -168,7 +178,5 @@ const Alert = (() => {
   };
 
   return Alert;
-})($);
-
-export default Alert;
+}($);
 //# sourceMappingURL=alert.js.map

@@ -117,13 +117,13 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 			// we can either have full bootstrap or a slim version. For ease
 			// keep handle the same but change src and tag the slim version.
 			if ( ! get_theme_mod( 'enable_slim_mode', best_reloaded_setting_defaults( 'enable_slim_mode' ) ) ) {
-				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0-beta' );
+				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0' );
 			} else {
-				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap-slim.min.css', '4.0.0-beta-slim' );
+				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap-slim.min.css', '4.0.0-slim' );
 			}
 
 			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', '4.7.0' );
-			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '1.4.0' );
+			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '2.0.0' );
 
 			if ( get_theme_mod( 'enable_font-awesome', best_reloaded_setting_defaults( 'enable_font-awesome' ) ) ) {
 				wp_enqueue_style( 'font-awesome' );
@@ -166,16 +166,16 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 			// we can either have full bootstrap or a slim version. For ease
 			// keep handle the same but change src and tag the slim version.
 			if ( ! get_theme_mod( 'enable_slim_mode', best_reloaded_setting_defaults( 'enable_slim_mode' ) ) ) {
-				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'popper' ), '4.0.0-beta', true );
+				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery', 'popper' ), '4.0.0', true );
 			} else {
-				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap-slim.min.js', array( 'jquery', 'popper' ), '4.0.0-beta-slim', true );
+				wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap-slim.min.js', array( 'jquery', 'popper' ), '4.0.0-slim', true );
 			}
 			// register popper - needed by bootstrap affix.
 			wp_register_script( 'popper', get_template_directory_uri() . '/assets/js/popper.min.js', array( 'jquery' ), '1.11.1', true );
 
 			// enqueue the main theme scripts file - which will in turn enqueue
 			// bootstrap, tether and jQuery due to dependancy chaining.
-			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '1.4.0', true );
+			wp_enqueue_script( 'best-reloaded', get_template_directory_uri() . '/assets/js/scripts.min.js', array( 'bootstrap', 'jquery' ), '2.0.0', true );
 
 			// only enqueue comment-reply script on single pages.
 			if ( is_single() ) {

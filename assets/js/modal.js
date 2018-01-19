@@ -1,60 +1,64 @@
-import $ from 'jquery';
-import Util from './util';
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): modal.js
+ * Bootstrap (v4.0.0): modal.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const Modal = (() => {
-
+var Modal = function ($) {
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  const NAME = 'modal';
-  const VERSION = '4.0.0-beta.2';
-  const DATA_KEY = 'bs.modal';
-  const EVENT_KEY = `.${DATA_KEY}`;
-  const DATA_API_KEY = '.data-api';
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  const TRANSITION_DURATION = 300;
-  const BACKDROP_TRANSITION_DURATION = 150;
-  const ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
+  var NAME = 'modal';
+  var VERSION = '4.0.0';
+  var DATA_KEY = 'bs.modal';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var DATA_API_KEY = '.data-api';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var TRANSITION_DURATION = 300;
+  var BACKDROP_TRANSITION_DURATION = 150;
+  var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
-  const Default = {
+  var Default = {
     backdrop: true,
     keyboard: true,
     focus: true,
     show: true
   };
 
-  const DefaultType = {
+  var DefaultType = {
     backdrop: '(boolean|string)',
     keyboard: 'boolean',
     focus: 'boolean',
     show: 'boolean'
   };
 
-  const Event = {
-    HIDE: `hide${EVENT_KEY}`,
-    HIDDEN: `hidden${EVENT_KEY}`,
-    SHOW: `show${EVENT_KEY}`,
-    SHOWN: `shown${EVENT_KEY}`,
-    FOCUSIN: `focusin${EVENT_KEY}`,
-    RESIZE: `resize${EVENT_KEY}`,
-    CLICK_DISMISS: `click.dismiss${EVENT_KEY}`,
-    KEYDOWN_DISMISS: `keydown.dismiss${EVENT_KEY}`,
-    MOUSEUP_DISMISS: `mouseup.dismiss${EVENT_KEY}`,
-    MOUSEDOWN_DISMISS: `mousedown.dismiss${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
+  var Event = {
+    HIDE: 'hide' + EVENT_KEY,
+    HIDDEN: 'hidden' + EVENT_KEY,
+    SHOW: 'show' + EVENT_KEY,
+    SHOWN: 'shown' + EVENT_KEY,
+    FOCUSIN: 'focusin' + EVENT_KEY,
+    RESIZE: 'resize' + EVENT_KEY,
+    CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
+    KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
+    MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
+    MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY
   };
 
-  const ClassName = {
+  var ClassName = {
     SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
     BACKDROP: 'modal-backdrop',
     OPEN: 'modal-open',
@@ -62,7 +66,7 @@ const Modal = (() => {
     SHOW: 'show'
   };
 
-  const Selector = {
+  var Selector = {
     DIALOG: '.modal-dialog',
     DATA_TOGGLE: '[data-toggle="modal"]',
     DATA_DISMISS: '[data-dismiss="modal"]',
@@ -76,9 +80,11 @@ const Modal = (() => {
      * ------------------------------------------------------------------------
      */
 
-  };class Modal {
+  };
+  var Modal = function () {
+    function Modal(element, config) {
+      _classCallCheck(this, Modal);
 
-    constructor(element, config) {
       this._config = this._getConfig(config);
       this._element = element;
       this._dialog = $(element).find(Selector.DIALOG)[0];
@@ -90,23 +96,17 @@ const Modal = (() => {
       this._scrollbarWidth = 0;
     }
 
-    // getters
+    // Getters
 
-    static get VERSION() {
-      return VERSION;
-    }
+    // Public
 
-    static get Default() {
-      return Default;
-    }
-
-    // public
-
-    toggle(relatedTarget) {
+    Modal.prototype.toggle = function toggle(relatedTarget) {
       return this._isShown ? this.hide() : this.show(relatedTarget);
-    }
+    };
 
-    show(relatedTarget) {
+    Modal.prototype.show = function show(relatedTarget) {
+      var _this = this;
+
       if (this._isTransitioning || this._isShown) {
         return;
       }
@@ -115,8 +115,8 @@ const Modal = (() => {
         this._isTransitioning = true;
       }
 
-      const showEvent = $.Event(Event.SHOW, {
-        relatedTarget
+      var showEvent = $.Event(Event.SHOW, {
+        relatedTarget: relatedTarget
       });
 
       $(this._element).trigger(showEvent);
@@ -137,20 +137,26 @@ const Modal = (() => {
       this._setEscapeEvent();
       this._setResizeEvent();
 
-      $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, event => this.hide(event));
+      $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
+        return _this.hide(event);
+      });
 
-      $(this._dialog).on(Event.MOUSEDOWN_DISMISS, () => {
-        $(this._element).one(Event.MOUSEUP_DISMISS, event => {
-          if ($(event.target).is(this._element)) {
-            this._ignoreBackdropClick = true;
+      $(this._dialog).on(Event.MOUSEDOWN_DISMISS, function () {
+        $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
+          if ($(event.target).is(_this._element)) {
+            _this._ignoreBackdropClick = true;
           }
         });
       });
 
-      this._showBackdrop(() => this._showElement(relatedTarget));
-    }
+      this._showBackdrop(function () {
+        return _this._showElement(relatedTarget);
+      });
+    };
 
-    hide(event) {
+    Modal.prototype.hide = function hide(event) {
+      var _this2 = this;
+
       if (event) {
         event.preventDefault();
       }
@@ -159,7 +165,7 @@ const Modal = (() => {
         return;
       }
 
-      const hideEvent = $.Event(Event.HIDE);
+      var hideEvent = $.Event(Event.HIDE);
 
       $(this._element).trigger(hideEvent);
 
@@ -169,7 +175,7 @@ const Modal = (() => {
 
       this._isShown = false;
 
-      const transition = Util.supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);
+      var transition = Util.supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);
 
       if (transition) {
         this._isTransitioning = true;
@@ -186,14 +192,15 @@ const Modal = (() => {
       $(this._dialog).off(Event.MOUSEDOWN_DISMISS);
 
       if (transition) {
-
-        $(this._element).one(Util.TRANSITION_END, event => this._hideModal(event)).emulateTransitionEnd(TRANSITION_DURATION);
+        $(this._element).one(Util.TRANSITION_END, function (event) {
+          return _this2._hideModal(event);
+        }).emulateTransitionEnd(TRANSITION_DURATION);
       } else {
         this._hideModal();
       }
-    }
+    };
 
-    dispose() {
+    Modal.prototype.dispose = function dispose() {
       $.removeData(this._element, DATA_KEY);
 
       $(window, document, this._element, this._backdrop).off(EVENT_KEY);
@@ -206,25 +213,27 @@ const Modal = (() => {
       this._isBodyOverflowing = null;
       this._ignoreBackdropClick = null;
       this._scrollbarWidth = null;
-    }
+    };
 
-    handleUpdate() {
+    Modal.prototype.handleUpdate = function handleUpdate() {
       this._adjustDialog();
-    }
+    };
 
-    // private
+    // Private
 
-    _getConfig(config) {
-      config = $.extend({}, Default, config);
+    Modal.prototype._getConfig = function _getConfig(config) {
+      config = _extends({}, Default, config);
       Util.typeCheckConfig(NAME, config, DefaultType);
       return config;
-    }
+    };
 
-    _showElement(relatedTarget) {
-      const transition = Util.supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);
+    Modal.prototype._showElement = function _showElement(relatedTarget) {
+      var _this3 = this;
+
+      var transition = Util.supportsTransitionEnd() && $(this._element).hasClass(ClassName.FADE);
 
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
-        // don't move modals dom position
+        // Don't move modal's DOM position
         document.body.appendChild(this._element);
       }
 
@@ -242,16 +251,16 @@ const Modal = (() => {
         this._enforceFocus();
       }
 
-      const shownEvent = $.Event(Event.SHOWN, {
-        relatedTarget
+      var shownEvent = $.Event(Event.SHOWN, {
+        relatedTarget: relatedTarget
       });
 
-      const transitionComplete = () => {
-        if (this._config.focus) {
-          this._element.focus();
+      var transitionComplete = function transitionComplete() {
+        if (_this3._config.focus) {
+          _this3._element.focus();
         }
-        this._isTransitioning = false;
-        $(this._element).trigger(shownEvent);
+        _this3._isTransitioning = false;
+        $(_this3._element).trigger(shownEvent);
       };
 
       if (transition) {
@@ -259,62 +268,74 @@ const Modal = (() => {
       } else {
         transitionComplete();
       }
-    }
+    };
 
-    _enforceFocus() {
-      $(document).off(Event.FOCUSIN) // guard against infinite focus loop
-      .on(Event.FOCUSIN, event => {
-        if (document !== event.target && this._element !== event.target && !$(this._element).has(event.target).length) {
-          this._element.focus();
+    Modal.prototype._enforceFocus = function _enforceFocus() {
+      var _this4 = this;
+
+      $(document).off(Event.FOCUSIN) // Guard against infinite focus loop
+      .on(Event.FOCUSIN, function (event) {
+        if (document !== event.target && _this4._element !== event.target && $(_this4._element).has(event.target).length === 0) {
+          _this4._element.focus();
         }
       });
-    }
+    };
 
-    _setEscapeEvent() {
+    Modal.prototype._setEscapeEvent = function _setEscapeEvent() {
+      var _this5 = this;
+
       if (this._isShown && this._config.keyboard) {
-        $(this._element).on(Event.KEYDOWN_DISMISS, event => {
+        $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
           if (event.which === ESCAPE_KEYCODE) {
             event.preventDefault();
-            this.hide();
+            _this5.hide();
           }
         });
       } else if (!this._isShown) {
         $(this._element).off(Event.KEYDOWN_DISMISS);
       }
-    }
+    };
 
-    _setResizeEvent() {
+    Modal.prototype._setResizeEvent = function _setResizeEvent() {
+      var _this6 = this;
+
       if (this._isShown) {
-        $(window).on(Event.RESIZE, event => this.handleUpdate(event));
+        $(window).on(Event.RESIZE, function (event) {
+          return _this6.handleUpdate(event);
+        });
       } else {
         $(window).off(Event.RESIZE);
       }
-    }
+    };
 
-    _hideModal() {
+    Modal.prototype._hideModal = function _hideModal() {
+      var _this7 = this;
+
       this._element.style.display = 'none';
       this._element.setAttribute('aria-hidden', true);
       this._isTransitioning = false;
-      this._showBackdrop(() => {
+      this._showBackdrop(function () {
         $(document.body).removeClass(ClassName.OPEN);
-        this._resetAdjustments();
-        this._resetScrollbar();
-        $(this._element).trigger(Event.HIDDEN);
+        _this7._resetAdjustments();
+        _this7._resetScrollbar();
+        $(_this7._element).trigger(Event.HIDDEN);
       });
-    }
+    };
 
-    _removeBackdrop() {
+    Modal.prototype._removeBackdrop = function _removeBackdrop() {
       if (this._backdrop) {
         $(this._backdrop).remove();
         this._backdrop = null;
       }
-    }
+    };
 
-    _showBackdrop(callback) {
-      const animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
+    Modal.prototype._showBackdrop = function _showBackdrop(callback) {
+      var _this8 = this;
+
+      var animate = $(this._element).hasClass(ClassName.FADE) ? ClassName.FADE : '';
 
       if (this._isShown && this._config.backdrop) {
-        const doAnimate = Util.supportsTransitionEnd() && animate;
+        var doAnimate = Util.supportsTransitionEnd() && animate;
 
         this._backdrop = document.createElement('div');
         this._backdrop.className = ClassName.BACKDROP;
@@ -325,18 +346,18 @@ const Modal = (() => {
 
         $(this._backdrop).appendTo(document.body);
 
-        $(this._element).on(Event.CLICK_DISMISS, event => {
-          if (this._ignoreBackdropClick) {
-            this._ignoreBackdropClick = false;
+        $(this._element).on(Event.CLICK_DISMISS, function (event) {
+          if (_this8._ignoreBackdropClick) {
+            _this8._ignoreBackdropClick = false;
             return;
           }
           if (event.target !== event.currentTarget) {
             return;
           }
-          if (this._config.backdrop === 'static') {
-            this._element.focus();
+          if (_this8._config.backdrop === 'static') {
+            _this8._element.focus();
           } else {
-            this.hide();
+            _this8.hide();
           }
         });
 
@@ -359,8 +380,8 @@ const Modal = (() => {
       } else if (!this._isShown && this._backdrop) {
         $(this._backdrop).removeClass(ClassName.SHOW);
 
-        const callbackRemove = () => {
-          this._removeBackdrop();
+        var callbackRemove = function callbackRemove() {
+          _this8._removeBackdrop();
           if (callback) {
             callback();
           }
@@ -374,109 +395,111 @@ const Modal = (() => {
       } else if (callback) {
         callback();
       }
-    }
+    };
 
     // ----------------------------------------------------------------------
     // the following methods are used to handle overflowing modals
     // todo (fat): these should probably be refactored out of modal.js
     // ----------------------------------------------------------------------
 
-    _adjustDialog() {
-      const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+    Modal.prototype._adjustDialog = function _adjustDialog() {
+      var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
       if (!this._isBodyOverflowing && isModalOverflowing) {
-        this._element.style.paddingLeft = `${this._scrollbarWidth}px`;
+        this._element.style.paddingLeft = this._scrollbarWidth + 'px';
       }
 
       if (this._isBodyOverflowing && !isModalOverflowing) {
-        this._element.style.paddingRight = `${this._scrollbarWidth}px`;
+        this._element.style.paddingRight = this._scrollbarWidth + 'px';
       }
-    }
+    };
 
-    _resetAdjustments() {
+    Modal.prototype._resetAdjustments = function _resetAdjustments() {
       this._element.style.paddingLeft = '';
       this._element.style.paddingRight = '';
-    }
+    };
 
-    _checkScrollbar() {
-      const rect = document.body.getBoundingClientRect();
+    Modal.prototype._checkScrollbar = function _checkScrollbar() {
+      var rect = document.body.getBoundingClientRect();
       this._isBodyOverflowing = rect.left + rect.right < window.innerWidth;
       this._scrollbarWidth = this._getScrollbarWidth();
-    }
+    };
 
-    _setScrollbar() {
+    Modal.prototype._setScrollbar = function _setScrollbar() {
+      var _this9 = this;
+
       if (this._isBodyOverflowing) {
         // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
         //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
 
         // Adjust fixed content padding
-        $(Selector.FIXED_CONTENT).each((index, element) => {
-          const actualPadding = $(element)[0].style.paddingRight;
-          const calculatedPadding = $(element).css('padding-right');
-          $(element).data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`);
+        $(Selector.FIXED_CONTENT).each(function (index, element) {
+          var actualPadding = $(element)[0].style.paddingRight;
+          var calculatedPadding = $(element).css('padding-right');
+          $(element).data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + _this9._scrollbarWidth + 'px');
         });
 
         // Adjust sticky content margin
-        $(Selector.STICKY_CONTENT).each((index, element) => {
-          const actualMargin = $(element)[0].style.marginRight;
-          const calculatedMargin = $(element).css('margin-right');
-          $(element).data('margin-right', actualMargin).css('margin-right', `${parseFloat(calculatedMargin) - this._scrollbarWidth}px`);
+        $(Selector.STICKY_CONTENT).each(function (index, element) {
+          var actualMargin = $(element)[0].style.marginRight;
+          var calculatedMargin = $(element).css('margin-right');
+          $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) - _this9._scrollbarWidth + 'px');
         });
 
         // Adjust navbar-toggler margin
-        $(Selector.NAVBAR_TOGGLER).each((index, element) => {
-          const actualMargin = $(element)[0].style.marginRight;
-          const calculatedMargin = $(element).css('margin-right');
-          $(element).data('margin-right', actualMargin).css('margin-right', `${parseFloat(calculatedMargin) + this._scrollbarWidth}px`);
+        $(Selector.NAVBAR_TOGGLER).each(function (index, element) {
+          var actualMargin = $(element)[0].style.marginRight;
+          var calculatedMargin = $(element).css('margin-right');
+          $(element).data('margin-right', actualMargin).css('margin-right', parseFloat(calculatedMargin) + _this9._scrollbarWidth + 'px');
         });
 
         // Adjust body padding
-        const actualPadding = document.body.style.paddingRight;
-        const calculatedPadding = $('body').css('padding-right');
-        $('body').data('padding-right', actualPadding).css('padding-right', `${parseFloat(calculatedPadding) + this._scrollbarWidth}px`);
+        var actualPadding = document.body.style.paddingRight;
+        var calculatedPadding = $('body').css('padding-right');
+        $('body').data('padding-right', actualPadding).css('padding-right', parseFloat(calculatedPadding) + this._scrollbarWidth + 'px');
       }
-    }
+    };
 
-    _resetScrollbar() {
+    Modal.prototype._resetScrollbar = function _resetScrollbar() {
       // Restore fixed content padding
-      $(Selector.FIXED_CONTENT).each((index, element) => {
-        const padding = $(element).data('padding-right');
+      $(Selector.FIXED_CONTENT).each(function (index, element) {
+        var padding = $(element).data('padding-right');
         if (typeof padding !== 'undefined') {
           $(element).css('padding-right', padding).removeData('padding-right');
         }
       });
 
       // Restore sticky content and navbar-toggler margin
-      $(`${Selector.STICKY_CONTENT}, ${Selector.NAVBAR_TOGGLER}`).each((index, element) => {
-        const margin = $(element).data('margin-right');
+      $(Selector.STICKY_CONTENT + ', ' + Selector.NAVBAR_TOGGLER).each(function (index, element) {
+        var margin = $(element).data('margin-right');
         if (typeof margin !== 'undefined') {
           $(element).css('margin-right', margin).removeData('margin-right');
         }
       });
 
       // Restore body padding
-      const padding = $('body').data('padding-right');
+      var padding = $('body').data('padding-right');
       if (typeof padding !== 'undefined') {
         $('body').css('padding-right', padding).removeData('padding-right');
       }
-    }
+    };
 
-    _getScrollbarWidth() {
+    Modal.prototype._getScrollbarWidth = function _getScrollbarWidth() {
       // thx d.walsh
-      const scrollDiv = document.createElement('div');
+      var scrollDiv = document.createElement('div');
       scrollDiv.className = ClassName.SCROLLBAR_MEASURER;
       document.body.appendChild(scrollDiv);
-      const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+      var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
       document.body.removeChild(scrollDiv);
       return scrollbarWidth;
-    }
+    };
 
-    // static
+    // Static
 
-    static _jQueryInterface(config, relatedTarget) {
+    Modal._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        let data = $(this).data(DATA_KEY);
-        const _config = $.extend({}, Modal.Default, $(this).data(), typeof config === 'object' && config);
+        var data = $(this).data(DATA_KEY);
+        var _config = _extends({}, Modal.Default, $(this).data(), (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config);
 
         if (!data) {
           data = new Modal(this, _config);
@@ -485,16 +508,29 @@ const Modal = (() => {
 
         if (typeof config === 'string') {
           if (typeof data[config] === 'undefined') {
-            throw new Error(`No method named "${config}"`);
+            throw new TypeError('No method named "' + config + '"');
           }
           data[config](relatedTarget);
         } else if (_config.show) {
           data.show(relatedTarget);
         }
       });
-    }
+    };
 
-  }
+    _createClass(Modal, null, [{
+      key: 'VERSION',
+      get: function get() {
+        return VERSION;
+      }
+    }, {
+      key: 'Default',
+      get: function get() {
+        return Default;
+      }
+    }]);
+
+    return Modal;
+  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -503,28 +539,30 @@ const Modal = (() => {
    */
 
   $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-    let target;
-    const selector = Util.getSelectorFromElement(this);
+    var _this10 = this;
+
+    var target = void 0;
+    var selector = Util.getSelectorFromElement(this);
 
     if (selector) {
       target = $(selector)[0];
     }
 
-    const config = $(target).data(DATA_KEY) ? 'toggle' : $.extend({}, $(target).data(), $(this).data());
+    var config = $(target).data(DATA_KEY) ? 'toggle' : _extends({}, $(target).data(), $(this).data());
 
     if (this.tagName === 'A' || this.tagName === 'AREA') {
       event.preventDefault();
     }
 
-    const $target = $(target).one(Event.SHOW, showEvent => {
+    var $target = $(target).one(Event.SHOW, function (showEvent) {
       if (showEvent.isDefaultPrevented()) {
-        // only register focus restorer if modal will actually get shown
+        // Only register focus restorer if modal will actually get shown
         return;
       }
 
-      $target.one(Event.HIDDEN, () => {
-        if ($(this).is(':visible')) {
-          this.focus();
+      $target.one(Event.HIDDEN, function () {
+        if ($(_this10).is(':visible')) {
+          _this10.focus();
         }
       });
     });
@@ -546,7 +584,5 @@ const Modal = (() => {
   };
 
   return Modal;
-})($);
-
-export default Modal;
+}($);
 //# sourceMappingURL=modal.js.map
