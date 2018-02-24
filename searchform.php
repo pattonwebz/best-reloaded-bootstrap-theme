@@ -1,12 +1,12 @@
 <?php
- /**
-  * The searchform.php file.
-  *
-  * This is the markup that is used whenever the default wordpress seach is called front-end
-  *
-  * @package Best_Reloaded
-  * @since Best Reloaded v0.1
-  */
+/**
+ * The searchform.php file.
+ *
+ * This is the markup that is used whenever the default wordpress seach is called front-end
+ *
+ * @package Best_Reloaded
+ * @since Best Reloaded v0.1
+ */
 
 ?>
 <form role="search" method="get" class="form-inline my2 my-lg-0" action="<?php echo esc_url( home_url( '/' ) ); ?>">

@@ -1,8 +1,11 @@
+2.1.0 	- Enhancement: New option to select number of posts appearing in the loop on frontpage.
+		- Update: Updated wp-bootstrap-navwalker to v4.0.2.
+
 2.0.0	- Moved to Bootstrap 4.0.0 final.
 1.7.0	- A lot of developer and child theme friendly focused changes. All relevant functions are now overridable or filterable.
 			- Moved default settings to a filterable array.
 			- Made all options helper functions filterable.
-		- Made the postend widget area output like expected.
+		- Made the post end widget area output like expected.
 		- Added a few more options to the search button color choices.
 1.6.0	- Added a small upsell block in customizer.
 		- Fix: correctly copy font-awesome styles during `grunt dist`.

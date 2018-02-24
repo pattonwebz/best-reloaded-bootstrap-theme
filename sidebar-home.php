@@ -1,13 +1,13 @@
 <?php
- /**
-  * The sidebar-home.php file.
-  *
-  * Displays the set of widget areas available for editing in the
-  * #main_content section of template-home.php
-  *
-  * @package Best_Reloaded
-  * @since Best Reloaded v0.1
-  */
+/**
+ * The sidebar-home.php file.
+ *
+ * Displays the set of widget areas available for editing in the
+ * #main_content section of template-home.php
+ *
+ * @package Best_Reloaded
+ * @since Best Reloaded v0.1
+ */
 
 ?>
 

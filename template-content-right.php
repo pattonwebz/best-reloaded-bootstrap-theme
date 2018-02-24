@@ -1,14 +1,14 @@
 <?php
- /**
-  * Template Name: Content Right
-  *
-  * The template-content-right.php file.
-  *
-  * Template for placing main content on the right
-  *
-  * @package Best_Reloaded
-  * @since Best Reloaded v0.1
-  */
+/**
+ * Template Name: Content Right
+ *
+ * The template-content-right.php file.
+ *
+ * Template for placing main content on the right
+ *
+ * @package Best_Reloaded
+ * @since Best Reloaded v0.1
+ */
 
 ?>
 
