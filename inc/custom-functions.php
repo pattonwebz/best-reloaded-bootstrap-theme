@@ -60,7 +60,7 @@ if ( ! function_exists( 'best_reloaded_setting_defaults' ) ) {
 	function best_reloaded_setting_defaults( $field = '' ) {
 		// translators: 1 is current year, 2 is site name.
 		$default_tagline = sprintf( __( '&copy; %1$s %2$s', 'best-reloaded' ), date_i18n( __( 'Y', 'best-reloaded' ) ), get_bloginfo( 'name' ) );
-		$defaults = array(
+		$defaults        = array(
 			'navbar_style'                => 'fixed-top',
 			'navbar-color'                => 'navbar-light',
 			'navbar-bg'                   => 'bg-light',
@@ -75,9 +75,14 @@ if ( ! function_exists( 'best_reloaded_setting_defaults' ) ) {
 			'header_banner_area'          => '<!-- html accepted -->',
 			'display_intro_text'          => 1,
 			'intro_text'                  => __( 'Welcome to our awesome site!<br/>This space is the perfect place to say a <a href="#">little something</a> about yourself.', 'best-reloaded' ),
+			'display_homepage_slider_row' => 1,
 			'display_homepage_widget_row' => 1,
+			'display_homepage_posts_row'  => 1,
+			'homepage_posts_output_num'   => '3',
+			'homepage_posts_category'     => 0,
 			'slider_limit'                => 3,
 			'slider_category'             => 0,
+			'slider_max_cap'              => 0,
 			'display_featured_bar'        => 0,
 			'featured_bar'                => __( 'Something Important (set background color, image, text, and <a href="#">link</a>)', 'best-reloaded' ),
 			'display_footer_top'          => 1,

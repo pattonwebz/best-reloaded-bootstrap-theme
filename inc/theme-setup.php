@@ -85,7 +85,7 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 
 		add_theme_support( 'gutenberg', array(
 			'wide-images' => true,
-			'colors' => array(
+			'colors'      => array(
 				'#e5450f',
 				'#f26535',
 				'#f58a65',
@@ -190,9 +190,9 @@ if ( ! function_exists( 'best_reloaded_remove_category_list_rel' ) ) {
 	/**
 	 * Remove rel attribute from the category list
 	 *
-	 * @param  string $output	string containing markup for category lists.
+	 * @param string $output  string containing markup for category lists.
 	 *
-	 * @return string        	returns a modified string with the 'rel' params removed.
+	 * @return string         returns a modified string with the 'rel' params removed.
 	 */
 	function best_reloaded_remove_category_list_rel( $output ) {
 		$output = str_replace( ' rel="category tag"', '', $output );
@@ -206,9 +206,9 @@ if ( ! function_exists( 'best_reloaded_custom_excerpt_length' ) ) {
 	/**
 	 * Custom excerpt length and more text
 	 *
-	 * @param integer $length	This is the currently set excerpt length.
+	 * @param integer $length  This is the currently set excerpt length.
 	 *
-	 * @return integer			New length to use for excerpts.
+	 * @return integer         New length to use for excerpts.
 	 */
 	function best_reloaded_custom_excerpt_length( $length ) {
 		if ( is_admin() ) {
@@ -244,14 +244,14 @@ if ( ! function_exists( 'best_reloaded_custom_tag_cloud_widget' ) ) {
 	/**
 	 * Custom tagcloud tweaks
 	 *
-	 * @param  array $args 	Array of args already passed to tagcloud widget.
+	 * @param array $args  Array of args already passed to tagcloud widget.
 	 *
-	 * @return array 		Updated array with more args appended or udpated.
+	 * @return array       Updated array with more args appended or udpated.
 	 */
 	function best_reloaded_custom_tag_cloud_widget( $args ) {
-		$args['largest'] = 18;
+		$args['largest']  = 18;
 		$args['smallest'] = 14;
-		$args['unit'] = 'px';
+		$args['unit']     = 'px';
 		return $args;
 	}
 }

@@ -24,6 +24,9 @@
 		</div><!-- end .row -->
 	<?php } ?>
 	<div id="main_content" role="main">
+		<?php
+		if ( get_theme_mod( 'display_homepage_slider_row', best_reloaded_setting_defaults( 'display_homepage_slider_row' ) ) ) {
+		?>
 		<div class="row">
 			<div class="col-md-9">
 				<div id="carousel-home" class="carousel slide" data-ride="carousel">
@@ -71,11 +74,15 @@
 				?>
 			</div><!-- end .col-md-3 -->
 		</div><!-- end .row -->
+		<?php
+		}
 
-		<?php get_sidebar( 'home' ); ?>
-
-		<?php get_template_part( 'inc/parts/loop', 'home' ); ?>
-
-
+		if ( get_theme_mod( 'display_homepage_widget_row', best_reloaded_setting_defaults( 'display_homepage_widget_row' ) ) ) {
+			get_sidebar( 'home' );
+		}
+		if ( get_theme_mod( 'display_homepage_posts_row', best_reloaded_setting_defaults( 'display_homepage_posts_row' ) ) ) {
+			get_template_part( 'inc/parts/loop', 'home' );
+		}
+		?>
 	</div><!-- end #main_content -->
 <?php get_footer(); ?>

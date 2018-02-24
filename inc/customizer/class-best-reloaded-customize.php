@@ -288,8 +288,22 @@ final class Best_Reloaded_Customize {
 		);
 
 		$wp_customize->add_setting(
+			'display_homepage_slider_row', array(
+				'default'           => $defaults['display_homepage_slider_row'],
+				'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+			)
+		);
+
+		$wp_customize->add_setting(
 			'display_homepage_widget_row', array(
 				'default'           => $defaults['display_homepage_widget_row'],
+				'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'display_homepage_posts_row', array(
+				'default'           => $defaults['display_homepage_posts_row'],
 				'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 			)
 		);
@@ -298,6 +312,13 @@ final class Best_Reloaded_Customize {
 			'homepage_posts_output_num', array(
 				'default'           => '3',
 				'sanitize_callback' => 'absint',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'homepage_posts_category', array(
+				'default'           => $defaults['homepage_posts_category'],
+				'sanitize_callback' => 'best_reloaded_sanitize_cetegory_select',
 			)
 		);
 
@@ -313,6 +334,13 @@ final class Best_Reloaded_Customize {
 			'slider_category', array(
 				'default'           => $defaults['slider_category'],
 				'sanitize_callback' => 'best_reloaded_sanitize_cetegory_select',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'slider_max_cap', array(
+				'default'           => $defaults['slider_max_cap'],
+				'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
 			)
 		);
 
@@ -527,11 +555,31 @@ final class Best_Reloaded_Customize {
 		);
 
 		$wp_customize->add_control(
+			'display_homepage_slider_row', array(
+				'label'       => __( 'Display Frontpage Slider Row', 'best-reloaded' ),
+				'description' => __( 'Toggle on/off the slider row on the frontpage. This row contais the slider and a right side widget area.', 'best-reloaded' ),
+				'section'     => 'best_reloaded_frontpage',
+				'settings'    => 'display_homepage_slider_row',
+				'type'        => 'checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
 			'display_homepage_widget_row', array(
 				'label'       => __( 'Display Frontpage Widget Row', 'best-reloaded' ),
 				'description' => __( 'An additional row of widgets can be output on the frontpage.', 'best-reloaded' ),
 				'section'     => 'best_reloaded_frontpage',
 				'settings'    => 'display_homepage_widget_row',
+				'type'        => 'checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
+			'display_homepage_posts_row', array(
+				'label'       => __( 'Display Frontpage Slider Row', 'best-reloaded' ),
+				'description' => __( 'Toggle on/off the posts row on the frontpage. This row contais the a left side widget area and outputs excerpts of the selected number of posts.', 'best-reloaded' ),
+				'section'     => 'best_reloaded_frontpage',
+				'settings'    => 'display_homepage_posts_row',
 				'type'        => 'checkbox',
 			)
 		);
@@ -548,6 +596,16 @@ final class Best_Reloaded_Customize {
 					'3' => '3',
 					'4' => '4',
 				),
+			)
+		);
+
+		$wp_customize->add_control(
+			'homepage_posts_category', array(
+				'label'       => __( 'Category For Frontpage Posts', 'best-reloaded' ),
+				'description' => __( 'Choose the category to output post excerpts of on the frontpage..', 'best-reloaded' ),
+				'section'     => 'best_reloaded_frontpage',
+				'type'        => 'select',
+				'choices'     => best_reloaded_get_categories(),
 			)
 		);
 
@@ -569,6 +627,16 @@ final class Best_Reloaded_Customize {
 				'section'     => 'best_reloaded_slider',
 				'type'        => 'select',
 				'choices'     => best_reloaded_get_categories(),
+			)
+		);
+
+		$wp_customize->add_control(
+			'slider_max_cap', array(
+				'label'       => __( 'Slider Capped Height.', 'best-reloaded' ),
+				'description' => __( 'Set a height limit on the slider so that image sizes all match the size of the first image it contains (prevents content below the slider from changing positions if images are different sizes, may cause some distorted images in certain cases)', 'best-reloaded' ),
+				'section'     => 'best_reloaded_slider',
+				'settings'    => 'slider_max_cap',
+				'type'        => 'checkbox',
 			)
 		);
 

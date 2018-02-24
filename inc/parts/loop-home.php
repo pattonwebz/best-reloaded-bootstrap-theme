@@ -31,9 +31,16 @@
 	$best_excluded_ids = array_merge( $best_do_not_get_duplicates, get_option( 'sticky_posts' ) );
 
 	$args = array(
-		'posts_per_page' => get_theme_mod( 'homepage_posts_output_num', 3 ),
+		'posts_per_page' => (int) get_theme_mod( 'homepage_posts_output_num', best_reloaded_setting_defaults( 'display_homepage_posts_category' ) ),
 		'post__not_in'   => $best_excluded_ids,
 	);
+	// check if a category is set for these posts and if so merge it to the $args array.
+	$category_to_output = get_theme_mod( 'homepage_posts_category', best_reloaded_setting_defaults( 'homepage_posts_category' ) );
+
+	if ( $category_to_output ) {
+		$args['cat'] = $category_to_output;
+	}
+
 	$loop = new WP_Query( $args );
 
 	if ( $loop->have_posts() ) {
