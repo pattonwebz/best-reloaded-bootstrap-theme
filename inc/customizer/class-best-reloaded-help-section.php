@@ -1,16 +1,23 @@
 <?php
 /**
- * Pro customizer section.
+ * Class to add a section and it's supporting styles/scripts to output a button
+ * and some text in a top level panel of the customizer.
  *
- * @since  1.0.0
+ * @package Best_Reloaded
+ * @since Best Reloaded v2.1.0
+ */
+
+/**
+ * Get help section.
+ *
  * @access public
  */
-class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
+class Best_Reloaded_Help_Section extends WP_Customize_Section {
 
 	/**
 	 * The type of customize section being rendered.
 	 *
-	 * @since  1.0.0
+	 * @since  2.1.0
 	 * @access public
 	 * @var    string
 	 */
@@ -19,7 +26,7 @@ class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 	/**
 	 * Custom button text to output.
 	 *
-	 * @since  1.0.0
+	 * @since  2.1.0
 	 * @access public
 	 * @var    string
 	 */
@@ -28,7 +35,7 @@ class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 	/**
 	 * Custom pro button URL.
 	 *
-	 * @since  1.0.0
+	 * @since  2.1.0
 	 * @access public
 	 * @var    string
 	 */
@@ -37,7 +44,7 @@ class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 	/**
 	 * Custom description text.
 	 *
-	 * @since  1.0.0
+	 * @since  2.1.0
 	 * @access public
 	 * @var    string
 	 */
@@ -46,15 +53,14 @@ class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 	/**
 	 * Add custom parameters to pass to the JS via JSON.
 	 *
-	 * @since  1.0.0
+	 * @since  2.1.0
 	 * @access public
-	 * @return void
 	 */
 	public function json() {
 		$json = parent::json();
 
-		$json['pro_text'] = $this->pro_text;
-		$json['pro_url']  = esc_url( $this->pro_url );
+		$json['pro_text']        = $this->pro_text;
+		$json['pro_url']         = esc_url( $this->pro_url );
 		$json['pro_description'] = $this->pro_description;
 
 		return $json;
@@ -63,12 +69,12 @@ class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 	/**
 	 * Outputs the Underscore.js template.
 	 *
-	 * @since  1.0.0
+	 * @since  2.1.0
 	 * @access public
 	 * @return void
 	 */
-	protected function render_template() { ?>
-
+	protected function render_template() {
+		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 
 			<h3 class="accordion-section-title">
@@ -84,5 +90,6 @@ class Best_Reloaded_Upsell_Section extends WP_Customize_Section {
 			</div>
 			<# } #>
 		</li>
-	<?php }
+		<?php
+	}
 }

@@ -16,13 +16,10 @@ require trailingslashit( get_template_directory() ) . 'inc/comments-and-pingback
 // Registers all dynamic sidebar areas for the theme.
 require trailingslashit( get_template_directory() ) . 'inc/register-sidebars.php';
 // Register Custom Navigation Walker.
-// This is a 3rd party class - only require if the class isn't added already.
-if ( ! class_exists( 'wp_bootstrap_navwalker', false ) ) {
-	require trailingslashit( get_template_directory() ) . 'inc/class-wp-bootstrap-navwalker.php';
-}
+require trailingslashit( get_template_directory() ) . 'inc/class-wp-bootstrap-navwalker.php';
 // Adds customizer controls, settings and sanitization functions.
-require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
-// Custom functions.
+require trailingslashit( get_template_directory() ) . 'inc/customizer/class-best-reloaded-customize.php';
+// Some custom functions used throughout the theme.
 require trailingslashit( get_template_directory() ) . 'inc/custom-functions.php';
 // Contains the action hooks and filters for the theme.
 require trailingslashit( get_template_directory() ) . 'inc/action-hooks.php';
