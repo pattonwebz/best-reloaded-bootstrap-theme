@@ -96,7 +96,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'search_color', array(
 			'label'       => __( 'Search Color', 'best-reloaded' ),
-			'description' => __( 'Select the color of search you want.', 'best-reloaded' ),
+			'description' => __( 'Select the color of search button (NOTE: this also is applied to any search widget used in the sidebar).', 'best-reloaded' ),
 			'section'     => 'best_reloaded_navbar',
 			'type'        => 'select',
 			'choices'     => best_reloaded_get_search_colors(),
@@ -112,29 +112,10 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'display_navbar_brand', array(
 			'label'       => __( 'Enable the navbar brand.', 'best-reloaded' ),
-			'description' => __( 'Branding options can be a small image and the site-title', 'best-reloaded' ),
+			'description' => __( 'Branding options can be a small image, the site-title text or both.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_navbar',
 			'settings'    => 'display_navbar_brand',
 			'type'        => 'checkbox',
-		)
-	);
-
-	$wp_customize->add_setting(
-		'brand_image', array(
-			'default'           => $defaults['brand_image'],
-			'sanitize_callback' => 'best_reloaded_sanitize_image',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'brand_image',
-			array(
-				'label'       => __( 'Add a brand image to the navbar.', 'best-reloaded' ),
-				'section'     => 'best_reloaded_navbar',
-				'settings'    => 'brand_image',
-				'description' => __( 'Choose an image to use for brand image in navbar. It should be 30px X 30px. Leave empty for no image.', 'best-reloaded' ),
-			)
 		)
 	);
 
@@ -169,6 +150,25 @@ function best_reloaded_customizer( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'brand_image', array(
+			'default'           => $defaults['brand_image'],
+			'sanitize_callback' => 'best_reloaded_sanitize_image',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'brand_image',
+			array(
+				'label'       => __( 'Add a brand image to the navbar.', 'best-reloaded' ),
+				'section'     => 'best_reloaded_navbar',
+				'settings'    => 'brand_image',
+				'description' => __( 'Choose an image to use for brand image in navbar. It should be 30px X 30px. Leave empty for no image.', 'best-reloaded' ),
+			)
+		)
+	);
+
 	// site title section options.
 	$wp_customize->add_setting(
 		'small_site_title', array(
@@ -196,7 +196,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'display_header_banner_area', array(
 			'label'       => __( 'Display Header Banner Area', 'best-reloaded' ),
-			'description' => __( 'Toggle on/off the the header banner slot.', 'best-reloaded' ),
+			'description' => __( 'Toggle on/off the the header banner slot. This appears to the right of the site title.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_header',
 			'settings'    => 'display_header_banner_area',
 			'type'        => 'checkbox',
@@ -229,8 +229,8 @@ function best_reloaded_customizer( $wp_customize ) {
 	);
 	$wp_customize->add_control(
 		'display_intro_text', array(
-			'label'       => __( 'Display the frontpage intro text.', 'best-reloaded' ),
-			'description' => __( 'This intro text is unique to the frontpage.', 'best-reloaded' ),
+			'label'       => __( 'Display the frontpage intro section.', 'best-reloaded' ),
+			'description' => __( 'This intro section is unique to the frontpage (there is a sitewide option that is used on all other pages).', 'best-reloaded' ),
 			'section'     => 'best_reloaded_frontpage',
 			'settings'    => 'display_intro_text',
 			'type'        => 'checkbox',
@@ -261,7 +261,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'display_homepage_widget_row', array(
 			'label'       => __( 'Display Frontpage Widget Row', 'best-reloaded' ),
-			'description' => __( 'A additional row of widgets can be output on the frontapge.', 'best-reloaded' ),
+			'description' => __( 'An additional row of widgets can be output on the frontpage.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_frontpage',
 			'settings'    => 'display_homepage_widget_row',
 			'type'        => 'checkbox',
@@ -277,7 +277,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'homepage_posts_output_num', array(
 			'label'       => __( 'Number of Posts', 'best-reloaded' ),
-			'description' => __( 'How many posts to output (in addition to the slider posts) on the frontpage.', 'best-reloaded' ),
+			'description' => __( 'How many posts to output (in addition to the number of slider posts) on the frontpage.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_frontpage',
 			'type'        => 'select',
 			'choices'     => array(
@@ -380,7 +380,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'display_footer_bottom', array(
 			'label'       => __( 'Display Footer Bottom', 'best-reloaded' ),
-			'description' => __( 'Displays the footer bottom row with the tagline or copyrights and the footer nav.', 'best-reloaded' ),
+			'description' => __( 'Displays the bottom footer row with space for your footer text and the footer nav.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_footer',
 			'settings'    => 'display_footer_bottom',
 			'type'        => 'checkbox',
@@ -411,8 +411,8 @@ function best_reloaded_customizer( $wp_customize ) {
 
 	$wp_customize->add_control(
 		'layout_selection', array(
-			'label'       => __( 'Layout Selection', 'best-reloaded' ),
-			'description' => __( 'Choose the layout you want the site to follow.', 'best-reloaded' ),
+			'label'       => __( 'Sidebar Location', 'best-reloaded' ),
+			'description' => __( 'Choose the the default layout for the sidebar location.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_other',
 			'type'        => 'radio',
 			'choices'     => best_reloaded_get_layout_styles(),
@@ -428,7 +428,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'enable_font-awesome', array(
 			'label'       => __( 'Enable Font-Awesome.', 'best-reloaded' ),
-			'description' => __( 'Includes the Font-Awesome css and fonts.', 'best-reloaded' ),
+			'description' => __( 'Includes Font-Awesome in the page to use in your content (and in the navbar).', 'best-reloaded' ),
 			'section'     => 'best_reloaded_misc',
 			'settings'    => 'enable_font-awesome',
 			'type'        => 'checkbox',
@@ -444,7 +444,7 @@ function best_reloaded_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'enable_slim_mode', array(
 			'label'       => __( 'Enable Slim Mode.', 'best-reloaded' ),
-			'description' => __( 'Slim mode uses css and js files that have some features not used in the theme removed. By default the full Bootstrap is included.', 'best-reloaded' ),
+			'description' => __( 'Slim mode uses css and js files that have some features that are not used in the theme removed to reduce their size and impact on render time. By default the full-size Bootstrap styles and scripts are included.', 'best-reloaded' ),
 			'section'     => 'best_reloaded_misc',
 			'settings'    => 'enable_slim_mode',
 			'type'        => 'checkbox',
