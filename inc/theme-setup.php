@@ -152,6 +152,7 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 					break;
 			}
 			wp_add_inline_style( 'best-reloaded', $css, 20 );
+
 		} // End if().
 	}
 } // End if().
@@ -180,6 +181,15 @@ if ( ! function_exists( 'best_reloaded_load_scripts' ) ) {
 			// only enqueue comment-reply script on single pages.
 			if ( is_single() ) {
 				wp_enqueue_script( 'comment-reply' );
+			}
+
+			// Localize some data to the page for slider settings.
+			$slider_max_capped = get_theme_mod( 'slider_max_cap', best_reloaded_setting_defaults( 'slider_max_cap' ) );
+			if ( $slider_max_capped ) {
+				$data = array(
+					'slider_height_cap' => $slider_max_capped,
+				);
+				wp_localize_script( 'best-reloaded', 'best_reloaded_settings', $data );
 			}
 		}
 	}
