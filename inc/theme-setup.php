@@ -21,10 +21,12 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 	function best_reloaded_setup() {
 
 		// This theme uses wp_nav_menu() in two locations.
-		register_nav_menus( array(
-			'best_reloaded_nav_topbar' => __( 'Topbar Navigation', 'best-reloaded' ),
-			'best_reloaded_nav_footer' => __( 'Footer Navigation', 'best-reloaded' ),
-		) );
+		register_nav_menus(
+			array(
+				'best_reloaded_nav_topbar' => __( 'Topbar Navigation', 'best-reloaded' ),
+				'best_reloaded_nav_footer' => __( 'Footer Navigation', 'best-reloaded' ),
+			)
+		);
 
 		/**
 		 * Fallback function for Topbar Navigation.
@@ -83,15 +85,17 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 		);
 		add_theme_support( 'custom-background', $custom_bg_args );
 
-		add_theme_support( 'gutenberg', array(
-			'wide-images' => true,
-			'colors'      => array(
-				'#e5450f',
-				'#f26535',
-				'#f58a65',
-				'#2f2f2f',
-			),
-		) );
+		add_theme_support(
+			'gutenberg', array(
+				'wide-images' => true,
+				'colors'      => array(
+					'#e5450f',
+					'#f26535',
+					'#f58a65',
+					'#2f2f2f',
+				),
+			)
+		);
 
 		// we'll want to use these over built in breadcrumbs.
 		add_theme_support( 'yoast-seo-breadcrumbs' );
@@ -240,7 +244,8 @@ if ( ! function_exists( 'best_reloaded_new_excerpt_more' ) ) {
 	 * @return string       string containing markup for the read more link.
 	 */
 	function best_reloaded_new_excerpt_more( $more ) {
-		$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+		$link = sprintf(
+			'<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
 			esc_url( get_permalink( get_the_ID() ) ),
 			/* translators: %s: Name of current post */
 			sprintf( __( 'Continue Reading<span class="sr-only"> "%s"</span>', 'best-reloaded' ), get_the_title( get_the_ID() ) )

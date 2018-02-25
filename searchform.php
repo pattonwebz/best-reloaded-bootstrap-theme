@@ -2,7 +2,7 @@
 /**
  * The searchform.php file.
  *
- * This is the markup that is used whenever the default wordpress seach is called front-end
+ * This is the markup that is used whenever the default WordPress seach is called front-end
  *
  * @package Best_Reloaded
  * @since Best Reloaded v0.1

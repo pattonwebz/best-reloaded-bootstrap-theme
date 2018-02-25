@@ -9,11 +9,11 @@
  */
 
 if ( ! function_exists( 'best_reloaded_featurebar' ) ) {
-	 /**
-	  * The default feature-bar content.
-	  *
-	  * @since 1.0.0
-	  */
+	/**
+	 * The default feature-bar content.
+	 *
+	 * @since 1.0.0
+	 */
 	function best_reloaded_featurebar() {
 		/**
 		 * Used to output whatever featured content is desired in the opening bar.
@@ -31,18 +31,17 @@ if ( ! function_exists( 'best_reloaded_featurebar' ) ) {
 		echo wp_kses_post( apply_filters( 'best_reloaded_filter_featurebar', $bar_content ) );
 	}
 }
- // Hook to the cloud_one_do_featurebar action hook.
 add_action( 'best_reloaded_do_featurebar', 'best_reloaded_featurebar' );
 
 if ( ! function_exists( 'best_reloaded_featuredbar_value_filter' ) ) {
-	 /**
-	  * A callback to filter featurebar html content
-	  *
-	  * @since 1.0.0
-	  *
-	  * @param  string $html		An html string containing featurebar content.
-	  * @return $html			An html string contianing updated content for featurebar.
-	  */
+	/**
+	 * A callback to filter featurebar html content
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param  string $html        An html string containing featurebar content.
+	 * @return $html           An html string contianing updated content for featurebar.
+	 */
 	function best_reloaded_featuredbar_value_filter( $html ) {
 		// Maybe modify $html in some way.
 		if ( is_single() ) {
@@ -83,11 +82,11 @@ if ( ! function_exists( 'best_reloaded_add_class_the_tags' ) ) {
 	 */
 	function best_reloaded_add_class_the_tags( $html ) {
 		$postid = get_the_ID();
-		$html = str_replace( '<a','<a class="badge badge-dark"', $html );
+		$html   = str_replace( '<a', '<a class="badge badge-dark"', $html );
 		return $html;
 	}
 }
-add_filter( 'the_tags','best_reloaded_add_class_the_tags',10,1 );
+add_filter( 'the_tags', 'best_reloaded_add_class_the_tags', 10, 1 );
 
 if ( ! function_exists( 'best_reloaded_add_bootstrap_container_class_to_gf' ) ) {
 	/**
@@ -101,7 +100,7 @@ if ( ! function_exists( 'best_reloaded_add_bootstrap_container_class_to_gf' ) ) 
 	 * @param mixed  $field_content   [description].
 	 */
 	function best_reloaded_add_bootstrap_container_class_to_gf( $field_container, $field, $form, $css_class, $style, $field_content ) {
-		$id = $field->id;
+		$id       = $field->id;
 		$field_id = is_admin() || empty( $form ) ? "field_{$id}" : 'field_' . $form['id'] . "_$id";
 		return '<li id="' . $field_id . '" class="' . $css_class . ' form-group">{FIELD_CONTENT}</li>';
 	}
@@ -113,8 +112,8 @@ if ( ! function_exists( 'best_reloaded_jptweak_remove_share' ) ) {
 	 * Removes the filters that jetpack uses to add the share box to end of posts.
 	 */
 	function best_reloaded_jptweak_remove_share() {
-		remove_filter( 'the_content', 'sharing_display',19 );
-		remove_filter( 'the_excerpt', 'sharing_display',19 );
+		remove_filter( 'the_content', 'sharing_display', 19 );
+		remove_filter( 'the_excerpt', 'sharing_display', 19 );
 		remove_filter( 'the_content', array( 'Jetpack_Likes', 'post_likes' ), 30, 1 );
 	}
 }
@@ -137,11 +136,11 @@ if ( ! function_exists( 'best_reloaded_output_navbar_brand' ) ) {
 				'span' => array(
 					'class' => array(),
 				),
-				'img' => array(
-					'id'	=> array(),
-					'class'	=> array(),
-					'src' => array(),
-					'alt' => array(),
+				'img'  => array(
+					'id'    => array(),
+					'class' => array(),
+					'src'   => array(),
+					'alt'   => array(),
 				),
 			);
 			echo wp_kses( apply_filters( 'best_reloaded_filter_navbar_brand', $output ), $allowed_brand_tags );
@@ -158,7 +157,7 @@ if ( ! function_exists( 'best_reloaded_output_post_meta' ) ) {
 	 * @param  boolean $echo flag to indicate echo or return.
 	 * @param  string  $type string indicating type of meta we want, can be FALSE.
 	 *
-	 * @return string/void	 Can return either a string or nothing if echoing.
+	 * @return string/void   Can return either a string or nothing if echoing.
 	 */
 	function best_reloaded_output_post_meta( $echo = true, $type = false ) {
 		// if no specific type was requested, figure it out.
@@ -186,13 +185,16 @@ if ( ! function_exists( 'best_reloaded_output_post_meta' ) ) {
 					esc_html_e( ' on ', 'best-reloaded' );
 					the_time( get_option( 'date_format' ) );
 					esc_html_e( ' and posted in ', 'best-reloaded' );
-					the_category( ' and ' ); ?>.
+					the_category( ' and ' );
+					?>
+					.
 				</span>
 			</div>
 			<?php
 			$output = ob_get_clean();
 		} elseif ( 'front-page' === $type ) {
-			ob_start(); ?>
+			ob_start();
+			?>
 			<footer class="meta">
 				<span class="entry-meta">
 					<?php the_time( get_option( 'date_format' ) ); ?> &#8226;
@@ -204,7 +206,8 @@ if ( ! function_exists( 'best_reloaded_output_post_meta' ) ) {
 			<?php
 			$output = ob_get_clean();
 		} else {
-			ob_start(); ?>
+			ob_start();
+			?>
 			<footer class="meta">
 				<span class="entry-meta">
 					<?php esc_html_e( 'Written by', 'best-reloaded' ); ?> <?php the_author_link(); ?>
@@ -307,11 +310,13 @@ if ( ! function_exists( 'best_reloaded_do_breadcrumbs' ) ) {
 	function best_reloaded_do_breadcrumbs( $args = array() ) {
 		// TODO: we want to defer to yoast breadcrumbs when we can.
 		if ( function_exists( 'yoast_breadcrumb' ) ) {
-			yoast_breadcrumb('
+			yoast_breadcrumb(
+				'
 				<div class="col-12">
-					<p id="breadcrumbs">','</p>
+					<p id="breadcrumbs">', '</p>
 				</div>
-			');
+			'
+			);
 		} else {
 			/**
 			 * This is the themes built in breadcrumbs feature, it's in need of
@@ -337,11 +342,11 @@ if ( ! function_exists( 'best_reloaded_do_breadcrumbs' ) ) {
 			// Post.
 			if ( is_singular( 'post' ) ) {
 
-				$category = get_the_category( $post->ID );
+				$category        = get_the_category( $post->ID );
 				$category_values = array_values( $category );
-				$last_category = end( $category_values );
-				$cat_parents = rtrim( get_category_parents( $last_category->term_id, true, ',' ), ',' );
-				$cat_parents = explode( ',', $cat_parents );
+				$last_category   = end( $category_values );
+				$cat_parents     = rtrim( get_category_parents( $last_category->term_id, true, ',' ), ',' );
+				$cat_parents     = explode( ',', $cat_parents );
 				foreach ( $cat_parents as $parent ) {
 					$html .= '<span class="item-cat">' . wp_kses( $parent, wp_kses_allowed_html( 'a' ) ) . '</span>';
 					$html .= $separator;
@@ -361,23 +366,23 @@ if ( ! function_exists( 'best_reloaded_do_breadcrumbs' ) ) {
 				$parent_id        = $post->post_parent;
 				$parent_title     = get_the_title( $parent_id );
 				$parent_permalink = esc_url( get_permalink( $parent_id ) );
-				$html .= '<span class="item-parent"><a class="bread-parent" href="' . esc_url( $parent_permalink ) . '" title="' . esc_attr( $parent_title ) . '">' . wp_strip_all_tags( $parent_title ) . '</a></span>';
-				$html .= $separator;
-				$html .= '<span class="item-current item-' . $post->ID . '"><span title="' . esc_attr( get_the_title() ) . '"> ' . wp_strip_all_tags( get_the_title() ) . '</span></span>';
+				$html            .= '<span class="item-parent"><a class="bread-parent" href="' . esc_url( $parent_permalink ) . '" title="' . esc_attr( $parent_title ) . '">' . wp_strip_all_tags( $parent_title ) . '</a></span>';
+				$html            .= $separator;
+				$html            .= '<span class="item-current item-' . $post->ID . '"><span title="' . esc_attr( get_the_title() ) . '"> ' . wp_strip_all_tags( get_the_title() ) . '</span></span>';
 			} elseif ( is_singular() ) {
 				$post_type         = get_post_type( $post->ID );
 				$post_type_object  = get_post_type_object( $post_type );
 				$post_type_archive = get_post_type_archive_link( $post_type );
-				$html .= '<span class="item-cat item-custom-post-type-' . esc_attr( $post_type ) . '"><a class="bread-cat bread-custom-post-type-' . esc_attr( $post_type ) . '" href="' . esc_url( $post_type_archive ) . '" title="' . esc_attr( $post_type_object->labels->name ) . '">' . wp_strip_all_tags( $post_type_object->labels->name ) . '</a></span>';
-				$html .= $separator;
-				$html .= '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . $post->post_title . '">' . wp_strip_all_tags( $post->post_title ) . '</span></span>';
+				$html             .= '<span class="item-cat item-custom-post-type-' . esc_attr( $post_type ) . '"><a class="bread-cat bread-custom-post-type-' . esc_attr( $post_type ) . '" href="' . esc_url( $post_type_archive ) . '" title="' . esc_attr( $post_type_object->labels->name ) . '">' . wp_strip_all_tags( $post_type_object->labels->name ) . '</a></span>';
+				$html             .= $separator;
+				$html             .= '<span class="item-current item-' . $post->ID . '"><span class="bread-current bread-' . $post->ID . '" title="' . $post->post_title . '">' . wp_strip_all_tags( $post->post_title ) . '</span></span>';
 			} elseif ( is_category() ) {
 				$parent = get_queried_object()->category_parent;
 				if ( 0 !== $parent ) {
 					$parent_category = get_category( $parent );
 					$category_link   = get_category_link( $parent );
-					$html .= '<span class="item-parent item-parent-' . esc_attr( $parent_category->slug ) . '"><a class="bread-parent bread-parent-' . esc_attr( $parent_category->slug ) . '" href="' . esc_url( $category_link ) . '" title="' . esc_attr( $parent_category->name ) . '">' . esc_html( $parent_category->name ) . '</a></span>';
-					$html .= $separator;
+					$html           .= '<span class="item-parent item-parent-' . esc_attr( $parent_category->slug ) . '"><a class="bread-parent bread-parent-' . esc_attr( $parent_category->slug ) . '" href="' . esc_url( $category_link ) . '" title="' . esc_attr( $parent_category->name ) . '">' . esc_html( $parent_category->name ) . '</a></span>';
+					$html           .= $separator;
 				}
 				$html .= '<span class="item-current item-cat"><span class="bread-current bread-cat" title="' . $post->ID . '">' . single_cat_title( '', false ) . '</span></span>';
 			} elseif ( is_tag() ) {
@@ -392,7 +397,7 @@ if ( ! function_exists( 'best_reloaded_do_breadcrumbs' ) ) {
 				$html .= '<span class="item-current item-year"><span class="bread-current bread-year">' . get_the_date( 'Y' ) . '</span></span>';
 			} elseif ( is_archive() ) {
 				$custom_tax_name = get_queried_object()->name;
-				$html .= '<span class="item-current item-archive"><span class="bread-current bread-archive">' . esc_html( $custom_tax_name ) . '</span></span>';
+				$html           .= '<span class="item-current item-archive"><span class="bread-current bread-archive">' . esc_html( $custom_tax_name ) . '</span></span>';
 			} elseif ( is_search() ) {
 				$html .= '<span class="item-current item-search"><span class="bread-current bread-search">Search results for: ' . get_search_query() . '</span></span>';
 			} elseif ( is_404() ) {

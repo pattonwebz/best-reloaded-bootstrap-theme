@@ -19,5 +19,6 @@
 		if ( is_active_sidebar( 'before-post-widgets' ) ) {
 			dynamic_sidebar( 'before-post-widgets' );
 		}
-	} ?>
+	}
+	?>
 </div>

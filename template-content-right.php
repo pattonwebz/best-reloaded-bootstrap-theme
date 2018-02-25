@@ -13,28 +13,42 @@
 ?>
 
 <?php get_header(); ?>
-<?php // This is the hook used to add featurebar content.
+<?php
+// This is the hook used to add featurebar content.
 best_reloaded_do_featurebar();
-best_reloaded_do_before_main_content_row() ?>
+best_reloaded_do_before_main_content_row()
+?>
 <div class="row flex-row-reverse">
 	<div class="col-md-8">
 		<div id="main_content" role="main">
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) :
+					the_post();
+								?>
 
-				<h2 class="page-title"><?php the_title(); ?></h2>
+								<h2 class="page-title"><?php the_title(); ?></h2>
 				<?php the_content(); ?>
-				<?php wp_link_pages( array(
-					'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'best-reloaded' ) . '</span>',
-					'after'       => '</div>',
-					'link_before' => '<span>',
-					'link_after'  => '</span>',
-				) ); ?>
-			<?php endwhile; else : ?>
+				<?php
+				wp_link_pages(
+					array(
+						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'best-reloaded' ) . '</span>',
+						'after'       => '</div>',
+						'link_before' => '<span>',
+						'link_after'  => '</span>',
+					)
+				);
+								?>
+								<?php
+			endwhile; else :
+				?>
 
 				<p class="hero-p no-content-message"><?php esc_html_e( 'There is currently nothing to display.', 'best-reloaded' ); ?></p>
 
-			<?php endif; ?>
+				<?php
+			endif;
+			?>
 
 			</div><!-- end #main_content -->
 			<hr class="hr-row-divider">

@@ -10,13 +10,17 @@
 
 ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<?php
+if ( have_posts() ) :
+	while ( have_posts() ) :
+		the_post();
+?>
 
-	<?php if ( 'page' === $post->post_type ) : ?>
+		<?php if ( 'page' === $post->post_type ) : ?>
 
 		<article <?php post_class(); ?> >
 			<header>
-				<a href="<?php the_permalink(); ?>" class="post-thumb" title="<?php esc_attr( get_the_title ) ?>">
+				<a href="<?php the_permalink(); ?>" class="post-thumb" title="<?php esc_attr( get_the_title ); ?>">
 					<span>
 						<?php get_template_part( 'inc/parts/featured', 'image' ); ?>
 					</span>
@@ -51,7 +55,7 @@
 
 	<?php endif; ?>
 
-<?php endwhile; else :
+	<?php endwhile; else :
 
 	if ( is_search() ) {
 		echo '<p class="hero-p no-content-message in-loop">' . esc_html( 'Sorry, nothing matches that criteria', 'best-reloaded' ) . '</p><hr class="hr-row-divider">';

@@ -27,9 +27,10 @@
 		?>
 		<h3 id="comments-title">
 			<?php
-				// translators: 1 is a total number of comments.
-				printf( esc_html( _n( '%1$s Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'best-reloaded' ) ),
-				absint( number_format_i18n( get_comments_number() ) ), '<span>' . get_the_title() . '</span>' );
+				printf( // translators: 1 is a total number of comments.
+					esc_html( _n( '%1$s Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'best-reloaded' ) ),
+					absint( number_format_i18n( get_comments_number() ) ), '<span>' . get_the_title() . '</span>'
+				);
 			?>
 		</h3>
 
@@ -51,9 +52,11 @@
 				 * define best_reloaded_respond_comment() and that will be used instead.
 				 * See best_reloaded_respond_comment() in comments-and-pingpacks.php for more.
 				 */
-				wp_list_comments( array(
-					'callback' => 'best_reloaded_respond_comment',
-				) );
+				wp_list_comments(
+					array(
+						'callback' => 'best_reloaded_respond_comment',
+					)
+				);
 			?>
 		</ol>
 
@@ -83,32 +86,34 @@
 		$commenter = wp_get_current_commenter();
 		$req       = get_option( 'require_name_email' );
 		$aria_req  = ( $req ? " aria-required='true'" : '' );
-		comment_form( array(
-			'comment_field'       =>
-				'<div class="comment-form-comment form-group row">' .
-					'<label for="comment" class="col-12">' . esc_html__( 'Enter Your Comment', 'best-reloaded' ) . '</label>' .
-					'<textarea id="comment" name="comment" class="form-control col-12" rows="5" aria-required="true"></textarea>' .
-				'</div>',
-			'label_submit'        => esc_html__( 'Leave Comment', 'best-reloaded' ),
-			'comment_notes_after' => '',
-			'fields'              => array(
-				'author' =>
-					'<div class="comment-form-author form-group row"><label for="author" class="col-2">' . __( 'Name', 'best-reloaded' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
-					'<input id="author" name="author" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author'] ) .
-					'" size="30"' . $aria_req . ' /></div>',
+		comment_form(
+			array(
+				'comment_field'       =>
+					'<div class="comment-form-comment form-group row">' .
+						'<label for="comment" class="col-12">' . esc_html__( 'Enter Your Comment', 'best-reloaded' ) . '</label>' .
+						'<textarea id="comment" name="comment" class="form-control col-12" rows="5" aria-required="true"></textarea>' .
+					'</div>',
+				'label_submit'        => esc_html__( 'Leave Comment', 'best-reloaded' ),
+				'comment_notes_after' => '',
+				'fields'              => array(
+					'author' =>
+						'<div class="comment-form-author form-group row"><label for="author" class="col-2">' . __( 'Name', 'best-reloaded' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+						'<input id="author" name="author" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author'] ) .
+						'" size="30"' . $aria_req . ' /></div>',
 
-				'email'  =>
-					'<div class="comment-form-email form-group row"><label for="email" class="col-2">' . __( 'Email', 'best-reloaded' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
-					'<input id="email" name="email" type="email" class="form-control col-10" value="' . esc_attr( $commenter['comment_author_email'] ) .
-					'" size="30"' . $aria_req . ' /></div>',
+					'email'  =>
+						'<div class="comment-form-email form-group row"><label for="email" class="col-2">' . __( 'Email', 'best-reloaded' ) . ' ' . ( $req ? '<span class="required">*</span>' : '' ) . '</label>' .
+						'<input id="email" name="email" type="email" class="form-control col-10" value="' . esc_attr( $commenter['comment_author_email'] ) .
+						'" size="30"' . $aria_req . ' /></div>',
 
-				'url'    =>
-					'<div class="comment-form-url form-group row"><label for="url" class="col-2">' . __( 'Website', 'best-reloaded' ) . '</label>' .
-					'<input id="url" name="url" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author_url'] ) .
-					'" size="30" /></div>',
-			),
-			'class_submit'        => 'submit btn btn-lg btn-theme',
-		));
+					'url'    =>
+						'<div class="comment-form-url form-group row"><label for="url" class="col-2">' . __( 'Website', 'best-reloaded' ) . '</label>' .
+						'<input id="url" name="url" type="text" class="form-control col-10" value="' . esc_attr( $commenter['comment_author_url'] ) .
+						'" size="30" /></div>',
+				),
+				'class_submit'        => 'submit btn btn-lg btn-theme',
+			)
+		);
 		?>
 	</div>
 </div><!-- #comments -->

@@ -114,7 +114,7 @@ if ( ! function_exists( 'best_reloaded_setting_defaults' ) ) {
  */
 function best_reloaded_get_categories() {
 	// get all the categories.
-	$categories = get_categories();
+	$categories       = get_categories();
 	$categories_array = array();
 
 	// Add entry for all posts.
@@ -134,9 +134,9 @@ function best_reloaded_get_categories() {
  */
 function best_reloaded_get_navbar_styles() {
 	$options = array(
-		'fixed-top'     => 'Fixed Top',
-		'fixed-bottom'	=> 'Fixed Bottom',
-		'sticky-top'	=> 'Sticky Top',
+		'fixed-top'    => 'Fixed Top',
+		'fixed-bottom' => 'Fixed Bottom',
+		'sticky-top'   => 'Sticky Top',
 	);
 	return apply_filters( 'best_reloaded_filter_get_navbar_styles', $options );
 }
@@ -149,8 +149,8 @@ function best_reloaded_get_navbar_styles() {
 function best_reloaded_get_navbar_colors() {
 	// note that these classes indicate bg color and modfy color to the oposite.
 	$options = array(
-		'navbar-light' 	=> 'Dark',
-		'navbar-dark'	=> 'Light',
+		'navbar-light' => 'Dark',
+		'navbar-dark'  => 'Light',
 	);
 	return apply_filters( 'best_reloaded_filter_get_navbar_colors', $options );
 }
@@ -162,14 +162,14 @@ function best_reloaded_get_navbar_colors() {
  */
 function best_reloaded_get_navbar_bgs() {
 	$options = array(
-		'bg-light' 		=> 'Light',
-		'bg-dark' 		=> 'Dark',
-		'bg-secondary' 	=> 'Light Grey',
-		'bg-primary' 	=> 'Blue',
-		'bg-info' 		=> 'Light Blue',
-		'bg-success' 	=> 'Green',
-		'bg-danger' 	=> 'Red',
-		'bg-warning' 	=> 'Yellow',
+		'bg-light'     => 'Light',
+		'bg-dark'      => 'Dark',
+		'bg-secondary' => 'Light Grey',
+		'bg-primary'   => 'Blue',
+		'bg-info'      => 'Light Blue',
+		'bg-success'   => 'Green',
+		'bg-danger'    => 'Red',
+		'bg-warning'   => 'Yellow',
 	);
 	return apply_filters( 'best_reloaded_filter_get_navbar_bgs', $options );
 }
@@ -188,7 +188,7 @@ function best_reloaded_get_search_colors() {
 		'btn-success'         => 'Green',
 		'btn-light'           => 'Light',
 		'btn-dark'            => 'Dark',
-		'btn-outline-theme'	  => 'Outline Orange',
+		'btn-outline-theme'   => 'Outline Orange',
 		'btn-outline-info'    => 'Outline Blue',
 		'btn-outline-warning' => 'Outline Yellow',
 		'btn-outline-danger'  => 'Outline Red',
@@ -206,8 +206,8 @@ function best_reloaded_get_search_colors() {
  */
 function best_reloaded_get_layout_styles() {
 	$options = array(
-		''					=> 'Right Sidebar',
-		'flex-row-reverse' 	=> 'Left Sidebar',
+		''                 => 'Right Sidebar',
+		'flex-row-reverse' => 'Left Sidebar',
 	);
 	return apply_filters( 'best_reloaded_filter_get_layout_styles', $options );
 }
@@ -219,9 +219,9 @@ function best_reloaded_get_layout_styles() {
 /**
  * Sanitization for textarea field against list of allwed tags in posts.
  *
- * @param string $input 	text area string to sanitize.
+ * @param string $input     text area string to sanitize.
  *
- * @return string $output 	sanitized string.
+ * @return string $output   sanitized string.
  */
 function best_reloaded_sanitize_textarea( $input ) {
 	global $allowedposttags;
@@ -232,8 +232,8 @@ function best_reloaded_sanitize_textarea( $input ) {
 /**
  * Sanitization for checkbox input
  *
- * @param booleen $input	we either have a value or it's empty to depeict
- *                       	a checkbox state.
+ * @param booleen $input    we either have a value or it's empty to depeict
+ *                          a checkbox state.
  * @return booleen $output
  */
 function best_reloaded_sanitize_checkbox( $input ) {
@@ -250,9 +250,9 @@ function best_reloaded_sanitize_checkbox( $input ) {
 /**
  * Santization for image uploads.
  *
- * @param  string $input	This should be a direct url to an image file.
+ * @param  string $input    This should be a direct url to an image file.
  *
- * @return string          	Return an excaped url to a file.
+ * @return string           Return an excaped url to a file.
  */
 function best_reloaded_sanitize_image( $input ) {
 

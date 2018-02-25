@@ -36,14 +36,16 @@
 						<nav role="navigation" aria-label="Footer Menu">
 							<span class="sr-only">Footer Menu</span>
 								<?php
-								wp_nav_menu( array(
-									'theme_location' => 'best_reloaded_nav_footer',
-									'depth'          => 1,
-									'container'      => false,
-									'menu_class'     => 'nav justify-content-end',
-									'fallback_cb'    => 'best_reloaded_footer_nav_fallback',
-									'walker'         => new wp_bootstrap_navwalker(),
-								) );
+								wp_nav_menu(
+									array(
+										'theme_location' => 'best_reloaded_nav_footer',
+										'depth'          => 1,
+										'container'      => false,
+										'menu_class'     => 'nav justify-content-end',
+										'fallback_cb'    => 'best_reloaded_footer_nav_fallback',
+										'walker'         => new wp_bootstrap_navwalker(),
+									)
+								);
 								?>
 						</nav>
 					</div>
