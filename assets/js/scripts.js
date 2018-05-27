@@ -16,7 +16,6 @@ jQuery( window ).load(function(){
 	var $ = jQuery;
 	if ( $( '#carousel-home' ) && ( typeof best_reloaded_settings != "undefined" && best_reloaded_settings.slider_height_cap ) ) {
 		var first_item_height = $( '#carousel-home .carousel-item' ).height();
-		console.log( first_item_height );
 		$( '#carousel-home .carousel-item' ).each( function(){
 			$( this ).height( first_item_height )
 		});
