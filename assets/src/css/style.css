@@ -56,7 +56,9 @@ a {
   max-width: 100%;
   height: auto; }
 
-.wp-caption, .gallery-caption {
+
+.wp-caption,
+.gallery-caption {
   background: whitesmoke;
   color: #444;
   padding: 5px;
@@ -321,6 +323,9 @@ img#brand-img {
 
 #comments label {
   padding: 0; }
+
+#comments #wp-comment-cookies-consent {
+  margin-right: 1rem; }
 
 #comments .pingback, #comments article.comment {
   position: relative;
