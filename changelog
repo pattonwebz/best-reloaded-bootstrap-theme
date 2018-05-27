@@ -1,10 +1,10 @@
+2.2.0	- Updated to Bootstrap 4.1.1
+		- Added cookies-consent field and styles
 2.1.0 	- New option to select number of posts appearing in the loop on frontpage.
 		- New option to select category for the frontpage posts loop.
 		- New option to put a height cap on the slider to prevent content from being displaced when various height images are used.
-		- New otpions to turn on/off all the rows on the frontpage.
+		- New options to turn on/off all the rows on the frontpage.
 		- Update: Updated wp-bootstrap-navwalker to v4.0.2.
-		-
-
 2.0.0	- Moved to Bootstrap 4.0.0 final.
 1.7.0	- A lot of developer and child theme friendly focused changes. All relevant functions are now overridable or filterable.
 			- Moved default settings to a filterable array.
