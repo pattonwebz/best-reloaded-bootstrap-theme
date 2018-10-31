@@ -28,8 +28,11 @@
 		<h3 id="comments-title">
 			<?php
 				printf( // translators: 1 is a total number of comments.
-					esc_html( _n( '%1$s Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'best-reloaded' ) ),
-					absint( number_format_i18n( get_comments_number() ) ), '<span>' . get_the_title() . '</span>'
+					esc_html(
+						_n( '%1$s Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'best-reloaded' )
+					),
+					absint( number_format_i18n( get_comments_number() ) ),
+					'<span>' . get_the_title() . '</span>'
 				);
 			?>
 		</h3>
