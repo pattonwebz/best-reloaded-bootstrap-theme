@@ -46,10 +46,9 @@ if ( ! function_exists( 'best_reloaded_respond_comment' ) ) {
 										sprintf(
 											'<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 											esc_url( get_comment_link( $comment->comment_ID ) ),
-											// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-											get_comment_time( 'c' ),
+											esc_html( get_comment_time( 'c' ) ),
 											/* translators: 1: date, 2: time */
-											sprintf( '%1$s at %2$s', get_comment_date(), get_comment_time() ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											sprintf( '%1$s at %2$s', esc_html( get_comment_date() ), esc_html( get_comment_time() ) )
 										)
 									);
 								?>
