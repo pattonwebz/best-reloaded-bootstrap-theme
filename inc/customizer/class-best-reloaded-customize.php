@@ -344,6 +344,20 @@ final class Best_Reloaded_Customize {
 			)
 		);
 
+		$wp_customize->add_setting(
+			'use_custom_slider', array(
+				'default'           => $defaults['use_custom_slider'],
+				'sanitize_callback' => 'best_reloaded_sanitize_checkbox',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'custom_slider_shortcode', array(
+				'default'           => $defaults['custom_slider_shortcode'],
+				'sanitize_callback' => 'best_reloaded_sanitize_textarea',
+			)
+		);
+
 		// Other sitewide options.
 		$wp_customize->add_setting(
 			'display_featured_bar', array(
@@ -637,6 +651,25 @@ final class Best_Reloaded_Customize {
 				'section'     => 'best_reloaded_slider',
 				'settings'    => 'slider_max_cap',
 				'type'        => 'checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
+			'use_custom_slider', array(
+				'label'       => __( 'Use Custom Slider.', 'best-reloaded' ),
+				'description' => __( 'This checkbox overrides the settings above and outputs a custom slider based on the shortcode entered below.', 'best-reloaded' ),
+				'section'     => 'best_reloaded_slider',
+				'settings'    => 'use_custom_slider',
+				'type'        => 'checkbox',
+			)
+		);
+
+		$wp_customize->add_control(
+			'custom_slider_shortcode', array(
+				'label'    => __( 'Custom slider shortcode.', 'best-reloaded' ),
+				'section'  => 'best_reloaded_slider',
+				'settings' => 'custom_slider_shortcode',
+				'type'     => 'textarea',
 			)
 		);
 

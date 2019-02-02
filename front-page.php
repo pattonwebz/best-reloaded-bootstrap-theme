@@ -29,39 +29,47 @@
 		?>
 		<div class="row">
 			<div class="col-md-9">
-				<div id="carousel-home" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<?php
-						$slides_max = get_theme_mod( 'slider_limit', best_reloaded_setting_defaults( 'slider_limit' ) );
-						for ( $i = 0; $i < $slides_max; $i++ ) {
-							?>
-							<li data-target="#carousel-home" data-slide-to="<?php echo esc_attr( $i ); ?>" class="
+				<?php
+				if ( get_theme_mod( 'use_custom_slider', best_reloaded_setting_defaults( 'use_custom_slider' ) ) ) {
+					echo do_shortcode( esc_html( get_theme_mod( 'custom_slider_shortcode' ) ) );
+				} else {
+					?>
+					<div id="carousel-home" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
 							<?php
-							if ( 0 === $i ) {
-								echo esc_attr( 'active' );
-							}
-							?>
-							"></li>
-						<?php } ?>
-					</ol>
+							$slides_max = get_theme_mod( 'slider_limit', best_reloaded_setting_defaults( 'slider_limit' ) );
+							for ( $i = 0; $i < $slides_max; $i++ ) {
+								?>
+								<li data-target="#carousel-home" data-slide-to="<?php echo esc_attr( $i ); ?>" class="
+								<?php
+								if ( 0 === $i ) {
+									echo esc_attr( 'active' );
+								}
+								?>
+								"></li>
+							<?php } ?>
+						</ol>
 
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner" role="listbox">
-						<?php get_template_part( 'inc/parts/loop', 'slides' ); ?>
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<?php get_template_part( 'inc/parts/loop', 'slides' ); ?>
+						</div>
+
+						<!-- Controls -->
+						<a class="carousel-control-prev" href="#carousel-home" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only"><?php esc_html_e( 'Previous', 'best-reloaded' ); ?></span>
+						</a>
+						<a class="carousel-control-next" href="#carousel-home" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only"><?php esc_html_e( 'Next', 'best-reloaded' ); ?></span>
+						</a>
 					</div>
-
-					<!-- Controls -->
-					<a class="carousel-control-prev" href="#carousel-home" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only"><?php esc_html_e( 'Previous', 'best-reloaded' ); ?></span>
-					</a>
-					<a class="carousel-control-next" href="#carousel-home" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only"><?php esc_html_e( 'Next', 'best-reloaded' ); ?></span>
-					</a>
-				</div>
-				<hr class="hr-row-divider">
+					<hr class="hr-row-divider">
+					<?php
+				}
+				?>
 			</div><!-- end .col-sm-9 -->
 
 			<div class="col-md-3 widget-area">

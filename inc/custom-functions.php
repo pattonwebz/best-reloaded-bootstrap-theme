@@ -91,6 +91,8 @@ if ( ! function_exists( 'best_reloaded_setting_defaults' ) ) {
 			'layout_selection'            => '',
 			'enable_font-awesome'         => 1,
 			'enable_slim_mode'            => 0,
+			'use_custom_slider'           => 0,
+			'custom_slider_shortcode'     => '',
 		);
 		// filter the defaults so they can be edited by child theme or plugin.
 		$defaults = apply_filters( 'best_reloaded_filter_setting_defaults', $defaults );
