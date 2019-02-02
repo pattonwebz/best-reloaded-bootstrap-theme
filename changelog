@@ -1,3 +1,4 @@
+2.3.0	- New option to override theme slider and use a shortcode in it's place instead.
 2.2.0	- Updated to Bootstrap 4.1.1
 		- Added cookies-consent field and styles
 2.1.0 	- New option to select number of posts appearing in the loop on frontpage.
