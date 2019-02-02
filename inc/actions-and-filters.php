@@ -313,7 +313,8 @@ if ( ! function_exists( 'best_reloaded_do_breadcrumbs' ) ) {
 			yoast_breadcrumb(
 				'
 				<div class="col-12">
-					<p id="breadcrumbs">', '</p>
+					<p id="breadcrumbs">',
+				'</p>
 				</div>
 			'
 			);

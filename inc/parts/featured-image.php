@@ -14,7 +14,8 @@
 
 if ( has_post_thumbnail() ) {
 	the_post_thumbnail(
-		'best-reloaded-featured-img', array(
+		'best-reloaded-featured-img',
+		array(
 			'class' => 'd-block img-fluid',
 		)
 	);

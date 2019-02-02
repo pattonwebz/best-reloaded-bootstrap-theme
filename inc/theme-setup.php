@@ -86,7 +86,8 @@ if ( ! function_exists( 'best_reloaded_setup' ) ) {
 		add_theme_support( 'custom-background', $custom_bg_args );
 
 		add_theme_support(
-			'gutenberg', array(
+			'gutenberg',
+			array(
 				'wide-images' => true,
 				'colors'      => array(
 					'#e5450f',
@@ -121,12 +122,12 @@ if ( ! function_exists( 'best_reloaded_load_styles' ) ) {
 			// we can either have full bootstrap or a slim version. For ease
 			// keep handle the same but change src and tag the slim version.
 			if ( ! get_theme_mod( 'enable_slim_mode', best_reloaded_setting_defaults( 'enable_slim_mode' ) ) ) {
-				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', '4.0.0' );
+				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '4.0.0' );
 			} else {
-				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap-slim.min.css', '4.0.0-slim' );
+				wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap-slim.min.css', array(), '4.0.0-slim' );
 			}
 
-			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', '4.7.0' );
+			wp_register_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.7.0' );
 			wp_enqueue_style( 'best-reloaded', get_template_directory_uri() . '/assets/css/style.min.css', array( 'bootstrap' ), '2.0.0' );
 
 			if ( get_theme_mod( 'enable_font-awesome', best_reloaded_setting_defaults( 'enable_font-awesome' ) ) ) {
